@@ -7,9 +7,6 @@ on:
     paths:
       - .github/workflows/build-core.yml
 
-on:
-  workflow_dispatch:
-
 permissions:
   contents: read
 
@@ -19,15 +16,19 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+
       - name: Record Apple toolchain
         run: |
           xcodebuild -version
           xcrun --sdk iphoneos --show-sdk-version
-      - name: Test hook ownership and preference primitives on macOS
+
+      - name: Test core on macOS
         run: bash scripts/test-core-macos.sh
-      - name: Compile ARM64 iOS core static library
+
+      - name: Compile ARM64 iOS core
         run: bash scripts/build-core.sh
-      - name: Upload core library and test executable
+
+      - name: Upload core artifacts
         uses: actions/upload-artifact@v4
         with:
           name: integration-core-only-not-an-injectable-tweak
