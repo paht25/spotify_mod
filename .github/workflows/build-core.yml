@@ -24,6 +24,13 @@ jobs:
         run: bash scripts/test-core-macos.sh
       - name: Compile ARM64 iOS core static library
         run: bash scripts/build-core.sh
+      - name: Build isolated feed dylib and experimental Debian package
+        run: bash scripts/build-experimental.sh
+      - name: Validate Debian package structure with dpkg
+        run: |
+          brew install dpkg
+          dpkg-deb --info build/experimental/UnifiedSpotify-FeedTest_0.1.0-test1.deb
+          dpkg-deb --contents build/experimental/UnifiedSpotify-FeedTest_0.1.0-test1.deb
       - name: Upload core library and test executable
         uses: actions/upload-artifact@v4
         with:
@@ -34,5 +41,17 @@ jobs:
             build/core-tests/TransportTests
             build/core-tests/EeveeFeedTests
             build/core-tests/FeedIntegrationTests
+            build/core-tests/HookTests
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload experimental injection files
+        uses: actions/upload-artifact@v4
+        with:
+          name: experimental-feed-only-Sideloadly-test
+          path: |
+            build/experimental/UnifiedSpotifyExperimental.dylib
+            build/experimental/UnifiedSpotify-FeedTest_0.1.0-test1.deb
+            build/experimental/package-manifest.json
+            build/experimental/dependencies.txt
           if-no-files-found: error
           retention-days: 7
