@@ -6,7 +6,7 @@ func writeDebugLog(_ message: String) {
     NSLog("[UnifiedSpotify][EeveeFeed] %@", message)
 }
 
-@objc public final class USEeveeFeedModule: NSObject {
+@objc(USEeveeFeedModule) public final class USEeveeFeedModule: NSObject {
     @objc(attachTo:) public static func attach(to transaction: USResponseTransaction) -> Bool {
         transaction.addTransform(owner: "eevee.feed-sections") { input, _ in
             guard let url = input.response.url,
