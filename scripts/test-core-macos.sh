@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 PROJECT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+printf '%s\n' 'BUILD REVISION: feed-c-bridge-v2'
+git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || true
+shasum -a 256 "$PROJECT_DIR/Sources/Injection/USFeedHooks.m" "$PROJECT_DIR/Sources/Eevee/Feed/USEeveeFeedModule.swift"
 command -v xcrun >/dev/null 2>&1 || { printf '%s\n' 'Tests blocked: Xcode command line tools and macOS Foundation are required.' >&2; exit 1; }
 BUILD_DIR="$PROJECT_DIR/build/core-tests"
 mkdir -p "$BUILD_DIR"
@@ -27,6 +30,13 @@ xcrun --sdk macosx swiftc -emit-object -whole-module-optimization \
   "$PROJECT_DIR/Sources/Eevee/Feed/BrowsitaSectionStripper.swift" \
   "$PROJECT_DIR/Sources/Eevee/Feed/USEeveeFeedModule.swift" \
   -o "$BUILD_DIR/FeedAdapter.o"
+# Record the actual emitted C bridge before linking any hook. If this symbol
+# is absent, report the boundary failure instead of requesting an ObjC class.
+xcrun nm -g "$BUILD_DIR/FeedAdapter.o" > "$BUILD_DIR/feed-symbols.txt"
+if ! awk '$NF == "_USAttachEeveeFeed" && $(NF-1) != "U" { found=1 } END { exit !found }' "$BUILD_DIR/feed-symbols.txt"; then
+  printf '%s\n' 'Swift did not emit the required USAttachEeveeFeed C bridge.' >&2
+  exit 1
+fi
 xcrun --sdk macosx clang -fobjc-arc -Wall -Wextra -Werror \
   -c "$PROJECT_DIR/Sources/Transport/USResponseTransaction.m" -o "$BUILD_DIR/Transaction.o"
 xcrun --sdk macosx swiftc -import-objc-header "$PROJECT_DIR/Sources/Transport/UnifiedSpotify-Bridging.h" \

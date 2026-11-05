@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "USFeedHooks.h"
+#import "USFeedBridge.h"
 #include <stdlib.h>
 
 @interface USRecordingDelegate : NSObject
@@ -53,6 +54,7 @@ static void exercise(NSString *host, NSData *body, NSError *failure, BOOL change
 int main(void) {
     @autoreleasepool {
         NSError *error=nil;
+        check(!USAttachEeveeFeed(NULL),@"C bridge rejects a null transaction");
         check(!USInstallFeedHooks(NSObject.class,&error),@"Reject missing selectors before any hook changes");
         check(USInstallFeedHooks(USRecordingDelegate.class,&error),@"Install all reviewed delegate callbacks");
         check(USInstallFeedHooks(USRecordingDelegate.class,&error),@"Repeated installation is idempotent");

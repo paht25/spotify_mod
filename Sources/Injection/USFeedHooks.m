@@ -1,22 +1,13 @@
 #import "USFeedHooks.h"
 #import "USHookRegistry.h"
 #import "USResponseTransaction.h"
+#import "USFeedBridge.h"
 #import <objc/runtime.h>
-#import <objc/message.h>
 #include <stdlib.h>
 #include <string.h>
 
-// Swift @objc runtime names are not a promise of an unmangled native class
-// symbol. Resolve the explicit runtime name instead of declaring an ObjC class
-// interface that makes the linker request _OBJC_CLASS_$_USEeveeFeedModule.
-static Class feedModuleClass(void) {
-    Class cls = NSClassFromString(@"USEeveeFeedModule");
-    return [cls respondsToSelector:NSSelectorFromString(@"attachTo:")] ? cls : Nil;
-}
 static BOOL attachFeedModule(USResponseTransaction *transaction) {
-    Class cls = feedModuleClass();
-    if (!cls) return NO;
-    return ((BOOL (*)(id, SEL, USResponseTransaction *))objc_msgSend)(cls, NSSelectorFromString(@"attachTo:"), transaction);
+    return USAttachEeveeFeed((__bridge void *)transaction);
 }
 
 typedef void (^USDisposition)(NSURLSessionResponseDisposition);
@@ -135,11 +126,6 @@ static Method ownMethod(Class cls, SEL selector) {
 }
 BOOL USInstallFeedHooks(Class cls, NSError **error) {
     @synchronized (USFeedOriginals.class) {
-        if (!feedModuleClass()) {
-            if (error) *error = [NSError errorWithDomain:@"UnifiedSpotify.FeedHooks" code:2
-                userInfo:@{NSLocalizedDescriptionKey:@"Swift feed module runtime bridge is unavailable"}];
-            return NO;
-        }
         if (!originals) originals = [NSMutableDictionary dictionary];
         NSValue *key = [NSValue valueWithPointer:(const void *)cls];
         if (originals[key]) return YES;

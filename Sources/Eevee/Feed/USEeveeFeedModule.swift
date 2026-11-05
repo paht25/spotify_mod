@@ -1,5 +1,15 @@
 import Foundation
 
+// A direct C entry point avoids depending on Swift's native class symbols or
+// runtime class discovery. The caller retains the object through this call;
+// attach stores its transform in the transaction and does not consume ownership.
+@_cdecl("USAttachEeveeFeed")
+public func USAttachEeveeFeed(_ pointer: UnsafeMutableRawPointer?) -> Bool {
+    guard let pointer = pointer else { return false }
+    let transaction = Unmanaged<USResponseTransaction>.fromOpaque(pointer).takeUnretainedValue()
+    return USEeveeFeedModule.attach(to: transaction)
+}
+
 // Uses the real upstream feed protobuf transformer. No service response is
 // fabricated here; a nil transformation retains the existing bytes.
 func writeDebugLog(_ message: String) {
