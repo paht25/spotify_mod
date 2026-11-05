@@ -2,12 +2,12 @@
 
 Mục tiêu đã ghi nhận: iOS 27, Spotify 9.1.90, inject vào IPA bằng Sideloadly. Bạn đã xác nhận quyền tích hợp Chroma để thử nghiệm riêng.
 
-Workflow hiện tại biên dịch và chạy test cho mã lõi, pipeline phản hồi mạng, codec protobuf gốc của Chroma và bộ lọc feed gốc của Eevee đã gắn vào pipeline. Nó chưa build tweak hợp nhất hoặc tạo `.deb`. Artifact `.a` là thư viện tĩnh để liên kết vào tweak sau này, không thể inject bằng Sideloadly. Xem `TRANSPORT-INTEGRATION.md` để biết phần còn thiếu.
+Workflow hiện tại biên dịch và chạy test cho mã lõi, pipeline phản hồi mạng, codec protobuf gốc của Chroma, bộ lọc feed gốc của Eevee và hook delegate thử nghiệm. Sau khi các bước đó thành công, nó build dylib và `.deb` THỬ RIÊNG HOOK FEED. Đây chưa phải tweak hợp nhất đầy đủ. Artifact `.a` vẫn là thư viện tĩnh không thể inject. Xem `EXPERIMENTAL-TEST.vi.md` để biết artifact dùng với Sideloadly và phần còn thiếu.
 
 ## Cách chạy
 
 1. Tạo repository riêng tư trên GitHub.
-2. Upload nội dung `cloud-build-kit.zip` vào gốc repository, giữ đúng các thư mục `.github/workflows`, `Sources`, `Tests`, `scripts`, `Licenses`. Với repository đã tạo, thay các file trùng bằng bản mới.
+2. Upload nội dung `cloud-build-kit.zip` vào gốc repository, giữ đúng các thư mục `.github/workflows`, `Sources`, `Tests`, `scripts`, `tools`, `Licenses`. Với repository đã tạo, thay các file trùng bằng bản mới.
 3. Commit vào nhánh mặc định của repository.
 4. Mở Actions → Compile and test independent integration core → Run workflow.
 5. Nếu job thành công, tải artifact. Nếu thất bại, giữ log lỗi để sửa mã hoặc cấu hình SDK. Không suy ra rằng các chức năng Spotify đã được kiểm thử từ kết quả job này.

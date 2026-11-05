@@ -7,7 +7,7 @@ func writeDebugLog(_ message: String) {
 }
 
 @objc public final class USEeveeFeedModule: NSObject {
-    @objc public static func attach(to transaction: USResponseTransaction) -> Bool {
+    @objc(attachTo:) public static func attach(to transaction: USResponseTransaction) -> Bool {
         transaction.addTransform(owner: "eevee.feed-sections") { input, _ in
             guard let url = input.response.url,
                   BrowsitaSectionStripper.shouldHandle(url),

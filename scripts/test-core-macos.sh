@@ -35,3 +35,16 @@ xcrun --sdk macosx swiftc -import-objc-header "$PROJECT_DIR/Sources/Transport/Un
   "$PROJECT_DIR/Tests/FeedIntegration/main.swift" "$BUILD_DIR/Transaction.o" \
   -o "$BUILD_DIR/FeedIntegrationTests"
 "$BUILD_DIR/FeedIntegrationTests"
+for SOURCE_FILE in "$PROJECT_DIR/Sources/Core/USHookRegistry.m" "$PROJECT_DIR/Sources/Injection/USFeedHooks.m" "$PROJECT_DIR/Tests/HookTests.m"; do
+  OBJECT_NAME="$(basename "$SOURCE_FILE" .m)"
+  xcrun --sdk macosx clang -fobjc-arc -Wall -Wextra -Werror \
+    -I"$PROJECT_DIR/Sources/Core" -I"$PROJECT_DIR/Sources/Transport" -I"$PROJECT_DIR/Sources/Injection" \
+    -c "$SOURCE_FILE" -o "$BUILD_DIR/$OBJECT_NAME.o"
+done
+xcrun --sdk macosx swiftc -parse-as-library \
+  -import-objc-header "$PROJECT_DIR/Sources/Transport/UnifiedSpotify-Bridging.h" \
+  "$PROJECT_DIR/Sources/Eevee/Feed/BrowsitaSectionStripper.swift" \
+  "$PROJECT_DIR/Sources/Eevee/Feed/USEeveeFeedModule.swift" \
+  "$BUILD_DIR/USHookRegistry.o" "$BUILD_DIR/Transaction.o" "$BUILD_DIR/USFeedHooks.o" "$BUILD_DIR/HookTests.o" \
+  -o "$BUILD_DIR/HookTests"
+"$BUILD_DIR/HookTests"
