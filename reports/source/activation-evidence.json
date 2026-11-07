@@ -1,0 +1,2504 @@
+[
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/About.h",
+    "line": 45,
+    "text": "// Spotify comes up, once per release. Watched from the settings %ctor; the switch is on the Updates"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Update.m",
+    "line": 150,
+    "text": "if ([NSUserDefaults.standardUserDefaults doubleForKey:kChecked] > 0) return @\"up to date\";"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/UpdateNotice.m",
+    "line": 47,
+    "text": "if ([[NSUserDefaults.standardUserDefaults stringForKey:kTold] isEqualToString:version]) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/ModSettings.x",
+    "line": 63,
+    "text": "if (!SGRedesignedUIStored()) [parts addObject:pageRow(@\"Home & Library\", @\"house\", ^UIViewController *{ return SGHomeSettingsPage(); })];"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/ModSettings.x",
+    "line": 248,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/ModSettings.x",
+    "line": 249,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Onboarding/Onboarding.x",
+    "line": 21,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Onboarding/Onboarding.x",
+    "line": 23,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Pages.m",
+    "line": 107,
+    "text": "if (native) [sections addObjectsFromArray:SGNativePlayerScreenSections()];"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGFlagForce.h",
+    "line": 10,
+    "text": "// Threading: register from a %ctor or a constructor, before Spotify reads a flag; ask from any thread."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGLog.h",
+    "line": 9,
+    "text": "// Logs every class of the list that this Spotify does not have; a feature calls it from its %ctor."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGPrefs.m",
+    "line": 39,
+    "text": "if (value) [NSUserDefaults.standardUserDefaults setObject:value forKey:key];"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGRebind.h",
+    "line": 7,
+    "text": "// Threading: call from a %ctor, before Spotify has run; the slots are written without a lock."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGUIMode.h",
+    "line": 6,
+    "text": "// Every hook file of Native/ starts its %ctor with `if (!SGNativeUI()) return;`, every one of"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGUIMode.h",
+    "line": 7,
+    "text": "// Redesigned/ with `if (!SGRedesignedUI()) return;`: the two never run together, which is what lets"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 158,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 159,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/PlayerState.x",
+    "line": 110,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/PlayerState.x",
+    "line": 112,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.x",
+    "line": 192,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.x",
+    "line": 193,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.x",
+    "line": 194,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Accent.x",
+    "line": 167,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Accent.x",
+    "line": 168,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Accent.x",
+    "line": 170,
+    "text": "if (sg_accent >= 0) %init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Amoled.x",
+    "line": 65,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Amoled.x",
+    "line": 66,
+    "text": "if (SGNativeUI() && SGFlag(SGKeyAmoled, NO)) {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Amoled.x",
+    "line": 67,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/EdgeEffect.x",
+    "line": 34,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/EdgeEffect.x",
+    "line": 35,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/EdgeEffect.x",
+    "line": 36,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Repaint.x",
+    "line": 31,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Repaint.x",
+    "line": 32,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Repaint.x",
+    "line": 33,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.x",
+    "line": 331,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.x",
+    "line": 332,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.x",
+    "line": 333,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeDeclutter.x",
+    "line": 63,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeDeclutter.x",
+    "line": 64,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeDeclutter.x",
+    "line": 65,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradient.x",
+    "line": 9,
+    "text": "// Spotify. The switch itself is read once, in the %ctor, and still needs a restart."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradient.x",
+    "line": 178,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradient.x",
+    "line": 179,
+    "text": "if (!SGNativeUI() || !SGFlag(SGKeyHomeGradient, NO)) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradient.x",
+    "line": 180,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Lyrics/LyricsPage.x",
+    "line": 59,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Lyrics/LyricsPage.x",
+    "line": 60,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Lyrics/LyricsPage.x",
+    "line": 61,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/Navbar.x",
+    "line": 363,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/Navbar.x",
+    "line": 364,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/Navbar.x",
+    "line": 365,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/TabBarHooks.x",
+    "line": 67,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/TabBarHooks.x",
+    "line": 68,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/TabBarHooks.x",
+    "line": 69,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBar.x",
+    "line": 32,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBar.x",
+    "line": 33,
+    "text": "if (!SGNativeUI() || !SGHidden(SGHideBarConnect)) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBar.x",
+    "line": 34,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/LyricsCard.x",
+    "line": 46,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/LyricsCard.x",
+    "line": 47,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/LyricsCard.x",
+    "line": 48,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/Player.x",
+    "line": 198,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/Player.x",
+    "line": 199,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/Player.x",
+    "line": 200,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerDeclutter.x",
+    "line": 139,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerDeclutter.x",
+    "line": 140,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerDeclutter.x",
+    "line": 141,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerGestures.x",
+    "line": 26,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerGestures.x",
+    "line": 27,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerGestures.x",
+    "line": 28,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.x",
+    "line": 236,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.x",
+    "line": 237,
+    "text": "if (!SGNativeUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.x",
+    "line": 238,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumField.x",
+    "line": 136,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumField.x",
+    "line": 151,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumField.x",
+    "line": 152,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumHeader.x",
+    "line": 475,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumHeader.x",
+    "line": 476,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumHeader.x",
+    "line": 477,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumRows.x",
+    "line": 95,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumRows.x",
+    "line": 96,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumRows.x",
+    "line": 97,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumSections.x",
+    "line": 127,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumSections.x",
+    "line": 128,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumSections.x",
+    "line": 129,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistField.x",
+    "line": 126,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistField.x",
+    "line": 132,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistField.x",
+    "line": 133,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistFollow.x",
+    "line": 218,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistFollow.x",
+    "line": 219,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistFollow.x",
+    "line": 220,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistHeader.x",
+    "line": 330,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistHeader.x",
+    "line": 331,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistHeader.x",
+    "line": 332,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistSections.x",
+    "line": 182,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistSections.x",
+    "line": 183,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistSections.x",
+    "line": 184,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeCards.x",
+    "line": 81,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeCards.x",
+    "line": 82,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeCards.x",
+    "line": 83,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeader.x",
+    "line": 157,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeader.x",
+    "line": 158,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeader.x",
+    "line": 159,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeadings.x",
+    "line": 147,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeadings.x",
+    "line": 148,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeadings.x",
+    "line": 149,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomePerf.x",
+    "line": 185,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomePerf.x",
+    "line": 186,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomePerf.x",
+    "line": 187,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeSections.x",
+    "line": 178,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeSections.x",
+    "line": 186,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeSections.x",
+    "line": 187,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAccent.x",
+    "line": 171,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAccent.x",
+    "line": 172,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAccent.x",
+    "line": 174,
+    "text": "if (sg_accent >= 0) %init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAmoled.x",
+    "line": 65,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAmoled.x",
+    "line": 66,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAmoled.x",
+    "line": 67,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRBridges.x",
+    "line": 278,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRBridges.x",
+    "line": 279,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRBridges.x",
+    "line": 288,
+    "text": "%init(SGRBarArtworkHooks);"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRedesign.h",
+    "line": 2,
+    "text": "// off (SGRGlassDesign.x), register theirs from a %ctor whether or not Redesigned UI is on: the settings"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRedesign.h",
+    "line": 6,
+    "text": "// Threading: register from a %ctor, before Spotify reads a flag."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRedesign.m",
+    "line": 29,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGREdgeEffect.x",
+    "line": 35,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGREdgeEffect.x",
+    "line": 36,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGREdgeEffect.x",
+    "line": 37,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlassDesign.x",
+    "line": 14,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlassDesign.x",
+    "line": 25,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlassDesign.x",
+    "line": 26,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRKit.h",
+    "line": 20,
+    "text": "// Every hook file of the redesign starts its %ctor with `if (!SGRedesignedUI()) return;` and every one"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRKit.h",
+    "line": 21,
+    "text": "// of Native/ with `if (!SGNativeUI()) return;` (Core/SGUIMode.h), so the two looks never run together."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRepaint.x",
+    "line": 36,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRepaint.x",
+    "line": 37,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRepaint.x",
+    "line": 38,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryHeader.x",
+    "line": 280,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryHeader.x",
+    "line": 281,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryHeader.x",
+    "line": 282,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryRows.x",
+    "line": 88,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryRows.x",
+    "line": 89,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryRows.x",
+    "line": 90,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibrarySearch.x",
+    "line": 57,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibrarySearch.x",
+    "line": 58,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibrarySearch.x",
+    "line": 59,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/KaraokePage.x",
+    "line": 27,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/KaraokePage.x",
+    "line": 28,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/KaraokePage.x",
+    "line": 29,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsPage.x",
+    "line": 58,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsPage.x",
+    "line": 59,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsPage.x",
+    "line": 60,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.x",
+    "line": 371,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.x",
+    "line": 372,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.x",
+    "line": 373,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/SearchField.x",
+    "line": 153,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/SearchField.x",
+    "line": 154,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/SearchField.x",
+    "line": 155,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/TabBar.x",
+    "line": 483,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/TabBar.x",
+    "line": 484,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/TabBar.x",
+    "line": 485,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarConnect.x",
+    "line": 33,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarConnect.x",
+    "line": 34,
+    "text": "if (!SGRedesignedUI() || !SGHidden(SGRHideBarConnect)) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarConnect.x",
+    "line": 35,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarTransition.x",
+    "line": 116,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarTransition.x",
+    "line": 117,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarTransition.x",
+    "line": 118,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x",
+    "line": 146,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x",
+    "line": 147,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x",
+    "line": 148,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerArtwork.x",
+    "line": 200,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerArtwork.x",
+    "line": 201,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerArtwork.x",
+    "line": 202,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerCards.x",
+    "line": 56,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerCards.x",
+    "line": 57,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerCards.x",
+    "line": 58,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerControls.x",
+    "line": 245,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerControls.x",
+    "line": 246,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerControls.x",
+    "line": 247,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerField.x",
+    "line": 158,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerField.x",
+    "line": 181,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerField.x",
+    "line": 182,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerFooter.x",
+    "line": 234,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerFooter.x",
+    "line": 235,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerFooter.x",
+    "line": 236,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerGestures.x",
+    "line": 26,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerGestures.x",
+    "line": 27,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerGestures.x",
+    "line": 28,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerHeader.x",
+    "line": 63,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerHeader.x",
+    "line": 64,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerHeader.x",
+    "line": 65,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerLyrics.x",
+    "line": 473,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerLyrics.x",
+    "line": 474,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerLyrics.x",
+    "line": 475,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerMorph.x",
+    "line": 252,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerMorph.x",
+    "line": 253,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerMorph.x",
+    "line": 254,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerScroll.x",
+    "line": 31,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerScroll.x",
+    "line": 32,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerScroll.x",
+    "line": 33,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistField.x",
+    "line": 88,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistField.x",
+    "line": 105,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistField.x",
+    "line": 106,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistHeader.x",
+    "line": 608,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistHeader.x",
+    "line": 609,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistHeader.x",
+    "line": 610,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistMenu.x",
+    "line": 383,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistMenu.x",
+    "line": 384,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistMenu.x",
+    "line": 385,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistRows.x",
+    "line": 110,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistRows.x",
+    "line": 111,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistRows.x",
+    "line": 112,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchCards.x",
+    "line": 225,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchCards.x",
+    "line": 226,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchCards.x",
+    "line": 227,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchPage.x",
+    "line": 157,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchPage.x",
+    "line": 158,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchPage.x",
+    "line": 159,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchSections.x",
+    "line": 208,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchSections.x",
+    "line": 209,
+    "text": "if (!SGRedesignedUI()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchSections.x",
+    "line": 210,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPage.h",
+    "line": 7,
+    "text": "// Registers SGPage as one of Spotify's pages; called once, from the settings hook's %ctor."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistSkip.x",
+    "line": 103,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistSkip.x",
+    "line": 104,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.x",
+    "line": 582,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Flags/Flags.x",
+    "line": 59,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Flags/Flags.x",
+    "line": 60,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.x",
+    "line": 137,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.x",
+    "line": 138,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/ControlHaptics.x",
+    "line": 234,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/ControlHaptics.x",
+    "line": 237,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 24,
+    "text": "// What the keys were called while this was the redesign's alone; the %ctors move them over."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/MusicHaptics.x",
+    "line": 535,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.h",
+    "line": 27,
+    "text": "// What the keys were called while this was the redesign's alone; LiveActivity.x's %ctor moves them over."
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.x",
+    "line": 287,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.x",
+    "line": 258,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.x",
+    "line": 266,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGAppleArtwork.m",
+    "line": 218,
+    "text": "if (token) [NSUserDefaults.standardUserDefaults setObject:token forKey:kTokenKey];"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenLyrics/LockScreenLyrics.x",
+    "line": 169,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenLyrics/LockScreenLyrics.x",
+    "line": 172,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/KaraokeSource.x",
+    "line": 320,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/KaraokeSource.x",
+    "line": 323,
+    "text": "if (!SGRedesignedUI() && !SGFlag(SGKeyLockScreenLyrics, NO) && !SGLyricsEnabled()) return;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/KaraokeSource.x",
+    "line": 330,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsHook.x",
+    "line": 593,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsHook.x",
+    "line": 596,
+    "text": "%init(SGLyricsReplies);"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsHook.x",
+    "line": 605,
+    "text": "%init(SGLyricsEveryTrack);"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsHook.x",
+    "line": 606,
+    "text": "if (hookLocal) %init(SGLyricsLocalSession);"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/Musixmatch.m",
+    "line": 98,
+    "text": "if (usable) [NSUserDefaults.standardUserDefaults setObject:fresh forKey:kTokenKey];"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/Links.x",
+    "line": 106,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/Links.x",
+    "line": 107,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/PageTransition.x",
+    "line": 65,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/PageTransition.x",
+    "line": 66,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerEvents.x",
+    "line": 45,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerEvents.x",
+    "line": 46,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerState.x",
+    "line": 94,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerState.x",
+    "line": 95,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitch.x",
+    "line": 441,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitch.x",
+    "line": 451,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitchMenu.x",
+    "line": 603,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitchMenu.x",
+    "line": 604,
+    "text": "%init;"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.x",
+    "line": 148,
+    "text": "%ctor {"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.x",
+    "line": 151,
+    "text": "%init;"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/CarPlayCrashFix.x.swift",
+    "line": 37,
+    "text": "func activateCarPlayCrashFix() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/CarPlayCrashFix.x.swift",
+    "line": 65,
+    "text": "if icOK { CPInterfaceControllerCrashFixGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/CarPlayCrashFix.x.swift",
+    "line": 66,
+    "text": "if ltOK { CPListTemplateCrashFixGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 148,
+    "text": "func activateClientMessagingPlatformBlocker() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 153,
+    "text": "(CMPFullscreenContainerHook.targetName, \"FullscreenContainer\", { CMPFullscreenContainerGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 154,
+    "text": "(CMPModalContainerHook.targetName, \"ModalContainer\", { CMPModalContainerGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 155,
+    "text": "(CMPBottomSheetPageHook.targetName, \"BottomSheetPage\", { CMPBottomSheetPageGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 159,
+    "text": "(CMPBannerViewHook.targetName, \"CMPBannerView\", { CMPBannerViewGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 160,
+    "text": "(UpsellBannerElementUIHook.targetName, \"UpsellBannerElementUI\", { UpsellElementViewGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 161,
+    "text": "(PremiumUpsellBannerElementUIHook.targetName, \"PremiumUpsellBannerElementUI\", { UpsellElementViewGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "line": 162,
+    "text": "(PremiumUpsellControlPanelHook.targetName, \"PremiumUpsellControlPanel\", { UpsellElementViewGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 335,
+    "text": "func activateEeveeAdBlockerExtended() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 340,
+    "text": "(AdsServiceImplKill.targetName, \"AdsServiceImpl\", { AdsServiceImplGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 341,
+    "text": "(InStreamAdsServiceKill.targetName, \"InStreamAdsService\", { InStreamAdsServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 342,
+    "text": "(EmbeddedNPVServiceImplKill.targetName, \"EmbeddedNPVServiceImpl\", { EmbeddedNPVServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 343,
+    "text": "(LeavebehindAdsBaseServiceKill.targetName, \"LeavebehindAdsBaseService\", { LeavebehindAdsBaseServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 344,
+    "text": "(LeavebehindAdsBaseInternalServiceKill.targetName, \"LeavebehindAdsBaseInternalService\", { LeavebehindAdsBaseInternalServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 345,
+    "text": "(SponsoredContextServiceKill.targetName, \"AdsSponsoredContextServiceImpl\", { SponsoredContextServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 346,
+    "text": "(SponsoredContextNPBAttachmentServiceKill.targetName, \"AdsSponsoredContextNPBAttachmentServiceImpl\", { SponsoredContextNPBAttachmentServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 347,
+    "text": "(SponsoredPlaylistHeaderServiceKill.targetName, \"AdsSponsoredPlaylistHeaderServiceImpl\", { SponsoredPlaylistHeaderServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 348,
+    "text": "(NativeAdsLoggerServiceImplKill.targetName, \"NativeAdsLoggerServiceImpl\", { NativeAdsLoggerServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 349,
+    "text": "(EmbeddedAdAdapterElementProviderKill.targetName, \"EmbeddedAdAdapterElementProvider\", { ScrollFeedAdControllerGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 350,
+    "text": "(PlaylistAdControllerV2Kill.targetName, \"PlaylistAdControllerV2\", { ScrollFeedAdControllerGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 351,
+    "text": "(PlaylistAdControllerImplKill.targetName, \"PlaylistAdControllerImpl\", { ScrollFeedAdControllerGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 352,
+    "text": "(LeavebehindAdElementProviderKill.targetName, \"LeavebehindAdElementProvider\", { ScrollFeedAdControllerGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 372,
+    "text": "SponsoredCtxAttachmentGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 382,
+    "text": "SponsoredPlaylistHeaderViewGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 395,
+    "text": "ScrollFeedAdViewGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 404,
+    "text": "ScrollFeedAdServiceGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 413,
+    "text": "ScrollFeedAdControllerGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 422,
+    "text": "ScrollFeedAdViewGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "line": 431,
+    "text": "ScrollFeedAdViewGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeCrossfadeForce.x.swift",
+    "line": 25,
+    "text": "func activateEeveeCrossfadeForce() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeCrossfadeForce.x.swift",
+    "line": 30,
+    "text": "EeveeCrossfadePrefGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeFlex.x.swift",
+    "line": 39,
+    "text": "func activateEeveeFlexGesture() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeFlex.x.swift",
+    "line": 45,
+    "text": "EeveeFlexAutoOpenGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveePremiumForce.x.swift",
+    "line": 223,
+    "text": "func activateEeveePremiumForce() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveePremiumForce.x.swift",
+    "line": 239,
+    "text": "EeveePremiumForceGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeProbes.x.swift",
+    "line": 309,
+    "text": "func activateEeveeProbes() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeProbes.x.swift",
+    "line": 317,
+    "text": "if netOn { ProbeNetGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeProbes.x.swift",
+    "line": 318,
+    "text": "if notifOn { ProbeNotifGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Experiments/LiveContainer/LiveContainerSharing.x.swift",
+    "line": 11,
+    "text": "if UserDefaults.experimentsOptions.liveContainerSharing, !target.canOpenURL(url) {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlagsHooks.x.swift",
+    "line": 92,
+    "text": "func activateRemoteFlags() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlagsHooks.x.swift",
+    "line": 105,
+    "text": "RemoteFlagsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlagsHooks.x.swift",
+    "line": 106,
+    "text": "let observable = ObservableProviderSwizzle.install()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeFooterButton.x.swift",
+    "line": 74,
+    "text": "func activateKaraokeFooterButton() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeFooterButton.x.swift",
+    "line": 81,
+    "text": "KaraokeFooterGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeHooks.x.swift",
+    "line": 139,
+    "text": "func activateKaraokeHooks() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeHooks.x.swift",
+    "line": 151,
+    "text": "KaraokeGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassTabBar.x.swift",
+    "line": 412,
+    "text": "func activateGlassCustomTabs() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassTabBar.x.swift",
+    "line": 420,
+    "text": "CustomTabsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlass.x.swift",
+    "line": 58,
+    "text": "func activateLiquidGlass() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlass.x.swift",
+    "line": 131,
+    "text": "group.activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/NowPlayingBarConnect.x.swift",
+    "line": 42,
+    "text": "func activateNowPlayingBarConnect() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/NowPlayingBarConnect.x.swift",
+    "line": 48,
+    "text": "NowPlayingBarConnectGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+DisableReportButton.x.swift",
+    "line": 18,
+    "text": "if UserDefaults.lyricsSource == .musixmatch"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+ShowAttributes.x.swift",
+    "line": 53,
+    "text": "if UserDefaults.lyricsOptions.showFallbackReasons,"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics.x.swift",
+    "line": 295,
+    "text": "if source == .genius || !UserDefaults.lyricsOptions.geniusFallback {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Misc/RatingPromptBlock.x.swift",
+    "line": 35,
+    "text": "func activateRatingPromptBlock() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Misc/RatingPromptBlock.x.swift",
+    "line": 38,
+    "text": "RatingPromptBlockGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/ArtistHides.x.swift",
+    "line": 85,
+    "text": "func activateArtistHides() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/ArtistHides.x.swift",
+    "line": 91,
+    "text": "ArtistHeaderHidesGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/ArtistHides.x.swift",
+    "line": 95,
+    "text": "ArtistTabsHideGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeDeclutter.x.swift",
+    "line": 99,
+    "text": "func activateHomeDeclutter() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeDeclutter.x.swift",
+    "line": 105,
+    "text": "HomePillsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeDeclutter.x.swift",
+    "line": 109,
+    "text": "HomeSectionsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeGradient.x.swift",
+    "line": 373,
+    "text": "func activateHomeGradient() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeGradient.x.swift",
+    "line": 377,
+    "text": "(.home, { HomeGradientGroup().activate() }, [HomeGradientPageHook.targetName, HomeGradientListHook.targetName, HomeGradientScrimHook.targetName]),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeGradient.x.swift",
+    "line": 378,
+    "text": "(.library, { LibraryGradientGroup().activate() }, [LibraryGradientPageHook.targetName]),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeGradient.x.swift",
+    "line": 379,
+    "text": "(.search, { SearchGradientGroup().activate() }, [SearchGradientPageHook.targetName]),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PlaylistHides.x.swift",
+    "line": 148,
+    "text": "func activatePlaylistHides() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PlaylistHides.x.swift",
+    "line": 154,
+    "text": "PlaylistHeaderHidesGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PlaylistHides.x.swift",
+    "line": 158,
+    "text": "PlaylistPillsHideGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/RoundedArtwork.x.swift",
+    "line": 39,
+    "text": "func activateRoundedArtwork() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/RoundedArtwork.x.swift",
+    "line": 46,
+    "text": "RoundedArtworkGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "line": 25,
+    "text": "func activateTheme() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerDeclutter.x.swift",
+    "line": 196,
+    "text": "func activatePlayerDeclutter() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerDeclutter.x.swift",
+    "line": 208,
+    "text": "group.activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerGestures.x.swift",
+    "line": 161,
+    "text": "func activatePlayerGestures() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerGestures.x.swift",
+    "line": 179,
+    "text": "PlayerGesturesGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerGestures.x.swift",
+    "line": 182,
+    "text": "if suppressTilt { PlayerTiltSuppressGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerHaptics.x.swift",
+    "line": 104,
+    "text": "func activatePlayerHaptics() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerHaptics.x.swift",
+    "line": 111,
+    "text": "PlayerHapticsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerHaptics.x.swift",
+    "line": 112,
+    "text": "PlayerHaptics.activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/DynamicPremium+ModifyBootstrap.x.swift",
+    "line": 71,
+    "text": "if UserDefaults.patchType == .notSet {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/DynamicPremium+ModifyBootstrap.x.swift",
+    "line": 86,
+    "text": "if UserDefaults.patchType == .requests {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/SpotifyResponsePatcher.swift",
+    "line": 149,
+    "text": "if UserDefaults.patchType == .requests {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "line": 86,
+    "text": "TelemetryBlock.install(into: orig.defaultSessionConfiguration())"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "line": 90,
+    "text": "TelemetryBlock.install(into: orig.ephemeralSessionConfiguration())"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "line": 101,
+    "text": "func activateTelemetryBlock() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "line": 105,
+    "text": "TelemetryBlockGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/AppIcon/Views/EeveeAppIconPickerView.swift",
+    "line": 137,
+    "text": "if let saved = UserDefaults.standard.string(forKey: selectedKeyDefault), !saved.isEmpty {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/ViewModels/EeveeLyricsSettingsViewModel.swift",
+    "line": 93,
+    "text": "if UserDefaults.lyricsSource == .notReplaced {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/UI/Views/EeveeUISettingsView.swift",
+    "line": 9,
+    "text": "if UserDefaults.lyricsSource.isReplacingLyrics {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/ViewControllers/EeveeSettingsViewController.swift",
+    "line": 30,
+    "text": "NSLayoutConstraint.activate(["
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockHooks.x.swift",
+    "line": 48,
+    "text": "func activateSponsorBlock() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockHooks.x.swift",
+    "line": 52,
+    "text": "SponsorBlockGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockSkipper.swift",
+    "line": 411,
+    "text": "if UserDefaults.sponsorBlockOptions.respectManualSeek {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockToast.swift",
+    "line": 118,
+    "text": "NSLayoutConstraint.activate(constraints)"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 42,
+    "text": "func activateV91ServerSidedReminderIfAvailable() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 54,
+    "text": "LatestPremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 58,
+    "text": "func activatePremiumPatchingGroup() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 59,
+    "text": "BasePremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 62,
+    "text": "IOS14PremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 65,
+    "text": "NonIOS14PremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 69,
+    "text": "V91PremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 73,
+    "text": "NonIOS14PremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 76,
+    "text": "IOS14And15PremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 79,
+    "text": "LatestPremiumPatchingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 85,
+    "text": "func activateSessionLogoutProtection(minimal: Bool) {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 97,
+    "text": "SessionLogoutNetworkHookGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 115,
+    "text": "SessionLogoutAuthHookGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 132,
+    "text": "SessionLogoutConnectivityHookGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 148,
+    "text": "SessionLogoutAblyHookGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 158,
+    "text": "SessionLogoutNetworkHookGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 242,
+    "text": "HideJam.activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 253,
+    "text": "AdBlockerGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 258,
+    "text": "PasteboardConcreteSwizzler.install()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 304,
+    "text": "if UserDefaults.patchType.isPatching {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 305,
+    "text": "PremiumBootstrapGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 310,
+    "text": "PremiumUIHooksGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 337,
+    "text": "BaseLyricsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 343,
+    "text": "V91LyricsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 355,
+    "text": "UniversalSettingsIntegrationProfileGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 358,
+    "text": "UniversalSettingsIntegrationSettingsVCGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 362,
+    "text": "UniversalSettingsIntegrationRootSettingsVCGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 364,
+    "text": "UniversalSettingsIntegrationNavGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 372,
+    "text": "UniversalSettingsIntegrationListVCGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 378,
+    "text": "TrueShuffleHook.install()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 385,
+    "text": "if UserDefaults.experimentsOptions.showInstagramDestination {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 386,
+    "text": "InstgramDestinationGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 389,
+    "text": "if UserDefaults.darkPopUps {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 390,
+    "text": "DarkPopUps().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 393,
+    "text": "if UserDefaults.patchType.isPatching {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 397,
+    "text": "if UserDefaults.lyricsSource.isReplacingLyrics {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 398,
+    "text": "BaseLyricsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 399,
+    "text": "LyricsErrorHandlingGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 402,
+    "text": "ModernLyricsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 405,
+    "text": "LegacyLyricsGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 409,
+    "text": "UniversalSettingsIntegrationProfileGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 410,
+    "text": "UniversalSettingsIntegrationSettingsVCGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 412,
+    "text": "UniversalSettingsIntegrationRootSettingsVCGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 415,
+    "text": "UniversalSettingsIntegrationListVCGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 417,
+    "text": "UniversalSettingsIntegrationNavGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 418,
+    "text": "SettingsIntegrationGroup().activate()"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellPopupBlocker.x.swift",
+    "line": 165,
+    "text": "func activateUpsellPopupBlocker() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellPopupBlocker.x.swift",
+    "line": 171,
+    "text": "{ UpsellPopupModelCaptureGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellPopupBlocker.x.swift",
+    "line": 177,
+    "text": "{ UpsellPopupDialogCaptureGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellPopupBlocker.x.swift",
+    "line": 183,
+    "text": "{ UpsellPopupBlockerGroup().activate() }"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 127,
+    "text": "func activateUpsellServiceBlocker() {"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 130,
+    "text": "(GeneralUpsellsServiceKill.targetName, \"UpsellsServiceImpl\", { GeneralUpsellsServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 131,
+    "text": "(PremiumUpsellServiceKill.targetName, \"PremiumUpsellServiceImpl\", { PremiumUpsellServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 132,
+    "text": "(ContextualPremiumPromoServiceKill.targetName, \"ContextualPremiumPromoServiceImpl\", { ContextualPremiumPromoServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 133,
+    "text": "(ReferralsUpsellCardServiceKill.targetName, \"ReferralsUpsellCardElementService\", { ReferralsUpsellCardServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 134,
+    "text": "(DownloadUpsellServiceKill.targetName, \"DownloadUpsellService\", { DownloadUpsellServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 135,
+    "text": "(FreeHostedJamsUpsellServiceKill.targetName, \"FreeHostedJamsUpsellService\", { FreeHostedJamsUpsellServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 136,
+    "text": "(FreeUserSkipUpsellPageServiceKill.targetName, \"FreeUserSkipUpsellPageService\", { FreeUserSkipUpsellPageServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 137,
+    "text": "(FreeUserShuffleUpsellPageServiceKill.targetName, \"FreeUserShuffleUpsellSheetPageService\", { FreeUserShuffleUpsellPageServiceGroup().activate() }),"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "line": 155,
+    "text": "SelfLoadingUpsellBannerViewGroup().activate()"
+  }
+]

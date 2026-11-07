@@ -1,22 +1,11 @@
-<<<<<<< HEAD
 {
-  "spotify": "9.1.88",
-  "build": "918802209",
-  "flagKeys": 2496,
-  "typed": 2306,
-  "initializerThunks": 531,
+  "spotify": "9.1.90",
+  "build": "919002269",
+  "binarySHA256": "03c828bc63cc3298a79be011e737ca110a7bfbb140a8e6cb14b1bb7052e6c026",
+  "flagKeys": 2523,
+  "typed": 2361,
+  "initializerThunks": 547,
   "walkerFailures": [],
   "method": "Original Chroma Walker with metadata-fed binary adapter",
   "runtimeVerified": false
-=======
-{
-  "spotify": "9.1.88",
-  "build": "918802209",
-  "flagKeys": 2496,
-  "typed": 2306,
-  "initializerThunks": 531,
-  "walkerFailures": [],
-  "method": "Original Chroma Walker with metadata-fed binary adapter",
-  "runtimeVerified": false
->>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
 }

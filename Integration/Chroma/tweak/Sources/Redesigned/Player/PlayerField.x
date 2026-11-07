@@ -20,6 +20,7 @@
 // Spotify already has for the player, from -[NPVBackgroundViewController
 // backgroundViewModel:didChangeColor:playerState:] (objc-methods.txt:57949).
 #import "Core/SGCore.h"
+#import "Core/USRuntimeState.h"
 #import "Settings/SGModPage.h"
 #import "Redesigned/Kit/SGRKit.h"
 #import "Player.h"
@@ -61,6 +62,7 @@ static SGRArtworkField *fieldIn(UIView *plane) {
     field.bleed = kBleed;
     objc_setAssociatedObject(plane, &kFieldKey, field, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     sg_field = field;
+    USStateSet(@"render.playerField",@"created");
     [field setProvisionalColor:sg_spotifyColor];
     // Made while the player is about to open: whatever is read lands in the first frames of the
     // animation, where a crossfade would only add work.

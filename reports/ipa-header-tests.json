@@ -1,32 +1,27 @@
-<<<<<<< HEAD
 {
+  "revision": "personal-v6-9190",
+  "inputSHA256": "2c34a2ebadb71888682b8fde89a706916fb3b9e06318794d5b6b26198acb6a7c",
   "checks": [
     {
       "image": "Payload/Spotify.app/Spotify",
+      "dependency": "@executable_path/Frameworks/spotifyglass.dylib",
       "headerInsertion": "PASS",
       "idempotence": "PASS",
       "originalSectionsUnchanged": true,
-      "twoDependenciesFit": true,
+      "requiredDependenciesFit": true,
+      "nonzeroPaddingRejected": true
+    },
+    {
+      "image": "Payload/Spotify.app/PlugIns/WidgetExtension.appex/WidgetExtension",
+      "dependency": "@executable_path/../../Frameworks/SpotifyGlassAppGroups.dylib",
+      "headerInsertion": "PASS",
+      "idempotence": "PASS",
+      "originalSectionsUnchanged": true,
+      "requiredDependenciesFit": true,
       "nonzeroPaddingRejected": true
     }
   ],
   "outputIPAProduced": false,
   "signingTested": false,
   "runtimeTested": false
-=======
-{
-  "checks": [
-    {
-      "image": "Payload/Spotify.app/Spotify",
-      "headerInsertion": "PASS",
-      "idempotence": "PASS",
-      "originalSectionsUnchanged": true,
-      "twoDependenciesFit": true,
-      "nonzeroPaddingRejected": true
-    }
-  ],
-  "outputIPAProduced": false,
-  "signingTested": false,
-  "runtimeTested": false
->>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
 }

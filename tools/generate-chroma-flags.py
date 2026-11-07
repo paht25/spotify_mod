@@ -1,20 +1,26 @@
-"""Run Chroma's actual ARM64 Walker on the supplied 9.1.88 image.
+"""Run Chroma's actual ARM64 Walker on an explicitly supplied Spotify image.
 
 Only its Binary input adapter is replaced: Objective-C metadata substitutes for
 Apple nm, and Mach-O sections substitute for otool/strings on this Windows host.
 Unknown types remain Unknown; no undocumented defaults are invented.
 """
-import importlib.util, json, pathlib, re, struct, sys
+import argparse, hashlib, importlib.util, json, pathlib, re, struct, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-source = ROOT / 'upstream/Chroma-reference/scripts/extract-flags.py'
+parser = argparse.ArgumentParser()
+parser.add_argument('--binary', type=pathlib.Path, required=True)
+parser.add_argument('--metadata', type=pathlib.Path, required=True)
+parser.add_argument('--spotify', required=True)
+parser.add_argument('--build', required=True)
+args = parser.parse_args()
+source = ROOT / 'Integration/Chroma/scripts/extract-flags.py'
 spec = importlib.util.spec_from_file_location('chroma_extractor', source)
 upstream = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(upstream)
 
 class ProvidedBinary(upstream.Binary):
     def __init__(self):
-        self.data = (ROOT / 'ipa-analysis/no-eevee/Payload/Spotify.app/Spotify').read_bytes()
+        self.data = args.binary.read_bytes()
         self.segs = []
         strings = []
         offset = 32
@@ -40,7 +46,7 @@ class ProvidedBinary(upstream.Binary):
                 if re.fullmatch(rb'ios-[a-z0-9-]+\.[A-Za-z0-9_.-]+', raw):
                     self.keys[vm+pos] = raw.decode('ascii')
                 pos = end - start + 1
-        records = json.loads((ROOT / 'ipa-analysis/reports/objc-properties.json').read_text())
+        records = json.loads(args.metadata.read_text())
         self.thunks = [int(method['implementationVM'], 16)
                        for cls in records['focused'] if 'Properties' in cls['name']
                        for method in cls.get('methods', [])
@@ -63,14 +69,14 @@ for thunk in binary.thunks:
 for key in binary.keys.values(): flags.setdefault(key, ('Unknown', 0, 0, 0))
 out = ROOT / 'Generated/SGFlagList.m'
 out.parent.mkdir(parents=True, exist_ok=True)
-lines = ['// Generated from user-provided Spotify 9.1.88, build 918802209.',
+lines = [f'// Generated from user-provided Spotify {args.spotify}, build {args.build}.',
          '// Chroma original ARM64 Walker; unknown defaults remain SGFlagUnknown.',
          '#import "Flags.h"', 'const SGFlagDef SGFlagTable[] = {']
 for key, (kind, value, lower, upper) in sorted(flags.items()):
     lines.append(f'    {{"{key}", SGFlag{kind}, {upstream.signed(value)}, {upstream.signed(lower)}, {upstream.signed(upper)}}},')
 lines += ['};', 'const NSUInteger SGFlagCount = sizeof(SGFlagTable) / sizeof(*SGFlagTable);', '']
 out.write_text('\n'.join(lines), encoding='utf8')
-report = {'spotify':'9.1.88', 'build':'918802209', 'flagKeys':len(flags),
+report = {'spotify':args.spotify, 'build':args.build, 'binarySHA256':hashlib.sha256(binary.data).hexdigest(), 'flagKeys':len(flags),
           'typed':sum(value[0]!='Unknown' for value in flags.values()),
           'initializerThunks':len(binary.thunks), 'walkerFailures':failures,
           'method':'Original Chroma Walker with metadata-fed binary adapter',

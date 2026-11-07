@@ -1,3 +1,11 @@
+# Current v6 design context
+
+Spotify 9.1.90/iOS 27. The integrated Chroma settings/page framework owns navigation and renders the native/redesigned profiles with separate keys; it replaces the earlier v4 settings surface described below. Original Chroma player, lyrics, glass UI and settings implementations are included, but have not received a v6 visual/device pass. One Unified Spotify entry is inside Settings/sidebar. Author promotions are removed, legal notices retained. Runtime diagnostics report actual mode, method implementation origin and player field creation rather than inferring success from class presence. An unsupported exact host build leaves hooks inactive.
+
+The missing legacy player transition adapter is unresolved. Preserve one visual owner and native Dynamic Type/accessibility behavior. Confirm layout, tap targets, large text, dark/light appearance, player transitions and lyrics on a device before claiming UI correctness.
+
+## Historical v4 context (superseded)
+
 # Private mod settings surface
 
 Operate mode, UIKit-native inset-grouped table inside UINavigationController. System semantic colors and Dynamic Type accommodate the device appearance, which has not been specified by the user. No custom brand fonts, gradients, animated decoration or invented status data.

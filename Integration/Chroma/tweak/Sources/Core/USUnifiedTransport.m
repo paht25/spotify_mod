@@ -12,6 +12,7 @@ extern bool USAttachEeveePremium(void *transaction);
 @property(nonatomic,weak) id owner;
 @property(nonatomic,strong) NSHTTPURLResponse *response;
 @property(nonatomic,strong) NSMutableData *body;
+@property(nonatomic,copy) NSString *category;
 @property(nonatomic) BOOL finishing,released,terminalDelivered;
 @end
 @implementation USComposedTask @end
@@ -20,7 +21,8 @@ static const NSUInteger limit=8*1024*1024;
 BOOL USUnifiedTargetSupported(void) {
     NSBundle *app=NSBundle.mainBundle;
     BOOL supported=[app.executablePath.lastPathComponent isEqual:@"Spotify"] &&
-        [[app objectForInfoDictionaryKey:@"CFBundleShortVersionString"] isEqual:@"9.1.88"] &&
+        [[app objectForInfoDictionaryKey:@"CFBundleShortVersionString"] isEqual:@"9.1.90"] &&
+        [[app objectForInfoDictionaryKey:@"CFBundleVersion"] isEqual:@"919002269"] &&
         NSProcessInfo.processInfo.operatingSystemVersion.majorVersion==27;
     if(!supported)return NO;
     for(uint32_t i=0;i<_dyld_image_count();i++){
@@ -47,6 +49,8 @@ void USUnifiedReceiveResponse(id delegate,NSURLSessionTask *task,NSURLResponse *
     if([p hasSuffix:@"/casita/v1/feeds"] || [p containsString:@"/casita/v1/feeds/"])return;
     if(objc_getAssociatedObject(task,&contextKey))return;
     USComposedTask *state=[USComposedTask new];state.owner=delegate;state.response=(NSHTTPURLResponse *)response;state.body=[NSMutableData data];
+    state.category=config?([p containsString:@"/v1/bootstrap"]?@"bootstrap":@"customize"):@"feed";
+    USStateIncrement([NSString stringWithFormat:@"network.%@.selected",state.category]);
     objc_setAssociatedObject(task,&contextKey,state,OBJC_ASSOCIATION_RETAIN_NONATOMIC);USStateIncrement(@"network.selected");
 }
 BOOL USUnifiedCaptureData(id delegate,NSURLSession *session,NSURLSessionDataTask *task,NSData *data) {
@@ -78,7 +82,10 @@ BOOL USUnifiedComplete(id delegate,NSURLSession *session,NSURLSessionTask *task,
         [session.delegateQueue addOperationWithBlock:^{
             @synchronized(state){state.released=YES;}
             USStateIncrement(@"network.completed");
-            if(![value.data isEqual:body])USStateIncrement(@"network.transformed");
+            if(![value.data isEqual:body]){
+                USStateIncrement(@"network.transformed");
+                USStateIncrement([NSString stringWithFormat:@"network.%@.transformed",state.category]);
+            }
             sendBody(delegate,session,(NSURLSessionDataTask *)task,value.data);
             ((void (*)(id,SEL,id,id,id))objc_msgSend)(delegate,NSSelectorFromString(@"URLSession:task:didCompleteWithError:"),session,task,issue);
         }];

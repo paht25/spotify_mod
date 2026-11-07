@@ -1,4 +1,4 @@
-"""Embed a genuinely built v5 artifact into the supplied clean Spotify 9.1.88.
+"""Embed a genuinely built v6 artifact into the supplied clean Spotify 9.1.90.
 
 This prepares an UNSIGNED IPA for Sideloadly. It never signs, installs, downloads
 Spotify, modifies the input, or extracts either original Debian package.
@@ -89,11 +89,11 @@ def assemble(base, artifact, output):
         main = get('spotifyglass.dylib')
         groups = get('SpotifyGlassAppGroups.dylib')
         load_dylib(main, 'spotifyglass'); load_dylib(groups, 'AppGroups')
-        for marker in (b'USUnifiedComplete', b'SGRKaraokeView'):
+        for marker in (b'USUnifiedComplete', b'SGRKaraokeView', b'USInstallAudioAdHooks', b'personal-v6-9190'):
             if marker not in main:
                 raise ValueError('This is not the full-source Chroma integration artifact')
         manifest = json.loads(get('package-manifest.json'))
-        if manifest['revision'] != 'chroma-core-v5-9188':
+        if manifest['revision'] != 'personal-v6-9190':
             raise ValueError('Artifact revision mismatch')
         for item in manifest['supportFiles']:
             if hashlib.sha256(get(item['name'])).hexdigest() != item['sha256']:
@@ -117,13 +117,13 @@ def assemble(base, artifact, output):
                 raise ValueError('Expected one app and no ambiguous duplicate ZIP paths')
             info_path = infos[0]; app = info_path[:-len('Info.plist')]
             info = plistlib.loads(src.read(info_path))
-            if (info['CFBundleIdentifier'], info['CFBundleShortVersionString'], info['CFBundleVersion']) != ('com.spotify.client', '9.1.88', '918802209'):
-                raise ValueError('Expected the supplied Spotify 9.1.88 build 918802209')
+            if (info['CFBundleIdentifier'], info['CFBundleShortVersionString'], info['CFBundleVersion']) != ('com.spotify.client', '9.1.90', '919002269'):
+                raise ValueError('Expected the supplied Spotify 9.1.90 build 919002269')
             if any(any(x in n.lower() for x in ['eeveespotify.dylib', 'spotifyglass.dylib', 'orion.framework', 'unifiedspotifyexperimental.dylib']) for n in names):
                 raise ValueError('Use the clean NoEevee input, not a previously injected IPA')
             executable = app + info['CFBundleExecutable']
             original = src.read(executable)
-            if hashlib.sha256(original).hexdigest() != '350486650016ca445c296d97411e0466f495eb1d4edf040afe927b850aa30128':
+            if hashlib.sha256(original).hexdigest() != '03c828bc63cc3298a79be011e737ca110a7bfbb140a8e6cb14b1bb7052e6c026':
                 raise ValueError('Main executable differs from the inspected clean IPA')
             patched = insert_load(original, '@executable_path/Frameworks/spotifyglass.dylib')
             patched = insert_load(patched, '@executable_path/Frameworks/SpotifyGlassAppGroups.dylib')
@@ -132,6 +132,8 @@ def assemble(base, artifact, output):
             changes = {info_path: plistlib.dumps(info, fmt=plistlib.FMT_BINARY), executable: patched,
                        app + 'Frameworks/spotifyglass.dylib': main, app + 'Frameworks/SpotifyGlassAppGroups.dylib': groups}
             modes = {executable: 0o755, app + 'Frameworks/spotifyglass.dylib': 0o755, app + 'Frameworks/SpotifyGlassAppGroups.dylib': 0o755}
+            for name in ('Chroma-LICENSE.txt', 'Eevee-COPYING.txt', 'SwiftProtobuf-LICENSE.txt', 'bs2b-COPYING.txt', 'WDL-LICENSE.txt'):
+                changes[app + 'UnifiedSpotifyLicenses/' + name] = get('licenses/' + name)
             for name, data in extension.items():
                 if name.startswith('/') or '..' in pathlib.PurePosixPath(name).parts:
                     raise ValueError('Unsafe extension member')

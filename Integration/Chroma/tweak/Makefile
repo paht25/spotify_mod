@@ -15,6 +15,9 @@ TWEAK_NAME := spotifyglass
 # Every source under Sources/, so a new feature needs no Makefile edit. Shared/Flags/SGFlagList.m
 # is generated from the IPA by scripts/extract-flags.py.
 spotifyglass_FILES := $(shell find Sources -name '*.m' -o -name '*.x' -o -name '*.swift' | sort)
+# User-requested private UI: omit author donation, release-promotion and usage
+# modules. Original files/notices stay in the source tree for provenance.
+spotifyglass_FILES := $(filter-out Sources/App/Donate/% Sources/App/About/Update%.m Sources/App/About/Usage.m,$(spotifyglass_FILES))
 spotifyglass_CFLAGS := -fobjc-arc -ISources -DSG_VERSION=\"$(SG_VERSION)\"
 spotifyglass_FRAMEWORKS := UIKit QuartzCore UniformTypeIdentifiers MediaPlayer CoreImage AudioToolbox AVFoundation CoreHaptics Accelerate
 spotifyglass_FRAMEWORKS += StoreKit

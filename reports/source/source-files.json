@@ -1,0 +1,3578 @@
+[
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/About.h",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/AboutSettings.m",
+    "lines": 64,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "lines": 107,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Licenses.m",
+    "lines": 43,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Signing.m",
+    "lines": 118,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Update.m",
+    "lines": 239,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/UpdateNotice.m",
+    "lines": 117,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/UpdatePage.m",
+    "lines": 326,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Usage.m",
+    "lines": 102,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Donate/Donate.h",
+    "lines": 21,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Donate/Donate.m",
+    "lines": 515,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/ModSettings.x",
+    "lines": 256,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Onboarding/Onboarding.h",
+    "lines": 12,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Onboarding/Onboarding.x",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Onboarding/Tour.m",
+    "lines": 355,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Pages.h",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Pages.m",
+    "lines": 113,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGBackdrop.h",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGBackdrop.m",
+    "lines": 61,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGCore.h",
+    "lines": 11,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGFlagForce.h",
+    "lines": 22,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGFlagForce.m",
+    "lines": 69,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGGlass.h",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGGlass.m",
+    "lines": 72,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGLog.h",
+    "lines": 11,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGLog.m",
+    "lines": 25,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGPrefs.h",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGPrefs.m",
+    "lines": 55,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGRebind.h",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGRebind.m",
+    "lines": 97,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGRuntime.h",
+    "lines": 12,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGUIMode.h",
+    "lines": 27,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGUIMode.m",
+    "lines": 29,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGViewTree.h",
+    "lines": 24,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGViewTree.m",
+    "lines": 84,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.h",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "lines": 170,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/PlayerState.x",
+    "lines": 116,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/SGHangSampler.h",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/SGHangSampler.m",
+    "lines": 140,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Headers/SPTEncoreIconView.h",
+    "lines": 16,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Headers/SPTLinkDispatcherImplementation.h",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Headers/SPTNowPlayingPlaybackController.h",
+    "lines": 20,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Headers/SPTPlayer.h",
+    "lines": 54,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "lines": 19,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.x",
+    "lines": 200,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/AlbumSettings.m",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Accent.x",
+    "lines": 172,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Amoled.x",
+    "lines": 70,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Appearance.h",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/AppearanceSettings.m",
+    "lines": 31,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/EdgeEffect.x",
+    "lines": 38,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Repaint.h",
+    "lines": 9,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Repaint.x",
+    "lines": 35,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "lines": 28,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.x",
+    "lines": 340,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/ArtistSettings.m",
+    "lines": 43,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "lines": 33,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeDeclutter.x",
+    "lines": 71,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradient.x",
+    "lines": 187,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradientChoices.m",
+    "lines": 53,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeSettings.m",
+    "lines": 71,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Lyrics/LyricsPage.x",
+    "lines": 64,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/Navbar.h",
+    "lines": 27,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/Navbar.x",
+    "lines": 373,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/NavbarLayout.m",
+    "lines": 35,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/NavbarSettings.m",
+    "lines": 342,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/TabBarHooks.x",
+    "lines": 76,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBar.h",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBar.x",
+    "lines": 37,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBarSettings.m",
+    "lines": 21,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/LyricsCard.x",
+    "lines": 54,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "lines": 40,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/Player.x",
+    "lines": 210,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerDeclutter.x",
+    "lines": 150,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerGestures.x",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/PlayerSettings.m",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "lines": 18,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.x",
+    "lines": 245,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/PlaylistSettings.m",
+    "lines": 28,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/Album.h",
+    "lines": 38,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumField.x",
+    "lines": 159,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumHeader.x",
+    "lines": 483,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumRows.x",
+    "lines": 100,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Album/AlbumSections.x",
+    "lines": 132,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/Artist.h",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistField.x",
+    "lines": 140,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistFollow.x",
+    "lines": 223,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistHeader.x",
+    "lines": 335,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Artist/ArtistSections.x",
+    "lines": 187,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/Home.h",
+    "lines": 36,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeCards.x",
+    "lines": 89,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeader.x",
+    "lines": 165,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeHeadings.x",
+    "lines": 152,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomePerf.x",
+    "lines": 193,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeSections.x",
+    "lines": 193,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Home/HomeTiles.m",
+    "lines": 157,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAccent.h",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAccent.x",
+    "lines": 176,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRActionRow.h",
+    "lines": 79,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRActionRow.m",
+    "lines": 480,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAmoled.x",
+    "lines": 69,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m",
+    "lines": 30,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRBridges.h",
+    "lines": 49,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRBridges.x",
+    "lines": 291,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRDownload.h",
+    "lines": 41,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRDownload.m",
+    "lines": 364,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRedesign.h",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRedesign.m",
+    "lines": 36,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGREdgeEffect.x",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRField.h",
+    "lines": 49,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRField.m",
+    "lines": 246,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRFlow.h",
+    "lines": 27,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRFlow.m",
+    "lines": 218,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlass.h",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlass.m",
+    "lines": 114,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlassDesign.x",
+    "lines": 29,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlyph.h",
+    "lines": 27,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRGlyph.m",
+    "lines": 120,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRHeaderInfo.h",
+    "lines": 44,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRHeaderInfo.m",
+    "lines": 196,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRKit.h",
+    "lines": 36,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRPalette.h",
+    "lines": 51,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRPalette.m",
+    "lines": 324,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRepaint.h",
+    "lines": 16,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRepaint.x",
+    "lines": 40,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRestyle.h",
+    "lines": 80,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRRestyle.m",
+    "lines": 406,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRTokens.h",
+    "lines": 57,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRTokens.m",
+    "lines": 106,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/Library.h",
+    "lines": 24,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryHeader.x",
+    "lines": 290,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibraryRows.x",
+    "lines": 93,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Library/LibrarySearch.x",
+    "lines": 62,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/KaraokePage.x",
+    "lines": 32,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsPage.x",
+    "lines": 63,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsText.h",
+    "lines": 31,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsText.m",
+    "lines": 51,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsTextSettings.m",
+    "lines": 94,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/MeaningSheet.h",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/MeaningSheet.m",
+    "lines": 161,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/SGRKaraokeView.h",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/SGRKaraokeView.m",
+    "lines": 1732,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.h",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.x",
+    "lines": 381,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/NavbarLayout.m",
+    "lines": 42,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/NavbarSettings.m",
+    "lines": 381,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/SearchField.x",
+    "lines": 158,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/TabBar.x",
+    "lines": 493,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarConnect.x",
+    "lines": 38,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/BarTransition.x",
+    "lines": 124,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.h",
+    "lines": 18,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x",
+    "lines": 154,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBarSettings.m",
+    "lines": 18,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/Player.h",
+    "lines": 64,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerArtwork.x",
+    "lines": 220,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerCards.x",
+    "lines": 61,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerControls.x",
+    "lines": 257,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerField.x",
+    "lines": 193,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerFooter.x",
+    "lines": 239,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerGestures.x",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerHeader.x",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerLyrics.x",
+    "lines": 490,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerMorph.x",
+    "lines": 257,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/PlayerScroll.x",
+    "lines": 36,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/Playlist.h",
+    "lines": 47,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistField.x",
+    "lines": 112,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistHeader.x",
+    "lines": 617,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistMenu.x",
+    "lines": 388,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Playlist/PlaylistRows.x",
+    "lines": 115,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/Search.h",
+    "lines": 22,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchCards.x",
+    "lines": 230,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchPage.x",
+    "lines": 165,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Search/SearchSections.x",
+    "lines": 213,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGGlowSwitch.h",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGGlowSwitch.m",
+    "lines": 268,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGModPage.h",
+    "lines": 84,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGModPage.m",
+    "lines": 712,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGOrderPage.h",
+    "lines": 16,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGOrderPage.m",
+    "lines": 178,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPage.h",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPage.m",
+    "lines": 47,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPageStyle.h",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPageStyle.m",
+    "lines": 222,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistBlock.h",
+    "lines": 23,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistBlock.m",
+    "lines": 69,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistBlockSettings.m",
+    "lines": 167,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistSkip.x",
+    "lines": 107,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "lines": 137,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.x",
+    "lines": 590,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsApply.h",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsFiles.m",
+    "lines": 169,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsLibraryPage.m",
+    "lines": 425,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsPage.h",
+    "lines": 22,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsPage.m",
+    "lines": 761,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsSettings.m",
+    "lines": 184,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPConvolver.h",
+    "lines": 37,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPConvolver.m",
+    "lines": 406,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPCrossfeed.m",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPCurveView.h",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPCurveView.m",
+    "lines": 567,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPDynamics.m",
+    "lines": 208,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPEffects.h",
+    "lines": 76,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPEngine.h",
+    "lines": 82,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPEngine.m",
+    "lines": 553,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPFilters.h",
+    "lines": 77,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPFilters.m",
+    "lines": 416,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPLiveprog.m",
+    "lines": 192,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPReverb.m",
+    "lines": 115,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/SGDSPTone.m",
+    "lines": 155,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Flags/FlagPages.m",
+    "lines": 51,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Flags/Flags.h",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Flags/Flags.x",
+    "lines": 66,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Flags/FlagsPage.m",
+    "lines": 165,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.h",
+    "lines": 48,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.x",
+    "lines": 141,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/GesturesSettings.m",
+    "lines": 240,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/GestureZones.m",
+    "lines": 98,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/ControlHaptics.x",
+    "lines": 245,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "lines": 75,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/HapticsSettings.m",
+    "lines": 76,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/MusicHaptics.x",
+    "lines": 562,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/SGFeedback.m",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/SGMusicAnalyzer.h",
+    "lines": 83,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/SGMusicAnalyzer.m",
+    "lines": 265,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.h",
+    "lines": 45,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.x",
+    "lines": 300,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivityBridge.swift",
+    "lines": 101,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivitySettings.m",
+    "lines": 25,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivityShared.swift",
+    "lines": 89,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.h",
+    "lines": 29,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.m",
+    "lines": 57,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.x",
+    "lines": 270,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtworkSettings.m",
+    "lines": 46,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGAppleArtwork.h",
+    "lines": 22,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGAppleArtwork.m",
+    "lines": 309,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGArtworkFile.h",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGArtworkFile.m",
+    "lines": 180,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGCanvas.h",
+    "lines": 18,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGCanvas.m",
+    "lines": 43,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenLyrics/LockScreenLyrics.h",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenLyrics/LockScreenLyrics.x",
+    "lines": 176,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/KaraokeSource.x",
+    "lines": 337,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/KaraokeTiming.m",
+    "lines": 249,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/Lyrics.h",
+    "lines": 116,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/LyricsSettings.m",
+    "lines": 35,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/Protobuf.h",
+    "lines": 23,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/Protobuf.m",
+    "lines": 120,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsMeanings/Meanings.h",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsMeanings/Meanings.m",
+    "lines": 288,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/BiniLyrics.m",
+    "lines": 73,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LrcLib.m",
+    "lines": 169,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsHook.x",
+    "lines": 611,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.h",
+    "lines": 132,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.m",
+    "lines": 529,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSourcesPage.m",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/Musixmatch.m",
+    "lines": 316,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/NetEase.m",
+    "lines": 145,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/SGTTML.m",
+    "lines": 356,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/Unison.m",
+    "lines": 64,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/Links.h",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/Links.x",
+    "lines": 110,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Navigation/PageTransition.x",
+    "lines": 69,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerEvents.h",
+    "lines": 11,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerEvents.x",
+    "lines": 49,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerSettings.h",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerSettings.m",
+    "lines": 19,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerState.h",
+    "lines": 25,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerState.x",
+    "lines": 98,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SGTimePitch.h",
+    "lines": 56,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SGTimePitch.m",
+    "lines": 182,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitch.h",
+    "lines": 28,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitch.x",
+    "lines": 454,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/SpeedPitchMenu.x",
+    "lines": 607,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Clutter.m",
+    "lines": 23,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.h",
+    "lines": 18,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.x",
+    "lines": 154,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/PrivacySettings.m",
+    "lines": 53,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/AlbumArtColorExtractor.swift",
+    "lines": 190,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/CarPlayCrashFix.x.swift",
+    "lines": 70,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/CleanShareLinks.x.swift",
+    "lines": 379,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/ClientMessagingPlatformBlocker.x.swift",
+    "lines": 196,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/DarkPopUps.x.swift",
+    "lines": 56,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/DataLoaderServiceHooks.x.swift",
+    "lines": 177,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Attribute.swift",
+    "lines": 99,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/BoolBox.swift",
+    "lines": 54,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/Box.swift",
+    "lines": 33,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/ChoiceBox.swift",
+    "lines": 42,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/DataBox.swift",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/DateBox.swift",
+    "lines": 100,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/DecimalBox.swift",
+    "lines": 63,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/DoubleBox.swift",
+    "lines": 50,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/FloatBox.swift",
+    "lines": 79,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/IntBox.swift",
+    "lines": 60,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/KeyedBox.swift",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/NullBox.swift",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/SharedBox.swift",
+    "lines": 36,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/SingleKeyedBox.swift",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/StringBox.swift",
+    "lines": 40,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/UIntBox.swift",
+    "lines": 63,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/UnkeyedBox.swift",
+    "lines": 20,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/URLBox.swift",
+    "lines": 45,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Box/ValueBox.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Element.swift",
+    "lines": 43,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/ElementAndAttribute.swift",
+    "lines": 44,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/ISO8601DateFormatter.swift",
+    "lines": 22,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/KeyedStorage.swift",
+    "lines": 83,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Metatypes.swift",
+    "lines": 32,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/String+Extensions.swift",
+    "lines": 53,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/Utils.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/XMLChoiceCodingKey.swift",
+    "lines": 60,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/XMLCoderElement.swift",
+    "lines": 449,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/XMLDocumentType.swift",
+    "lines": 66,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/XMLHeader.swift",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/XMLKey.swift",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Auxiliaries/XMLStackParser.swift",
+    "lines": 201,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/DecodingErrorExtension.swift",
+    "lines": 55,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/DynamicNodeDecoding.swift",
+    "lines": 45,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/SingleValueDecodingContainer.swift",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/XMLChoiceDecodingContainer.swift",
+    "lines": 106,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/XMLDecoder.swift",
+    "lines": 406,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/XMLDecoderImplementation.swift",
+    "lines": 498,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/XMLDecodingStorage.swift",
+    "lines": 53,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/XMLKeyedDecodingContainer.swift",
+    "lines": 418,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Decoder/XMLUnkeyedDecodingContainer.swift",
+    "lines": 233,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/DynamicNodeEncoding.swift",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/EncodingErrorExtension.swift",
+    "lines": 37,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/SingleValueEncodingContainer.swift",
+    "lines": 104,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLChoiceEncodingContainer.swift",
+    "lines": 209,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLEncoder.swift",
+    "lines": 446,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLEncoderImplementation.swift",
+    "lines": 293,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLEncodingStorage.swift",
+    "lines": 67,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLKeyedEncodingContainer.swift",
+    "lines": 268,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLReferencingEncoder.swift",
+    "lines": 131,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Dependencies/XMLCoder/Encoder/XMLUnkeyedEncodingContainer.swift",
+    "lines": 135,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeAdBlockerExtended.x.swift",
+    "lines": 440,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeCrossfadeForce.x.swift",
+    "lines": 32,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeFlex.x.swift",
+    "lines": 47,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveePremiumForce.x.swift",
+    "lines": 241,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/EeveeProbes.x.swift",
+    "lines": 321,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Experiments/Instagram/Models/Headers/SPTSharingSDKDestination.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Experiments/Instagram/ShowInstagramDestination.x.swift",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Experiments/LiveContainer/LiveContainerSharing.x.swift",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Experiments/Models/Settings/ExperimentsOptions+UserDefaults.swift",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Experiments/Models/Settings/ExperimentsOptions.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/FlagBrowserView.swift",
+    "lines": 188,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/FlagOverrideRow.swift",
+    "lines": 70,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "lines": 160,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlagsHooks.x.swift",
+    "lines": 112,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/SpotifyFeaturesView.swift",
+    "lines": 119,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/HttpClientURLSessionHooks.x.swift",
+    "lines": 161,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeAnimationCurve.swift",
+    "lines": 52,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeBackgroundShader.metal",
+    "lines": 89,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeBackgroundView.swift",
+    "lines": 122,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeCreditsFooterView.swift",
+    "lines": 60,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeFlowLayout.swift",
+    "lines": 116,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeFooterButton.x.swift",
+    "lines": 84,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeGestureTrigger.swift",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeGlass.swift",
+    "lines": 49,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeHooks.x.swift",
+    "lines": 170,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeLineView.swift",
+    "lines": 120,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeLyricsView.swift",
+    "lines": 135,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeLyricsViewModel.swift",
+    "lines": 87,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeMetalBackgroundView.swift",
+    "lines": 137,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokeOverlayPresenter.swift",
+    "lines": 69,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Karaoke/KaraokePlaybackTracker.swift",
+    "lines": 148,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/AppearanceSettingsView.swift",
+    "lines": 129,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/CoverBackdrop.swift",
+    "lines": 115,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassKit.swift",
+    "lines": 95,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassNowPlayingBar.x.swift",
+    "lines": 163,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassPlayer.x.swift",
+    "lines": 263,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassSearch.x.swift",
+    "lines": 173,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassTabBar.x.swift",
+    "lines": 426,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/GlassTransition.x.swift",
+    "lines": 101,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlass.x.swift",
+    "lines": 134,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "lines": 129,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassSettingsView.swift",
+    "lines": 75,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/NowPlayingBarConnect.x.swift",
+    "lines": 51,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/NowPlayingBarSettingsView.swift",
+    "lines": 65,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/PlayerSettingsView.swift",
+    "lines": 156,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/TabBarEditorView.swift",
+    "lines": 257,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/TabBarSettingsView.swift",
+    "lines": 192,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/TabIconStore.swift",
+    "lines": 42,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+AllTracksLyrics.x.swift",
+    "lines": 110,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+DisableReportButton.x.swift",
+    "lines": 57,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+HideOnError.x.swift",
+    "lines": 44,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+ScrollCrashFix.x.swift",
+    "lines": 23,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics+ShowAttributes.x.swift",
+    "lines": 102,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/CustomLyrics.x.swift",
+    "lines": 533,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/LyricsUncensorFill.swift",
+    "lines": 226,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Extensions/NowPlayingScrollDataSourceImplementation+Extension.swift",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Extensions/NowPlayingScrollViewController+Extension.swift",
+    "lines": 31,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Extensions/SPTPlayerTrack+Extension.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Extensions/String+IsLocalTrackIdentifierExtension.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusDataResponse.swift",
+    "lines": 27,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusHit.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusHitResult.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusLyrics.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusRootResponse.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusSection.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusSectionsResponse.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusSong.swift",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Genius/GeniusSongResponse.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/NowPlayingScrollDataSourceImplementation.swift",
+    "lines": 4,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/NowPlayingScrollViewController.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/NPVScrollViewController.swift",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/SPTNowPlayingBackgroundViewModel.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/SPTPlayerTrack.swift",
+    "lines": 12,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/StatefulPlayerImplementation.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Headers/__UIDiffableDataSource.swift",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/KaraokeLyricsDto+LineSynced.swift",
+    "lines": 44,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/KaraokeLyricsDto.swift",
+    "lines": 99,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/KaraokeLyricsStore.swift",
+    "lines": 78,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Lrclib/LrclibSong.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Lyrics.pb.swift",
+    "lines": 416,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsDto.swift",
+    "lines": 56,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsError.swift",
+    "lines": 34,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsLineDto.swift",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsLoadingState.swift",
+    "lines": 9,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsRomanizationStatus.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsSearchQuery.swift",
+    "lines": 9,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/LyricsTranslationDto.swift",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Musixmatch/MusixmatchSubtitle.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Musixmatch/MusixmatchTime.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Petit/PetitLyricsData.swift",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Petit/PetitLyricsLine.swift",
+    "lines": 12,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Petit/PetitLyricsType.swift",
+    "lines": 9,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Petit/PetitLyricsWord.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Petit/PetitResponse.swift",
+    "lines": 19,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Petit/PetitSong.swift",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/KaraokeOptions+UserDefaults.swift",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/KaraokeOptions.swift",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsColorOptions+UserDefaults.swift",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsColorOptions.swift",
+    "lines": 9,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsLaunchSource.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsOptions+UserDefaults.swift",
+    "lines": 17,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsOptions.swift",
+    "lines": 11,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsSource+UserDefaults.swift",
+    "lines": 19,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsSource.swift",
+    "lines": 35,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/SpicyLyricsKey+UserDefaults.swift",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/NowPlayingScrollViewControllerInstanceHook.x.swift",
+    "lines": 128,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Protocols/LyricsRepository.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Repositories/GeniusLyricsRepository.swift",
+    "lines": 171,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Repositories/LrclibLyricsRepository.swift",
+    "lines": 314,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Repositories/MusixmatchLyricsRepository.swift",
+    "lines": 297,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Repositories/PetitLyricsRepository.swift",
+    "lines": 137,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Repositories/SpicyLyricsJSON.swift",
+    "lines": 53,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Repositories/SpicyLyricsRepository.swift",
+    "lines": 379,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/V91TrackMetadataCapture.x.swift",
+    "lines": 42,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Misc/RatingPromptBlock.x.swift",
+    "lines": 41,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/OpenSpotify.x.swift",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/ArtistHides.x.swift",
+    "lines": 101,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/ArtistSettingsView.swift",
+    "lines": 33,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/BackgroundColorView.swift",
+    "lines": 192,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/GlassAlbum.x.swift",
+    "lines": 168,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/GlassArtist.x.swift",
+    "lines": 33,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/GlassHome.x.swift",
+    "lines": 46,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/GlassPlaylist.x.swift",
+    "lines": 485,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeDeclutter.x.swift",
+    "lines": 115,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeGradient.x.swift",
+    "lines": 390,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeSettingsView.swift",
+    "lines": 37,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PageLookup.swift",
+    "lines": 37,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PlaylistActionRow.swift",
+    "lines": 200,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PlaylistHides.x.swift",
+    "lines": 164,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/PlaylistSettingsView.swift",
+    "lines": 43,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/RoundedArtwork.x.swift",
+    "lines": 49,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "lines": 50,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerDeclutter.x.swift",
+    "lines": 221,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerExtrasOptions.swift",
+    "lines": 17,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerGestures.x.swift",
+    "lines": 186,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerHaptics.x.swift",
+    "lines": 116,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/DynamicPremium+ModifyBootstrap.x.swift",
+    "lines": 112,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/DynamicPremium+ModifyingFunctions.swift",
+    "lines": 596,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/DynamicPremium+PremiumPlanRow.swift",
+    "lines": 56,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/BrowsitaSectionStripper.swift",
+    "lines": 331,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/BundledConfigurationPolicy.swift",
+    "lines": 44,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/BundleHelper.swift",
+    "lines": 82,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/CasitaResponseProbe.swift",
+    "lines": 61,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/FullResetHelper.swift",
+    "lines": 144,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/OfflineHelper.swift",
+    "lines": 46,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/ServerSidedFeaturePolicy.swift",
+    "lines": 37,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/SpotifyResponsePatcher.swift",
+    "lines": 181,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/HubsAdBlocker.x.swift",
+    "lines": 159,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/LikedSongsEnabler.x.swift",
+    "lines": 52,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/EeveePatchType.swift",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/EeveePropertyReplacement.swift",
+    "lines": 20,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/Extensions/BootstrapMessage+Extension.swift",
+    "lines": 22,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/Extensions/UcsResponse+Extension.swift",
+    "lines": 13,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/Protobuf/Account.pb.swift",
+    "lines": 1334,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/Protobuf/PremiumPlanRow.pb.swift",
+    "lines": 133,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/Protobuf/SpotifyPlan.pb.swift",
+    "lines": 568,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/Protobuf/YourPremiumBadge.pb.swift",
+    "lines": 84,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Models/SpotifySessionDelegate.swift",
+    "lines": 23,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/ServerSidedReminder.x.swift",
+    "lines": 116,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/SiriNoPlayAsRadio.x.swift",
+    "lines": 32,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/TrackRowsEnabler.x.swift",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/TrueShuffle.x.swift",
+    "lines": 61,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "lines": 108,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SessionProtection.x.swift",
+    "lines": 394,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/EeveeSettings.x.swift",
+    "lines": 87,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/EeveeSettings91x.x.swift",
+    "lines": 80,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/EeveeSettingsUniversal.x.swift",
+    "lines": 478,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Models/Headers/SPTDisclosureAccessoryView.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Models/Headers/SPTSettingsTableViewCell.swift",
+    "lines": 5,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/AppIcon/Views/EeveeAppIconPickerView.swift",
+    "lines": 252,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Experiments/Views/EeveeExperimentsSettingsView.swift",
+    "lines": 39,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/Helpers/AnonymousTokenHelper.swift",
+    "lines": 65,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/Models/AnonymousTokenError.swift",
+    "lines": 4,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/Models/LrclibURLState.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/ViewModels/EeveeLyricsSettingsViewModel+setupBindings.swift",
+    "lines": 97,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/ViewModels/EeveeLyricsSettingsViewModel.swift",
+    "lines": 100,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/ViewModifiers/DynamicIconModifier.swift",
+    "lines": 26,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/Views/EeveeLyricsSettingsView+lyricsSourceSection.swift",
+    "lines": 161,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/Views/EeveeLyricsSettingsView+showMusixmatchTokenAlert.swift",
+    "lines": 50,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Lyrics/Views/EeveeLyricsSettingsView.swift",
+    "lines": 140,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Miscellaneous/Views/EeveeMiscellaneousSettingsView.swift",
+    "lines": 33,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/Patching/Views/EeveePatchingSettingsView.swift",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/SponsorBlock/Views/SponsorBlockAdvancedView.swift",
+    "lines": 134,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/SponsorBlock/Views/SponsorBlockHelpView.swift",
+    "lines": 76,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/SponsorBlock/Views/SponsorBlockSettingsView.swift",
+    "lines": 156,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/UI/Views/EeveeUISettingsView.swift",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/Design/EeveeStyle.swift",
+    "lines": 217,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Helpers/GitHubHelper.swift",
+    "lines": 44,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Models/EeveeContributor.swift",
+    "lines": 41,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Models/EeveeContributorSection.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Models/GitHubRelease.swift",
+    "lines": 4,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Models/GitHubUser.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Views/EeveeContributorsSheetView.swift",
+    "lines": 198,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Views/EeveeContributorView.swift",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/GitHub/Views/EeveeDevNoteView.swift",
+    "lines": 79,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/ViewModels/ImageViewModel.swift",
+    "lines": 52,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/ViewModifiers/ListRowSeparatorHidden.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/Views/ChevronRightView.swift",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/Views/ImageView.swift",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Shared/Views/SpacerView.swift",
+    "lines": 11,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/ViewControllers/EeveeSettingsViewController.swift",
+    "lines": 64,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/ViewControllers/SPTPageViewController.swift",
+    "lines": 20,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Views/CommonIssuesTipView.swift",
+    "lines": 54,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Views/EeveeSettingsVersionView.swift",
+    "lines": 78,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Views/EeveeSettingsView.swift",
+    "lines": 168,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/EeveeLog.swift",
+    "lines": 68,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/HookTargetHelper.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/LogHelper.swift",
+    "lines": 20,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/PerfMeter.swift",
+    "lines": 33,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/PopUpHelper.swift",
+    "lines": 58,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/URLSessionHelper.swift",
+    "lines": 62,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/WindowHelper.swift",
+    "lines": 71,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/CharacterSet+Extension.swift",
+    "lines": 9,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/Collection+Extension.swift",
+    "lines": 10,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/Color+Extension.swift",
+    "lines": 77,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/Data+Extension.swift",
+    "lines": 16,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/Dictionary+Extension.swift",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/Locale+Extension.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/String+Extension.swift",
+    "lines": 81,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/StringArray+Extension.swift",
+    "lines": 21,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UIColor+Extension.swift",
+    "lines": 23,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UIDevice+Extension.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UIView+Extension.swift",
+    "lines": 35,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/URL+Extension.swift",
+    "lines": 168,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "lines": 136,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncoreAttributedString.swift",
+    "lines": 16,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncoreAttributes.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncoreLabel.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncorePopUpDialog.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncorePopUpDialogModel.swift",
+    "lines": 11,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncorePopUpPresenter.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTEncoreTypeStyle.swift",
+    "lines": 6,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Headers/SPTURL.swift",
+    "lines": 8,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/UserDefaultPropertyWrapper.swift",
+    "lines": 24,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/VersionHookTarget.swift",
+    "lines": 7,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Helpers/SponsorBlockFormatters.swift",
+    "lines": 50,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Models/SponsorBlockHiddenStore.swift",
+    "lines": 42,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Models/SponsorBlockMySubmissionsStore.swift",
+    "lines": 83,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Models/SponsorBlockOptions+UserDefaults.swift",
+    "lines": 24,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Models/SponsorBlockOptions.swift",
+    "lines": 119,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Models/SponsorBlockSegment.swift",
+    "lines": 14,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Models/SponsorBlockVotedStore.swift",
+    "lines": 48,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockEpisodeSegmentsView.swift",
+    "lines": 230,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockPendingListView.swift",
+    "lines": 176,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockPendingSegment.swift",
+    "lines": 89,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockReporter.swift",
+    "lines": 176,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockReportingUI.swift",
+    "lines": 248,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockSubmitView.swift",
+    "lines": 237,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockAPI.swift",
+    "lines": 98,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockHash.swift",
+    "lines": 15,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockHooks.x.swift",
+    "lines": 55,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockOverlay.swift",
+    "lines": 264,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockSkipper.swift",
+    "lines": 548,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/SponsorBlockToast.swift",
+    "lines": 209,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "lines": 425,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellPopupBlocker.x.swift",
+    "lines": 202,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/UpsellServiceBlocker.x.swift",
+    "lines": 165,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotifyC/ColorSwap.m",
+    "lines": 154,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotifyC/EncoreBridge.m",
+    "lines": 158,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotifyC/include/Tweak.h",
+    "lines": 17,
+    "role": "Source file; not proof of runtime activation"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotifyC/Tweak.m",
+    "lines": 69,
+    "role": "Source file; not proof of runtime activation"
+  }
+]

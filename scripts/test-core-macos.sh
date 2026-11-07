@@ -2,7 +2,7 @@
 set -euo pipefail
 PROJECT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 node "$PROJECT_DIR/tools/check-source-conflicts.mjs"
-printf '%s\n' 'BUILD REVISION: chroma-core-v5-9188'
+printf '%s\n' 'BUILD REVISION: personal-v6-9190'
 git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || true
 shasum -a 256 "$PROJECT_DIR/Sources/Injection/USFeedHooks.m" "$PROJECT_DIR/Sources/Eevee/Feed/USEeveeFeedModule.swift"
 command -v xcrun >/dev/null 2>&1 || { printf '%s\n' 'Tests blocked: Xcode command line tools and macOS Foundation are required.' >&2; exit 1; }

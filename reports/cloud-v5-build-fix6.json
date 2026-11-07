@@ -1,0 +1,22 @@
+{
+  "logSHA256": "3a717e41f0e74e44da5a0782812f256eeb2709a2c937e9641cf1e7c0f18d7409",
+  "repository": "paht25/spotify_mod",
+  "commit": "8729d5860233f836a6b2cfcb112e1a6e7e3875f2",
+  "componentTestGroupsPassed": 9,
+  "previousTraitCallbackErrorAbsent": true,
+  "errors": [
+    "2026-11-07T14:53:29.6185040Z Sources/Redesigned/Library/LibraryRows.x:55:75: error: 'mainScreen' is deprecated: first deprecated in iOS 26.0 - Use a UIScreen instance found through context instead (i.e, view.window.windowScene.screen), or for properties like UIScreen.scale with trait equivalents, use a traitCollection found through context. [-Werror,-Wdeprecated-declarations]",
+    "2026-11-07T14:53:29.6195480Z Sources/Redesigned/Library/LibraryRows.x:55:75: error: 'mainScreen' is deprecated: first deprecated in iOS 26.0 - Use a UIScreen instance found through context instead (i.e, view.window.windowScene.screen), or for properties like UIScreen.scale with trait equivalents, use a traitCollection found through context. [-Werror,-Wdeprecated-declarations]",
+    "2026-11-07T14:53:29.6798540Z ##[error]Process completed with exit code 2."
+  ],
+  "fixedFiles": [
+    "Integration/Chroma/tweak/Sources/Redesigned/Library/LibraryRows.x",
+    "Integration/Chroma/tweak/Sources/Shared/AudioEffects/SGDSPCurveView.m",
+    "Integration/Chroma/tweak/Sources/Redesigned/Player/PlayerMorph.x"
+  ],
+  "mainScreenCallsRemainingInIntegratedTarget": 0,
+  "localLogosPreprocessing": "PASS for LibraryRows.x and PlayerMorph.x",
+  "localLayerCheck": "PASS",
+  "correctedAppleBuildVerified": false,
+  "runtimeVerified": false
+}

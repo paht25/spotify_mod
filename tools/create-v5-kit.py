@@ -6,7 +6,7 @@ import zipfile
 
 root = pathlib.Path(__file__).resolve().parents[1]
 trees = ['.github', 'Sources', 'Tests', 'scripts', 'tools', 'Resources', 'Licenses', 'Compatibility', 'Generated', 'Integration/Chroma']
-files = ['README.md', 'CHROMA-CORE-v5.vi.md', 'BUILD-ON-GITHUB.vi.md', 'BUILD-REVISION.txt', 'target.json', 'PRODUCT.md', 'DESIGN.md',
+files = ['README.md', 'CHROMA-CORE-v5.vi.md', 'BUILD-ON-GITHUB.vi.md', 'BUILD-REVISION.txt', 'target.json', 'PRODUCT.md', 'DESIGN.md', 'BUILD-FIX1.vi.md', 'reports/cloud-v5-build-fix1.json', 'BUILD-FIX2.vi.md', 'reports/cloud-v5-build-fix2.json', 'reports/conflict-preflight-verification.json', 'BUILD-FIX3.vi.md', 'BUILD-FIX4.vi.md', 'reports/cloud-v5-build-fix4.json', 'reports/fix4-application-verification.json', 'BUILD-FIX5.vi.md', 'reports/cloud-v5-build-fix5.json', 'BUILD-FIX6.vi.md', 'reports/cloud-v5-build-fix6.json',
          'reports/UNIFIED-v5-STATUS.md', 'reports/unified-source-audit.json', 'reports/ipa-header-tests.json',
          'reports/FEATURES.md', 'reports/VERIFICATION.md', 'reports/DEPENDENCIES.md', 'reports/host-verification.json', 'reports/workflow-v5-validation.json']
 selected = {root / f for f in files}

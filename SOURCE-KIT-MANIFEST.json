@@ -1,27 +1,23 @@
 {
-  "revision": "chroma-core-v5-9188",
+  "revision": "personal-v6-9190",
   "compiledArtifact": false,
+  "appleCompilationVerified": false,
   "runtimeVerified": false,
   "files": [
     {
       "path": ".github/workflows/build-core.yml",
-      "sha256": "85f6954907160b1e5c09d41b6d934ff7d15cf203766db6e7e8988ee0ab3488f4",
-      "bytes": 2554
+      "sha256": "47e3507e89f653b7998dc6bdf1e0b33422a076e3c8ca3cb7c8712cde64b544ed",
+      "bytes": 2875
     },
     {
       "path": "BUILD-ON-GITHUB.vi.md",
-      "sha256": "9019284dd4cde710c30c4b095294a3e4221515caaf277e26878d2b863e928b13",
-      "bytes": 990
+      "sha256": "d80c93c1e418a60600825b5d72f007f045817770bdfc70e91a1db5addad9fa78",
+      "bytes": 1022
     },
     {
       "path": "BUILD-REVISION.txt",
-      "sha256": "22ce6b8ec25748f86e97a2fc124c733db1223568ea6feefcd8a8954887d71088",
-      "bytes": 21
-    },
-    {
-      "path": "CHROMA-CORE-v5.vi.md",
-      "sha256": "b97559d99510f76e289fa64ea18c27c2490f5d609ac9f2830e56a0d435b7b009",
-      "bytes": 5596
+      "sha256": "4a201bb2f86e9c146f093c3bb7e096ca0454def168f8c167ac6a6202a16889be",
+      "bytes": 17
     },
     {
       "path": "Compatibility/Spotify-9.1.88-static.json",
@@ -30,18 +26,18 @@
     },
     {
       "path": "DESIGN.md",
-      "sha256": "1d7c5c687303813a462c3556de29bcd503d1ad7894b648db3c89a7b7b67e5ed1",
-      "bytes": 1619
+      "sha256": "ab00195e62d163c6b46f88f2d9d34e21cf577c7d7574090657dfabc7c2c4c6b1",
+      "bytes": 2611
     },
     {
       "path": "Generated/flag-extraction.json",
-      "sha256": "e235072828b6c7ef498cbff304dc2fc3e38abfd0e16695a1434de141649cc311",
-      "bytes": 246
+      "sha256": "e0afd7fd3ac1ca9a368f6e863b31532d236b146d86ea2c0d0798649c03e394f5",
+      "bytes": 333
     },
     {
       "path": "Generated/SGFlagList.m",
-      "sha256": "4f737428442ded10b22ab00b0f404edaedd51d49ce841f2e2649bfba69832cda",
-      "bytes": 228421
+      "sha256": "440c1cab0d50847444e9a8a7aaeef51c849f3b519035c68a3795405ef3a7c73b",
+      "bytes": 230945
     },
     {
       "path": "Integration/Chroma/AGENTS.md",
@@ -170,8 +166,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Makefile",
-      "sha256": "648ae4710341b2ef34336599790188440480131b36d3da3477b0422ba8d0afc3",
-      "bytes": 2730
+      "sha256": "45ed502f359fc464991fda3a3a7930be4ebc3e09d572638e807dd43d195e4291",
+      "bytes": 3019
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/About/About.h",
@@ -180,8 +176,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/About/AboutSettings.m",
-      "sha256": "b598176e7b9d7a11ec8c8123889c01a7882b8f21a1410e3d374de13c4889a20e",
-      "bytes": 3736
+      "sha256": "ea54fd4c643abed70100cb4a1a619562d6bbb26aa464f1f4f2058d99c0ad2fd3",
+      "bytes": 3276
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/About/Backup.m",
@@ -190,8 +186,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/About/Licenses.m",
-      "sha256": "87a7fc6cb0ba03a0ced694c4a5d898b7b022dfed2c1f5c63281195c1b846d6a5",
-      "bytes": 3281
+      "sha256": "4bc5438fc8392f63dc89bd326b246dc57e4a5fcce4778118d1d2aaf8c98f4a6a",
+      "bytes": 3861
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/About/Signing.m",
@@ -230,8 +226,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/ModSettings.x",
-      "sha256": "171933b2df592563b3a2b865316b8711936e04098cf2c1e3c194301b33d980c4",
-      "bytes": 12828
+      "sha256": "65f4a0b4e6a745b4dbcaa2a8aeaf9d7455d6942b26e85889fca9eeb8c96cbe87",
+      "bytes": 12354
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/Onboarding/Onboarding.h",
@@ -240,13 +236,13 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/Onboarding/Onboarding.x",
-      "sha256": "349b2666984284e23271ecd369501afc3173486e5bef440a30d905204497a5c1",
-      "bytes": 1056
+      "sha256": "8e41f0d3948176bd4c581702c32444fc0d4c20b83969eb6272ff0d16a4bb1fc5",
+      "bytes": 939
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/Onboarding/Tour.m",
-      "sha256": "91eba8b0d04822f1686e6b5de671e5ca1c865ca2314b4d02a6da8fc2de686db3",
-      "bytes": 16138
+      "sha256": "286277046e811b582962d22900f9904ff642106f442f100b424660938ca8f346",
+      "bytes": 14812
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/Pages.h",
@@ -255,13 +251,13 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/Pages.m",
-      "sha256": "e8468c559c143d03d09afc10800e1f0d99001ac188f6e77cce0ef53f4345d138",
-      "bytes": 6808
+      "sha256": "f0e0e0afdd96969ff9ac5a3d0025fc311c731d27d99a1a9894fb8aa442b273c8",
+      "bytes": 6929
     },
     {
       "path": "Integration/Chroma/tweak/Sources/App/UnifiedSettings.m",
-      "sha256": "03f3fc3dd0fe85409c4bd7d90f72c40dcca0ca13c5c677450d750075442492aa",
-      "bytes": 3416
+      "sha256": "138c9e795397b2151fbbf49d163652fae80677199f319f583dbea5136325b29f",
+      "bytes": 4138
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/SGBackdrop.h",
@@ -305,8 +301,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/SGLog.m",
-      "sha256": "a62aef47f610ce5615218311565d26e1bf83c3b5ec74c849b7de08949905a1a1",
-      "bytes": 1106
+      "sha256": "7e0b825a08ca25baa0c8cb20ce27647b4f23a0ccbbb643b334413299ac2ca22b",
+      "bytes": 1245
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/SGPrefs.h",
@@ -354,6 +350,16 @@
       "bytes": 3273
     },
     {
+      "path": "Integration/Chroma/tweak/Sources/Core/USAudioAdHooks.h",
+      "sha256": "8dd4a09100bdab2b3ae1f85fa38819bf5442471f6464754bc40c46b94218bb2f",
+      "bytes": 208
+    },
+    {
+      "path": "Integration/Chroma/tweak/Sources/Core/USAudioAdHooks.m",
+      "sha256": "2a6fc13bc5e4264d5633883520a8140d6e1e783312c33a80c406983793cbc28c",
+      "bytes": 4073
+    },
+    {
       "path": "Integration/Chroma/tweak/Sources/Core/USEeveeServices.h",
       "sha256": "9518402ec0b83d825cbc12f371945934ead296198e3d2fdcee52ac7eb0d8e0d7",
       "bytes": 69
@@ -384,6 +390,16 @@
       "bytes": 3736
     },
     {
+      "path": "Integration/Chroma/tweak/Sources/Core/USRuntimeInspection.h",
+      "sha256": "6729a542d8a3fd2130601db2f0d2ae2f7880fa1c752305036433137126242a93",
+      "bytes": 74
+    },
+    {
+      "path": "Integration/Chroma/tweak/Sources/Core/USRuntimeInspection.m",
+      "sha256": "a46d04d55725831f7c51caa6afe5a3dd5c62b28501f4005f33a533897e5531a6",
+      "bytes": 2269
+    },
+    {
       "path": "Integration/Chroma/tweak/Sources/Core/USRuntimeState.h",
       "sha256": "6d6f898b20f9a6df09cd4c1a60c8124346c3ffdceb56607a6190a58a24a3c1f9",
       "bytes": 227
@@ -395,8 +411,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/USUnifiedBoot.m",
-      "sha256": "f8ee14c19d484cf2d231e4332745c2f5f1bd4543fe78934528cf0b00f2aa517e",
-      "bytes": 1827
+      "sha256": "5c1929b300b3b9b2d77c118723c42b06a46949c76c9421b85f47fc7cb9481585",
+      "bytes": 1983
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/USUnifiedPreferences.h",
@@ -415,8 +431,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/USUnifiedTransport.m",
-      "sha256": "7b3e9d20962276a917ea15749919b7152a811a8f5fd31e6f988ea623921e9255",
-      "bytes": 5247
+      "sha256": "9feef593cab4fe8e3c1eb9b09140c367fe6d5a22c38ab7520b37213624f13972",
+      "bytes": 5703
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Core/USUtilityHooks.h",
@@ -785,8 +801,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRDownload.m",
-      "sha256": "b938179810155b11556c242e54eae72b712eaf2acdb90cbb26ebf3aba03e0e54",
-      "bytes": 16383
+      "sha256": "0dadc2844e6af907aee0a269d780d160aeff20b489a1aadfb292e5449bdf593b",
+      "bytes": 16547
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRedesign.h",
@@ -915,8 +931,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Library/LibraryRows.x",
-      "sha256": "d1b65b3db1925a8576f66c4c5a4eac3a4829490459068d903b275e4c58e04c3e",
-      "bytes": 4734
+      "sha256": "1cb5618b1679863fd43b8795e13f8ff88f7196d2c97aecf9b2a16a3cc13ac3ee",
+      "bytes": 4713
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Library/LibrarySearch.x",
@@ -1045,8 +1061,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Player/PlayerField.x",
-      "sha256": "57c5a25dc37ae59f41f06fdf120475773c2da957f2f227d08bf0b23e92e763ac",
-      "bytes": 9744
+      "sha256": "07a686f0149606f955497777236f84fc096644b0d25c7f7e12e306b58594e62a",
+      "bytes": 9826
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Player/PlayerFooter.x",
@@ -1070,8 +1086,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Player/PlayerMorph.x",
-      "sha256": "70248e5fc8096dd59c3ee325aaf58b7700426d1cb4dae76c2471b16395e7a702",
-      "bytes": 11913
+      "sha256": "d6e72741f9d0afe3a21341b3ed01ce074704ec2cf7cabf13513dc5187b5a0c34",
+      "bytes": 11979
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Redesigned/Player/PlayerScroll.x",
@@ -1140,8 +1156,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Settings/SGModPage.m",
-      "sha256": "04c2adb64fd265ed3581220929fe32db7d37cc5917218758cc06f678ef03ebc9",
-      "bytes": 30271
+      "sha256": "adf5ab744f44852d21414402aa2fdea3087ac56b9f3f59b0d3bb5e9f63686833",
+      "bytes": 30095
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Settings/SGOrderPage.h",
@@ -1255,8 +1271,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Shared/AudioEffects/SGDSPCurveView.m",
-      "sha256": "27510a5c37fb998ba9df90eb4ee8961e82d8fa20b922a9d27794c2cae3d9ddce",
-      "bytes": 23597
+      "sha256": "1b053f9cd15d59ec5fb3201674e2646ca9afb525b2d86fb3c04fbb78fe9b8c6b",
+      "bytes": 23876
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Shared/AudioEffects/SGDSPDynamics.m",
@@ -1325,8 +1341,8 @@
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Shared/Flags/SGFlagList.m",
-      "sha256": "4f737428442ded10b22ab00b0f404edaedd51d49ce841f2e2649bfba69832cda",
-      "bytes": 228421
+      "sha256": "440c1cab0d50847444e9a8a7aaeef51c849f3b519035c68a3795405ef3a7c73b",
+      "bytes": 230945
     },
     {
       "path": "Integration/Chroma/tweak/Sources/Shared/Gestures/Gestures.h",
@@ -1574,6 +1590,11 @@
       "bytes": 4334
     },
     {
+      "path": "Integration/Chroma/tweak/Sources/Shared/Player/AudioAdProductState.x",
+      "sha256": "19d9a39102d7673fd44bc325d42ebe86c14af3aab541e9067ba3209b3f4cec9a",
+      "bytes": 1371
+    },
+    {
       "path": "Integration/Chroma/tweak/Sources/Shared/Player/PlayerEvents.h",
       "sha256": "3b0e472d0ee0ca176343348ad515b69b7f03cef0e99eaa5263dfcdb36a036c59",
       "bytes": 693
@@ -1779,14 +1800,104 @@
       "bytes": 3218
     },
     {
+      "path": "PERSONAL-v6.vi.md",
+      "sha256": "503f38944a87da7f811097b0eac7fd874e1ca5c43606d056b355e38caa0849d6",
+      "bytes": 5028
+    },
+    {
       "path": "PRODUCT.md",
-      "sha256": "78036b46beea2b8d46db5e8bd87da2a2e60d80c243f4cff12792efd8f9181736",
-      "bytes": 1540
+      "sha256": "519679cb0183011d7bc1f5ac9c2af5b9f10d0608b9ff402e2b0389fbded120e2",
+      "bytes": 1961
     },
     {
       "path": "README.md",
-      "sha256": "df6793dd67135b98d82c2efc27dd75f9bc4992d2715f66ebabf390309100b9fe",
-      "bytes": 4310
+      "sha256": "986124dedb60796110c065b426bd11a58c41eb7c4d39590b2cedfd1210c058c1",
+      "bytes": 3237
+    },
+    {
+      "path": "reports/ARCHITECTURE.md",
+      "sha256": "9a8a8b7622c9b6a6675de20d3ae072bdb9fb0d6336a4aec5c6c3c0a17ee6240f",
+      "bytes": 5222
+    },
+    {
+      "path": "reports/binary/data-eve-strings.json",
+      "sha256": "bffd8bc6f7178b4208c893e3cbebec4c1f39330ce12d436ef127140541b75f05",
+      "bytes": 1419154
+    },
+    {
+      "path": "reports/binary/data-pw-strings.json",
+      "sha256": "fbb00a7bfa038a2c7fbdac4910fdfcc90a6fa2d42d259f98f2f15402b4424c56",
+      "bytes": 2612349
+    },
+    {
+      "path": "reports/binary/decoded-plists.json",
+      "sha256": "cba314afb2eab1846cf5dbdec305597dc7c22b64ad4f5eb530decb9449662d7b",
+      "bytes": 789509
+    },
+    {
+      "path": "reports/binary/duplicate-files.json",
+      "sha256": "d95f1a4cbae01ff832ebddf52b9de271561974a3f38ca92819b8c9af13b18b8e",
+      "bytes": 624
+    },
+    {
+      "path": "reports/binary/feature-candidates.json",
+      "sha256": "ef62792fc6d088b5bf0e27ff428af44b2cd5f049cc021407ad1933659c4439dc",
+      "bytes": 196221
+    },
+    {
+      "path": "reports/binary/inventory.json",
+      "sha256": "d2116ac7326cec85c4f482b34868e3221e86d32a8029d1d141c1c882571b422a",
+      "bytes": 13078
+    },
+    {
+      "path": "reports/binary/mach-o.json",
+      "sha256": "f65819de5b4cf598b87e8aa6b451d52aba02e1afbbaf31e3feab9d6ffb51e515",
+      "bytes": 2171099
+    },
+    {
+      "path": "reports/binary/shared-objc-candidates.json",
+      "sha256": "05e33581e0179abc070a9d7f5e1173df8548aec75d2d06acc8b71742f4eea7c8",
+      "bytes": 22906
+    },
+    {
+      "path": "reports/binary/summary.json",
+      "sha256": "180c10391052e7d791853da38aa44dcd517613542c728938c84e7c7e03f1f4a9",
+      "bytes": 153
+    },
+    {
+      "path": "reports/cloud-v5-build-fix1.json",
+      "sha256": "5971a3fa89d2feaef4a968cd44a7328e34d0acb37b39e6ec834020e9fbc0cdbd",
+      "bytes": 1960
+    },
+    {
+      "path": "reports/cloud-v5-build-fix2.json",
+      "sha256": "b07db15cae42a7a3261c50edcb10d14e4739d9da2c230ee95673bdda8aaed6e2",
+      "bytes": 1516
+    },
+    {
+      "path": "reports/cloud-v5-build-fix4.json",
+      "sha256": "86ef5eac2f906015cf915f43046d02402b8503198d90c1d7b5ef44db0a149bd4",
+      "bytes": 2306
+    },
+    {
+      "path": "reports/cloud-v5-build-fix5.json",
+      "sha256": "149f0a1326f3797171c58b2fe1c4859f847945e71665069d320340f54cdab26e",
+      "bytes": 1359
+    },
+    {
+      "path": "reports/cloud-v5-build-fix6.json",
+      "sha256": "9c2e03ea3d66e7bc1a5755f1d26dded2a8a08d823fd5c9563d710427d9d38d2c",
+      "bytes": 1616
+    },
+    {
+      "path": "reports/conflict-preflight-verification.json",
+      "sha256": "bb1d8ce3541f1e71089ea4c5bd27aaf80ab4a6377d61c8415feae8362c9c79d7",
+      "bytes": 140
+    },
+    {
+      "path": "reports/DEPENDENCIES-v6.md",
+      "sha256": "af2ab7d2e3da4e00e76c6e03c654bd1b7602626a65fe22173d4cb47d2358e0b5",
+      "bytes": 1830
     },
     {
       "path": "reports/DEPENDENCIES.md",
@@ -1795,8 +1906,18 @@
     },
     {
       "path": "reports/FEATURES.md",
-      "sha256": "1d9aaf8ae185f9c3bdebb6a9d772ddcca4c6b254e4e45b4fcbeb9f1fa4bbe76d",
-      "bytes": 12718
+      "sha256": "1dadbedea361b284d7bb54567067a00f7829c578c8186b7d6fef5eb50547f57f",
+      "bytes": 12775
+    },
+    {
+      "path": "reports/fix4-application-verification.json",
+      "sha256": "f87bd6aab5da30de7aedefe6a9127b8c2b38fda039115bd63572beed5bb23e01",
+      "bytes": 315
+    },
+    {
+      "path": "reports/fix5-rerun-diagnosis.json",
+      "sha256": "b0e0ba1e61b932cb5d0ce820521571f0e3791ba3918cbbe4d05c45acb623d8cb",
+      "bytes": 417
     },
     {
       "path": "reports/host-verification.json",
@@ -1804,29 +1925,104 @@
       "bytes": 444
     },
     {
+      "path": "reports/input-v6.json",
+      "sha256": "073d6081f79bc53b10ed61bc753e6582461e7cc1f13419280569ab0a1fcf7ad6",
+      "bytes": 1140
+    },
+    {
       "path": "reports/ipa-header-tests.json",
-      "sha256": "f4aaf8e0089615c4bc59846400da02616bc7d36fa8fad2373abe848c5f1ad601",
-      "bytes": 349
+      "sha256": "511522b872157bf3f5c92f7b85cef1243b73b963be60c4fb67f0882ee9c422c1",
+      "bytes": 916
+    },
+    {
+      "path": "reports/source/activation-evidence.json",
+      "sha256": "dda9f5c2e3d38d8c02483099443edb825d73ca3e728d40bb285eefc2c51bcb8d",
+      "bytes": 67153
+    },
+    {
+      "path": "reports/source/feature-verification.csv",
+      "sha256": "5a6c98f8330e55ab09ec4872c65f1faedb7cf4c29a6fd942faccca59fd1a54b4",
+      "bytes": 36765
+    },
+    {
+      "path": "reports/source/hook-declarations.json",
+      "sha256": "738e482d9243145c128469ae98f7974a128c6b1fbc74e3509b8e114ca559a642",
+      "bytes": 245831
+    },
+    {
+      "path": "reports/source/import-evidence.json",
+      "sha256": "934bef59c8f96fe1bb33b9f31e4b67f2cbf8b27f685c19929d08fe6b44ab970f",
+      "bytes": 192754
+    },
+    {
+      "path": "reports/source/settings-literals.json",
+      "sha256": "a450e093a9adcf75aa80a4a14430c070f78fcf19fb8ba8b2cfe03792da0435ce",
+      "bytes": 68412
+    },
+    {
+      "path": "reports/source/shared-hook-targets.csv",
+      "sha256": "b792cad3fd24ea287dac536c51e062eff2608eda69dac2489d3d0a3f08659f98",
+      "bytes": 27415
+    },
+    {
+      "path": "reports/source/shared-hook-targets.json",
+      "sha256": "587dcc3270c17a782de3845d5b55847c3752bab71ce3fb212a1b67358f72c16a",
+      "bytes": 50924
+    },
+    {
+      "path": "reports/source/source-files.json",
+      "sha256": "032be366e3d9032127fa71ddcea09b1d7c89dc95e969f12d73c4061870195a63",
+      "bytes": 109032
+    },
+    {
+      "path": "reports/source/summary.json",
+      "sha256": "5f09b20b5e408b6d103dc3606a952d7856ec3911637ece4de32213e102defbb8",
+      "bytes": 363
+    },
+    {
+      "path": "reports/target-v6-static.json",
+      "sha256": "75e268601c5b5cb5e5b20fdd5477675214cf0e796b79ce9e6f6ce9b8b0200cc7",
+      "bytes": 2725
+    },
+    {
+      "path": "reports/TRANSPORT-INTEGRATION.md",
+      "sha256": "bd4858ef24c5984d297c72310db6c4e55fbef0b7d92601273ee43551e962e349",
+      "bytes": 2884
     },
     {
       "path": "reports/unified-source-audit.json",
-      "sha256": "4eb76c303d23fcd9bc415fefc80020aedfda872eb48459614e2ef0d23c3697ca",
-      "bytes": 83702
+      "sha256": "5c355048dcc8de8e8baf1953c5ca4de7eb11078577cd37a59bc168c78530985c",
+      "bytes": 83692
     },
     {
       "path": "reports/UNIFIED-v5-STATUS.md",
-      "sha256": "47b6b279577744a86e5393449802c28929ddb9b8f144accabaa11e41f2d9e43f",
-      "bytes": 7423
+      "sha256": "11198010c9ba77d49cc3c8ba9dfa155f9f42251379bb4a684ad81583837ac135",
+      "bytes": 11437
+    },
+    {
+      "path": "reports/UNIFIED-v6-STATUS.md",
+      "sha256": "636136302d4d63e5009b6dbc538a6babaada79eb55179a82d106392a25cdb00a",
+      "bytes": 9654
+    },
+    {
+      "path": "reports/v5-kit-verification.json",
+      "sha256": "417ddf8f94822a755d27464e6bd5b6829a227be3d88b2d5b293e94b8d5f85ded",
+      "bytes": 320
+    },
+    {
+      "path": "reports/v6-local-verification.json",
+      "sha256": "c1c590c1de8b9a57463e5b5f960d1f85bad35ec76328363152b99da441ebd24d",
+      "bytes": 441
     },
     {
       "path": "reports/VERIFICATION.md",
-      "sha256": "cbe80a1e0231738016766d22f3c8849a6854f00bb1531da5825ea7feb67fb098",
-      "bytes": 10889
+      "sha256": "e7490ed912ef520c4403f0440c2dbbfa6dd1fb95bfb8bbde13de15a773147b49",
+      "bytes": 12196
     },
     {
       "path": "reports/workflow-v5-validation.json",
-      "sha256": "e77b695c00bed356592e07e971044d9837943778945097363fd65cac3551e5cc",
-      "bytes": 157
+      "sha256": "07526a8a90915586256a42774246f568e64ac94e8da0977491109781691a342d",
+      "bytes": 234
     },
     {
       "path": "Resources/Configuration/resolveconfiguration.bnk",
@@ -1844,9 +2040,14 @@
       "bytes": 365
     },
     {
+      "path": "Resources/HostInfo-9.1.90.plist",
+      "sha256": "f0915a85270b76ddbf7250fd3d1c5a7451068865dbc30a71251e585f39d4c4d7",
+      "bytes": 365
+    },
+    {
       "path": "scripts/build-core.sh",
-      "sha256": "ca27c6df864a2626910bb2b1d4e2082647474a430e54dbf95c2d72ef790808c2",
-      "bytes": 2442
+      "sha256": "77cdb9548143de2173499b91859b122301712f0e6488edfc7b68baf1997df949",
+      "bytes": 2495
     },
     {
       "path": "scripts/build-experimental.sh",
@@ -1860,18 +2061,18 @@
     },
     {
       "path": "scripts/build-unified.sh",
-      "sha256": "af1e55fefd9d6365fe5ba6f8babc64a6639ecd1b227a7e616678f478f44e36b7",
-      "bytes": 2105
+      "sha256": "3176ecf8244c418e82da7c585f23d39e9c4e94cf1a4ab24d0428dd02550db4ec",
+      "bytes": 2621
     },
     {
       "path": "scripts/test-composition-macos.sh",
-      "sha256": "2ed650f9a0e1620f58bd90b5551474e1af7b4d71c14c099b3d0e5f8cabad44fd",
-      "bytes": 1342
+      "sha256": "a4da9681fa3dce5a9881733fd517d477997974704c178e8c2cdfaa35aae09cc8",
+      "bytes": 1609
     },
     {
       "path": "scripts/test-core-macos.sh",
-      "sha256": "db9f7704ea41f15ec1f08dad728314977977d7ac5546ad2bbbcda36ab2ee6bc3",
-      "bytes": 4971
+      "sha256": "17bf94682699fa53895a3a2fb13f2d58b21b86096afd8e850027edee7bac8e44",
+      "bytes": 5021
     },
     {
       "path": "Sources/Chroma/Wire/Protobuf.h",
@@ -1965,7 +2166,7 @@
     },
     {
       "path": "Sources/Eevee/Premium/USPremiumModule.swift",
-      "sha256": "06905a64e4096f1f954b781ff87627881aa4e8e1dc7e73e13f1f324f44ff95ed",
+      "sha256": "e2af093cfff79e0faff77ad1543e9713397c4810164f06c8affa536b710a389a",
       "bytes": 3652
     },
     {
@@ -2035,8 +2236,13 @@
     },
     {
       "path": "target.json",
-      "sha256": "dbbafc30e0fe7579c85cd9482261ebf435275e46ed763866d0198e51ad4b9726",
-      "bytes": 1254
+      "sha256": "818f6b7daa70ff5f747d931d0231b1f5f15feafd2f34c3862cf3e47ec0bc9305",
+      "bytes": 1259
+    },
+    {
+      "path": "Tests/AudioAdHooksTests.m",
+      "sha256": "92310fc9b2034f61cd8472cbe6614cb7bb62e61d66690a1a51f21294cc5db3a9",
+      "bytes": 3843
     },
     {
       "path": "Tests/CompositionTests.m",
@@ -2065,8 +2271,8 @@
     },
     {
       "path": "Tests/ipa-header-tests.py",
-      "sha256": "6c1c58a64cbb5e13b6bc3c72c500e1070c60508d5a124aee7ebc541a16530cab",
-      "bytes": 2751
+      "sha256": "6dca5df669cc5e48da247c81289ad6a15ce382fc6c1f44ee3b96e3dbb75aec89",
+      "bytes": 3003
     },
     {
       "path": "Tests/Premium/main.swift",
@@ -2094,14 +2300,24 @@
       "bytes": 8094
     },
     {
+      "path": "tools/apply-clean-patch.mjs",
+      "sha256": "582f15e77b81476c2c041f33571312ee5aa5fa876f0aaffeb6748660e734128a",
+      "bytes": 4692
+    },
+    {
       "path": "tools/assemble-personal-ipa.py",
-      "sha256": "7f4e006a27836669546b8b5e9653bcd6e48c3952c05c7611148088c18c5f3b69",
-      "bytes": 11634
+      "sha256": "a72b2a1bc6a4140f38f3d6c389bc93242f8587463c5aa887e9b064a0f016cc4b",
+      "bytes": 11905
+    },
+    {
+      "path": "tools/audit-target-v6.mjs",
+      "sha256": "93a1cc43e1dd6abe2d8f1a606e2e42c80bed921f9bcfacec51d37b0fd8a40d45",
+      "bytes": 3511
     },
     {
       "path": "tools/audit-unified-source.mjs",
-      "sha256": "20694385370d1bf908e23ed35f7166b0a5f23b06c97df7394340c34657aefeda",
-      "bytes": 3291
+      "sha256": "dc9267004336ce136b5713564bc12c710cc2bbfbdb42c4f01b1a3803cee89f4d",
+      "bytes": 3435
     },
     {
       "path": "tools/binary-formats.mjs",
@@ -2109,9 +2325,19 @@
       "bytes": 4216
     },
     {
+      "path": "tools/check-source-conflicts.mjs",
+      "sha256": "b7e7ae61b16ce2c9758d3c2a869d386ce74aa7e4f577ad5f63a19c2fc40c344e",
+      "bytes": 1759
+    },
+    {
       "path": "tools/create-v5-kit.py",
-      "sha256": "09c034a4baebafafba3f76d1ef608677ec5817d62464ec0f532d05637c30f471",
-      "bytes": 2765
+      "sha256": "13e3073c494e77a12cc9aa3833041b63c4898496b2cee02dd252830506bb2790",
+      "bytes": 3159
+    },
+    {
+      "path": "tools/create-v6-kit.py",
+      "sha256": "d0d13259715988e3edca766ec02eadf918e91ace3184231e69c05ee0912fcbc3",
+      "bytes": 3087
     },
     {
       "path": "tools/deb-format.mjs",
@@ -2125,8 +2351,8 @@
     },
     {
       "path": "tools/generate-chroma-flags.py",
-      "sha256": "5b9f3b074dbb68021bf38599c90ac9c453d8e4816390d702f9c4daa0be59db1f",
-      "bytes": 4279
+      "sha256": "e2bd68b1b0a27515b053abf5f97b89739f9d2bc16f20bb1a645c6b7098cef445",
+      "bytes": 4575
     },
     {
       "path": "tools/index-ipa-objc.mjs",
@@ -2145,8 +2371,8 @@
     },
     {
       "path": "tools/package-unified.mjs",
-      "sha256": "a6fd09f50ad19da67bdd8d01267bdda2efa0519fb4b429ebd7f5ccb18262cee8",
-      "bytes": 4120
+      "sha256": "c8b6b2c062d4b67b5fb5ff39139fd900321e10055489ca55f831c18c862cb75f",
+      "bytes": 4293
     },
     {
       "path": "tools/prepare-provided-ipa-base.mjs",

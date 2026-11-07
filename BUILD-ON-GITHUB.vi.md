@@ -1,15 +1,11 @@
-# Build bản v5 trên GitHub từ Windows
+# Build v6 cho Spotify 9.1.90
 
-Hướng dẫn hiện tại: [CHROMA-CORE-v5.vi.md](CHROMA-CORE-v5.vi.md).
+Hướng dẫn đầy đủ: [PERSONAL-v6.vi.md](PERSONAL-v6.vi.md).
 
-1. Giải nén `chroma-core-v5-9188.zip`, upload nội dung vào root repo riêng `paht25/cloud`, giữ cấu trúc thư mục.
-2. Commit file `.github/workflows/build-core.yml` mới. Trong Actions chạy **Chroma source integration - v5-9188**.
-3. Chờ các test, build Chroma + Eevee đã tích hợp, extension và kiểm tra `.deb` thành công.
-4. Tải artifact **chroma-core-v5-9188-Sideloadly-test**.
-5. Dùng script assembly trong hướng dẫn để nhúng cả extension vào bản sao IPA NoEevee 9.1.88, rồi ký/cài bằng Sideloadly. Không inject lặp `.deb` vào IPA đã được script nhúng.
+1. Giải nén `personal-v6-9190-source.zip`, upload nội dung vào root repo private đang dùng, bao gồm `.github`, `Integration`, `Sources`, `Tests`, `scripts`, `tools`, `Resources`, `Generated` và hướng dẫn. Không upload IPA Spotify.
+2. Thay các tệp cùng đường dẫn bằng bản mới và commit trong một lần. Không ghép nội dung YAML/Swift cũ với bản mới.
+3. Actions → **Chroma source integration - v6-9190** → Run workflow → `main`. Chạy trên commit mới; Re-run job cũ dùng mã cũ.
+4. Sau khi tất cả bước thành công, tải artifact **personal-v6-9190-Sideloadly-test**.
+5. Theo hướng dẫn assembly tạo IPA mới có extension rồi ký bằng Sideloadly. Không inject thêm cùng `.deb`/dylib vào IPA đã assembly.
 
-<<<<<<< HEAD
-V5 chưa được Apple toolchain biên dịch/kiểm thử trong phiên này. Không có file `.deb` v5 được tạo giả. Chưa hoàn thành toàn bộ tính năng riêng của Eevee; xem [báo cáo chức năng](reports/UNIFIED-v5-STATUS.md).
-=======
-V5 chưa được Apple toolchain biên dịch/kiểm thử trong phiên này. Không có file `.deb` v5 được tạo giả. Chưa hoàn thành toàn bộ tính năng riêng của Eevee; xem [báo cáo chức năng](reports/UNIFIED-v5-STATUS.md).
->>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
+Bộ ZIP hiện tại là mã nguồn; kiểm tra Apple và quảng cáo âm thanh trên thiết bị chưa có kết quả cho v6.

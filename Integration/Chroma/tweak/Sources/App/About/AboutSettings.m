@@ -40,18 +40,12 @@ UIViewController *SGAboutPage(void) {
     reset.color = SGRed();
     NSString *spotify = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"] ?: @"unknown";
     // The row reads out where the build stands and opens the changelog of everything newer than it.
-    SGModRow *updates = SGPageRow(@"Updates", ^UIViewController *{ return SGUpdatePage(); });
-    updates.value = ^NSString *{ return SGUpdateStatus(); };
     return [[SGModPage alloc] initWithTitle:@"Mod" intro:nil sections:@[
         SGSection(nil, @[
-            updates,
-            SGStatRow(@"Version", ^NSString *{ return @(SG_VERSION); }),
+            SGStatRow(@"Version", ^NSString *{ return @"Personal v6"; }),
             SGStatRow(@"Spotify", ^NSString *{ return spotify; }),
         ]),
         SGSection(nil, @[
-            withSymbol(SGLinkRow(@"Website", nil, SGSiteURL), @"safari"),
-            withSymbol(SGLinkRow(@"Discord", nil, SGDiscordURL), @"bubble.left.and.bubble.right"),
-            withSymbol(SGLinkRow(@"GitHub", nil, SGRepoURL), @"chevron.left.forwardslash.chevron.right"),
             withSymbol(SGPageRow(@"Licenses", ^UIViewController *{ return SGLicensesPage(); }), @"doc.text"),
             withSymbol(SGActionRow(@"Welcome tour", nil, ^{ SGShowOnboarding(); }), @"map"),
         ]),

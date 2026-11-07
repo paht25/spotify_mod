@@ -1,5 +1,13 @@
 # Verification report
 
+## Supplied cloud log: v5 build fix2
+
+`logs_114798257368.zip` records commit `27c586269e139f8e31b9bc7fe7c97f478e479487`: CoreTests passed, then transport compilation stopped at committed Git conflict markers in both wire codec files. Fix2 supplies the known canonical Protobuf source/header, retains the earlier UI header fix and adds preflight scanning to the test/build scripts. Codec bytes match both the original Chroma checkout and the integrated Chroma source. Preflight passes on the local source and correctly rejects an unresolved-conflict fixture. Corrected cloud build and Spotify runtime remain unverified; no `.deb` success is inferred.
+
+## Supplied cloud log: v5 build fix1
+
+Log archive `logs_114796457459.zip` records successful core/transport/feed/delegate/sharing/premium/composition/service boundary tests and ARM64 core library compilation on Xcode/SDK 27.1, commit `9a63499e9585ceae0405883cb07f513d9ecd4593`. Full tweak compilation failed at an undeclared `SGTopController` call. The integrated source now imports its real header `Settings/SGPageStyle.h`. The corrected source still needs a new cloud run; no successful full dylib/extension/`.deb` build or device test is inferred. Evidence is recorded in `cloud-v5-build-fix1.json`; application instructions are in `BUILD-FIX1.vi.md`.
+
 ## Full Chroma source integration candidate v5
 
 Latest authored target includes all 278 original Chroma source files, composes Eevee feed/account transforms into Chroma's delegate ownership and ports selected Eevee service/True Shuffle/crossfade hooks. All 86 Logos sources passed actual preprocessing and the layer checker passes. See `UNIFIED-v5-STATUS.md` for full status, unported features, unexecuted Apple tests and signing/device requirements. No v5 Apple build, new `.deb`, install or runtime pass is claimed. Earlier sections describe earlier milestones.

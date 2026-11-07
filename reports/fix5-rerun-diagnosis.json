@@ -1,0 +1,9 @@
+{
+  "logSHA256": "9444d0ea6f22b450ace166d51f6a2de4030eed99fd65635770818b8566a49d63",
+  "builtCommit": "1732aa3f04744f5bc823080d5cc3906fb8604afa",
+  "sameCommitAsPreviousFailure": true,
+  "logStillShowsDeprecatedSuperCall": true,
+  "existingFix5ArchiveMatchesCorrectedLocalSource": true,
+  "conclusion": "This run did not build the fixed source; no new code change indicated",
+  "fixedBuildVerified": false
+}

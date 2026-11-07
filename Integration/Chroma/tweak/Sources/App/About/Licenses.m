@@ -33,8 +33,11 @@ UIViewController *SGLicensesPage(void) {
     SGModRow *mod = SGLinkRow(@"spoti.pw", @"PolyForm Strict License 1.0.0", [SGRepoURL stringByAppendingString:@"/blob/main/LICENSE"]);
     SGModRow *bs2b = SGLinkRow(@"libbs2b", @"Crossfeed · MIT License", @"https://github.com/alexmarsev/libbs2b");
     SGModRow *wdl = SGLinkRow(@"WDL", @"Liveprog's EEL2 · zlib License", @"https://github.com/justinfrankel/WDL");
+    SGModRow *eevee = SGLinkRow(@"EeveeSpotify Reincarnated", @"Adapted modules · GPL-3.0", @"https://github.com/SideloadLabs/EeveeSpotifyReincarnated/blob/d1da1d69715935e41d1dc97a25d11bcc42ebd170/LICENSE");
+    SGModRow *protobuf = SGLinkRow(@"SwiftProtobuf", @"Protocol buffer runtime license", @"https://github.com/apple/swift-protobuf/blob/1.29.0/LICENSE.txt");
     return [[SGModPage alloc] initWithTitle:@"Licenses" intro:@"The mod's own license, and the code from others it includes." sections:@[
         SGSection(nil, @[mod]),
+        SGNotedSection(nil, @[eevee, protobuf], @"This private build integrates modified upstream code. Full notices are included under UnifiedSpotifyLicenses in the assembled app and in the Debian package."),
         SGNotedSection(nil, @[bs2b], [@"Copyright (c) 2005 Boris Mikhaylov\n\n" stringByAppendingString:kMIT]),
         SGNotedSection(nil, @[wdl], [@"Copyright (C) 2004-2013 Cockos Incorporated\nCopyright (C) 1999-2003 Nullsoft, Inc.\n\n"
                                      stringByAppendingString:kZlib]),

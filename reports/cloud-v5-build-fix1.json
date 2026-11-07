@@ -1,0 +1,32 @@
+{
+  "logArchive": "logs_114796457459.zip",
+  "logSHA256": "90008e74650bc799db4903ebc2f86b65a0798d1fbbd00753df0be78ad0c88e6a",
+  "sourceCommit": "9a63499e9585ceae0405883cb07f513d9ecd4593",
+  "toolchain": "Xcode 27.1 (27A9275), iPhoneOS SDK 27.1",
+  "componentTests": {
+    "core": "PASS in supplied log",
+    "transportWire": "PASS in supplied log",
+    "eeveeFeed": "PASS in supplied log",
+    "feedIntegration": "PASS in supplied log",
+    "delegateHooks": "PASS in supplied log",
+    "sharing": "PASS in supplied log",
+    "premium": "PASS in supplied log",
+    "composition": "PASS in supplied log",
+    "serviceHooks": "PASS in supplied log"
+  },
+  "coreLibraryBuildEvidence": [
+    "2026-11-07T12:10:08.8632160Z Built /Users/runner/work/cloud/cloud/build/core-ios/libUnifiedSpotifyCore.a (core library; scripts/build-unified.sh builds the integrated rendering target)."
+  ],
+  "errors": [
+    "2026-11-07T12:10:37.9538340Z Sources/App/UnifiedSettings.m:24:31: error: call to undeclared function 'SGTopController'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]",
+    "2026-11-07T12:10:37.9540590Z Sources/App/UnifiedSettings.m:24:31: error: implicit conversion of 'int' to 'UIViewController *' is disallowed with ARC",
+    "2026-11-07T12:10:37.9542340Z Sources/App/UnifiedSettings.m:24:27: error: incompatible integer to pointer conversion initializing 'UIViewController *__strong' with an expression of type 'int' [-Wint-conversion]",
+    "2026-11-07T12:10:38.0139800Z ##[error]Process completed with exit code 2."
+  ],
+  "rootCause": "UnifiedSettings.m calls SGTopController without importing Settings/SGPageStyle.h",
+  "fix": "Import the actual declaring header; no replacement declaration, unsafe cast, or warning suppression",
+  "fixedSourceCloudRunVerified": false,
+  "fullDylibBuildVerified": false,
+  "debBuildVerified": false,
+  "spotifyRuntimeVerified": false
+}

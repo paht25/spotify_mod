@@ -17,15 +17,21 @@ codesign --force --sign - --timestamp=none "$OUT/spotifyglass.dylib"
 xcrun lipo -verify_arch arm64 "$OUT/spotifyglass.dylib"
 xcrun otool -L "$OUT/spotifyglass.dylib" > "$OUT/dependencies.txt"
 xcrun nm -g "$OUT/spotifyglass.dylib" > "$OUT/symbols.txt"
-for NAME in USAttachEeveeFeed USAttachEeveePremium USCleanSharedObject USUnifiedComplete; do
+for NAME in USAttachEeveeFeed USAttachEeveePremium USCleanSharedObject USUnifiedComplete USInstallAudioAdHooks; do
   awk -v symbol="_$NAME" '$NF == symbol && $(NF-1) != "U" { found=1 } END { exit !found }' "$OUT/symbols.txt" || {
     echo "Missing unified symbol: $NAME" >&2; exit 1;
   }
 done
-bash "$PROJECT_DIR/Integration/Chroma/scripts/build-extension.sh" "$PROJECT_DIR/Resources/HostInfo-9.1.88.plist" "$OUT/live-activity"
+bash "$PROJECT_DIR/Integration/Chroma/scripts/build-extension.sh" "$PROJECT_DIR/Resources/HostInfo-9.1.90.plist" "$OUT/live-activity"
 xcrun --sdk iphoneos clang -target arm64-apple-ios27.0 -dynamiclib -fobjc-arc -Os \
   -framework Foundation -framework Security -install_name @rpath/SpotifyGlassAppGroups.dylib \
   -o "$OUT/SpotifyGlassAppGroups.dylib" "$PROJECT_DIR/Integration/Chroma/extension/AppGroups/AppGroups.m"
 codesign --force --sign - --timestamp=none "$OUT/SpotifyGlassAppGroups.dylib"
+mkdir -p "$OUT/licenses"
+cp "$PROJECT_DIR/Integration/Chroma/LICENSE" "$OUT/licenses/Chroma-LICENSE.txt"
+cp "$PROJECT_DIR/Licenses/EeveeSpotify-GPL-3.0.txt" "$OUT/licenses/Eevee-COPYING.txt"
+cp "$PROJECT_DIR/build/core-ios/protobuf/SwiftProtobuf-LICENSE.txt" "$OUT/licenses/SwiftProtobuf-LICENSE.txt"
+cp "$PROJECT_DIR/Integration/Chroma/vendor/audio/libbs2b/COPYING" "$OUT/licenses/bs2b-COPYING.txt"
+cp "$PROJECT_DIR/Integration/Chroma/vendor/audio/wdl/LICENSE" "$OUT/licenses/WDL-LICENSE.txt"
 node "$PROJECT_DIR/tools/package-unified.mjs" "$OUT/spotifyglass.dylib"
 printf '%s\n' 'Built unified source candidate. This is not a device test or proof of full Eevee feature parity.'

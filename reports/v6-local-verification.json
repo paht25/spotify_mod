@@ -1,0 +1,16 @@
+{
+  "revision": "personal-v6-9190",
+  "pythonSyntax": "PASS",
+  "workflowYAMLUniqueKeys": "PASS",
+  "workflowTarget": "PASS",
+  "logosPreprocessing": {
+    "files": 87,
+    "result": "PASS"
+  },
+  "layerCheck": "PASS",
+  "sourceConflictPreflight": "PASS",
+  "appleCompilation": "NOT RUN: no local Xcode",
+  "newFoundationTests": "NOT RUN: pending Apple CI",
+  "deviceTest": "NOT RUN",
+  "compiledV6ArtifactProduced": false
+}

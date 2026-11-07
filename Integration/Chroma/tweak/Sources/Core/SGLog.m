@@ -1,4 +1,5 @@
 #import "SGLog.h"
+#import "USRuntimeState.h"
 
 // The unified log cuts a message at about 1 KB, so long dumps go out as numbered parts.
 void SGLogLong(NSString *tag, NSString *text) {
@@ -19,6 +20,7 @@ void SGLogLong(NSString *tag, NSString *text) {
 
 void SGRequireClasses(NSArray<NSString *> *names) {
     for (NSString *name in names) {
+        USStateSet([@"class." stringByAppendingString:name],NSClassFromString(name)?@"available":@"missing");
         if (!NSClassFromString(name)) SGLog(@"class %@ not found, its hooks are inactive", name);
     }
 }

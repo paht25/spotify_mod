@@ -1,0 +1,335 @@
+{
+  "data-pw": [
+    {
+      "path": "Library/MobileSubstrate/DynamicLibraries/spotifyglass.dylib",
+      "type": "file",
+      "bytes": 5675552,
+      "sha256": "0d8441d7eaaf4b120ccf9579c4e3cf321b60636eacf7f9e49088b96de2eb5829",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "Library/MobileSubstrate/DynamicLibraries/spotifyglass.plist",
+      "type": "file",
+      "bytes": 90,
+      "sha256": "2cbc4d64026d206e3f72dca69ed6dc985c9342f278dd97e5e873d0b8f45062d0",
+      "stagedCopyMatches": true
+    }
+  ],
+  "data-eve": [
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/ar-EG.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 36723,
+      "sha256": "e73fbb861f8c9b3698917ff61d9bf83c61bdacb03d61fe26665ae4e3c04ab883",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/az.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 36009,
+      "sha256": "e89d271d92a1e5d82de8f6583f9ad88b196995a3098a6a0f8c46794a7921881e",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/bg.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 37135,
+      "sha256": "dfa17237569323befc9f07a486a1315dad8106993450f69d1137a2eabb810316",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/ca.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 35973,
+      "sha256": "d2b6a5adc884ef08272eaf4cfab5b156423c6bc3b9290fdc868eabdba28cb408",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/da.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 32843,
+      "sha256": "22e03afb21caf9603b0d7e7c2306282a433c64b99e08b4a2a91344496ceaef89",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/de-CH.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 33107,
+      "sha256": "0558d44177d914269dd46629793b569959cc44f8c5afd049692c5dc39e4c62b3",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/de.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 34008,
+      "sha256": "b62704add9a817a1d47779abd2379b762d55755d53f383e2be1d63791506e9fe",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/EeveeLogo.png",
+      "type": "file",
+      "bytes": 23772,
+      "sha256": "d0ce3e1fb5ec1367c645b339c9b668195c10bbf62248cf2bc7a02dcddf107f3f",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/en.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 25812,
+      "sha256": "d361f8e7e6f75671be075f2dfdb8e9ee7eec7c455a4b226ea00261a26364e18b",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/es.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 35179,
+      "sha256": "e0a01b9018faf5b83bab4c4d79a6a4901b36098a5ff6af168afc227e9b3966b6",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/fa.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 40037,
+      "sha256": "00252d0bda07d5e8d0932d589236d0ceb8ee5c95ed5c5ede23d88d2bd8707f2b",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/fr.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 36227,
+      "sha256": "0f1c902b6e26cc81022cc89894db62a6f64a89812362f99ed0f07f468959735e",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/github.png",
+      "type": "file",
+      "bytes": 8639,
+      "sha256": "c92faffeb8714d6c4cdcfd98d6f80c06b9971af38de9bfcea483e35414c62356",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/hr.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 33913,
+      "sha256": "7c960d6026ef520bfcc1319e244ef106b8ef6c42fcc36faf6c4151334ec0d4c7",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/hu.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 37056,
+      "sha256": "52d7579884e2e0155cdbc7ef20b06fb3bd3bbae6149202bf4dcf94efa0b3e087",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/Info.plist",
+      "type": "file",
+      "bytes": 82,
+      "sha256": "66cf42f7499f353f3116f752ded3bb9423d460156a06a8c7823cd2951fe759bb",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/it.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 32821,
+      "sha256": "53771736b04dc21e8574d1938702d77f3d84bd684e0dc35e9a91a6330d09e0a8",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/ja.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 26036,
+      "sha256": "ae9c39e2ccf7b8d8c63b4889b0fab12668a4172bc49c75159266c78029df68a0",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/ko.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 26779,
+      "sha256": "0b2c83d17dee91909ef182419c91b499d27c1bb5e2146fcf1542cfcc7ab1c867",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/np.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 31571,
+      "sha256": "7ac34b28d97adc31af1a2afcc88fa9599b201371b27ab8b6fd9797adc20d92e1",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/pl.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 39896,
+      "sha256": "6b1e10fa9f28e2b973501ffbf0fdaffa747cad2b2caef8a672138ee9f2999879",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/pt-BR.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 33738,
+      "sha256": "c43f57870c87666f13237244d10ef094afb24e626a2d007bd2ddbef919aeb92e",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/pt.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 33994,
+      "sha256": "a1406797e9b1d9004b465d7e1683aea0f5940d460959e42937b8e6bbf446e2af",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/resolveconfiguration.bnk",
+      "type": "file",
+      "bytes": 79724,
+      "sha256": "67739d75cf86e7d48dcddac0a0a36d5ccc1317f9ef3605b9e5fb0bdc0dd49dc5",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/resolveconfiguration_9_1_76.bnk",
+      "type": "file",
+      "bytes": 99439,
+      "sha256": "6b3ca5af9c686c6899386fa3900d8306608d2d2093b30964eaba06742123907f",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/ro.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 35707,
+      "sha256": "8734fb052b928bac161891fffcb5119269213d449b8ea1be5338a33d107a794e",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/ru.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 36595,
+      "sha256": "71fd6ee7bae76578846551365fa374c49f9285dcf4e5f353d279fb428cdd8b70",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/tr.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 41084,
+      "sha256": "f3792df04762e06f773e6b9d629884be0ae138bb471eda41a0517b0d705a4a84",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/uk.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 36792,
+      "sha256": "0be91740c6ec748f112ca1d44bad9bebba83215a8e2a0eff15ea1ed7b2847b3e",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/vi.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 40401,
+      "sha256": "d572cbd75f3d759c800f85528cba71490ce7e7cfd3d386538b03f9d54fd3dba7",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/zh-CN.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 22337,
+      "sha256": "8e1507de54fe221302a764fd91a530373c4a66ab1541cb5581524f2565d9aa9c",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Application Support/EeveeSpotify.bundle/zh-TW.lproj/Localizable.strings",
+      "type": "file",
+      "bytes": 22239,
+      "sha256": "7e3fc6bdf84c64cd028a7d9462bb9b18db0e867ac38c92807cff680e1f7bc5be",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/EeveeSwiftProtobuf",
+      "type": "file",
+      "bytes": 5842992,
+      "sha256": "ab0ce0f4192ffa0b5510cc17af1d489e8c4efb35dee075b95efeb3e0a7583d69",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Info.plist",
+      "type": "file",
+      "bytes": 280,
+      "sha256": "dea45cd6c8337ff22cbba3349e7ed1bdc440057f9c9c228a8558ca544df03597",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.abi.json",
+      "type": "file",
+      "bytes": 5937573,
+      "sha256": "e5157c4b8d63843073eed7c45a393b52e018d3c2acae916e5cba73242bd51a2d",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftdoc",
+      "type": "file",
+      "bytes": 437752,
+      "sha256": "e3dfd5a059497a9b56ccbcabf6eff309ee86a063eedf9220d1c161b65f98156a",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftinterface",
+      "type": "file",
+      "bytes": 200038,
+      "sha256": "7a24abc408da484e33d407ca3bb5c7b486de60018e4cda8de2b81db2ec1e8870",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftmodule",
+      "type": "file",
+      "bytes": 1468568,
+      "sha256": "32a05716a667534eedd565e9b47834623c711052d0d8e5186d7037b87ee2d0c8",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.abi.json",
+      "type": "file",
+      "bytes": 5937573,
+      "sha256": "e5157c4b8d63843073eed7c45a393b52e018d3c2acae916e5cba73242bd51a2d",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.swiftdoc",
+      "type": "file",
+      "bytes": 437752,
+      "sha256": "13722628683f6a50b4f4f953a3056cec033409a22a3a474ab6b5fa6dc5fa39d6",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.swiftinterface",
+      "type": "file",
+      "bytes": 200039,
+      "sha256": "c3c9b274a20e11c5a3f1f9a091a37d1a0a79c26bff58c929ae769619814c2a23",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.swiftmodule",
+      "type": "file",
+      "bytes": 1468568,
+      "sha256": "9c3357cf871f187c335be7eefe4b84c8677458f852a309fd7f55a016c66d7a06",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/MobileSubstrate/DynamicLibraries/EeveeSpotify.dylib",
+      "type": "file",
+      "bytes": 4108944,
+      "sha256": "8997e5c946d702b062b4b2482e37e9675ef013e8fae951b8b0871f55a856cdb4",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/MobileSubstrate/DynamicLibraries/EeveeSpotify.plist",
+      "type": "file",
+      "bytes": 90,
+      "sha256": "2cbc4d64026d206e3f72dca69ed6dc985c9342f278dd97e5e873d0b8f45062d0",
+      "stagedCopyMatches": true
+    },
+    {
+      "path": "var/jb/Library/MobileSubstrate/DynamicLibraries/KaraokeBackgroundShader.metallib",
+      "type": "file",
+      "bytes": 11136,
+      "sha256": "95ee5f0c0bcbad1ff2f5a0e4aea1d3c21035fa77b7653d74a671aacc3a0cb1b6",
+      "stagedCopyMatches": true
+    }
+  ]
+}

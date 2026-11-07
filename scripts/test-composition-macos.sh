@@ -20,3 +20,7 @@ xcrun --sdk macosx clang -fobjc-arc -Wall -Wextra -Werror -I"$CORE" -framework F
   "$CORE/USEeveeServices.m" "$CORE/USHookRegistry.m" "$CORE/USRuntimeState.m" \
   "$PROJECT_DIR/Tests/ServiceHooksTests.m" -o "$OUT/ServiceHooksTests"
 "$OUT/ServiceHooksTests"
+xcrun --sdk macosx clang -fobjc-arc -Wall -Wextra -Werror -I"$CORE" -framework Foundation \
+  "$CORE/USAudioAdHooks.m" "$CORE/USHookRegistry.m" "$CORE/USRuntimeState.m" \
+  "$PROJECT_DIR/Tests/AudioAdHooksTests.m" -o "$OUT/AudioAdHooksTests"
+"$OUT/AudioAdHooksTests"

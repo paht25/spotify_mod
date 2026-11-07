@@ -23,7 +23,6 @@
 #import "Shared/AudioEffects/AudioEffectsPage.h"
 #import "Shared/LiveActivity/LiveActivity.h"
 #import "App/About/About.h"
-#import "App/Donate/Donate.h"
 #import "Pages.h"
 
 static const CGFloat kRowHeight = 56;
@@ -34,19 +33,14 @@ static SGModRow *pageRow(NSString *title, NSString *symbol, UIViewController *(^
 }
 
 static UIViewController *modSettingsPage(void) {
-    // Opening the page is the only thing that asks; the cache keeps it to once every six hours.
-    SGCheckForUpdate(NO);
     NSMutableArray<SGModSection *> *sections = [NSMutableArray array];
     [sections addObject:SGSection(@"Eevee integration",@[pageRow(@"Eevee patching & diagnostics",@"slider.horizontal.3",^UIViewController *{return USUnifiedSettingsPage();})])];
     // A build the lock screen cannot open leads the page, above the tweaks: it is the one thing here
     // that no switch can put right, and it is worth reading before anything else.
     SGModRow *signing = SGSigningWarningRow();
     if (signing) [sections addObject:SGSection(nil, @[signing])];
-    SGModRow *discord = SGWithSymbol(SGLinkRow(@"Join the Discord", @"Release pings, help and previews", SGDiscordURL), @"bubble.left.and.bubble.right.fill");
-    discord.color = SGDiscordColor();
-    [sections addObject:SGSection(nil, @[SGDonateRow(), discord])];
     SGModRow *mod = pageRow(@"Mod", @"info.circle", ^UIViewController *{ return SGAboutPage(); });
-    mod.value = ^NSString *{ return @(SG_VERSION); };
+    mod.value = ^NSString *{ return @"Personal v6"; };
     // The audio effects work on the sound, so both looks have them, with what they are doing beside the chevron.
     SGModRow *audioEffects = pageRow(@"Audio effects", @"slider.vertical.3", ^UIViewController *{ return SGDSPSettingsPage(); });
     audioEffects.value = ^NSString *{ return SGDSPSummary(); };
@@ -253,6 +247,4 @@ static BOOL isSettingsRoot(UIViewController *list) {
     SGRequireClasses(@[@"_TtC21Settings_PlatformImpl26SettingsListViewController", @"_TtC23SideDrawer_ListPageImpl18ListViewController"]);
     SGRegisterPages();
     SGCheckSigningOnce();
-    SGWatchForUpdates();
-    SGWatchForDonate();
 }

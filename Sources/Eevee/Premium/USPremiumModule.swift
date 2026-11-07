@@ -9,7 +9,7 @@ extension UserDefaults {
 final class BundleHelper {
     static let shared = BundleHelper()
     func resolveConfiguration() throws -> ResolveConfiguration {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "9.1.88"
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "9.1.90"
         let name = BundledConfigurationPolicy.resourceName(for: version)
         let bytes = name == "resolveconfiguration_9_1_76" ? USConfigurationData.modern : USConfigurationData.legacy
         return try ResolveConfiguration(serializedBytes: bytes)

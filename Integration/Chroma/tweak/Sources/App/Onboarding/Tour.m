@@ -3,7 +3,6 @@
 #import "Onboarding.h"
 #import "App/About/About.h"
 #import "App/Pages.h"
-#import "App/Donate/Donate.h"
 
 static const CGFloat kMargin = 24;
 static const CGFloat kCardRadius = 22;
@@ -164,7 +163,7 @@ static UIButton *glassButton(NSString *title) {
     UIImageView *icon = SGSymbolView(@"exclamationmark.triangle.fill", 15, UIImageSymbolWeightSemibold, 22);
     icon.tintColor = UIColor.systemYellowColor;
     UILabel *text = [UILabel new];
-    text.text = @"The redesign is a beta. Expect lags, freezes and bugs, and if you find one, please report it.";
+    text.text = @"This private build needs device testing. Change the look in Appearance and restart Spotify.";
     text.font = [UIFont systemFontOfSize:13];
     text.textColor = SGGrey();
     text.numberOfLines = 0;
@@ -173,21 +172,7 @@ static UIButton *glassButton(NSString *title) {
     line.alignment = UIStackViewAlignmentTop;
     line.spacing = 10;
 
-    UIButton *(^link)(NSString *, CGFloat, NSString *) = ^UIButton *(NSString *title, CGFloat lead, NSString *url) {
-        UIButtonConfiguration *config = [UIButtonConfiguration plainButtonConfiguration];
-        config.contentInsets = NSDirectionalEdgeInsetsMake(4, lead, 4, 0);
-        config.baseForegroundColor = SGGreen();
-        config.attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold]}];
-        return [UIButton buttonWithConfiguration:config primaryAction:[UIAction actionWithHandler:^(UIAction *action) {
-            SGOpenURL(url);
-        }]];
-    };
-    UIStackView *links = [[UIStackView alloc] initWithArrangedSubviews:@[
-        link(@"Report a bug", 32, [SGRepoURL stringByAppendingString:@"/issues"]),
-        link(@"Ask on Discord", 16, SGDiscordURL),
-    ]];
-
-    UIStackView *note = [[UIStackView alloc] initWithArrangedSubviews:@[line, links]];
+    UIStackView *note = [[UIStackView alloc] initWithArrangedSubviews:@[line]];
     note.axis = UILayoutConstraintAxisVertical;
     note.alignment = UIStackViewAlignmentLeading;
     note.spacing = 2;
@@ -320,7 +305,6 @@ static UIButton *glassButton(NSString *title) {
 }
 
 - (void)finish {
-    SGDonateAfterTour(self.needsRestart);
     SGSetEnabled(SGKeyOnboardingSeen, YES);
     SGSetRedesignedUI(_redesigned.selected);
     if (self.needsRestart) {

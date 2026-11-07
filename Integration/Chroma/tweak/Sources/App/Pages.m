@@ -18,9 +18,10 @@
 #import "Redesigned/NowPlayingBar/NowPlayingBar.h"
 #import "Redesigned/Kit/SGRAccent.h"
 
-NSString *const SGRedesignedUIInfo = @"The newest version of spoti.pw, leaning towards Apple Music's style. It is not compatible with the legacy look's settings.\n\nThe legacy look gives you more freedom, yet still looks like Spotify.";
+NSString *const SGRedesignedUIInfo = @"Liquid Glass player, navigation and lyrics. Restart Spotify after changing the look. Each look keeps its own visual settings.";
 
 void SGSetRedesignedUI(BOOL on) {
+    if(on)[NSUserDefaults.standardUserDefaults removeObjectForKey:SGKeyStock];
     SGSetEnabled(SGKeyRedesign, on);
 }
 
@@ -54,7 +55,7 @@ SGModSection *SGAppearanceSection(void) {
         [rows addObjectsFromArray:SGNativeAppearanceRows()];
         return SGNotedSection(@"Appearance", rows, @"Changes apply after you restart Spotify.");
     }
-    SGModRow *redesign = SGOptionRow(@"Redesigned UI", nil, SGKeyRedesign);
+    SGModRow *redesign = SGSwitchRow(@"Redesigned UI", nil, SGKeyRedesign);
     redesign.glows = YES;
     redesign.info = SGRedesignedUIInfo;
     redesign.changed = ^(BOOL on) {
@@ -62,6 +63,7 @@ SGModSection *SGAppearanceSection(void) {
         offerRestart(on);
     };
     NSMutableArray<SGModRow *> *rows = [NSMutableArray arrayWithObject:SGWithSymbol(redesign, @"sparkles")];
+    [rows addObject:SGStatRow(@"Active look",^NSString *{return SGRedesignedUI()?@"Redesigned":@"Native";})];
     [rows addObjectsFromArray:SGRedesignedUIStored() ? SGRAppearanceRows() : SGNativeAppearanceRows()];
     return SGNotedSection(@"Appearance", rows, @"Changes apply after you restart Spotify.");
 }

@@ -1,18 +1,18 @@
 {
-  "revision": "chroma-core-v5-9188",
+  "revision": "personal-v6-9190",
   "originalChromaFiles": 278,
   "missingChromaFiles": 0,
-  "logosSources": 86,
-  "unchangedChromaFiles": 189,
-  "modifiedChromaFiles": 89,
+  "logosSources": 87,
+  "unchangedChromaFiles": 182,
+  "modifiedChromaFiles": 96,
   "allOriginalChromaSourceIncluded": true,
   "fullEeveeParity": false,
   "appleCompilationTested": false,
   "runtimeFeaturesTested": 0,
   "flags": {
-    "keys": 2496,
-    "typed": 2306,
-    "unknown": 190
+    "keys": 2523,
+    "typed": 2361,
+    "unknown": 162
   },
   "serviceEvidence": [
     {
@@ -22,14 +22,14 @@
         {
           "selector": "recommendationIsBeingAddedWithTrackID:",
           "encoding": "B24@0:8@16",
-          "implementationVM": "102b691e8",
-          "implementationFileOffset": 45519336
+          "implementationVM": "1027eccb4",
+          "implementationFileOffset": 41864372
         },
         {
           "selector": "checkRecommendationsEnabled",
           "encoding": "B16@0:8",
-          "implementationVM": "10062b954",
-          "implementationFileOffset": 6469972
+          "implementationVM": "1005ccb0c",
+          "implementationFileOffset": 6081292
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -41,14 +41,14 @@
         {
           "selector": "setAudioCrossfade:",
           "encoding": "v20@0:8B16",
-          "implementationVM": "107876c88",
-          "implementationFileOffset": 126315656
+          "implementationVM": "106ea646c",
+          "implementationFileOffset": 116024428
         },
         {
           "selector": "setAudioCrossfadeTime:",
           "encoding": "v24@0:8q16",
-          "implementationVM": "105f12584",
-          "implementationFileOffset": 99689860
+          "implementationVM": "10575c274",
+          "implementationFileOffset": 91603572
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -60,8 +60,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "10207dd6c",
-          "implementationFileOffset": 34069868
+          "implementationVM": "101df63c0",
+          "implementationFileOffset": 31417280
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -73,8 +73,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "101004c60",
-          "implementationFileOffset": 16796768
+          "implementationVM": "100ed6bf4",
+          "implementationFileOffset": 15559668
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -86,8 +86,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "103085424",
-          "implementationFileOffset": 50877476
+          "implementationVM": "102c829f8",
+          "implementationFileOffset": 46672376
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -111,8 +111,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "100d65194",
-          "implementationFileOffset": 14045588
+          "implementationVM": "100c6c3d4",
+          "implementationFileOffset": 13026260
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -124,8 +124,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "1047f3d38",
-          "implementationFileOffset": 75447608
+          "implementationVM": "104206bf4",
+          "implementationFileOffset": 69233652
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -197,8 +197,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "1079d47fc",
-          "implementationFileOffset": 127748092
+          "implementationVM": "106fe448c",
+          "implementationFileOffset": 117326988
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -222,8 +222,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "1041ddd8c",
-          "implementationFileOffset": 69066124
+          "implementationVM": "103c6f110",
+          "implementationFileOffset": 63369488
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -235,8 +235,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "1011f7e38",
-          "implementationFileOffset": 18841144
+          "implementationVM": "1010a0964",
+          "implementationFileOffset": 17434980
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -248,8 +248,8 @@
         {
           "selector": "load",
           "encoding": "v16@0:8",
-          "implementationVM": "10161a5f4",
-          "implementationFileOffset": 23176692
+          "implementationVM": "10146f0f8",
+          "implementationFileOffset": 21426424
         }
       ],
       "caveat": "Own metadata only; inherited/category/lazy runtime methods need on-device inspection"
@@ -265,7 +265,7 @@
     {
       "file": "App/About/AboutSettings.m",
       "originalSHA256": "16eb749945e7686130d842a2c5d8aea9b1d7ff2b5bcf85752cab1077ff4fd0aa",
-      "integratedSHA256": "b598176e7b9d7a11ec8c8123889c01a7882b8f21a1410e3d374de13c4889a20e",
+      "integratedSHA256": "ea54fd4c643abed70100cb4a1a619562d6bbb26aa464f1f4f2058d99c0ad2fd3",
       "changed": true
     },
     {
@@ -277,8 +277,8 @@
     {
       "file": "App/About/Licenses.m",
       "originalSHA256": "87a7fc6cb0ba03a0ced694c4a5d898b7b022dfed2c1f5c63281195c1b846d6a5",
-      "integratedSHA256": "87a7fc6cb0ba03a0ced694c4a5d898b7b022dfed2c1f5c63281195c1b846d6a5",
-      "changed": false
+      "integratedSHA256": "4bc5438fc8392f63dc89bd326b246dc57e4a5fcce4778118d1d2aaf8c98f4a6a",
+      "changed": true
     },
     {
       "file": "App/About/Signing.m",
@@ -325,7 +325,7 @@
     {
       "file": "App/ModSettings.x",
       "originalSHA256": "9f27e87e806415fffda3ba6884abd84df8f7eb14eee4694ea254201732722eb5",
-      "integratedSHA256": "171933b2df592563b3a2b865316b8711936e04098cf2c1e3c194301b33d980c4",
+      "integratedSHA256": "65f4a0b4e6a745b4dbcaa2a8aeaf9d7455d6942b26e85889fca9eeb8c96cbe87",
       "changed": true
     },
     {
@@ -337,14 +337,14 @@
     {
       "file": "App/Onboarding/Onboarding.x",
       "originalSHA256": "6edd307a60d2ee9b090da0c4b222f9cd635d86863cf71ec6943fb1dfc9f5daa5",
-      "integratedSHA256": "349b2666984284e23271ecd369501afc3173486e5bef440a30d905204497a5c1",
+      "integratedSHA256": "8e41f0d3948176bd4c581702c32444fc0d4c20b83969eb6272ff0d16a4bb1fc5",
       "changed": true
     },
     {
       "file": "App/Onboarding/Tour.m",
       "originalSHA256": "91eba8b0d04822f1686e6b5de671e5ca1c865ca2314b4d02a6da8fc2de686db3",
-      "integratedSHA256": "91eba8b0d04822f1686e6b5de671e5ca1c865ca2314b4d02a6da8fc2de686db3",
-      "changed": false
+      "integratedSHA256": "286277046e811b582962d22900f9904ff642106f442f100b424660938ca8f346",
+      "changed": true
     },
     {
       "file": "App/Pages.h",
@@ -355,8 +355,8 @@
     {
       "file": "App/Pages.m",
       "originalSHA256": "e8468c559c143d03d09afc10800e1f0d99001ac188f6e77cce0ef53f4345d138",
-      "integratedSHA256": "e8468c559c143d03d09afc10800e1f0d99001ac188f6e77cce0ef53f4345d138",
-      "changed": false
+      "integratedSHA256": "f0e0e0afdd96969ff9ac5a3d0025fc311c731d27d99a1a9894fb8aa442b273c8",
+      "changed": true
     },
     {
       "file": "Core/SGBackdrop.h",
@@ -409,8 +409,8 @@
     {
       "file": "Core/SGLog.m",
       "originalSHA256": "a62aef47f610ce5615218311565d26e1bf83c3b5ec74c849b7de08949905a1a1",
-      "integratedSHA256": "a62aef47f610ce5615218311565d26e1bf83c3b5ec74c849b7de08949905a1a1",
-      "changed": false
+      "integratedSHA256": "7e0b825a08ca25baa0c8cb20ce27647b4f23a0ccbbb643b334413299ac2ca22b",
+      "changed": true
     },
     {
       "file": "Core/SGPrefs.h",
@@ -895,8 +895,8 @@
     {
       "file": "Redesigned/Kit/SGRDownload.m",
       "originalSHA256": "b938179810155b11556c242e54eae72b712eaf2acdb90cbb26ebf3aba03e0e54",
-      "integratedSHA256": "b938179810155b11556c242e54eae72b712eaf2acdb90cbb26ebf3aba03e0e54",
-      "changed": false
+      "integratedSHA256": "0dadc2844e6af907aee0a269d780d160aeff20b489a1aadfb292e5449bdf593b",
+      "changed": true
     },
     {
       "file": "Redesigned/Kit/SGRedesign.h",
@@ -1051,7 +1051,7 @@
     {
       "file": "Redesigned/Library/LibraryRows.x",
       "originalSHA256": "80ac44c410c99d48d28bd3e87499e7987356479fd45b5bd84aeed46c3a2b0cc2",
-      "integratedSHA256": "d1b65b3db1925a8576f66c4c5a4eac3a4829490459068d903b275e4c58e04c3e",
+      "integratedSHA256": "1cb5618b1679863fd43b8795e13f8ff88f7196d2c97aecf9b2a16a3cc13ac3ee",
       "changed": true
     },
     {
@@ -1207,7 +1207,7 @@
     {
       "file": "Redesigned/Player/PlayerField.x",
       "originalSHA256": "2090fb08a381065fedc96418a1adf69f94506173e97893462afbb5cbba1165b5",
-      "integratedSHA256": "57c5a25dc37ae59f41f06fdf120475773c2da957f2f227d08bf0b23e92e763ac",
+      "integratedSHA256": "07a686f0149606f955497777236f84fc096644b0d25c7f7e12e306b58594e62a",
       "changed": true
     },
     {
@@ -1237,7 +1237,7 @@
     {
       "file": "Redesigned/Player/PlayerMorph.x",
       "originalSHA256": "ac1d6a2d16d16425ce607b182b1ece21e11d93719dfe904802ec1c1927e812b2",
-      "integratedSHA256": "70248e5fc8096dd59c3ee325aaf58b7700426d1cb4dae76c2471b16395e7a702",
+      "integratedSHA256": "d6e72741f9d0afe3a21341b3ed01ce074704ec2cf7cabf13513dc5187b5a0c34",
       "changed": true
     },
     {
@@ -1321,8 +1321,8 @@
     {
       "file": "Settings/SGModPage.m",
       "originalSHA256": "04c2adb64fd265ed3581220929fe32db7d37cc5917218758cc06f678ef03ebc9",
-      "integratedSHA256": "04c2adb64fd265ed3581220929fe32db7d37cc5917218758cc06f678ef03ebc9",
-      "changed": false
+      "integratedSHA256": "adf5ab744f44852d21414402aa2fdea3087ac56b9f3f59b0d3bb5e9f63686833",
+      "changed": true
     },
     {
       "file": "Settings/SGOrderPage.h",
@@ -1459,8 +1459,8 @@
     {
       "file": "Shared/AudioEffects/SGDSPCurveView.m",
       "originalSHA256": "27510a5c37fb998ba9df90eb4ee8961e82d8fa20b922a9d27794c2cae3d9ddce",
-      "integratedSHA256": "27510a5c37fb998ba9df90eb4ee8961e82d8fa20b922a9d27794c2cae3d9ddce",
-      "changed": false
+      "integratedSHA256": "1b053f9cd15d59ec5fb3201674e2646ca9afb525b2d86fb3c04fbb78fe9b8c6b",
+      "changed": true
     },
     {
       "file": "Shared/AudioEffects/SGDSPDynamics.m",

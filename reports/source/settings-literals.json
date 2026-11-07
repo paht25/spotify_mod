@@ -1,0 +1,2266 @@
+[
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/About.h",
+    "line": 47,
+    "key": "spotifyglass.update.notice",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 10,
+    "key": "spotifyglass.adblock.counts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 10,
+    "key": "spotifyglass.privacy.counts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 10,
+    "key": "spotifyglass.update.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 11,
+    "key": "spotifyglass.signing.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 11,
+    "key": "spotifyglass.onboarding.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 11,
+    "key": "spotifyglass.navbar.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Backup.m",
+    "line": 12,
+    "key": "spotifyglass.redesign.navbar.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Signing.m",
+    "line": 17,
+    "key": "spotifyglass.signing.warned",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Update.m",
+    "line": 14,
+    "key": "spotifyglass.update.checked.notification",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Update.m",
+    "line": 16,
+    "key": "spotifyglass.update.checked",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/Update.m",
+    "line": 17,
+    "key": "spotifyglass.update.releases",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/About/UpdateNotice.m",
+    "line": 11,
+    "key": "spotifyglass.update.told",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/App/Onboarding/Onboarding.h",
+    "line": 7,
+    "key": "spotifyglass.onboarding.seen",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGPrefs.h",
+    "line": 9,
+    "key": "spotifyglass.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGPrefs.m",
+    "line": 31,
+    "key": "spotifyglass.flag.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Core/SGUIMode.h",
+    "line": 12,
+    "key": "spotifyglass.redesign",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 65,
+    "key": "spotifyglass.adblock.counts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 65,
+    "key": "spotifyglass.privacy.counts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 65,
+    "key": "spotifyglass.update.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 66,
+    "key": "spotifyglass.signing.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 66,
+    "key": "spotifyglass.onboarding.",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 66,
+    "key": "spotifyglass.navbar.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 66,
+    "key": "spotifyglass.redesign.navbar.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Diagnostics/Diagnostics.x",
+    "line": 67,
+    "key": "spotifyglass.musixmatch.token",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 5,
+    "key": "spotifyglass.albumBackdrop",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 7,
+    "key": "spotifyglass.hide.albumExplore",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 8,
+    "key": "spotifyglass.hide.albumAddTo",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 9,
+    "key": "spotifyglass.hide.albumDownload",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 10,
+    "key": "spotifyglass.hide.albumMore",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 12,
+    "key": "spotifyglass.hide.albumMoreBy",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 13,
+    "key": "spotifyglass.hide.albumVideos",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 14,
+    "key": "spotifyglass.hide.albumConcerts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 15,
+    "key": "spotifyglass.hide.albumMerch",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Album/Album.h",
+    "line": 16,
+    "key": "spotifyglass.hide.albumYouMightLike",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Appearance.h",
+    "line": 6,
+    "key": "spotifyglass.amoled",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Appearance/Appearance.h",
+    "line": 7,
+    "key": "spotifyglass.accent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 4,
+    "key": "spotifyglass.artistPhotoFade",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 6,
+    "key": "spotifyglass.hide.artistExplore",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 7,
+    "key": "spotifyglass.hide.artistFollow",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 8,
+    "key": "spotifyglass.hide.artistMore",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 9,
+    "key": "spotifyglass.hide.artistShuffle",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 10,
+    "key": "spotifyglass.hide.artistVerified",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 11,
+    "key": "spotifyglass.hide.artistListeners",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 13,
+    "key": "spotifyglass.hide.artistTabBar",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 15,
+    "key": "spotifyglass.hide.artistLikedSongs",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 16,
+    "key": "spotifyglass.hide.artistPopular",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 17,
+    "key": "spotifyglass.hide.artistPick",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 18,
+    "key": "spotifyglass.hide.artistReleases",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 19,
+    "key": "spotifyglass.hide.artistFeaturing",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 20,
+    "key": "spotifyglass.hide.artistVideos",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 21,
+    "key": "spotifyglass.hide.artistAbout",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 22,
+    "key": "spotifyglass.hide.artistPlaylists",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 23,
+    "key": "spotifyglass.hide.artistFansAlsoLike",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 24,
+    "key": "spotifyglass.hide.artistAppearsOn",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Artist/Artist.h",
+    "line": 25,
+    "key": "spotifyglass.hide.artistDiscoveredOn",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "line": 5,
+    "key": "spotifyglass.homeGradient",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "line": 8,
+    "key": "spotifyglass.hide.homeShortcuts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "line": 9,
+    "key": "spotifyglass.hide.homePills",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "line": 10,
+    "key": "spotifyglass.hide.homePromo",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "line": 11,
+    "key": "spotifyglass.hide.homePreviews",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/Home.h",
+    "line": 12,
+    "key": "spotifyglass.hide.homeDJ",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradientChoices.m",
+    "line": 15,
+    "key": "spotifyglass.homeGradientTint",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradientChoices.m",
+    "line": 21,
+    "key": "spotifyglass.homeGradientStrength",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Home/HomeGradientChoices.m",
+    "line": 26,
+    "key": "spotifyglass.homeGradientHeight",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/Navbar.h",
+    "line": 6,
+    "key": "spotifyglass.navbar",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/NavbarLayout.m",
+    "line": 10,
+    "key": "spotifyglass.navbar.layout",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Navbar/NavbarLayout.m",
+    "line": 11,
+    "key": "spotifyglass.navbar.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/NowPlayingBar/NowPlayingBar.h",
+    "line": 5,
+    "key": "spotifyglass.hide.barConnect",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 6,
+    "key": "spotifyglass.player",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 7,
+    "key": "spotifyglass.playerBackdrop",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 8,
+    "key": "spotifyglass.lyricsCard",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 11,
+    "key": "spotifyglass.hide.shuffle",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 12,
+    "key": "spotifyglass.hide.repeat",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 13,
+    "key": "spotifyglass.hide.connect",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 14,
+    "key": "spotifyglass.hide.share",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 15,
+    "key": "spotifyglass.hide.queue",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 16,
+    "key": "spotifyglass.hide.addTo",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 17,
+    "key": "spotifyglass.hide.lyricsInline",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 18,
+    "key": "spotifyglass.hide.lyricsCard",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 19,
+    "key": "spotifyglass.hide.aboutArtist",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 20,
+    "key": "spotifyglass.hide.relatedVideos",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 21,
+    "key": "spotifyglass.hide.songDNA",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 22,
+    "key": "spotifyglass.hide.liveEvents",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 23,
+    "key": "spotifyglass.hide.exploreArtist",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 24,
+    "key": "spotifyglass.hide.credits",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 25,
+    "key": "spotifyglass.hide.merch",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 26,
+    "key": "spotifyglass.hide.recommendations",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Player/NowPlaying.h",
+    "line": 31,
+    "key": "spotifyglass.hide.playerLyricsOnly",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 4,
+    "key": "spotifyglass.hide.playlistArtwork",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 5,
+    "key": "spotifyglass.hide.playlistDescription",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 6,
+    "key": "spotifyglass.hide.playlistCreator",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 7,
+    "key": "spotifyglass.hide.playlistLength",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 8,
+    "key": "spotifyglass.hide.playlistVideo",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 9,
+    "key": "spotifyglass.hide.playlistAddTo",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 10,
+    "key": "spotifyglass.hide.playlistDownload",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 11,
+    "key": "spotifyglass.hide.playlistShare",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 12,
+    "key": "spotifyglass.hide.playlistMore",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 13,
+    "key": "spotifyglass.hide.playlistPills",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 14,
+    "key": "spotifyglass.hide.playlistFind",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Native/Playlist/Playlist.h",
+    "line": 15,
+    "key": "spotifyglass.playlistBackdrop",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRAccent.h",
+    "line": 5,
+    "key": "spotifyglass.redesign.accent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRBridges.x",
+    "line": 12,
+    "key": "spotifyglass.redesign.nowPlayingArtworkDidChange",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRField.m",
+    "line": 8,
+    "key": "spotifyglass.redesign.fieldColorDidChange",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Kit/SGRPalette.m",
+    "line": 33,
+    "key": "spotifyglass.redesign.palette",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsText.h",
+    "line": 14,
+    "key": "spotifyglass.redesign.lyricsPronunciation",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsText.h",
+    "line": 15,
+    "key": "spotifyglass.redesign.lyricsTranslation",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsText.h",
+    "line": 17,
+    "key": "spotifyglass.redesign.lyricsTextOrder",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Lyrics/LyricsText.m",
+    "line": 6,
+    "key": "spotifyglass.redesign.lyricsTextDidChange",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.h",
+    "line": 7,
+    "key": "spotifyglass.redesign.navbar",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/Navbar.h",
+    "line": 9,
+    "key": "spotifyglass.redesign.navbar.hideLabels",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/NavbarLayout.m",
+    "line": 11,
+    "key": "spotifyglass.redesign.navbar.layout",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Navbar/NavbarLayout.m",
+    "line": 12,
+    "key": "spotifyglass.redesign.navbar.stock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.h",
+    "line": 8,
+    "key": "spotifyglass.redesign.hide.barConnect",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Redesigned/Player/Player.h",
+    "line": 30,
+    "key": "spotifyglass.redesign.player.movingBackground",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPageStyle.m",
+    "line": 73,
+    "key": "spotifyglass.amoled",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPageStyle.m",
+    "line": 74,
+    "key": "spotifyglass.accent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Settings/SGPageStyle.m",
+    "line": 75,
+    "key": "spotifyglass.redesign.accent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistBlock.h",
+    "line": 5,
+    "key": "spotifyglass.artistBlock",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistBlock.h",
+    "line": 6,
+    "key": "spotifyglass.artistBlock.featured",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/ArtistBlock/ArtistBlock.h",
+    "line": 7,
+    "key": "spotifyglass.artistBlock.list",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 20,
+    "key": "spotifyglass.dsp",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 23,
+    "key": "spotifyglass.dsp.postGain",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 24,
+    "key": "spotifyglass.dsp.limiterThreshold",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 25,
+    "key": "spotifyglass.dsp.limiterRelease",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 27,
+    "key": "spotifyglass.dsp.compander",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 28,
+    "key": "spotifyglass.dsp.compander.time",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 31,
+    "key": "spotifyglass.dsp.compander.gains",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 33,
+    "key": "spotifyglass.dsp.bass",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 34,
+    "key": "spotifyglass.dsp.bass.gain",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 36,
+    "key": "spotifyglass.dsp.eq",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 38,
+    "key": "spotifyglass.dsp.eq.gains",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 41,
+    "key": "spotifyglass.dsp.geq",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 42,
+    "key": "spotifyglass.dsp.geq.nodes",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 46,
+    "key": "spotifyglass.dsp.convolver",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 47,
+    "key": "spotifyglass.dsp.convolver.file",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 48,
+    "key": "spotifyglass.dsp.convolver.mode",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 50,
+    "key": "spotifyglass.dsp.ddc",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 51,
+    "key": "spotifyglass.dsp.ddc.file",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 53,
+    "key": "spotifyglass.dsp.liveprog",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 54,
+    "key": "spotifyglass.dsp.liveprog.file",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 56,
+    "key": "spotifyglass.dsp.reverb",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 57,
+    "key": "spotifyglass.dsp.reverb.preset",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 59,
+    "key": "spotifyglass.dsp.wide",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 60,
+    "key": "spotifyglass.dsp.wide.level",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 62,
+    "key": "spotifyglass.dsp.crossfeed",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 63,
+    "key": "spotifyglass.dsp.crossfeed.mode",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 65,
+    "key": "spotifyglass.dsp.tube",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+    "line": 66,
+    "key": "spotifyglass.dsp.tube.drive",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffects.x",
+    "line": 423,
+    "key": "spotifyglass.dsp",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/AudioEffects/AudioEffectsFiles.m",
+    "line": 11,
+    "key": "spotifyglass.dsp.files",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.h",
+    "line": 5,
+    "key": "spotifyglass.gestures",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.h",
+    "line": 6,
+    "key": "spotifyglass.gestures.split",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.h",
+    "line": 7,
+    "key": "spotifyglass.gestures.step",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Gestures/Gestures.h",
+    "line": 8,
+    "key": "spotifyglass.gestures.zones",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 17,
+    "key": "spotifyglass.haptics.controls",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 18,
+    "key": "spotifyglass.haptics.music",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 20,
+    "key": "spotifyglass.haptics.controls.strength",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 21,
+    "key": "spotifyglass.haptics.music.strength",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 23,
+    "key": "spotifyglass.haptics.music.follows",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 25,
+    "key": "spotifyglass.redesign.haptics.controls",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 26,
+    "key": "spotifyglass.redesign.haptics.music",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 27,
+    "key": "spotifyglass.redesign.haptics.controls.strength",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 28,
+    "key": "spotifyglass.redesign.haptics.music.strength",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/Haptics.h",
+    "line": 29,
+    "key": "spotifyglass.redesign.haptics.music.follows",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Haptics/MusicHaptics.x",
+    "line": 442,
+    "key": "spotifyglass.music-haptics",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.h",
+    "line": 24,
+    "key": "spotifyglass.liveActivity",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.h",
+    "line": 26,
+    "key": "spotifyglass.liveActivity.view",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.h",
+    "line": 28,
+    "key": "spotifyglass.redesign.liveActivity",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LiveActivity/LiveActivity.h",
+    "line": 29,
+    "key": "spotifyglass.redesign.liveActivity.view",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.h",
+    "line": 7,
+    "key": "spotifyglass.lockscreen.animatedartwork",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.h",
+    "line": 8,
+    "key": "spotifyglass.lockscreen.artworksources",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenArtwork/SGAppleArtwork.m",
+    "line": 5,
+    "key": "spotifyglass.lockscreen.appletoken",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LockScreenLyrics/LockScreenLyrics.h",
+    "line": 6,
+    "key": "spotifyglass.lockScreenLyrics",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Lyrics/Lyrics.h",
+    "line": 23,
+    "key": "spotifyglass.lyricsSimulateWords",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsMeanings/Meanings.h",
+    "line": 7,
+    "key": "spotifyglass.lyricsMeanings",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsHook.x",
+    "line": 16,
+    "key": "spotifyglass.lyricsDonorFor",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.h",
+    "line": 13,
+    "key": "spotifyglass.lyricsProviders",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.h",
+    "line": 15,
+    "key": "spotifyglass.lyricsAllTracks",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.h",
+    "line": 17,
+    "key": "spotifyglass.lyricsCredit",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.h",
+    "line": 20,
+    "key": "spotifyglass.lyricsTranslationLanguage",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.m",
+    "line": 21,
+    "key": "spotifyglass.musixmatchLyrics",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.m",
+    "line": 22,
+    "key": "spotifyglass.musixmatchAllTracks",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.m",
+    "line": 23,
+    "key": "spotifyglass.neteaseWordTiming",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/LyricsSources.m",
+    "line": 460,
+    "key": "spotifyglass.ownRequest",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/LyricsSources/Musixmatch.m",
+    "line": 11,
+    "key": "spotifyglass.musixmatch.token",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerEvents.x",
+    "line": 9,
+    "key": "spotifyglass.playerTransition",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Player/PlayerEvents.x",
+    "line": 10,
+    "key": "spotifyglass.playerTransitionEnded",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.h",
+    "line": 5,
+    "key": "spotifyglass.blockTelemetry",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.h",
+    "line": 7,
+    "key": "spotifyglass.adblock.searchVideos",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.h",
+    "line": 8,
+    "key": "spotifyglass.adblock.socialProof",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "Chroma",
+    "file": "tweak/Sources/Shared/Privacy/Privacy.x",
+    "line": 35,
+    "key": "spotifyglass.privacy.counts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "line": 34,
+    "key": "eeveeFlagOverrides",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "line": 34,
+    "key": "eeveeFlagOverrides",
+    "symbol": "overridesKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "line": 35,
+    "key": "eeveeFlagCatalogVersion",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "line": 35,
+    "key": "eeveeFlagCatalogVersion",
+    "symbol": "catalogVersionKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "line": 36,
+    "key": "eeveeFlagCapture",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/RemoteFlags.swift",
+    "line": 36,
+    "key": "eeveeFlagCapture",
+    "symbol": "captureKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/SpotifyFeaturesView.swift",
+    "line": 115,
+    "key": "eeveeHideJam",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Flags/SpotifyFeaturesView.swift",
+    "line": 116,
+    "key": "eeveeHideJam",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/AppearanceSettingsView.swift",
+    "line": 6,
+    "key": "eeveeAccent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlass.x.swift",
+    "line": 8,
+    "key": "LiquidGlassOverride",
+    "symbol": "spotifyOverrideKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlass.x.swift",
+    "line": 9,
+    "key": "com.apple.SwiftUI.IgnoreSolariumOptOut",
+    "symbol": "swiftUIOptOutKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "line": 111,
+    "key": "eeveeLiquidGlassOptions",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "line": 114,
+    "key": "eeveeTabBarOptions",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "line": 117,
+    "key": "eeveeNowPlayingBarOptions",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "line": 120,
+    "key": "eeveePlayerOptions",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "line": 123,
+    "key": "eeveePlaylistOptions",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/LiquidGlass/LiquidGlassOptions.swift",
+    "line": 126,
+    "key": "eeveeKnownTabs",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/LyricsSource+UserDefaults.swift",
+    "line": 4,
+    "key": "lyricsSource",
+    "symbol": "lyricsSourceKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/SpicyLyricsKey+UserDefaults.swift",
+    "line": 4,
+    "key": "spicyLyricsApiKey",
+    "symbol": "spicyLyricsApiKeyKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Lyrics/Models/Settings/SpicyLyricsKey+UserDefaults.swift",
+    "line": 6,
+    "key": "sl_pk_2bickG_gRxepd6CvYUPwUpsMcLWaOE9zJ3mdk9fEF8Y",
+    "symbol": "spicyLyricsDefaultApiKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Misc/RatingPromptBlock.x.swift",
+    "line": 30,
+    "key": "eeveeBlockRatingPrompts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Misc/RatingPromptBlock.x.swift",
+    "line": 31,
+    "key": "eeveeBlockRatingPrompts",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/ArtistHides.x.swift",
+    "line": 12,
+    "key": "eeveeArtistHidden",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeDeclutter.x.swift",
+    "line": 22,
+    "key": "eeveeHomeHidden",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/HomeGradient.x.swift",
+    "line": 66,
+    "key": "eeveeHomeGradient",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "line": 41,
+    "key": "eeveeAmoled",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "line": 42,
+    "key": "eeveeAmoled",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "line": 46,
+    "key": "eeveeAccent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "line": 47,
+    "key": "eeveeAccent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Pages/Theme.swift",
+    "line": 47,
+    "key": "eeveeAccent",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Player/PlayerExtrasOptions.swift",
+    "line": 14,
+    "key": "eeveePlayerExtrasOptions",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Premium/Helpers/CasitaResponseProbe.swift",
+    "line": 52,
+    "key": "eevee_casita",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "line": 96,
+    "key": "eeveeBlockTelemetry",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Privacy/TelemetryBlock.x.swift",
+    "line": 97,
+    "key": "eeveeBlockTelemetry",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/EeveeSettingsUniversal.x.swift",
+    "line": 263,
+    "key": "eevee_inline_subtitle_text",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Settings/Sections/AppIcon/Views/EeveeAppIconPickerView.swift",
+    "line": 4,
+    "key": "__primary__",
+    "symbol": "primaryIconKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Helpers/EeveeLog.swift",
+    "line": 5,
+    "key": "eeveespotify_debug.log",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 6,
+    "key": "musixmatchToken",
+    "symbol": "musixmatchTokenKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 7,
+    "key": "darkPopUps",
+    "symbol": "darkPopUpsKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 8,
+    "key": "debugLoggingEnabled",
+    "symbol": "debugLoggingEnabledKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 9,
+    "key": "patchType",
+    "symbol": "patchTypeKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 10,
+    "key": "trueShuffleEnabled",
+    "symbol": "trueShuffleEnabledKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 11,
+    "key": "overwriteConfiguration",
+    "symbol": "overwriteConfigurationKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 12,
+    "key": "lyricsColors",
+    "symbol": "lyricsColorsKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 13,
+    "key": "lyricsOptions",
+    "symbol": "lyricsOptionsKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 14,
+    "key": "hasShownCommonIssuesTip",
+    "symbol": "hasShownCommonIssuesTipKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 15,
+    "key": "eeveeHasPatchedBootstrap",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 15,
+    "key": "eeveeHasPatchedBootstrap",
+    "symbol": "hasPatchedBootstrapKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 16,
+    "key": "eeveeCachedCustomizeData",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 16,
+    "key": "eeveeCachedCustomizeData",
+    "symbol": "cachedCustomizeDataKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 17,
+    "key": "iconNamePrettify",
+    "symbol": "iconNamePrettifyKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 18,
+    "key": "cleanShareLinks",
+    "symbol": "cleanShareLinksKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 132,
+    "key": "eeveeRoundedArtwork",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Shared/Models/Extensions/UserDefaults+Extension.swift",
+    "line": 133,
+    "key": "eeveeRoundedArtwork",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/SponsorBlock/Reporting/SponsorBlockReporter.swift",
+    "line": 22,
+    "key": "sponsorBlockUserID",
+    "symbol": "sponsorBlockUserIDKey",
+    "evidence": "named key constant candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotify/Tweak.x.swift",
+    "line": 168,
+    "key": "eeveespotify_boot.txt",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  },
+  {
+    "source": "EeveeSpotify",
+    "file": "Sources/EeveeSpotifyC/Tweak.m",
+    "line": 39,
+    "key": "eeveespotify_debug.log",
+    "evidence": "literal key candidate",
+    "runtimeStatus": "NOT TESTED",
+    "integrationStatus": "NOT INTEGRATED"
+  }
+]
