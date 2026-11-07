@@ -1,0 +1,10 @@
+{
+  "spotify": "9.1.88",
+  "build": "918802209",
+  "flagKeys": 2496,
+  "typed": 2306,
+  "initializerThunks": 531,
+  "walkerFailures": [],
+  "method": "Original Chroma Walker with metadata-fed binary adapter",
+  "runtimeVerified": false
+}

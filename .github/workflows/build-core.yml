@@ -1,0 +1,70 @@
+name: Chroma source integration - v5-9188
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/build-core.yml
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: xcode-27
+    timeout-minutes: 30
+    env:
+      THEOS: ${{ github.workspace }}/build/theos
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record Apple toolchain
+        run: |
+          echo "BUILD REVISION chroma-core-v5-9188"
+          git rev-parse HEAD
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+      - name: Test core, transport, Chroma wire codec and Eevee feed integration
+        run: bash scripts/test-core-macos.sh
+      - name: Test composed transport and Eevee service hook boundaries
+        run: bash scripts/test-composition-macos.sh
+      - uses: actions/checkout@v4
+        with:
+          repository: theos/theos
+          ref: 8167f59de02fd32cf45b16bfcb1330dfa5c9974c
+          path: build/theos
+          submodules: recursive
+      - name: Install Theos build tools
+        run: brew install make dpkg ldid
+      - name: Build full Chroma source with composed Eevee modules and Live Activity
+        run: bash scripts/build-unified.sh
+      - name: Validate Debian package structure with dpkg
+        run: |
+          dpkg-deb --info build/unified/UnifiedSpotify-ChromaEevee_0.4.0-test1.deb
+          dpkg-deb --contents build/unified/UnifiedSpotify-ChromaEevee_0.4.0-test1.deb
+      - name: Upload core library and test executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-core-only-not-an-injectable-tweak
+          path: |
+            build/core-ios/libUnifiedSpotifyCore.a
+            build/core-tests/CoreTests
+            build/core-tests/TransportTests
+            build/core-tests/EeveeFeedTests
+            build/core-tests/FeedIntegrationTests
+            build/core-tests/HookTests
+            build/core-tests/feed-symbols.txt
+            build/core-tests/SharingTests
+            build/core-tests/PremiumTests
+            build/composition-tests/CompositionTests
+            build/composition-tests/ServiceHooksTests
+            build/core-ios/protobuf/protobuf-source-commit.txt
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload private integration candidate and Live Activity support
+        uses: actions/upload-artifact@v4
+        with:
+          name: chroma-core-v5-9188-Sideloadly-test
+          path: build/unified/
+          if-no-files-found: error
+          retention-days: 7

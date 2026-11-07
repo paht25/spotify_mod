@@ -1,0 +1,976 @@
+{
+  "spotifyVersion": "9.1.88",
+  "build": "918802209",
+  "bundleIdentifier": "com.spotify.client",
+  "evidence": "Static metadata from user-provided NoEevee IPA and byte-identical SpotifyShared in supplied Eevee IPA",
+  "runtimeVerified": false,
+  "classes": [
+    {
+      "name": "_TtC21Settings_PlatformImpl26SettingsListViewController",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "collectionView:willDisplaySupplementaryView:forElementKind:atIndexPath:",
+          "encoding": "v48@0:8@16@24@32@40",
+          "implementationVM": "10606b508",
+          "implementationFileOffset": 101102856
+        },
+        {
+          "selector": "scrollViewDidScroll:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1082b3630",
+          "implementationFileOffset": 137049648
+        },
+        {
+          "selector": "collectionView:didEndDisplayingSupplementaryView:forElementOfKind:atIndexPath:",
+          "encoding": "v48@0:8@16@24@32@40",
+          "implementationVM": "109285aac",
+          "implementationFileOffset": 153639596
+        },
+        {
+          "selector": "initWithCoder:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "10897deb8",
+          "implementationFileOffset": 144170680
+        },
+        {
+          "selector": "viewDidLoad",
+          "encoding": "v16@0:8",
+          "implementationVM": "1039fe594",
+          "implementationFileOffset": 60810644
+        },
+        {
+          "selector": "viewDidLayoutSubviews",
+          "encoding": "v16@0:8",
+          "implementationVM": "105edf32c",
+          "implementationFileOffset": 99480364
+        },
+        {
+          "selector": "viewDidAppear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "108042434",
+          "implementationFileOffset": 134489140
+        },
+        {
+          "selector": "initWithNibName:bundle:",
+          "encoding": "@32@0:8@16@24",
+          "implementationVM": "108cad8f8",
+          "implementationFileOffset": 147511544
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "104e497a0",
+          "implementationFileOffset": 82089888
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    },
+    {
+      "name": "_TtC23SideDrawer_ListPageImpl18ListViewController",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "initWithCoder:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "103b7e0d4",
+          "implementationFileOffset": 62382292
+        },
+        {
+          "selector": "viewDidLoad",
+          "encoding": "v16@0:8",
+          "implementationVM": "108bac0ec",
+          "implementationFileOffset": 146456812
+        },
+        {
+          "selector": "initWithNibName:bundle:",
+          "encoding": "@32@0:8@16@24",
+          "implementationVM": "107530960",
+          "implementationFileOffset": 122882400
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "103c74ba0",
+          "implementationFileOffset": 63392672
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    },
+    {
+      "name": "_TtC26Connectivity_HttpClientKit20HttpClientURLSession",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:",
+          "encoding": "v56@0:8@16@24@32@40@?48",
+          "implementationVM": "101397948",
+          "implementationFileOffset": 20543816
+        },
+        {
+          "selector": "URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:",
+          "encoding": "v56@0:8@16@24q32q40q48",
+          "implementationVM": "105ed8530",
+          "implementationFileOffset": 99452208
+        },
+        {
+          "selector": "URLSession:task:didFinishCollectingMetrics:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "101f318b8",
+          "implementationFileOffset": 32708792
+        },
+        {
+          "selector": "URLSession:task:didCompleteWithError:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "106e9ccc0",
+          "implementationFileOffset": 115985600
+        },
+        {
+          "selector": "URLSession:dataTask:didReceiveResponse:completionHandler:",
+          "encoding": "v48@0:8@16@24@32@?40",
+          "implementationVM": "1011816a8",
+          "implementationFileOffset": 18355880
+        },
+        {
+          "selector": "URLSession:dataTask:didReceiveData:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "1087175f4",
+          "implementationFileOffset": 141653492
+        },
+        {
+          "selector": "URLSession:dataTask:willCacheResponse:completionHandler:",
+          "encoding": "v48@0:8@16@24@32@?40",
+          "implementationVM": "1002ae398",
+          "implementationFileOffset": 2810776
+        },
+        {
+          "selector": "init",
+          "encoding": "@16@0:8",
+          "implementationVM": "1016b8618",
+          "implementationFileOffset": 23823896
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "103086720",
+          "implementationFileOffset": 50882336
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    },
+    {
+      "name": "SPTDataLoaderService",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "initWithUserAgent:rateLimiter:resolver:customURLProtocolClasses:",
+          "encoding": "@48@0:8@16@24@32@40",
+          "implementationVM": "2fe404",
+          "implementationFileOffset": 3138564
+        },
+        {
+          "selector": "initWithConfiguration:rateLimiter:resolver:",
+          "encoding": "@40@0:8@16@24@32",
+          "implementationVM": "2fe54c",
+          "implementationFileOffset": 3138892
+        },
+        {
+          "selector": "initWithUserAgent:rateLimiter:resolver:customURLProtocolClasses:qualityOfService:",
+          "encoding": "@56@0:8@16@24@32@40q48",
+          "implementationVM": "2fe6d0",
+          "implementationFileOffset": 3139280
+        },
+        {
+          "selector": "initWithConfiguration:rateLimiter:resolver:qualityOfService:",
+          "encoding": "@48@0:8@16@24@32q40",
+          "implementationVM": "2fe700",
+          "implementationFileOffset": 3139328
+        },
+        {
+          "selector": "createDataLoaderFactoryWithAuthorisers:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "2fe730",
+          "implementationFileOffset": 3139376
+        },
+        {
+          "selector": "addConsumptionObserver:on:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "2fe744",
+          "implementationFileOffset": 3139396
+        },
+        {
+          "selector": "removeConsumptionObserver:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fe7d0",
+          "implementationFileOffset": 3139536
+        },
+        {
+          "selector": "handlerForTask:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "2fe83c",
+          "implementationFileOffset": 3139644
+        },
+        {
+          "selector": "createTaskForRequest:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "2fe9a4",
+          "implementationFileOffset": 3140004
+        },
+        {
+          "selector": "performRequest:requestResponseHandler:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "2fea20",
+          "implementationFileOffset": 3140128
+        },
+        {
+          "selector": "cancelAllLoads",
+          "encoding": "v16@0:8",
+          "implementationVM": "2fec58",
+          "implementationFileOffset": 3140696
+        },
+        {
+          "selector": "invalidateAndCancel",
+          "encoding": "v16@0:8",
+          "implementationVM": "2fed80",
+          "implementationFileOffset": 3140992
+        },
+        {
+          "selector": "requestTaskHandlerNeedsNewTask:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fedbc",
+          "implementationFileOffset": 3141052
+        },
+        {
+          "selector": "requestResponseHandler:performRequest:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "2fee14",
+          "implementationFileOffset": 3141140
+        },
+        {
+          "selector": "requestResponseHandler:cancelRequest:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "2fee94",
+          "implementationFileOffset": 3141268
+        },
+        {
+          "selector": "requestResponseHandler:authorisedRequest:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "2ff01c",
+          "implementationFileOffset": 3141660
+        },
+        {
+          "selector": "requestResponseHandler:failedToAuthoriseRequest:error:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "2ff02c",
+          "implementationFileOffset": 3141676
+        },
+        {
+          "selector": "URLSession:dataTask:didReceiveResponse:completionHandler:",
+          "encoding": "v48@0:8@16@24@32@?40",
+          "implementationVM": "2ff0a0",
+          "implementationFileOffset": 3141792
+        },
+        {
+          "selector": "URLSession:dataTask:didBecomeDownloadTask:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "2ff190",
+          "implementationFileOffset": 3142032
+        },
+        {
+          "selector": "URLSession:dataTask:didReceiveData:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "2ff1d0",
+          "implementationFileOffset": 3142096
+        },
+        {
+          "selector": "URLSession:dataTask:willCacheResponse:completionHandler:",
+          "encoding": "v48@0:8@16@24@32@?40",
+          "implementationVM": "2ff254",
+          "implementationFileOffset": 3142228
+        },
+        {
+          "selector": "URLSession:task:didReceiveChallenge:completionHandler:",
+          "encoding": "v48@0:8@16@24@32@?40",
+          "implementationVM": "2ff2d8",
+          "implementationFileOffset": 3142360
+        },
+        {
+          "selector": "URLSession:task:didFinishCollectingMetrics:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "2ff424",
+          "implementationFileOffset": 3142692
+        },
+        {
+          "selector": "URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:",
+          "encoding": "v56@0:8@16@24q32q40q48",
+          "implementationVM": "2ff464",
+          "implementationFileOffset": 3142756
+        },
+        {
+          "selector": "URLSession:task:didCompleteWithError:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "2ff4ac",
+          "implementationFileOffset": 3142828
+        },
+        {
+          "selector": "URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:",
+          "encoding": "v56@0:8@16@24@32@40@?48",
+          "implementationVM": "2ff87c",
+          "implementationFileOffset": 3143804
+        },
+        {
+          "selector": "URLSession:taskIsWaitingForConnectivity:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "2ffb0c",
+          "implementationFileOffset": 3144460
+        },
+        {
+          "selector": "URLSession:downloadTask:didFinishDownloadingToURL:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "2ffb3c",
+          "implementationFileOffset": 3144508
+        },
+        {
+          "selector": "dealloc",
+          "encoding": "v16@0:8",
+          "implementationVM": "2fff0c",
+          "implementationFileOffset": 3145484
+        },
+        {
+          "selector": "areAllCertificatesAllowed",
+          "encoding": "B16@0:8",
+          "implementationVM": "2fff50",
+          "implementationFileOffset": 3145552
+        },
+        {
+          "selector": "setAllCertificatesAllowed:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "2fff58",
+          "implementationFileOffset": 3145560
+        },
+        {
+          "selector": "rateLimiter",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fff60",
+          "implementationFileOffset": 3145568
+        },
+        {
+          "selector": "setRateLimiter:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fff68",
+          "implementationFileOffset": 3145576
+        },
+        {
+          "selector": "resolver",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fff74",
+          "implementationFileOffset": 3145588
+        },
+        {
+          "selector": "setResolver:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fff7c",
+          "implementationFileOffset": 3145596
+        },
+        {
+          "selector": "sessionQueue",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fff88",
+          "implementationFileOffset": 3145608
+        },
+        {
+          "selector": "setSessionQueue:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fff90",
+          "implementationFileOffset": 3145616
+        },
+        {
+          "selector": "handlers",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fff9c",
+          "implementationFileOffset": 3145628
+        },
+        {
+          "selector": "setHandlers:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fffa4",
+          "implementationFileOffset": 3145636
+        },
+        {
+          "selector": "consumptionObservers",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fffb0",
+          "implementationFileOffset": 3145648
+        },
+        {
+          "selector": "setConsumptionObservers:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fffb8",
+          "implementationFileOffset": 3145656
+        },
+        {
+          "selector": "serverTrustPolicy",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fffc4",
+          "implementationFileOffset": 3145668
+        },
+        {
+          "selector": "setServerTrustPolicy:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2fffcc",
+          "implementationFileOffset": 3145676
+        },
+        {
+          "selector": "fileManager",
+          "encoding": "@16@0:8",
+          "implementationVM": "2fffd8",
+          "implementationFileOffset": 3145688
+        },
+        {
+          "selector": "setFileManager:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "2ffff0",
+          "implementationFileOffset": 3145712
+        },
+        {
+          "selector": "dataClass",
+          "encoding": "#16@0:8",
+          "implementationVM": "2ffffc",
+          "implementationFileOffset": 3145724
+        },
+        {
+          "selector": "setDataClass:",
+          "encoding": "v24@0:8#16",
+          "implementationVM": "300014",
+          "implementationFileOffset": 3145748
+        },
+        {
+          "selector": "sessionInvalidated",
+          "encoding": "B16@0:8",
+          "implementationVM": "300020",
+          "implementationFileOffset": 3145760
+        },
+        {
+          "selector": "setSessionInvalidated:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "300028",
+          "implementationFileOffset": 3145768
+        },
+        {
+          "selector": "sessionSelector",
+          "encoding": "@16@0:8",
+          "implementationVM": "300030",
+          "implementationFileOffset": 3145776
+        },
+        {
+          "selector": "setSessionSelector:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "300038",
+          "implementationFileOffset": 3145784
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "300044",
+          "implementationFileOffset": 3145796
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    },
+    {
+      "name": "_TtC23NowPlaying_PlatformImpl28StatefulPlayerImplementation",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "player:stateDidChange:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "1056f50b4",
+          "implementationFileOffset": 91181236
+        },
+        {
+          "selector": "player:didEncounterError:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "100a07260",
+          "implementationFileOffset": 10515040
+        },
+        {
+          "selector": "playbackControlsDidChange:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "106ced320",
+          "implementationFileOffset": 114217760
+        },
+        {
+          "selector": "trackPositionDidChange:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "105978580",
+          "implementationFileOffset": 93816192
+        },
+        {
+          "selector": "didMoveToRelativeTrack:relativeTrackIndex:",
+          "encoding": "v32@0:8@16@24",
+          "implementationVM": "107852208",
+          "implementationFileOffset": 126165512
+        },
+        {
+          "selector": "willResetQueue:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "10637e4d8",
+          "implementationFileOffset": 104326360
+        },
+        {
+          "selector": "nextTrackDidChange:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1008381b0",
+          "implementationFileOffset": 8618416
+        },
+        {
+          "selector": "previousTrackDidChange:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1084a03a8",
+          "implementationFileOffset": 139068328
+        },
+        {
+          "selector": "didSynchronizeQueue:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1060eac44",
+          "implementationFileOffset": 101624900
+        },
+        {
+          "selector": "playerState",
+          "encoding": "@16@0:8",
+          "implementationVM": "107f9427c",
+          "implementationFileOffset": 133775996
+        },
+        {
+          "selector": "setPlayerState:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "105902aec",
+          "implementationFileOffset": 93334252
+        },
+        {
+          "selector": "restrictions",
+          "encoding": "@16@0:8",
+          "implementationVM": "107ba6210",
+          "implementationFileOffset": 129655312
+        },
+        {
+          "selector": "setRestrictions:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1009aa7f4",
+          "implementationFileOffset": 10135540
+        },
+        {
+          "selector": "player",
+          "encoding": "@16@0:8",
+          "implementationVM": "1045d3ad0",
+          "implementationFileOffset": 73218768
+        },
+        {
+          "selector": "dealloc",
+          "encoding": "v16@0:8",
+          "implementationVM": "1081d5fc0",
+          "implementationFileOffset": 136142784
+        },
+        {
+          "selector": "addObserver:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1056f8ce0",
+          "implementationFileOffset": 91196640
+        },
+        {
+          "selector": "removeObserver:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "100c63d78",
+          "implementationFileOffset": 12991864
+        },
+        {
+          "selector": "currentTrack",
+          "encoding": "@16@0:8",
+          "implementationVM": "101f26e54",
+          "implementationFileOffset": 32665172
+        },
+        {
+          "selector": "nextTrack",
+          "encoding": "@16@0:8",
+          "implementationVM": "106edc9fc",
+          "implementationFileOffset": 116247036
+        },
+        {
+          "selector": "playingTrack",
+          "encoding": "@16@0:8",
+          "implementationVM": "10274073c",
+          "implementationFileOffset": 41158460
+        },
+        {
+          "selector": "isQueueInSync",
+          "encoding": "B16@0:8",
+          "implementationVM": "1050ced7c",
+          "implementationFileOffset": 84733308
+        },
+        {
+          "selector": "skipToNextTrack",
+          "encoding": "v16@0:8",
+          "implementationVM": "1087cb038",
+          "implementationFileOffset": 142389304
+        },
+        {
+          "selector": "skipToPreviousTrack",
+          "encoding": "v16@0:8",
+          "implementationVM": "10367be94",
+          "implementationFileOffset": 57130644
+        },
+        {
+          "selector": "skipToPreviousTrackTimes:whileDragging:",
+          "encoding": "v28@0:8q16B24",
+          "implementationVM": "10181529c",
+          "implementationFileOffset": 25252508
+        },
+        {
+          "selector": "skipToNextTrackTimes:whileDragging:",
+          "encoding": "v28@0:8q16B24",
+          "implementationVM": "108f8e9d8",
+          "implementationFileOffset": 150530520
+        },
+        {
+          "selector": "numberOfNextTracks",
+          "encoding": "q16@0:8",
+          "implementationVM": "10167ed54",
+          "implementationFileOffset": 23588180
+        },
+        {
+          "selector": "numberOfPreviousTracks",
+          "encoding": "q16@0:8",
+          "implementationVM": "1050344d4",
+          "implementationFileOffset": 84100308
+        },
+        {
+          "selector": "queuedTrackAtRelativeIndex:",
+          "encoding": "@24@0:8q16",
+          "implementationVM": "107ab1638",
+          "implementationFileOffset": 128652856
+        },
+        {
+          "selector": "disallowSkippingToRelativeIndex:",
+          "encoding": "B24@0:8q16",
+          "implementationVM": "107970474",
+          "implementationFileOffset": 127337588
+        },
+        {
+          "selector": "disallowPeekingAtRelativeIndex:",
+          "encoding": "B24@0:8q16",
+          "implementationVM": "103977714",
+          "implementationFileOffset": 60258068
+        },
+        {
+          "selector": "position",
+          "encoding": "d16@0:8",
+          "implementationVM": "1086bb670",
+          "implementationFileOffset": 141276784
+        },
+        {
+          "selector": "duration",
+          "encoding": "d16@0:8",
+          "implementationVM": "1062170b8",
+          "implementationFileOffset": 102854840
+        },
+        {
+          "selector": "playbackSpeed",
+          "encoding": "f16@0:8",
+          "implementationVM": "102a3b7dc",
+          "implementationFileOffset": 44283868
+        },
+        {
+          "selector": "disallowSeeking",
+          "encoding": "B16@0:8",
+          "implementationVM": "10538bd90",
+          "implementationFileOffset": 87604624
+        },
+        {
+          "selector": "disallowSeekingAlways",
+          "encoding": "B16@0:8",
+          "implementationVM": "100c05430",
+          "implementationFileOffset": 12604464
+        },
+        {
+          "selector": "isLoading",
+          "encoding": "B16@0:8",
+          "implementationVM": "10144aca4",
+          "implementationFileOffset": 21277860
+        },
+        {
+          "selector": "seekTo:",
+          "encoding": "v24@0:8d16",
+          "implementationVM": "1031e5404",
+          "implementationFileOffset": 52319236
+        },
+        {
+          "selector": "seekRelativeToCurrentPositionBy:",
+          "encoding": "v24@0:8d16",
+          "implementationVM": "10444c514",
+          "implementationFileOffset": 71615764
+        },
+        {
+          "selector": "stop",
+          "encoding": "v16@0:8",
+          "implementationVM": "1022a7c1c",
+          "implementationFileOffset": 36338716
+        },
+        {
+          "selector": "dispatchWithSignal:completion:",
+          "encoding": "v32@0:8q16@?24",
+          "implementationVM": "106b999e0",
+          "implementationFileOffset": 112826848
+        },
+        {
+          "selector": "isPaused",
+          "encoding": "B16@0:8",
+          "implementationVM": "103b95978",
+          "implementationFileOffset": 62478712
+        },
+        {
+          "selector": "setIsPaused:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "1016c4918",
+          "implementationFileOffset": 23873816
+        },
+        {
+          "selector": "isShufflingContext",
+          "encoding": "B16@0:8",
+          "implementationVM": "1039f618c",
+          "implementationFileOffset": 60776844
+        },
+        {
+          "selector": "setIsShufflingContext:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "102479440",
+          "implementationFileOffset": 38245440
+        },
+        {
+          "selector": "isRepeatingContext",
+          "encoding": "B16@0:8",
+          "implementationVM": "100bfe2ec",
+          "implementationFileOffset": 12575468
+        },
+        {
+          "selector": "isRepeatingTrack",
+          "encoding": "B16@0:8",
+          "implementationVM": "101ab62a4",
+          "implementationFileOffset": 28009124
+        },
+        {
+          "selector": "setOptions:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1051cd33c",
+          "implementationFileOffset": 85775164
+        },
+        {
+          "selector": "init",
+          "encoding": "@16@0:8",
+          "implementationVM": "1040338fc",
+          "implementationFileOffset": 67320060
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "108257cac",
+          "implementationFileOffset": 136674476
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    },
+    {
+      "name": "_TtC21NowPlaying_ScrollImpl23NPVScrollViewController",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "collectionView:willDisplayCell:forItemAtIndexPath:",
+          "encoding": "v40@0:8@16@24@32",
+          "implementationVM": "10371ed5c",
+          "implementationFileOffset": 57797980
+        },
+        {
+          "selector": "collectionView:willDisplaySupplementaryView:forElementKind:atIndexPath:",
+          "encoding": "v48@0:8@16@24@32@40",
+          "implementationVM": "10821e604",
+          "implementationFileOffset": 136439300
+        },
+        {
+          "selector": "collectionView:targetContentOffsetForProposedContentOffset:",
+          "encoding": "{CGPoint=dd}40@0:8@16{CGPoint=dd}24",
+          "implementationVM": "100fbbdb0",
+          "implementationFileOffset": 16498096
+        },
+        {
+          "selector": "scrollViewDidScroll:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "104db4588",
+          "implementationFileOffset": 81479048
+        },
+        {
+          "selector": "scrollViewWillBeginDragging:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "1047266f4",
+          "implementationFileOffset": 74606324
+        },
+        {
+          "selector": "scrollViewDidEndDecelerating:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "10102ddec",
+          "implementationFileOffset": 16965100
+        },
+        {
+          "selector": "scrollViewDidEndDragging:willDecelerate:",
+          "encoding": "v28@0:8@16B24",
+          "implementationVM": "1011c72b4",
+          "implementationFileOffset": 18641588
+        },
+        {
+          "selector": "scrollViewShouldScrollToTop:",
+          "encoding": "B24@0:8@16",
+          "implementationVM": "102f8c008",
+          "implementationFileOffset": 49856520
+        },
+        {
+          "selector": "initWithCoder:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "10361aaec",
+          "implementationFileOffset": 56732396
+        },
+        {
+          "selector": "viewWillAppear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "101e1dd9c",
+          "implementationFileOffset": 31579548
+        },
+        {
+          "selector": "viewDidAppear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "1014c8fcc",
+          "implementationFileOffset": 21794764
+        },
+        {
+          "selector": "viewWillDisappear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "1085396a4",
+          "implementationFileOffset": 139695780
+        },
+        {
+          "selector": "viewDidDisappear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "105eb835c",
+          "implementationFileOffset": 99320668
+        },
+        {
+          "selector": "viewWillLayoutSubviews",
+          "encoding": "v16@0:8",
+          "implementationVM": "108f6c08c",
+          "implementationFileOffset": 150388876
+        },
+        {
+          "selector": "viewDidLayoutSubviews",
+          "encoding": "v16@0:8",
+          "implementationVM": "1045f8204",
+          "implementationFileOffset": 73368068
+        },
+        {
+          "selector": "viewDidLoad",
+          "encoding": "v16@0:8",
+          "implementationVM": "10444c494",
+          "implementationFileOffset": 71615636
+        },
+        {
+          "selector": "viewWillTransitionToSize:withTransitionCoordinator:",
+          "encoding": "v40@0:8{CGSize=dd}16@32",
+          "implementationVM": "103161c30",
+          "implementationFileOffset": 51780656
+        },
+        {
+          "selector": "traitCollectionDidChange:",
+          "encoding": "v24@0:8@16",
+          "implementationVM": "104d127fc",
+          "implementationFileOffset": 80816124
+        },
+        {
+          "selector": "viewSafeAreaInsetsDidChange",
+          "encoding": "v16@0:8",
+          "implementationVM": "108300d50",
+          "implementationFileOffset": 137366864
+        },
+        {
+          "selector": "initWithNibName:bundle:",
+          "encoding": "@32@0:8@16@24",
+          "implementationVM": "1060dd288",
+          "implementationFileOffset": 101569160
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "107fce938",
+          "implementationFileOffset": 134015288
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    },
+    {
+      "name": "_TtC32Lyrics_FullscreenElementPageImpl31FullscreenElementViewController",
+      "present": true,
+      "ownMethods": [
+        {
+          "selector": "dealloc",
+          "encoding": "v16@0:8",
+          "implementationVM": "100d9aa24",
+          "implementationFileOffset": 14264868
+        },
+        {
+          "selector": "viewDidLoad",
+          "encoding": "v16@0:8",
+          "implementationVM": "1047e51c0",
+          "implementationFileOffset": 75387328
+        },
+        {
+          "selector": "initWithCoder:",
+          "encoding": "@24@0:8@16",
+          "implementationVM": "108a39bb4",
+          "implementationFileOffset": 144939956
+        },
+        {
+          "selector": "viewWillAppear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "103c87d24",
+          "implementationFileOffset": 63470884
+        },
+        {
+          "selector": "viewWillDisappear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "1008a37ec",
+          "implementationFileOffset": 9058284
+        },
+        {
+          "selector": "viewDidAppear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "10548b700",
+          "implementationFileOffset": 88651520
+        },
+        {
+          "selector": "viewDidDisappear:",
+          "encoding": "v20@0:8B16",
+          "implementationVM": "103987598",
+          "implementationFileOffset": 60323224
+        },
+        {
+          "selector": "initWithNibName:bundle:",
+          "encoding": "@32@0:8@16@24",
+          "implementationVM": "10252258c",
+          "implementationFileOffset": 38937996
+        },
+        {
+          "selector": ".cxx_destruct",
+          "encoding": "v16@0:8",
+          "implementationVM": "103dc74e0",
+          "implementationFileOffset": 64779488
+        }
+      ],
+      "note": "Inherited methods/categories/runtime mutations are not represented by own-method lists"
+    }
+  ]
+}
