@@ -52,16 +52,13 @@ static CGFloat ramp(CGFloat from, CGFloat to, CGFloat t) {
     return x * x * (3 - 2 * x);
 }
 
-static CGFloat screenRadius(void) {
-    static CGFloat radius;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        radius = kScreenRadiusFallback;
-        @try {
-            id value = [UIScreen.mainScreen valueForKey:@"_displayCornerRadius"];
-            if ([value respondsToSelector:@selector(doubleValue)] && [value doubleValue] > 0) radius = [value doubleValue];
-        } @catch (__unused NSException *e) {}
-    });
+static CGFloat screenRadius(UIView *view) {
+    CGFloat radius = kScreenRadiusFallback;
+    UIScreen *screen = view.window.windowScene.screen;
+    @try {
+        id value = [screen valueForKey:@"_displayCornerRadius"];
+        if ([value respondsToSelector:@selector(doubleValue)] && [value doubleValue] > 0) radius = [value doubleValue];
+    } @catch (__unused NSException *e) {}
     return radius;
 }
 
@@ -74,7 +71,7 @@ static CGFloat screenRadius(void) {
     UIImageView *_cover;
     CALayer *_mask;
     CGRect _card, _barArtwork, _barRest, _spotifyFrame;
-    CGFloat _cardRadius, _spotifyAlpha;
+    CGFloat _cardRadius, _screenRadius, _spotifyAlpha;
     CGColorRef _overlayColor;
     BOOL _coverHidden;
 }
@@ -90,6 +87,8 @@ static CGFloat screenRadius(void) {
     _barRest = barRest;
     _card = card;
     _cardRadius = radius;
+    // Resolve once per transition from its own screen, not once process-wide.
+    _screenRadius = screenRadius(container);
     _barArtwork = SGRNowPlayingArtworkFrameIn(container);
     _spotifyAlpha = overlay.alpha;
 
@@ -124,7 +123,7 @@ static CGFloat screenRadius(void) {
 
     static NSUInteger logged;
     if (logged++ < 3) SGLog(@"player morph: card %@ r=%.0f, artwork %@, cover %@, screen r=%.0f", NSStringFromCGRect(card), radius,
-                            NSStringFromCGRect(_barArtwork), _cover ? @"flown" : @"not flown", screenRadius());
+                            NSStringFromCGRect(_barArtwork), _cover ? @"flown" : @"not flown", _screenRadius);
     return self;
 }
 
@@ -137,7 +136,7 @@ static CGFloat screenRadius(void) {
 
     CGRect full = container.bounds;
     CGRect sheet = lerpRect(_card, full, t);
-    CGFloat radius = lerp(_cardRadius, screenRadius(), t);
+    CGFloat radius = lerp(_cardRadius, _screenRadius, t);
     CGFloat scale = full.size.width > 0 ? sheet.size.width / full.size.width : 1;
     // The player's top goes to the sheet's: a mask clips nothing above the layer's bounds, so content
     // raised above Spotify's frame would show square corners. Spotify reads back only the player's

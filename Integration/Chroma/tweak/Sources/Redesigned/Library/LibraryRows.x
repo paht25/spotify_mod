@@ -52,7 +52,7 @@ static void hairline(UIView *cell, UIView *thumb) {
     }
     if (line.superlayer != cell.layer) [cell.layer addSublayer:line];
 
-    CGFloat thickness = 1.0 / MAX(1, cell.window.screen.scale ?: UIScreen.mainScreen.scale);
+    CGFloat thickness = 1.0 / MAX(1, cell.traitCollection.displayScale);
     CGFloat leading = CGRectGetMaxX(artwork) + kTextGap;
     CGRect frame = CGRectMake(leading, size.height - thickness, MAX(0, size.width - leading), thickness);
     if (line.hidden || !CGRectEqualToRect(line.frame, frame)) {

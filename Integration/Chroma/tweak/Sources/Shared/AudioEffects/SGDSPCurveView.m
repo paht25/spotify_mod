@@ -195,6 +195,7 @@ static NSString *signedNumber(double value, int decimals) {
     [self addGestureRecognizer:doubleTap];
 
     [self reload];
+    [self registerForTraitChanges:@[UITraitDisplayScale.class] withAction:@selector(setNeedsLayout)];
     return self;
 }
 
@@ -202,7 +203,7 @@ static NSString *signedNumber(double value, int decimals) {
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.strokeColor = color.CGColor;
     layer.fillColor = nil;
-    layer.lineWidth = 1 / UIScreen.mainScreen.scale;
+    layer.lineWidth = 1 / MAX(1, self.traitCollection.displayScale);
     [self.layer addSublayer:layer];
     return layer;
 }
@@ -284,6 +285,8 @@ static NSString *signedNumber(double value, int decimals) {
 
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
+    CGFloat hairlineWidth = 1 / MAX(1, self.traitCollection.displayScale);
+    _grid.lineWidth = _zero.lineWidth = hairlineWidth;
     UIBezierPath *grid = [UIBezierPath bezierPath];
     for (NSNumber *value in @[@(_limit), @(_limit / 2), @(-_limit / 2), @(-_limit)]) {
         CGFloat y = [self yFor:value.doubleValue];
@@ -327,6 +330,7 @@ static NSString *signedNumber(double value, int decimals) {
 
 - (void)didMoveToWindow {
     [super didMoveToWindow];
+    [self setNeedsLayout];
     [self paint];
 }
 
