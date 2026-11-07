@@ -1,8 +1,13 @@
 {
-  "revision": "chroma-core-v5-9188-fix2",
+  "revision": "chroma-core-v5-9188-fix3",
   "includesFix1": true,
+  "includesFix2": true,
   "correctedCloudBuildVerified": false,
   "files": [
+    {
+      "path": ".github/workflows/build-core.yml",
+      "sha256": "e35cef1e160044c940742ae7a9ae5fc766ae376680ce6dc76cddc77dcf0562a1"
+    },
     {
       "path": "Sources/Chroma/Wire/Protobuf.h",
       "sha256": "18d51cb9779d38deaebed619c60752433d19f24070f6d5f6fc07edff36f56d1c"
@@ -28,8 +33,8 @@
       "sha256": "b7e7ae61b16ce2c9758d3c2a869d386ce74aa7e4f577ad5f63a19c2fc40c344e"
     },
     {
-      "path": "BUILD-FIX2.vi.md",
-      "sha256": "df4a387d4e1b0b4d8357bd7787cc67ecbaba1e769605078817999a34fcd448f4"
+      "path": "BUILD-FIX3.vi.md",
+      "sha256": "3b91a359e843b4d24f4e624f8961e46ae423c6190b09b95a006e9f4c5b883553"
     }
   ]
 }
