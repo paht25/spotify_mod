@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "YAML": "PASS",
   "duplicateKeys": "NONE",
@@ -7,4 +8,15 @@
   ],
   "jobSteps": 10,
   "compiledOrRun": false
+=======
+{
+  "YAML": "PASS",
+  "duplicateKeys": "NONE",
+  "triggers": [
+    "workflow_dispatch",
+    "push"
+  ],
+  "jobSteps": 10,
+  "compiledOrRun": false
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "spotify": "9.1.88",
   "build": "918802209",
@@ -7,4 +8,15 @@
   "walkerFailures": [],
   "method": "Original Chroma Walker with metadata-fed binary adapter",
   "runtimeVerified": false
+=======
+{
+  "spotify": "9.1.88",
+  "build": "918802209",
+  "flagKeys": 2496,
+  "typed": 2306,
+  "initializerThunks": 531,
+  "walkerFailures": [],
+  "method": "Original Chroma Walker with metadata-fed binary adapter",
+  "runtimeVerified": false
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
 }

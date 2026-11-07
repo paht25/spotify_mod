@@ -8,4 +8,8 @@ Hướng dẫn hiện tại: [CHROMA-CORE-v5.vi.md](CHROMA-CORE-v5.vi.md).
 4. Tải artifact **chroma-core-v5-9188-Sideloadly-test**.
 5. Dùng script assembly trong hướng dẫn để nhúng cả extension vào bản sao IPA NoEevee 9.1.88, rồi ký/cài bằng Sideloadly. Không inject lặp `.deb` vào IPA đã được script nhúng.
 
+<<<<<<< HEAD
 V5 chưa được Apple toolchain biên dịch/kiểm thử trong phiên này. Không có file `.deb` v5 được tạo giả. Chưa hoàn thành toàn bộ tính năng riêng của Eevee; xem [báo cáo chức năng](reports/UNIFIED-v5-STATUS.md).
+=======
+V5 chưa được Apple toolchain biên dịch/kiểm thử trong phiên này. Không có file `.deb` v5 được tạo giả. Chưa hoàn thành toàn bộ tính năng riêng của Eevee; xem [báo cáo chức năng](reports/UNIFIED-v5-STATUS.md).
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2

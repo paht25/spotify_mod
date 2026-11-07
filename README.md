@@ -44,4 +44,8 @@ The second command also needs the unchanged upstream Chroma checkout and existin
 
 The user confirms separate permission for private Chroma integration. Original notices/vendor licenses are retained; public redistribution rights are not assumed. Eevee code remains under its original GPL-3.0 terms. SwiftProtobuf is built from official source and includes its license. No empty dependency framework is fabricated.
 
+<<<<<<< HEAD
 `personal-sidebar-v4-9188.zip`, `personal-menu-v3.zip`, earlier feed artifacts, and their reports are historical milestones. User-reported startup/menu operation applies to those earlier builds and is not verification of v5. The original 9.1.90/rootless request is superseded by the current 9.1.88/Sideloadly workflow.
+=======
+`personal-sidebar-v4-9188.zip`, `personal-menu-v3.zip`, earlier feed artifacts, and their reports are historical milestones. User-reported startup/menu operation applies to those earlier builds and is not verification of v5. The original 9.1.90/rootless request is superseded by the current 9.1.88/Sideloadly workflow.
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2

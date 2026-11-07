@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "requestedIOS": "27",
   "spotifyVersion": "9.1.88",
@@ -24,3 +25,31 @@
   "fullEeveeParity": false,
   "buildRevision": "chroma-core-v5-9188"
 }
+=======
+{
+  "requestedIOS": "27",
+  "spotifyVersion": "9.1.88",
+  "spotifyBuild": "918802209",
+  "preferredInputIPA": "User-provided Spotify-9.1.88-NoEevee.ipa; optional prepared GlassInput copy flips UIDesignRequiresCompatibility only",
+  "ipaStaticMetadataInspected": true,
+  "runtimeHookCompatibilityVerified": false,
+  "settingsEntry": "Spotify Settings and side drawer only; no floating button",
+  "appearanceObjective": "Full Chroma native/redesigned source integrated as visual owner; Eevee-only glass options still incomplete",
+  "packageScheme": "IPA-injection-container",
+  "packageArchitectureCandidate": "iphoneos-arm",
+  "binaryArchitectureCandidate": "arm64",
+  "jailbreak": null,
+  "injectionLoader": null,
+  "chromaModificationPermission": "CONFIRMED_BY_USER",
+  "purpose": "Private injection testing",
+  "deliveryMode": "IPA injection with Sideloadly",
+  "injectionTool": "Sideloadly",
+  "buildEnvironment": "None available locally; GitHub Actions workflow prepared",
+  "runtimeCompatibility": "NOT TESTED",
+  "releaseReady": false,
+  "requestedJailbreakLayout": "rootless (not validated by this IPA artifact)",
+  "chromaCoreSourceIncluded": true,
+  "fullEeveeParity": false,
+  "buildRevision": "chroma-core-v5-9188"
+}
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2

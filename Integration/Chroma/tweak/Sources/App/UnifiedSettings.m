@@ -2,6 +2,7 @@
 #import "Core/USUnifiedTransport.h"
 #import "Core/USRuntimeState.h"
 #import "Settings/SGModPage.h"
+#import "Settings/SGPageStyle.h"
 
 UIViewController *USUnifiedSettingsPage(void) {
     SGModRow *patch=SGSwitchRow(@"Eevee bootstrap / config patch",@"Uses original Eevee account/flag transforms; server rights remain server-owned",@"unifiedspotify.premiumPatching");

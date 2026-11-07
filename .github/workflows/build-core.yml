@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: Chroma source integration - v5-9188
+=======
+name: Personal integration - menu-v3
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
 
 on:
   workflow_dispatch:
@@ -13,19 +17,28 @@ permissions:
 jobs:
   core:
     runs-on: xcode-27
+<<<<<<< HEAD
     timeout-minutes: 30
     env:
       THEOS: ${{ github.workspace }}/build/theos
+=======
+    timeout-minutes: 20
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
     steps:
       - uses: actions/checkout@v4
       - name: Record Apple toolchain
         run: |
+<<<<<<< HEAD
           echo "BUILD REVISION chroma-core-v5-9188"
+=======
+          echo "BUILD REVISION personal-menu-v3"
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
           git rev-parse HEAD
           xcodebuild -version
           xcrun --sdk iphoneos --show-sdk-version
       - name: Test core, transport, Chroma wire codec and Eevee feed integration
         run: bash scripts/test-core-macos.sh
+<<<<<<< HEAD
       - name: Test composed transport and Eevee service hook boundaries
         run: bash scripts/test-composition-macos.sh
       - uses: actions/checkout@v4
@@ -42,6 +55,17 @@ jobs:
         run: |
           dpkg-deb --info build/unified/UnifiedSpotify-ChromaEevee_0.4.0-test1.deb
           dpkg-deb --contents build/unified/UnifiedSpotify-ChromaEevee_0.4.0-test1.deb
+=======
+      - name: Compile ARM64 iOS core static library
+        run: bash scripts/build-core.sh
+      - name: Build isolated feed dylib and experimental Debian package
+        run: bash scripts/build-experimental.sh
+      - name: Validate Debian package structure with dpkg
+        run: |
+          brew install dpkg
+          dpkg-deb --info build/experimental/UnifiedSpotify-Personal_0.2.0-test1.deb
+          dpkg-deb --contents build/experimental/UnifiedSpotify-Personal_0.2.0-test1.deb
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
       - name: Upload core library and test executable
         uses: actions/upload-artifact@v4
         with:
@@ -55,6 +79,7 @@ jobs:
             build/core-tests/HookTests
             build/core-tests/feed-symbols.txt
             build/core-tests/SharingTests
+<<<<<<< HEAD
             build/core-tests/PremiumTests
             build/composition-tests/CompositionTests
             build/composition-tests/ServiceHooksTests
@@ -66,5 +91,18 @@ jobs:
         with:
           name: chroma-core-v5-9188-Sideloadly-test
           path: build/unified/
+=======
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload experimental injection files
+        uses: actions/upload-artifact@v4
+        with:
+          name: personal-menu-v3-Sideloadly-test
+          path: |
+            build/experimental/UnifiedSpotifyExperimental.dylib
+            build/experimental/UnifiedSpotify-Personal_0.2.0-test1.deb
+            build/experimental/package-manifest.json
+            build/experimental/dependencies.txt
+>>>>>>> 696afedd902c1a3976110c952a8f1a45a39bf9c2
           if-no-files-found: error
           retention-days: 7
