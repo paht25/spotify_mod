@@ -1,4 +1,4 @@
-name: Compile and test integration - feed-c-bridge-v2
+name: Personal integration - menu-v3
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Record Apple toolchain
         run: |
-          echo "BUILD REVISION feed-c-bridge-v2"
+          echo "BUILD REVISION personal-menu-v3"
           git rev-parse HEAD
           xcodebuild -version
           xcrun --sdk iphoneos --show-sdk-version
@@ -31,8 +31,8 @@ jobs:
       - name: Validate Debian package structure with dpkg
         run: |
           brew install dpkg
-          dpkg-deb --info build/experimental/UnifiedSpotify-FeedTest_0.1.0-test1.deb
-          dpkg-deb --contents build/experimental/UnifiedSpotify-FeedTest_0.1.0-test1.deb
+          dpkg-deb --info build/experimental/UnifiedSpotify-Personal_0.2.0-test1.deb
+          dpkg-deb --contents build/experimental/UnifiedSpotify-Personal_0.2.0-test1.deb
       - name: Upload core library and test executable
         uses: actions/upload-artifact@v4
         with:
@@ -45,15 +45,16 @@ jobs:
             build/core-tests/FeedIntegrationTests
             build/core-tests/HookTests
             build/core-tests/feed-symbols.txt
+            build/core-tests/SharingTests
           if-no-files-found: error
           retention-days: 7
       - name: Upload experimental injection files
         uses: actions/upload-artifact@v4
         with:
-          name: experimental-feed-only-Sideloadly-test
+          name: personal-menu-v3-Sideloadly-test
           path: |
             build/experimental/UnifiedSpotifyExperimental.dylib
-            build/experimental/UnifiedSpotify-FeedTest_0.1.0-test1.deb
+            build/experimental/UnifiedSpotify-Personal_0.2.0-test1.deb
             build/experimental/package-manifest.json
             build/experimental/dependencies.txt
           if-no-files-found: error
