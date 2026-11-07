@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "manifestFilesChecked": 47,
+  "checks": [
+    "47 source hashes against previous manifest",
+    "47 staged-copy hashes",
+    "both Spotify bundle filters",
+    "ARM64 Mach-O headers and deployment targets",
+    "Orion dependency and required imports",
+    "two framework architectures",
+    "27 localization dictionaries"
+  ],
+  "runtimeFeaturesTested": 0,
+  "unifiedBuildTested": false,
+  "installationTested": false
+}

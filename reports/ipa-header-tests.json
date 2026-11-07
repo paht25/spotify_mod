@@ -1,0 +1,15 @@
+{
+  "checks": [
+    {
+      "image": "Payload/Spotify.app/Spotify",
+      "headerInsertion": "PASS",
+      "idempotence": "PASS",
+      "originalSectionsUnchanged": true,
+      "twoDependenciesFit": true,
+      "nonzeroPaddingRejected": true
+    }
+  ],
+  "outputIPAProduced": false,
+  "signingTested": false,
+  "runtimeTested": false
+}
