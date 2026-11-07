@@ -1,109 +1,15 @@
 {
-  "revision": "chroma-core-v5-9188-fix4",
-  "includesFix1": true,
-  "includesFix2": true,
-  "includesFix3": true,
+  "revision": "chroma-core-v5-9188-fix5",
+  "scope": "One view source file; no changes to compiler warning flags",
   "correctedCloudBuildVerified": false,
   "files": [
     {
-      "path": "Sources/Eevee/Feed/BrowsitaSectionStripper.swift",
-      "sha256": "01abf97b306a3546aee1b02f38b112d86017f36b7885058a36061c678ce973bc",
-      "install": true
+      "path": "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRDownload.m",
+      "sha256": "0dadc2844e6af907aee0a269d780d160aeff20b489a1aadfb292e5449bdf593b"
     },
     {
-      "path": "Sources/Eevee/Premium/Account.pb.swift",
-      "sha256": "a3b9f1fa91d445bf094d59083f42b2b376e44b9149e3a39fbbb8477537582593",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Premium/BootstrapMessage+Extension.swift",
-      "sha256": "65796bcbf1092ddcf8d5a45bfe972a3faddf99f9c29e7043f8f7f2b6dacddca8",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Premium/BundledConfigurationPolicy.swift",
-      "sha256": "13f3ef0961872e4b2e7fc87c2864985f05d93ad4b05463fdd3ff33246b775c50",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Premium/EeveePropertyReplacement.swift",
-      "sha256": "e393b9e4ea1f621cfc609e1fc90bb4e9b2f74bac59d7189703e9a33589d97b57",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Premium/ModifyRemoteConfiguration.swift",
-      "sha256": "d854f467838db6192ee5c7267b0d38f39ea805cd001303b45ad8ef6159b00b83",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Premium/ServerSidedFeaturePolicy.swift",
-      "sha256": "0c42cac5b632f00ce688ab6a272f9b1af257781fce6da0358f2f26b851a082d6",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Premium/UcsResponse+Extension.swift",
-      "sha256": "7f1a3b329c656443afe7caff043731fd4a7ccb37c92c08e145af06567fad191c",
-      "install": true
-    },
-    {
-      "path": "Sources/Eevee/Sharing/CleanShareLinks.swift",
-      "sha256": "c09fb315f89c0c65ef2c57153dbee47c641bd22b03cbe0831c90a69b22871cee",
-      "install": true
-    },
-    {
-      "path": "Tests/EeveeFeed/main.swift",
-      "sha256": "99d3c38ec34c29f08b3a098803daef73792c93da94c557dc4c22ff6d263daf97",
-      "install": true
-    },
-    {
-      "path": "target.json",
-      "sha256": "dbbafc30e0fe7579c85cd9482261ebf435275e46ed763866d0198e51ad4b9726",
-      "install": true
-    },
-    {
-      "path": ".github/workflows/build-core.yml",
-      "sha256": "e35cef1e160044c940742ae7a9ae5fc766ae376680ce6dc76cddc77dcf0562a1",
-      "install": true
-    },
-    {
-      "path": "Sources/Chroma/Wire/Protobuf.h",
-      "sha256": "18d51cb9779d38deaebed619c60752433d19f24070f6d5f6fc07edff36f56d1c",
-      "install": true
-    },
-    {
-      "path": "Sources/Chroma/Wire/Protobuf.m",
-      "sha256": "6225632604700736eb8399bb8906d813ec146ee3aad5ea4d4b017e082e0831de",
-      "install": true
-    },
-    {
-      "path": "Integration/Chroma/tweak/Sources/App/UnifiedSettings.m",
-      "sha256": "8c3c6ad011176f48a0b300fc8dedff2497de73b1f7632f4c35edd41a1052f9bd",
-      "install": true
-    },
-    {
-      "path": "scripts/test-core-macos.sh",
-      "sha256": "96e20dafb3cda06b1f736cd99edec3c9d38c7558583aafe61debdb5c990489d7",
-      "install": true
-    },
-    {
-      "path": "scripts/build-core.sh",
-      "sha256": "77cdb9548143de2173499b91859b122301712f0e6488edfc7b68baf1997df949",
-      "install": true
-    },
-    {
-      "path": "tools/check-source-conflicts.mjs",
-      "sha256": "b7e7ae61b16ce2c9758d3c2a869d386ce74aa7e4f577ad5f63a19c2fc40c344e",
-      "install": true
-    },
-    {
-      "path": "BUILD-FIX4.vi.md",
-      "sha256": "bcca19e2500aebdb6317bc3eb3d2c16d190c5a250a539888ab6165e4a2eaeb99",
-      "install": false
-    },
-    {
-      "path": "apply-clean-files.mjs",
-      "sha256": "582f15e77b81476c2c041f33571312ee5aa5fa876f0aaffeb6748660e734128a",
-      "install": false
+      "path": "BUILD-FIX5.vi.md",
+      "sha256": "0971d14ca8052223877297b5cdfbe55c773844024ef40d6a02e386e7ba5d0624"
     }
   ]
 }

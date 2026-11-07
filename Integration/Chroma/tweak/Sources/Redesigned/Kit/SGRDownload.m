@@ -178,6 +178,10 @@ static UIColor *tintFor(SGRDownloadState state) {
     _stop = [CAShapeLayer layer];
     [_ring.layer addSublayer:_stop];
     [self sgr_paint];
+    // Re-resolve the layer colors when UIKit's color appearance changes. This
+    // target is iOS 27; trait registrations replace the deprecated callback.
+    [self registerForTraitChanges:UITraitCollection.systemTraitsAffectingColorAppearance
+                      withAction:@selector(sgr_paint)];
     return self;
 }
 
@@ -209,11 +213,6 @@ static UIColor *tintFor(SGRDownloadState state) {
     CGRect stop = CGRectMake(middle.x - kStopSide / 2, middle.y - kStopSide / 2, kStopSide, kStopSide);
     _stop.path = [UIBezierPath bezierPathWithRoundedRect:stop cornerRadius:1.5].CGPath;
     [CATransaction commit];
-}
-
-- (void)traitCollectionDidChange:(UITraitCollection *)previous {
-    [super traitCollectionDidChange:previous];
-    [self sgr_paint];
 }
 
 - (void)didMoveToWindow {
