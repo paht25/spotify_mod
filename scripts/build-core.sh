@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 PROJECT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+node "$PROJECT_DIR/tools/check-source-conflicts.mjs"
 command -v xcrun >/dev/null 2>&1 || { printf '%s\n' 'Build blocked: Xcode with an iPhoneOS SDK is required.' >&2; exit 1; }
 SDK_PATH="$(xcrun --sdk iphoneos --show-sdk-path)"
 SDK_VERSION="$(xcrun --sdk iphoneos --show-sdk-version)"

@@ -1,0 +1,35 @@
+{
+  "revision": "chroma-core-v5-9188-fix2",
+  "includesFix1": true,
+  "correctedCloudBuildVerified": false,
+  "files": [
+    {
+      "path": "Sources/Chroma/Wire/Protobuf.h",
+      "sha256": "18d51cb9779d38deaebed619c60752433d19f24070f6d5f6fc07edff36f56d1c"
+    },
+    {
+      "path": "Sources/Chroma/Wire/Protobuf.m",
+      "sha256": "6225632604700736eb8399bb8906d813ec146ee3aad5ea4d4b017e082e0831de"
+    },
+    {
+      "path": "Integration/Chroma/tweak/Sources/App/UnifiedSettings.m",
+      "sha256": "8c3c6ad011176f48a0b300fc8dedff2497de73b1f7632f4c35edd41a1052f9bd"
+    },
+    {
+      "path": "scripts/test-core-macos.sh",
+      "sha256": "96e20dafb3cda06b1f736cd99edec3c9d38c7558583aafe61debdb5c990489d7"
+    },
+    {
+      "path": "scripts/build-core.sh",
+      "sha256": "77cdb9548143de2173499b91859b122301712f0e6488edfc7b68baf1997df949"
+    },
+    {
+      "path": "tools/check-source-conflicts.mjs",
+      "sha256": "b7e7ae61b16ce2c9758d3c2a869d386ce74aa7e4f577ad5f63a19c2fc40c344e"
+    },
+    {
+      "path": "BUILD-FIX2.vi.md",
+      "sha256": "df4a387d4e1b0b4d8357bd7787cc67ecbaba1e769605078817999a34fcd448f4"
+    }
+  ]
+}

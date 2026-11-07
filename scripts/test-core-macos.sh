@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 PROJECT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+node "$PROJECT_DIR/tools/check-source-conflicts.mjs"
 printf '%s\n' 'BUILD REVISION: chroma-core-v5-9188'
 git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || true
 shasum -a 256 "$PROJECT_DIR/Sources/Injection/USFeedHooks.m" "$PROJECT_DIR/Sources/Eevee/Feed/USEeveeFeedModule.swift"
