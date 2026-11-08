@@ -2,6 +2,7 @@
 #import "USRuntimeState.h"
 #import "SGUIMode.h"
 #import "SGPrefs.h"
+#import "USHookRegistry.h"
 #import <objc/runtime.h>
 #import <dlfcn.h>
 
@@ -10,6 +11,12 @@ static void inspect(NSString *label,NSString *name,NSString *methodName) {
     if(!cls){USStateSet(key,@"class unavailable");return;}
     Method method=class_getInstanceMethod(cls,NSSelectorFromString(methodName));
     if(!method){USStateSet(key,@"selector unavailable");return;}
+    USHookRegistry *registry=[USHookRegistry new];
+    if([registry ownerOfClass:cls selector:NSSelectorFromString(methodName)]){
+        USStateSet(key,[registry isActiveOnClass:cls selector:NSSelectorFromString(methodName)]?
+            @"unified registered implementation active":@"registered implementation replaced; investigate hook conflict");
+        return;
+    }
     Dl_info info={0};IMP implementation=method_getImplementation(method);
     if(!dladdr((const void *)implementation,&info)||!info.dli_fname){USStateSet(key,@"implementation image unresolved");return;}
     NSString *image=[NSString stringWithUTF8String:info.dli_fname].lastPathComponent;
@@ -19,6 +26,11 @@ void USRefreshRuntimeDiagnostics(void) {
     USStateSet(@"mode.active",SGRedesignedUI()?@"redesigned":@"native");
     USStateSet(@"mode.stored",SGRedesignedUIStored()?@"redesigned":@"native");
     USStateSet(@"mode.stockDefaults",[NSUserDefaults.standardUserDefaults boolForKey:SGKeyStock]?@"yes":@"no");
+    USStateSet(@"mode.restartNeeded",SGRedesignedUI()!=SGRedesignedUIStored()?@"yes":@"no");
+    USStateSet(@"mode.glassClass",NSClassFromString(@"UIGlassEffect")?@"available":@"unavailable");
+    USStateSet(@"audioAds.policyEnabled",USSettingEnabled(@"unifiedspotify.audioAds",YES)?@"yes":@"no");
+    USStateSet(@"audioAds.servicesEnabled",USSettingEnabled(@"unifiedspotify.adServices",YES)?@"yes":@"no");
+    USStateSet(@"audioAds.verification",@"counters measure interception, not audible ad blocking");
     USStateSet(@"ui.requiresCompatibility",[[NSBundle.mainBundle objectForInfoDictionaryKey:@"UIDesignRequiresCompatibility"] boolValue]?@"yes":@"no");
     inspect(@"flags",@"_TtC22RemoteConfigurationSDK25ConfigurationProviderImpl",@"boolValueForId:defaultValue:");
     inspect(@"observableFlags",@"_TtC22RemoteConfigurationSDK35ObservableConfigurationProviderImpl",@"boolValueForId:defaultValue:");

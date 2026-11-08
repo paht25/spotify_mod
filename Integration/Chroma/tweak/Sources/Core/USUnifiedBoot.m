@@ -4,11 +4,16 @@
 #import "USEeveeServices.h"
 #import "USAudioAdHooks.h"
 #import "USRuntimeInspection.h"
+#import "USAudioTap.h"
+#import "USPersonalModules.h"
+#import "USHookLifecycle.h"
 __attribute__((constructor)) static void unifiedStart(void) {
     @autoreleasepool {
         if(!USUnifiedTargetSupported())return;
         USInstallEeveeServices();
         USInstallAudioAdHooks();
+        USStartHookLifecycle();
+        USInstallAudioTap();
         NSUserDefaults *defaults=NSUserDefaults.standardUserDefaults;
         // Preserve the previous private build's choice without overwriting an
         // existing Chroma setting. Chroma is the sole haptic owner in this build.
@@ -20,10 +25,11 @@ __attribute__((constructor)) static void unifiedStart(void) {
         if(![defaults objectForKey:@"unifiedspotify.cleanShareLinks"] && [defaults objectForKey:@"cleanShareLinks"])
             [defaults setObject:[defaults objectForKey:@"cleanShareLinks"] forKey:@"unifiedspotify.cleanShareLinks"];
         dispatch_async(dispatch_get_main_queue(),^{
-            USStateSet(@"build",@"personal-v6-9190");USStateSet(@"spotify",@"9.1.90");
+            USStateSet(@"build",@"personal-independent-v8-9190");USStateSet(@"spotify",@"9.1.90");
             USStateSet(@"renderOwner",@"Chroma native/redesigned profiles");
             USStateSet(@"networkOwner",@"Composed Chroma delegate + Eevee transforms");
             USInstallUtilityHooks();
+            USRestorePersonalModules();
             USRefreshRuntimeDiagnostics();
             for(NSNumber *delay in @[@1,@3,@8])
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW,(int64_t)(delay.doubleValue*NSEC_PER_SEC)),dispatch_get_main_queue(),^{USInstallEeveeServices();USInstallAudioAdHooks();});

@@ -1,23 +1,19 @@
-# Unified Spotify — private v6 candidate
+# Personal Spotify — independent v7 work in progress
 
-Target: **Spotify 9.1.90 build 919002269 / iOS 27 / ARM64 / Sideloadly**.
-Current revision: `personal-v6-9190`. Earlier v4/v5 instructions and binaries are historical.
+Target: Spotify 9.1.90 build 919002269, iOS 27, ARM64, Sideloadly.
+Revision: `personal-independent-v8-9190`.
 
-This integrates Chroma/spoti.pw 0.51.0 source with selected real EeveeSpotify 7.0.0 implementations. One Chroma renderer owns each visual surface; Eevee transformations compose inside the same network task. The original tweak binaries are never loaded together. All 278 original Chroma source files remain present; author donation/update/usage modules are excluded from compilation at the user's request. Licenses and attribution are retained.
+The scope includes player, Liquid Glass Redesigned, NavBar, content pages, synced lyrics, lock-screen behavior and the remaining observed Chroma 1.0.1 features. The user explicitly excluded ambient playback and Sing/vocal separation. Synced lyrics are retained. This project does not patch the protected Chroma binary, forge Plus access or use the Chroma account/backend for the new modules.
 
-The user reports v5 starts, but Redesigned does not work and audio ads remain. That is evidence of v5 problems, not a v6 runtime pass. V6 adds a targeted playback product-state ad policy, fixes inconsistent Redesigned switch defaults, restores profile defaults when enabling the redesign after a stock reset, adds runtime implementation diagnostics, and regenerates flags from the supplied 9.1.90 executable.
+**This is not a completed Chroma 1.0.1 replica.** The public baseline previously labelled 0.51.0 actually declares version 0.22.0. Its source is retained under the user's previously confirmed private integration permission, with notices intact. Its presence does not establish newer player/UI/NavBar parity. Missing 1.0.1 implementations and untested behavior are tracked explicitly.
 
-**V6 has not been compiled with Xcode or tested on a device. No v6 `.deb` or `.ipa` has been produced locally.** A legacy transition class is absent in 9.1.90, leaving the original mini-player/player morph unresolved. Eevee-only UI, additional lyrics/karaoke, SponsorBlock and remaining session behavior are incomplete. Source inclusion and static ABI checks do not establish full feature parity.
+Independently authored additions in this branch:
 
-- [Build and installation instructions in Vietnamese](PERSONAL-v6.vi.md)
-- [Current feature comparison and verification checklist](reports/UNIFIED-v6-STATUS.md)
-- [Detailed original inventory](reports/FEATURES.md)
-- [Current dependency route](reports/DEPENDENCIES-v6.md)
+- Read-only audio output observer and a lock-free 2,048-sample spectrum/FFT pipeline. Production C tests run on Windows, including silence, tone placement, RMS, clipping, malformed input, wrap and simultaneous producer/consumer access.
+- Three actual Metal spectrum/orbit/wave backgrounds plus local user shader import. No invented audio levels. GPU drawing pauses off-screen/background, lowers work for low-power/heat/Reduce Motion and compiles shaders off the UI thread.
+- Local asset library: user fonts, audio-preset JSON and GraphicEQ headphone correction files; strict allowlists/ranges; no paid Workshop download impersonation. Font registration/overrides and actual existing DSP APIs are connected.
+- Opt-in Web Display on private Wi-Fi: actual now-playing metadata/artwork/lyrics and optional whitelisted playback controls. Per-start random private link, request limits and no account/audio/credential relay. Apple Network runtime behavior still needs device verification.
 
-Upload the contents of `personal-v6-9190-source.zip` to the private build repository, preserving directories. Run **Chroma source integration - v6-9190** on the existing working `xcode-27` runner. A successful run must pass component tests, including the new ad-policy boundary tests, compile the integrated image and Live Activity, and validate its Debian container. Download `personal-v6-9190-Sideloadly-test` only after that run succeeds.
+The older renderer baseline retains its native and redesigned modes, NavBar editors, player controls, lyrics providers, artwork, Live Activity, haptics, gestures, speed/pitch and DSP source. Selected Eevee transformations are composed into the existing single transport owner. The exact 6.6.8 source is included for reference/comparison; some newer v7-derived filters are intentionally retained. The original Chroma 1.0.1 and Eevee dylibs are not loaded together.
 
-The provided IPA and original extracted Debian payloads stay unchanged. IPA assembly requires the exact inspected clean 9.1.90 executable and a genuinely compiled v6 artifact. It rejects old experiments rather than relabelling them. Live Activity requires extension embedding and signing; see the assembly instructions. The `.deb` is an IPA injection container, not a validated rootless jailbreak installer.
-
-The Windows host can run hash, metadata, Logos preprocessing, layer and archive checks. Foundation/Swift tests and iOS compilation require the Apple cloud runner; installation, UI, playback and signing require the device. See the report for performed versus pending checks.
-
-Chroma reference: `425d68bc1761e90a6b5828864720511bcef79fa9`; Eevee reference: `d1da1d69715935e41d1dc97a25d11bcc42ebd170`. The user confirms permission for this private Chroma integration. Original PolyForm Strict, GPL-3.0, SwiftProtobuf and audio vendor notices are preserved. This is a derivative integration, not a claim of sole authorship of upstream implementations.
+See [feature inventory](reports/FEATURES-v7.md), [verification](reports/VERIFICATION-v7.md) and [build instructions](BUILD-v8.vi.md). New Objective-C/UIKit/Network/Metal code has not been compiled on this Windows host or tested on iPhone. A genuine new Apple build is required; old v6 binaries are rejected by the v7 packager. No v7 `.deb` or `.ipa` is fabricated.

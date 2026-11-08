@@ -1,0 +1,783 @@
+{
+  "ipa": {
+    "bytes": 147481508,
+    "sha256": "f71c12b3e7fa87bbb76893c163510fd07b2643c186d37de43acd1cc32f99bd33",
+    "members": 1048,
+    "appInfo": [
+      {
+        "CFBundleIdentifier": "com.spotify.client",
+        "CFBundleShortVersionString": "9.1.90",
+        "CFBundleVersion": "919002269",
+        "CFBundleExecutable": "Spotify",
+        "MinimumOSVersion": "16.1",
+        "UIDesignRequiresCompatibility": false
+      }
+    ],
+    "components": [
+      {
+        "path": "Payload/Spotify.app/PlugIns/NotificationContentExtension.appex/Info.plist",
+        "bytes": 1357
+      },
+      {
+        "path": "Payload/Spotify.app/PlugIns/WidgetExtension.appex/Info.plist",
+        "bytes": 1450
+      },
+      {
+        "path": "Payload/Spotify.app/PlugIns/IntentsExtension.appex/Info.plist",
+        "bytes": 1285
+      },
+      {
+        "path": "Payload/Spotify.app/PlugIns/NotificationServiceExtension.appex/Info.plist",
+        "bytes": 1118
+      },
+      {
+        "path": "Payload/Spotify.app/Frameworks/SpotifyShared.framework/Info.plist",
+        "bytes": 759
+      },
+      {
+        "path": "Payload/Spotify.app/Frameworks/MetaSmartGlassesKit.framework/Info.plist",
+        "bytes": 798
+      },
+      {
+        "path": "Payload/Spotify.app/PlugIns/SpotifyGlassLiveActivity.appex/Info.plist",
+        "bytes": 1266
+      },
+      {
+        "path": "Payload/Spotify.app/Frameworks/SpotifyGlassAutoMix26.dylib",
+        "bytes": 84496
+      },
+      {
+        "path": "Payload/Spotify.app/Frameworks/SpotifyGlassAutoMix.dylib",
+        "bytes": 99920
+      },
+      {
+        "path": "Payload/Spotify.app/Frameworks/spotifyglass.dylib",
+        "bytes": 10756912
+      },
+      {
+        "path": "Payload/Spotify.app/Frameworks/SpotifyGlassAppGroups.dylib",
+        "bytes": 67936
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChroma60x60@2x.png",
+        "bytes": 14805
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChroma60x60@3x.png",
+        "bytes": 30334
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChroma76x76@2x~ipad.png",
+        "bytes": 22240
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChroma83.5x83.5@2x~ipad.png",
+        "bytes": 26506
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaCobalt60x60@2x.png",
+        "bytes": 14198
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaCobalt60x60@3x.png",
+        "bytes": 27575
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaCobalt76x76@2x~ipad.png",
+        "bytes": 20728
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaCobalt83.5x83.5@2x~ipad.png",
+        "bytes": 24243
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaDark60x60@2x.png",
+        "bytes": 13464
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaDark60x60@3x.png",
+        "bytes": 25565
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaDark76x76@2x~ipad.png",
+        "bytes": 19464
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaDark83.5x83.5@2x~ipad.png",
+        "bytes": 22610
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaFlat60x60@2x.png",
+        "bytes": 13057
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaFlat60x60@3x.png",
+        "bytes": 27315
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaFlat76x76@2x~ipad.png",
+        "bytes": 19968
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaFlat83.5x83.5@2x~ipad.png",
+        "bytes": 23670
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaMono60x60@2x.png",
+        "bytes": 15044
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaMono60x60@3x.png",
+        "bytes": 30273
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaMono76x76@2x~ipad.png",
+        "bytes": 22689
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaMono83.5x83.5@2x~ipad.png",
+        "bytes": 26597
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaRings60x60@2x.png",
+        "bytes": 19046
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaRings60x60@3x.png",
+        "bytes": 37278
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaRings76x76@2x~ipad.png",
+        "bytes": 28027
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconChromaRings83.5x83.5@2x~ipad.png",
+        "bytes": 32948
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/Chroma.png",
+        "bytes": 95768
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/ChromaCobalt.png",
+        "bytes": 85608
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/ChromaDark.png",
+        "bytes": 117754
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/ChromaFlat.png",
+        "bytes": 79927
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/ChromaMono.png",
+        "bytes": 48668
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/ChromaRings.png",
+        "bytes": 137188
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconPreviews/SpotifyChroma.png",
+        "bytes": 127008
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconSpotifyChroma60x60@2x.png",
+        "bytes": 17026
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconSpotifyChroma60x60@3x.png",
+        "bytes": 32677
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconSpotifyChroma76x76@2x~ipad.png",
+        "bytes": 24702
+      },
+      {
+        "path": "Payload/Spotify.app/SGAppIconSpotifyChroma83.5x83.5@2x~ipad.png",
+        "bytes": 28824
+      }
+    ],
+    "sourceCandidates": []
+  },
+  "deb": {
+    "bytes": 1987342,
+    "sha256": "e04ef60a509a47bb0a74701202a4840a941f80f32ffb38e96c9e8583bd93fa83",
+    "archiveMembers": [
+      "debian-binary",
+      "control.tar.gz",
+      "data.tar.lzma"
+    ],
+    "control": "Package: com.eevee.spotify\nName: EeveeSpotify\nDescription: A tweak to get Spotify Premium for free, just like Spotilife\nMaintainer: jaydenjcpy\nAuthor: Eevee\nSection: Tweaks\nDepends: dev.theos.orion (>= 1.0.0), firmware (>= 14.0)\nArchitecture: iphoneos-arm64\nVersion: 6.6.8\nInstalled-Size: 24348\n",
+    "payload": [
+      {
+        "name": ".",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/Info.plist",
+        "bytes": 82,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ar-EG.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ar-EG.lproj/Localizable.strings",
+        "bytes": 20806,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/az.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/az.lproj/Localizable.strings",
+        "bytes": 10059,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/bg.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/bg.lproj/Localizable.strings",
+        "bytes": 9888,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ca.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ca.lproj/Localizable.strings",
+        "bytes": 13082,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/da.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/da.lproj/Localizable.strings",
+        "bytes": 10802,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/de-CH.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/de-CH.lproj/Localizable.strings",
+        "bytes": 8576,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/de.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/de.lproj/Localizable.strings",
+        "bytes": 11003,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/en.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/en.lproj/Localizable.strings",
+        "bytes": 15026,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/es.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/es.lproj/Localizable.strings",
+        "bytes": 12424,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/fa.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/fa.lproj/Localizable.strings",
+        "bytes": 23745,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/fr.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/fr.lproj/Localizable.strings",
+        "bytes": 12398,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/github.png",
+        "bytes": 8639,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/hr.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/hr.lproj/Localizable.strings",
+        "bytes": 9796,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/hu.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/hu.lproj/Localizable.strings",
+        "bytes": 10878,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/it.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/it.lproj/Localizable.strings",
+        "bytes": 18969,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ja.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ja.lproj/Localizable.strings",
+        "bytes": 6367,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ko.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ko.lproj/Localizable.strings",
+        "bytes": 5526,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/np.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/np.lproj/Localizable.strings",
+        "bytes": 6871,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/pl.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/pl.lproj/Localizable.strings",
+        "bytes": 23836,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/pt-BR.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/pt-BR.lproj/Localizable.strings",
+        "bytes": 9512,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/pt.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/pt.lproj/Localizable.strings",
+        "bytes": 9848,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/resolveconfiguration.bnk",
+        "bytes": 79724,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ro.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ro.lproj/Localizable.strings",
+        "bytes": 10531,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ru.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/ru.lproj/Localizable.strings",
+        "bytes": 11307,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/tr.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/tr.lproj/Localizable.strings",
+        "bytes": 11628,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/uk.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/uk.lproj/Localizable.strings",
+        "bytes": 11332,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/vi.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/vi.lproj/Localizable.strings",
+        "bytes": 24167,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/zh-CN.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/zh-CN.lproj/Localizable.strings",
+        "bytes": 12163,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/zh-TW.lproj",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Application Support/EeveeSpotify.bundle/zh-TW.lproj/Localizable.strings",
+        "bytes": 12040,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/EeveeSwiftProtobuf",
+        "bytes": 5842992,
+        "mode": "0o755",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Info.plist",
+        "bytes": 280,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.abi.json",
+        "bytes": 5937573,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftdoc",
+        "bytes": 437752,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftinterface",
+        "bytes": 200038,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64-apple-ios.swiftmodule",
+        "bytes": 1468568,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.abi.json",
+        "bytes": 5937573,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.swiftdoc",
+        "bytes": 437752,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.swiftinterface",
+        "bytes": 200039,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/Frameworks/EeveeSwiftProtobuf.framework/Modules/EeveeSwiftProtobuf.swiftmodule/arm64e-apple-ios.swiftmodule",
+        "bytes": 1468568,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/MobileSubstrate",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/MobileSubstrate/DynamicLibraries",
+        "bytes": 0,
+        "mode": "0o755",
+        "type": "5",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/MobileSubstrate/DynamicLibraries/EeveeSpotify.dylib",
+        "bytes": 2563648,
+        "mode": "0o755",
+        "type": "0",
+        "link": ""
+      },
+      {
+        "name": "var/jb/Library/MobileSubstrate/DynamicLibraries/EeveeSpotify.plist",
+        "bytes": 90,
+        "mode": "0o644",
+        "type": "0",
+        "link": ""
+      }
+    ]
+  }
+}

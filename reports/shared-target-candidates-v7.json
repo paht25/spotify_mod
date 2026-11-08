@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/DarkPopUps.x.swift",
+      "sharedTargetCandidates": [
+        "SPTEncoreLabel"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/DataLoaderServiceHooks.x.swift",
+      "sharedTargetCandidates": [
+        "SPTDataLoaderService"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/EeveeCrossfadeForce.x.swift",
+      "sharedTargetCandidates": [
+        "_TtC31Preferences_CorePreferencesImpl28SPTPreferencesImplementation"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/EeveePremiumForce.x.swift",
+      "sharedTargetCandidates": [
+        "SPTCoreProductState"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/Tweak.x.swift",
+      "sharedTargetCandidates": [
+        "NowPlaying_ScrollImpl.NPVScrollViewController",
+        "_TtC21Settings_PlatformImpl26SettingsListViewController"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/Lyrics/CustomLyrics+AllTracksLyrics.x.swift",
+      "sharedTargetCandidates": [
+        "NowPlaying_ScrollImpl.NPVScrollViewController",
+        "SPTPlayerTrack"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/Lyrics/CustomLyrics+DisableReportButton.x.swift",
+      "sharedTargetCandidates": [
+        "Lyrics_FullscreenElementPageImpl.FullscreenView"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/Lyrics/CustomLyrics+ShowAttributes.x.swift",
+      "sharedTargetCandidates": [
+        "SPTEncoreLabel"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/Premium/DynamicPremium+ModifyBootstrap.x.swift",
+      "sharedTargetCandidates": [
+        "SPTCoreURLSessionDataDelegate",
+        "SPTDataLoaderService"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/Settings/EeveeSettingsUniversal.x.swift",
+      "sharedTargetCandidates": [
+        "_TtC21Settings_PlatformImpl26SettingsListViewController"
+      ]
+    },
+    {
+      "file": "Reference/EeveeSpotify-6.6.8/Sources/EeveeSpotify/SponsorBlock/SponsorBlockHooks.x.swift",
+      "sharedTargetCandidates": [
+        "_TtCO17NowPlaying_ECMKit11ProgressBar6Slider"
+      ]
+    }
+  ],
+  "caveat": "Lexical shared target only; runtime selector/ABI/version activation checks still required."
+}

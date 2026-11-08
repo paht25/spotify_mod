@@ -4,6 +4,16 @@ PROJECT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 : "${THEOS:?Set THEOS to an official recursive checkout of theos/theos}"
 command -v gmake >/dev/null || { echo 'GNU make (brew install make) is required.' >&2; exit 1; }
 bash "$PROJECT_DIR/scripts/build-core.sh"
+node "$PROJECT_DIR/tools/extract-personal-shader.mjs"
+if xcrun --find metal >/dev/null 2>&1; then
+  xcrun --sdk iphoneos metal -c "$PROJECT_DIR/build/generated/PersonalSpectrum.metal" \
+    -o "$PROJECT_DIR/build/generated/PersonalSpectrum.air"
+else
+  printf '%s\n' 'Metal compiler unavailable: built-in shader compilation remains unverified until device initialization.'
+fi
+xcrun --sdk iphoneos clang -std=c11 -O2 -Wall -Wextra -Werror -target arm64-apple-ios27.0 \
+  -c "$PROJECT_DIR/Integration/Chroma/tweak/Sources/Core/USAudioSpectrum.c" \
+  -o "$PROJECT_DIR/build/core-ios/USAudioSpectrum.o"
 bash "$PROJECT_DIR/Integration/Chroma/scripts/check-layers.sh" "$PROJECT_DIR/Integration/Chroma/tweak/Sources"
 # ZIP uploads do not preserve shell executable bits. Invoke scripts explicitly.
 chmod +x "$PROJECT_DIR/Integration/Chroma/scripts/check-layers.sh"
@@ -17,7 +27,7 @@ codesign --force --sign - --timestamp=none "$OUT/spotifyglass.dylib"
 xcrun lipo -verify_arch arm64 "$OUT/spotifyglass.dylib"
 xcrun otool -L "$OUT/spotifyglass.dylib" > "$OUT/dependencies.txt"
 xcrun nm -g "$OUT/spotifyglass.dylib" > "$OUT/symbols.txt"
-for NAME in USAttachEeveeFeed USAttachEeveePremium USCleanSharedObject USUnifiedComplete USInstallAudioAdHooks; do
+for NAME in USAttachEeveeFeed USAttachEeveePremium USCleanSharedObject USUnifiedComplete USInstallAudioAdHooks USInstallAudioTap USSpectrumRead USStartWebDisplay; do
   awk -v symbol="_$NAME" '$NF == symbol && $(NF-1) != "U" { found=1 } END { exit !found }' "$OUT/symbols.txt" || {
     echo "Missing unified symbol: $NAME" >&2; exit 1;
   }
@@ -27,6 +37,8 @@ xcrun --sdk iphoneos clang -target arm64-apple-ios27.0 -dynamiclib -fobjc-arc -O
   -framework Foundation -framework Security -install_name @rpath/SpotifyGlassAppGroups.dylib \
   -o "$OUT/SpotifyGlassAppGroups.dylib" "$PROJECT_DIR/Integration/Chroma/extension/AppGroups/AppGroups.m"
 codesign --force --sign - --timestamp=none "$OUT/SpotifyGlassAppGroups.dylib"
+mkdir -p "$OUT/personal-resources"
+cp "$PROJECT_DIR/Resources/Personal/WebDisplay.html" "$OUT/personal-resources/WebDisplay.html"
 mkdir -p "$OUT/licenses"
 cp "$PROJECT_DIR/Integration/Chroma/LICENSE" "$OUT/licenses/Chroma-LICENSE.txt"
 cp "$PROJECT_DIR/Licenses/EeveeSpotify-GPL-3.0.txt" "$OUT/licenses/Eevee-COPYING.txt"

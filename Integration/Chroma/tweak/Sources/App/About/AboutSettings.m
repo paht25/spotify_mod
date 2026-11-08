@@ -42,7 +42,7 @@ UIViewController *SGAboutPage(void) {
     // The row reads out where the build stands and opens the changelog of everything newer than it.
     return [[SGModPage alloc] initWithTitle:@"Mod" intro:nil sections:@[
         SGSection(nil, @[
-            SGStatRow(@"Version", ^NSString *{ return @"Personal v6"; }),
+            SGStatRow(@"Version", ^NSString *{ return @"Personal v8"; }),
             SGStatRow(@"Spotify", ^NSString *{ return spotify; }),
         ]),
         SGSection(nil, @[

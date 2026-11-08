@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const file=path.join(root,'Integration/Chroma/tweak/Sources/Shared/Personal/USReactiveView.m');
+const source=fs.readFileSync(file,'utf8');
+const section=source.slice(source.indexOf('static NSString *const builtin ='),source.indexOf('typedef struct'));
+const literals=[...section.matchAll(/@?("(?:[^"\\]|\\.)*")/g)].map(m=>JSON.parse(m[1]));
+if(!literals.length)throw new Error('Built-in Metal source absent');
+const output=path.join(root,'build/generated/PersonalSpectrum.metal');
+fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,literals.join(''));
+console.log(output);

@@ -2,11 +2,13 @@
 #include <string.h>
 
 static NSMutableDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *owners;
+static NSMutableDictionary<NSString *, NSValue *> *implementations;
 @implementation USHookRegistry
 - (instancetype)init {
     if ((self = [super init])) {
         @synchronized (USHookRegistry.class) {
             if (!owners) owners = [NSMutableDictionary dictionary];
+            if (!implementations) implementations = [NSMutableDictionary dictionary];
         }
     }
     return self;
@@ -46,11 +48,20 @@ static NSMutableDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *
         owners[key] = @{@"owner":owner, @"class":NSStringFromClass(cls),
                          @"selector":NSStringFromSelector(selector),
                          @"encoding":[NSString stringWithUTF8String:encoding]};
+        implementations[key]=[NSValue valueWithPointer:(const void *)replacement];
         return YES;
     }
 }
 - (NSDictionary<NSString *, NSString *> *)ownerOfClass:(Class)cls selector:(SEL)selector {
     if (!cls || !selector) return nil;
     @synchronized (USHookRegistry.class) { return [owners[[self keyForClass:cls selector:selector]] copy]; }
+}
+- (BOOL)isActiveOnClass:(Class)cls selector:(SEL)selector {
+    if(!cls||!selector)return NO;
+    @synchronized(USHookRegistry.class){
+        NSValue *expected=implementations[[self keyForClass:cls selector:selector]];
+        Method method=class_getInstanceMethod(cls,selector);
+        return expected&&method&&(const void *)method_getImplementation(method)==expected.pointerValue;
+    }
 }
 @end

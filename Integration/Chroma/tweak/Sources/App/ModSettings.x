@@ -24,6 +24,7 @@
 #import "Shared/LiveActivity/LiveActivity.h"
 #import "App/About/About.h"
 #import "Pages.h"
+#import "PersonalSettings.h"
 
 static const CGFloat kRowHeight = 56;
 static char kRowKey, kInsetKey;
@@ -34,13 +35,14 @@ static SGModRow *pageRow(NSString *title, NSString *symbol, UIViewController *(^
 
 static UIViewController *modSettingsPage(void) {
     NSMutableArray<SGModSection *> *sections = [NSMutableArray array];
+    [sections addObject:SGSection(@"Personal",@[pageRow(@"Personal features",@"waveform",^UIViewController *{return USPersonalSettingsPage();})])];
     [sections addObject:SGSection(@"Eevee integration",@[pageRow(@"Eevee patching & diagnostics",@"slider.horizontal.3",^UIViewController *{return USUnifiedSettingsPage();})])];
     // A build the lock screen cannot open leads the page, above the tweaks: it is the one thing here
     // that no switch can put right, and it is worth reading before anything else.
     SGModRow *signing = SGSigningWarningRow();
     if (signing) [sections addObject:SGSection(nil, @[signing])];
     SGModRow *mod = pageRow(@"Mod", @"info.circle", ^UIViewController *{ return SGAboutPage(); });
-    mod.value = ^NSString *{ return @"Personal v6"; };
+    mod.value = ^NSString *{ return @"Personal v8"; };
     // The audio effects work on the sound, so both looks have them, with what they are doing beside the chevron.
     SGModRow *audioEffects = pageRow(@"Audio effects", @"slider.vertical.3", ^UIViewController *{ return SGDSPSettingsPage(); });
     audioEffects.value = ^NSString *{ return SGDSPSummary(); };

@@ -29,6 +29,16 @@ int main(void){@autoreleasepool{
     id obj=[ad new];((void(*)(id,SEL))objc_msgSend)(obj,NSSelectorFromString(@"load"));require(loads==0,@"ad service suppressed");
     [defaults setBool:NO forKey:@"unifiedspotify.adServices"];
     ((void(*)(id,SEL))objc_msgSend)(obj,NSSelectorFromString(@"load"));require(loads==1,@"original called once after disabling");
+    // Services registered after startup must be picked up by a later pass.
+    Class late=makeClass("_TtC19AdsPlatform_AdsImpl14AdsServiceImpl");
+    class_addMethod(late,NSSelectorFromString(@"load"),(IMP)loadFixture,"v16@0:8");objc_registerClassPair(late);
+    [defaults setBool:YES forKey:@"unifiedspotify.adServices"];
+    USInstallEeveeServices();USInstallEeveeServices();
+    ((void(*)(id,SEL))objc_msgSend)([late new],NSSelectorFromString(@"load"));
+    require(loads==1,@"late registered service is suppressed without duplicate forwarding");
+    [defaults setBool:NO forKey:@"unifiedspotify.adServices"];
+    ((void(*)(id,SEL))objc_msgSend)([late new],NSSelectorFromString(@"load"));
+    require(loads==2,@"late service forwards exactly once when disabled");
     id shuffle=[sh new];SEL check=NSSelectorFromString(@"checkRecommendationsEnabled"),track=NSSelectorFromString(@"recommendationIsBeingAddedWithTrackID:");
     [defaults setBool:NO forKey:@"trueShuffleEnabled"];
     require(((BOOL(*)(id,SEL))objc_msgSend)(shuffle,check),@"preserve original shuffle gate");

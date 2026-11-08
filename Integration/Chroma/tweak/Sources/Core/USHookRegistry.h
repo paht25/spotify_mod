@@ -13,5 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
            replacement:(IMP)replacement
                  error:(NSError * _Nullable * _Nullable)error;
 - (nullable NSDictionary<NSString *, NSString *> *)ownerOfClass:(Class)runtimeClass selector:(SEL)selector;
+- (BOOL)isActiveOnClass:(Class)runtimeClass selector:(SEL)selector;
 @end
 NS_ASSUME_NONNULL_END

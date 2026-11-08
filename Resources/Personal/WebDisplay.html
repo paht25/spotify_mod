@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personal music display</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#080b10;color:#f3f5f7}*{box-sizing:border-box}body{margin:0}main{max-width:1300px;margin:auto;padding:clamp(24px,5vw,72px)}header{display:flex;justify-content:space-between;gap:24px;color:#a8b2c0;margin-bottom:48px;font-size:14px}.player{display:grid;grid-template-columns:minmax(180px,360px) 1fr;gap:clamp(24px,5vw,72px);align-items:center}.cover{aspect-ratio:1;background:#161b23;border-radius:20px;overflow:hidden}.cover img{width:100%;height:100%;object-fit:cover}.cover[hidden]{display:none}.player.no-cover{grid-template-columns:1fr}h1{font-size:clamp(28px,4vw,56px);letter-spacing:-.025em;margin:0 0 12px;overflow-wrap:anywhere}#artist{font-size:clamp(18px,2vw,26px);color:#a8b2c0}button,input{font:inherit}button{min-height:44px;border:1px solid #394351;border-radius:12px;background:#1b222c;color:inherit;padding:10px 18px;cursor:pointer}button:disabled{opacity:.35;cursor:default}button:focus-visible,input:focus-visible{outline:3px solid #72d6b1;outline-offset:4px}nav{display:flex;gap:12px;margin:28px 0 20px}#seek{width:100%;accent-color:#72d6b1;min-height:44px}#clock{color:#a8b2c0;font-variant-numeric:tabular-nums}#lyrics{list-style:none;padding:40px 0 0;margin:0;max-width:1000px}#lyrics li{margin:24px 0;font-size:clamp(22px,3vw,40px);line-height:1.35;color:#a8b2c0;transition:color .18s}#lyrics li.current{color:#f3f5f7}#lyrics .word.sung{color:#92ebca}#lyrics .translation{font-size:.6em;margin-top:6px;color:#a8b2c0}#notice{color:#a8b2c0;margin-top:36px}a{color:#92ebca}@media(max-width:650px){header{margin-bottom:28px}.player{grid-template-columns:1fr}.cover{max-width:280px}#lyrics{padding-top:12px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<main><header><span>Personal music display</span><span id="status" role="status">Connecting…</span></header>
+<section id="player" class="player no-cover" aria-label="Now playing"><div class="cover" id="cover" hidden></div><div><h1 id="title">Nothing playing</h1><div id="artist"></div><nav aria-label="Playback"><button id="previous" disabled>Previous</button><button id="toggle" disabled>Play</button><button id="next" disabled>Next</button></nav><input id="seek" type="range" min="0" max="1" step="0.1" value="0" disabled aria-label="Playback position"><div id="clock">—</div></div></section>
+<ol id="lyrics" aria-label="Lyrics"></ol><p id="notice">Sound stays on your phone. Open the private link copied from Personal features.</p></main>
+<script>
+'use strict';
+const token=location.hash.slice(1), get=id=>document.getElementById(id);
+let state=null,received=0,lastLines='',lastCover='',current=-1;
+const headers=()=>({'Authorization':'Bearer '+token});
+const clock=n=>{n=Number.isFinite(n)?Math.max(0,n):0;return Math.floor(n/60)+':'+String(Math.floor(n%60)).padStart(2,'0')};
+function position(){return state?Math.min(state.duration||Infinity,state.position+(state.playing?(performance.now()-received)/1000:0)):0;}
+async function send(action,seconds){
+ if(!state?.controls)return;
+ try{const r=await fetch('/command',{method:'POST',headers:{...headers(),'Content-Type':'application/json'},body:JSON.stringify({action,seconds}),cache:'no-store'});if(!r.ok)get('status').textContent='Command unavailable';}catch{get('status').textContent='Phone disconnected';}
+}
+function lyrics(lines){
+ const key=JSON.stringify(lines);if(key===lastLines)return;lastLines=key;current=-1;
+ const fragment=document.createDocumentFragment();
+ for(const line of lines){const li=document.createElement('li');
+  for(let i=0;i<line.words.length;i++){const word=document.createElement('span');word.className='word';word.textContent=(i&&!line.words[i].joined?' ':'')+line.words[i].text;li.append(word);}
+  if(line.translation){const translation=document.createElement('div');translation.className='translation';translation.textContent=line.translation;li.append(translation);}
+  li.addEventListener('click',()=>send('seek',line.start/1000));fragment.append(li);
+ }
+ get('lyrics').replaceChildren(fragment);
+ get('notice').textContent=lines.length?'Sound stays on your phone. Playback control must be enabled there.':'Lyrics are not available for this track yet. Sound stays on your phone.';
+}
+async function poll(){
+ if(document.hidden){setTimeout(poll,1000);return;}
+ try{
+  const response=await fetch('/state',{headers:headers(),cache:'no-store'});if(!response.ok)throw new Error('Private link expired or sharing stopped');
+  const incoming=await response.json();state=incoming;received=performance.now();
+  get('status').textContent='Connected · '+(state.controls?'control enabled':'view only');get('title').textContent=state.title||'Nothing playing';get('artist').textContent=state.artist||'';
+  get('toggle').textContent=state.playing?'Pause':'Play';for(const id of ['previous','toggle','next','seek'])get(id).disabled=!state.controls;
+  if(state.cover!==lastCover){lastCover=state.cover||'';const valid=/^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(lastCover);get('cover').hidden=!valid;get('player').classList.toggle('no-cover',!valid);if(valid){const image=document.createElement('img');image.alt='Album cover';image.src=lastCover;get('cover').replaceChildren(image);}else get('cover').replaceChildren();}
+  get('seek').max=state.duration>0?state.duration:1;lyrics(Array.isArray(state.lines)?state.lines:[]);
+ }catch(error){state=null;get('status').textContent=error.message||'Phone disconnected';for(const id of ['previous','toggle','next','seek'])get(id).disabled=true;}
+ setTimeout(poll,700);
+}
+function draw(){
+ if(state){const seconds=position(),ms=seconds*1000;get('clock').textContent=clock(seconds)+' / '+clock(state.duration);if(document.activeElement!==get('seek'))get('seek').value=seconds;
+  let lead=-1;for(let i=0;i<(state.lines||[]).length;i++){const line=state.lines[i];if(line.start<=ms&&(line.end>ms||line.start>0))lead=i;if(line.start>ms)break;}
+  const rows=get('lyrics').children;for(let i=0;i<rows.length;i++){rows[i].classList.toggle('current',i===lead);const spans=rows[i].querySelectorAll('.word');for(let j=0;j<spans.length;j++){const w=state.lines[i].words[j];spans[j].classList.toggle('sung',i===lead&&state.lines[i].wordTimed&&w.start<=ms);}}
+  if(lead!==current){current=lead;if(lead>=0&&rows[lead])rows[lead].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'center'});}
+ }requestAnimationFrame(draw);
+}
+get('previous').onclick=()=>send('previous');get('next').onclick=()=>send('next');get('toggle').onclick=()=>send('toggle');get('seek').onchange=()=>send('seek',Number(get('seek').value));
+if(token){poll();draw();}else{get('status').textContent='Private link required';get('notice').textContent='On the phone: Personal features → Web display → Copy private link. Open that complete link on this screen.';}
+</script></html>

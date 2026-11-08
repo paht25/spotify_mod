@@ -9,11 +9,19 @@
 static NSString *adValue(id key) {
     if(![key isKindOfClass:NSString.class])return nil;
     if([@[@"ads",@"audio-ad-frequency",@"video-ad-frequency",@"ab-ad-player-targeting"] containsObject:key])return @"0";
+    if([key isEqual:@"ad-formats"])return @"";
     return nil;
 }
 static BOOL enabled(void) { return USSettingEnabled(@"unifiedspotify.audioAds",YES); }
 NSDictionary *USAudioAdAttributes(NSDictionary *attributes) {
     if(![attributes isKindOfClass:NSDictionary.class])return attributes;
+    // Count incoming policy changes without collecting account values or IDs.
+    // A later update arriving with ads enabled is useful evidence, not proof
+    // that the playback core consumed (or rejected) the rewritten dictionary.
+    id incoming=attributes[@"ads"];
+    if([incoming respondsToSelector:@selector(boolValue)]&&[incoming boolValue])
+        USStateIncrement(@"audioAds.enabledPolicyObservations");
+    if(attributes[@"ad-formats"])USStateIncrement(@"audioAds.formatPoliciesSeen");
     NSMutableDictionary *result=[attributes mutableCopy];
     for(id key in attributes){NSString *value=adValue(key);if(value)result[key]=value;}
     result[@"ads"]=@"0"; // Original Eevee's safe seed; other ad keys override only.
@@ -48,7 +56,7 @@ void USInstallAudioAdHooks(void) {
                 if(input!=values)USStateIncrement(@"audioAds.dictionaryWrites");
                 ((void(*)(id,SEL,id))original)(object,sel,input);
             });});
-        for(NSString *name in @[@"values",@"originalValues"])
+        for(NSString *name in @[@"values",@"originalValues",@"overrides"])
             install(core,name,'@',2,^IMP(IMP original,SEL sel){return imp_implementationWithBlock(^id(id object){
                 id values=((id(*)(id,SEL))original)(object,sel);
                 return enabled()?USAudioAdAttributes(values):values;

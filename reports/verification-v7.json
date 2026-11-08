@@ -1,0 +1,21 @@
+{
+  "workflow": "PASS",
+  "pythonSyntax": "PASS",
+  "webJavaScriptSyntax": "PASS",
+  "originalAndStagedPayloadHashes": 47,
+  "newInputHashes": "UNCHANGED",
+  "ambientCodeRemoved": true,
+  "singExcluded": true,
+  "syncedLyricsRetained": true,
+  "logosPreprocessing": {
+    "files": 87,
+    "result": "PASS"
+  },
+  "shellSyntaxAndLayers": "PASS",
+  "mechanicalDesignFindings": [],
+  "appleBuild": "NOT RUN",
+  "deviceTest": "NOT RUN",
+  "productionSpectrumTests": "PASS on Windows GCC; silence, tones, RMS, nonfinite, clipping, wrap, rates, concurrency, antiphase stereo",
+  "newFoundationTests": "NOT RUN; require Apple CI",
+  "browserVisualPreview": "NOT VERIFIED; browser localhost connection timed out; temporary preview server stopped"
+}

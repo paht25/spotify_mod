@@ -6,7 +6,7 @@
   "ipaStaticMetadataInspected": true,
   "runtimeHookCompatibilityVerified": false,
   "settingsEntry": "Spotify Settings and side drawer only; no floating button",
-  "appearanceObjective": "Chroma 0.51.0 native/redesigned visual owner; diagnose missing legacy morph hook",
+  "appearanceObjective": "Independent modules on older native/Redesigned rendering baseline; full Chroma 1.0.1 parity not implemented",
   "packageScheme": "IPA-injection-container",
   "packageArchitectureCandidate": "iphoneos-arm",
   "binaryArchitectureCandidate": "arm64",
@@ -22,6 +22,16 @@
   "requestedJailbreakLayout": "rootless (not validated by this IPA artifact)",
   "chromaCoreSourceIncluded": true,
   "fullEeveeParity": false,
-  "buildRevision": "personal-v6-9190",
-  "audioAds": "Ad-only product-state policy added; not yet tested on a device"
+  "buildRevision": "personal-independent-v8-9190",
+  "audioAds": "Ad-only product-state policy added; not yet tested on a device",
+  "baselineDeclaredVersion": "0.22.0",
+  "referenceChromaVersion": "1.0.1",
+  "referenceEeveeVersion": "6.6.8",
+  "fullChromaParity": false,
+  "newModulesRequireChromaAccount": false,
+  "excludedByUser": [
+    "Ambient playback",
+    "Sing/vocal separation and its spatial voice processing"
+  ],
+  "syncedLyricsRetained": true
 }

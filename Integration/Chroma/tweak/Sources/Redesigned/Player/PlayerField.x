@@ -24,6 +24,7 @@
 #import "Settings/SGModPage.h"
 #import "Redesigned/Kit/SGRKit.h"
 #import "Player.h"
+#import "Shared/Personal/USReactiveView.h"
 
 // Past the plane's edges: above for the pull that dismisses the player, below for the bounce at the end
 // of the cards.
@@ -60,6 +61,8 @@ static SGRArtworkField *fieldIn(UIView *plane) {
     // A paused song holds the colours still, the way it rests the cover (PlayerArtwork.x).
     field.motionHeld = SGPlayerState().isPaused;
     field.bleed = kBleed;
+    UIView *reactive=USCreateReactiveBackground();
+    if(reactive){reactive.frame=field.bounds;reactive.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;[field addSubview:reactive];}
     objc_setAssociatedObject(plane, &kFieldKey, field, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     sg_field = field;
     USStateSet(@"render.playerField",@"created");

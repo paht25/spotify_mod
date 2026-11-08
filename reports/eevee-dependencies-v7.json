@@ -1,0 +1,252 @@
+{
+  "version": "6.6.8",
+  "sourceCommit": "0d846646922231d5367e1625764835826f807e5d",
+  "layout": "rootless /var/jb",
+  "dependencies": [
+    {
+      "name": "/usr/lib/libobjc.A.dylib",
+      "command": "0xc",
+      "currentVersion": "228.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/Foundation.framework/Foundation",
+      "command": "0xc",
+      "currentVersion": "4201.0.0",
+      "compatibilityVersion": "300.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation",
+      "command": "0xc",
+      "currentVersion": "4201.0.0",
+      "compatibilityVersion": "150.0.0"
+    },
+    {
+      "name": "@rpath/EeveeSwiftProtobuf.framework/EeveeSwiftProtobuf",
+      "command": "0xc",
+      "currentVersion": "0.0.0",
+      "compatibilityVersion": "0.0.0"
+    },
+    {
+      "name": "/usr/lib/libSystem.B.dylib",
+      "command": "0xc",
+      "currentVersion": "1356.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/Combine.framework/Combine",
+      "command": "0xc",
+      "currentVersion": "3023.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics",
+      "command": "0xc",
+      "currentVersion": "1965.2.3",
+      "compatibilityVersion": "64.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer",
+      "command": "0xc",
+      "currentVersion": "1.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/NaturalLanguage.framework/NaturalLanguage",
+      "command": "0xc",
+      "currentVersion": "114.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/Security.framework/Security",
+      "command": "0xc",
+      "currentVersion": "61901.60.40",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/SwiftUI.framework/SwiftUI",
+      "command": "0xc",
+      "currentVersion": "7.2.5",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/System/Library/Frameworks/UIKit.framework/UIKit",
+      "command": "0xc",
+      "currentVersion": "9126.2.4",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/libc++.1.dylib",
+      "command": "0xc",
+      "currentVersion": "2000.67.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftAVFoundation.dylib",
+      "command": "0x80000018",
+      "currentVersion": "2395.6.1",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCore.dylib",
+      "command": "0xc",
+      "currentVersion": "0.0.0",
+      "compatibilityVersion": "0.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreAudio.dylib",
+      "command": "0x80000018",
+      "currentVersion": "411.255.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreFoundation.dylib",
+      "command": "0xc",
+      "currentVersion": "120.100.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreImage.dylib",
+      "command": "0x80000018",
+      "currentVersion": "2.2.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreLocation.dylib",
+      "command": "0x80000018",
+      "currentVersion": "53.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreMIDI.dylib",
+      "command": "0x80000018",
+      "currentVersion": "6.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreMedia.dylib",
+      "command": "0x80000018",
+      "currentVersion": "3290.6.1",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftDarwin.dylib",
+      "command": "0x80000018",
+      "currentVersion": "347.40.2",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftDispatch.dylib",
+      "command": "0xc",
+      "currentVersion": "56.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftIntents.dylib",
+      "command": "0x80000018",
+      "currentVersion": "12.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftMetal.dylib",
+      "command": "0x80000018",
+      "currentVersion": "370.64.2",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftNaturalLanguage.dylib",
+      "command": "0x80000018",
+      "currentVersion": "4.3.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftOSLog.dylib",
+      "command": "0x80000018",
+      "currentVersion": "10.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftObjectiveC.dylib",
+      "command": "0xc",
+      "currentVersion": "951.1.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftQuartzCore.dylib",
+      "command": "0x80000018",
+      "currentVersion": "5.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftSpatial.dylib",
+      "command": "0x80000018",
+      "currentVersion": "1.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib",
+      "command": "0xc",
+      "currentVersion": "879.2.4",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftXPC.dylib",
+      "command": "0x80000018",
+      "currentVersion": "105.0.14",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftos.dylib",
+      "command": "0xc",
+      "currentVersion": "1076.40.2",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftsimd.dylib",
+      "command": "0x80000018",
+      "currentVersion": "23.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "@rpath/Orion.framework/Orion",
+      "command": "0xc",
+      "currentVersion": "1.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "@rpath/libswift_Concurrency.dylib",
+      "command": "0x80000018",
+      "currentVersion": "0.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftFoundation.dylib",
+      "command": "0xc",
+      "currentVersion": "1.0.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftCoreGraphics.dylib",
+      "command": "0xc",
+      "currentVersion": "120.100.0",
+      "compatibilityVersion": "1.0.0"
+    },
+    {
+      "name": "/usr/lib/swift/libswiftUIKit.dylib",
+      "command": "0xc",
+      "currentVersion": "1.0.0",
+      "compatibilityVersion": "1.0.0"
+    }
+  ],
+  "orionRequiredImports": 81,
+  "orionIncludedInNewInputs": false,
+  "strategy": "One integrated source image; original Chroma 1.0.1/Eevee binaries are not loaded. No placeholder Orion.",
+  "sameModelFilesAs668": [
+    "Account.pb.swift",
+    "BootstrapMessage+Extension.swift",
+    "UcsResponse+Extension.swift",
+    "EeveePropertyReplacement.swift"
+  ],
+  "newerFiltersRetained": true,
+  "full668Parity": false
+}

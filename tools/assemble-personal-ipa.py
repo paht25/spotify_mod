@@ -1,4 +1,4 @@
-"""Embed a genuinely built v6 artifact into the supplied clean Spotify 9.1.90.
+"""Embed a genuinely built v8 artifact into the supplied clean Spotify 9.1.90.
 
 This prepares an UNSIGNED IPA for Sideloadly. It never signs, installs, downloads
 Spotify, modifies the input, or extracts either original Debian package.
@@ -89,11 +89,11 @@ def assemble(base, artifact, output):
         main = get('spotifyglass.dylib')
         groups = get('SpotifyGlassAppGroups.dylib')
         load_dylib(main, 'spotifyglass'); load_dylib(groups, 'AppGroups')
-        for marker in (b'USUnifiedComplete', b'SGRKaraokeView', b'USInstallAudioAdHooks', b'personal-v6-9190'):
+        for marker in (b'USUnifiedComplete', b'SGRKaraokeView', b'USInstallAudioAdHooks', b'USInstallAudioTap', b'USSpectrumRead', b'USStartWebDisplay', b'personal-independent-v8-9190'):
             if marker not in main:
                 raise ValueError('This is not the full-source Chroma integration artifact')
         manifest = json.loads(get('package-manifest.json'))
-        if manifest['revision'] != 'personal-v6-9190':
+        if manifest['revision'] != 'personal-independent-v8-9190':
             raise ValueError('Artifact revision mismatch')
         for item in manifest['supportFiles']:
             if hashlib.sha256(get(item['name'])).hexdigest() != item['sha256']:
@@ -129,11 +129,13 @@ def assemble(base, artifact, output):
             patched = insert_load(patched, '@executable_path/Frameworks/SpotifyGlassAppGroups.dylib')
             info['UIDesignRequiresCompatibility'] = False
             info['NSSupportsLiveActivities'] = True
+            info['NSLocalNetworkUsageDescription'] = 'Share this phone’s now-playing information and optional playback controls with your own screens on private Wi-Fi.'
             changes = {info_path: plistlib.dumps(info, fmt=plistlib.FMT_BINARY), executable: patched,
                        app + 'Frameworks/spotifyglass.dylib': main, app + 'Frameworks/SpotifyGlassAppGroups.dylib': groups}
             modes = {executable: 0o755, app + 'Frameworks/spotifyglass.dylib': 0o755, app + 'Frameworks/SpotifyGlassAppGroups.dylib': 0o755}
             for name in ('Chroma-LICENSE.txt', 'Eevee-COPYING.txt', 'SwiftProtobuf-LICENSE.txt', 'bs2b-COPYING.txt', 'WDL-LICENSE.txt'):
                 changes[app + 'UnifiedSpotifyLicenses/' + name] = get('licenses/' + name)
+            changes[app + 'UnifiedSpotifyPersonal/WebDisplay.html'] = get('personal-resources/WebDisplay.html')
             for name, data in extension.items():
                 if name.startswith('/') or '..' in pathlib.PurePosixPath(name).parts:
                     raise ValueError('Unsafe extension member')

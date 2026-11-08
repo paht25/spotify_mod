@@ -21,6 +21,7 @@ spotifyglass_FILES := $(filter-out Sources/App/Donate/% Sources/App/About/Update
 spotifyglass_CFLAGS := -fobjc-arc -ISources -DSG_VERSION=\"$(SG_VERSION)\"
 spotifyglass_FRAMEWORKS := UIKit QuartzCore UniformTypeIdentifiers MediaPlayer CoreImage AudioToolbox AVFoundation CoreHaptics Accelerate
 spotifyglass_FRAMEWORKS += StoreKit
+spotifyglass_FRAMEWORKS += Metal MetalKit CoreText Network Security
 spotifyglass_LDFLAGS += -Wl,-rpath,@executable_path/Frameworks
 # Runtime swizzling instead of Substrate so the dylib has no extra dependency inside the IPA.
 spotifyglass_LOGOS_DEFAULT_GENERATOR := internal
@@ -35,6 +36,7 @@ spotifyglass_OBJ_FILES := $(SG_AUDIO)/build/ios/libsgaudio.a
 # Core, transport, and Chroma's protobuf codec are compiled once from Sources/.
 US_CORE := $(abspath ../../../build/core-ios)
 spotifyglass_OBJ_FILES += $(US_CORE)/FeedAdapter.o $(US_CORE)/protobuf/EeveeSwiftProtobuf.o
+spotifyglass_OBJ_FILES += $(US_CORE)/USAudioSpectrum.o
 Sources/Shared/AudioEffects/SGDSPCrossfeed.m_CFLAGS := -isystem $(SG_AUDIO)/libbs2b
 Sources/Shared/AudioEffects/SGDSPLiveprog.m_CFLAGS := -isystem $(SG_AUDIO)/wdl/eel2
 
