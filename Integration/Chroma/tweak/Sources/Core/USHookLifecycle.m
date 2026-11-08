@@ -25,17 +25,22 @@ static void requestReconcile(void) {
 static void imageAdded(const struct mach_header *header,intptr_t slide) {
     (void)header;(void)slide;requestReconcile();
 }
+@interface USHookLifecycleObserver : NSObject
++ (void)becameActive:(NSNotification *)note;
+@end
+@implementation USHookLifecycleObserver
++ (void)becameActive:(NSNotification *)note {(void)note;requestReconcile();}
+@end
 void USStartHookLifecycle(void) {
     static dispatch_once_t once;
     dispatch_once(&once,^{
         atomic_init(&pending,false);
         _dyld_register_func_for_add_image(imageAdded);
         dispatch_async(dispatch_get_main_queue(),^{
-            static id foreground;
-            foreground=[NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidBecomeActiveNotification
-                object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification *note){
-                    (void)note;requestReconcile();
-                }];
+            // The class object lives for the process lifetime; no unconsumed
+            // block-observer token or temporary receiver is needed.
+            [NSNotificationCenter.defaultCenter addObserver:USHookLifecycleObserver.class
+                selector:@selector(becameActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
             // Swift classes can become registered after their image callback.
             // Keep checking only while foregrounded, with no background timer.
             static NSTimer *timer;
