@@ -1,0 +1,4250 @@
+{
+  "revision": "personal-independent-v9-9190",
+  "literalCount": 485,
+  "withExactReferences": 170,
+  "withoutExactReferences": 315,
+  "caveat": "Static literal coverage only. Notifications, caches and infrastructure are included. This is not a feature count; dynamic keys and disabled source can affect results. No hidden behavior or Plus classification is asserted.",
+  "rows": [
+    {
+      "family": "sing",
+      "literal": "spotifyglass.sing.modelDownload",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.spatialVoice",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.sing.ignoreHeat",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.sing.ignoreMemory",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.sing.light",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.sing",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.spatialVoice.distance",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.spatialVoice.room",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.spatialVoice.width",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.spatialVoice.back",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.redesign.spatialVoice.backTenths",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.singModelChanged",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.sing.model",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.sing.lightModel",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.sing.lightModelDownload",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "sing",
+      "literal": "spotifyglass.singSpatialChanged",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient.homeCard",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient.playerSwitch",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient.state",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient.duck",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient.podcastPause",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "ambient",
+      "literal": "spotifyglass.ambient.timerFade",
+      "excludedByUser": true,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.picture",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.player",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.playerBackdrop",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.shuffle",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.repeat",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.connect",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.queue",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.share",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.addTo",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.hide.videoSwitch",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.accentFollowsArtwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.smoothChanges",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.musicIcons",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.dragOpen",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.accentDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.songAccentDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.artworksources",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.animatedStill",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluid.speed",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluid.warp",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluid.grain",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluid.blur",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluid.saturation",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluid.brightness",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fluidLookDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.backgroundDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.animatedVisualizer",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.backgroundBeforeBlack",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.backdrop",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.picturePhoto",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.showcaseSongDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.musicTop",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.headerGlass",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Player/Player.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.hideShuffle",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Player/Player.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.hideRepeat",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Player/Player.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.hideVideoSwitch",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.blackBackground",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Player/Player.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.background",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.movingBackground",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Player/Player.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.volumeSlider",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.fullScreen",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.lyricLine",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.menuRows",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.player.mix.wash",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.redesign.player.lyricsBeside",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.playerTransition",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Player/PlayerEvents.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "player",
+      "literal": "spotifyglass.playerTransitionEnded",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Player/PlayerEvents.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.navbar.stock",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m",
+        "Integration/Chroma/tweak/Sources/Native/Navbar/NavbarLayout.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.navbar.stock",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m",
+        "Integration/Chroma/tweak/Sources/Redesigned/Navbar/NavbarLayout.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.navbar",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Navbar/Navbar.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.navbar.layout",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Navbar/NavbarLayout.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.custom-tab.compact",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.navbar.layout",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Navbar/NavbarLayout.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.navbar",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Navbar/Navbar.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.navbar.hideLabels",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Navbar/Navbar.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.navbar.separateLast",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.inlinePlayer",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.navbar.fade",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.tab.%lu",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "navbar",
+      "literal": "spotifyglass.redesign.inlinePlayer.artist",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsCard",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLookDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.size",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.glow",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.wave",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.blur",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.smoothness",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.sync",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.glowSpread",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.edge",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.lift",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.dim",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.otherScale",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.fade",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.cascade",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.spacing",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.backingScale",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.backingAlpha",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsDelayDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.syncByOutput",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyrics.output",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.style",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLook.styleOwn",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsTextDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Lyrics/LyricsText.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsTextOrder",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Lyrics/LyricsText.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsTranslation",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Lyrics/LyricsText.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsPronunciation",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Lyrics/LyricsText.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsFurigana",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsCredit",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsSources.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsSimulateWords",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Lyrics/Lyrics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsPronunciation",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsLandscape",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsAutoHide",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsKeepTitle",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.karaokeLinesDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsExtrasDidPrepare",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsPronunciationScript",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsTranslationLanguage",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsSources.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsMeanings",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsMeanings/Meanings.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsMeanings.last",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.meanings.match",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.meanings.match.ahead",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsShaders.libraryDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsShaders.shaderDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsShaders.paramsDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsMode",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsShader",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.redesign.lyricsShaderParams",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricscache",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsDonorFor",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsHook.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.musixmatchLyrics",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsSources.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.neteaseWordTiming",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsSources.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsProviders",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsSources.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsDidImprove",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyrics.read",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.musixmatch.token",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/Musixmatch.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.spicyLyricsKeyDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsGeminiModel",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsGeminiCustomModel",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsTranslations",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lyrics",
+      "literal": "spotifyglass.lyricsGemini",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockScreenLyrics",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LockScreenLyrics/LockScreenLyrics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.appletoken",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LockScreenArtwork/SGAppleArtwork.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.animatedartwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.artworksources",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LockScreenArtwork/LockScreenArtwork.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.alwaysanimated",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.lyricsartwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.modestar",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.lyricsartwork.clip",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "lockscreen",
+      "literal": "spotifyglass.lockscreen.style",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LiveActivity/LiveActivity.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveactivity.drawn",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.view",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LiveActivity/LiveActivity.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.noLyrics",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.textSize",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.alignment",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.translation",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.artwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.colors",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.liveActivity.progress",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.redesign.liveActivity",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LiveActivity/LiveActivity.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "liveactivity",
+      "literal": "spotifyglass.redesign.liveActivity.view",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LiveActivity/LiveActivity.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.shuffle",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.ignoreHeat",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.shaderDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.shuffleDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.paramsDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.shaderID",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.shader",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.params",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.lyrics",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "visualizer",
+      "literal": "spotifyglass.visualizer.ignoreHeatDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.outputs.restore",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h",
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.liveprog",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.compander",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.compander.gains",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.compander.time",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.bass",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.bass.gain",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.eq",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.eq.gains",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.geq",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.geq.nodes",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.convolver",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.convolver.file",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.convolver.mode",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.ddc",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.ddc.file",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.liveprog.file",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.reverb",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.reverb.preset",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.wide",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.wide.level",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.crossfeed",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.crossfeed.mode",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.tube",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.tube.drive",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.postGain",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.limiterThreshold",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.limiterRelease",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffects.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.files",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/AudioEffects/AudioEffectsFiles.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.headphones",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.outputDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.outputs",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.output",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.communityWarned",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "audio",
+      "literal": "spotifyglass.dsp.",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.granted",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.artwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.show-progress",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.show-queue",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.mode",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.mixes_into",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.queue-drops-keys",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.effects",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.native-styles",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.queued_from",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.replay",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.style",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.length",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.playlists",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.albums",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.likedsongs",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.radio",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.queue",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.autoplay",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.crossfade.saved",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.info",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.premium",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "automix",
+      "literal": "spotifyglass.automix.crossfade-setting",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "font",
+      "literal": "spotifyglass.font",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Gestures/Gestures.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.press",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.hold.speed",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.hold",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.split",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Gestures/Gestures.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.step",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Gestures/Gestures.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.zones",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Gestures/Gestures.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.head.chime",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.head.nod",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.head.shake",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.head.sensitivity",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.head.learned",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.gestures.head",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "gestures",
+      "literal": "spotifyglass.keyboardShortcuts",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.haptics.music",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.haptics.controls",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Core/USUnifiedBoot.m",
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.redesign.haptics.controls",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.redesign.haptics.controls.strength",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.haptics.controls.strength",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.haptics.music.follows",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.haptics.music.strength",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.haptics.music.background",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.redesign.haptics.music",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.redesign.haptics.music.strength",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.redesign.haptics.music.follows",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/Haptics.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.music-haptics",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Haptics/MusicHaptics.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "haptics",
+      "literal": "spotifyglass.music-haptics.latency",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.hide.homeShortcuts",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/Home.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.hide.homePromo",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/Home.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.hide.homePreviews",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/Home.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.hide.homeDJ",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/Home.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.hide.homePills",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/Home.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.homeGradient",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/Home.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.homeGradientTint",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/HomeGradientChoices.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.homeGradientStrength",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/HomeGradientChoices.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.homeGradientHeight",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Home/HomeGradientChoices.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.podcastNames",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.hidePodcasts",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.showPreviews",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.hideShortcuts",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.hideDJ",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.showSuggestions",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.topPicks",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.topPicksColor",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.home.heading",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.home.snapshot",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.applehero",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.applehero.read",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.hero.motion",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "home",
+      "literal": "spotifyglass.redesign.hero",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistPopular",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistPick",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistReleases",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistFeaturing",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistAbout",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistPlaylists",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistFansAlsoLike",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistAppearsOn",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistDiscoveredOn",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistVerified",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistListeners",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistExplore",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistFollow",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistMore",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistShuffle",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.artistPhotoFade",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistTabBar",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.hide.artistLikedSongs",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Artist/Artist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.listenersInAbout",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.applePhoto",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.motion",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.hideTabs",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artistlogos",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.hideVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.hidePick",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.hideCountdown",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artist",
+      "literal": "spotifyglass.redesign.artist.hideAbout",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumExplore",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumAddTo",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumDownload",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumMore",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumMoreBy",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumConcerts",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumMerch",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.hide.albumYouMightLike",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.albumBackdrop",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Album/Album.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.cover",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.fullCover",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.artistPicture",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.notesPlace",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideNotes",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.playCounts",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideTrackArtists",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideMoreBy",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideConcerts",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideMerch",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "album",
+      "literal": "spotifyglass.redesign.album.hideYouMightLike",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistArtwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistDescription",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistCreator",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistLength",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.playlistBackdrop",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistVideo",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistAddTo",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistDownload",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistShare",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistMore",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistFind",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.hide.playlistPills",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Playlist/Playlist.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "playlist",
+      "literal": "spotifyglass.redesign.playlist.fullCover",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "library",
+      "literal": "spotifyglass.library.filter",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "library",
+      "literal": "spotifyglass.redesign.library.hideChips",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "library",
+      "literal": "spotifyglass.redesign.library.sortBand",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "search",
+      "literal": "spotifyglass.search.recents",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "search",
+      "literal": "spotifyglass.redesign.search.gap",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "search",
+      "literal": "spotifyglass.redesign.search.showVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "search",
+      "literal": "spotifyglass.redesign.search.detach",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.control",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.background",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.shader",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.upNext",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.layout",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.lyricsSize",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "web",
+      "literal": "spotifyglass.webPlayer.access",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.hidden",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.explicit",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.page",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.suggest",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.animatedOffline",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.artwork",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.ops",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.deferred",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.sort",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.library",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.dismissed",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.apply",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles.search",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "localfiles",
+      "literal": "spotifyglass.localfiles",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "stats",
+      "literal": "spotifyglass.statsCoversDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "stats",
+      "literal": "spotifyglass.stats.history",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "stats",
+      "literal": "spotifyglass.statsDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "stats",
+      "literal": "spotifyglass.statsWillClear",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "stats",
+      "literal": "spotifyglass.stats",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "stats",
+      "literal": "spotifyglass.statsTransferDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "translation",
+      "literal": "spotifyglass.geminiKeyDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "translation",
+      "literal": "spotifyglass.translate",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "translation",
+      "literal": "spotifyglass.translate.ahead",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "speedpitch",
+      "literal": "spotifyglass.speedPitch.follows",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "speedpitch",
+      "literal": "spotifyglass.playbackRateDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "speedpitch",
+      "literal": "spotifyglass.speedPitch.songKeptDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "speedpitch",
+      "literal": "spotifyglass.speedPitch.songs",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "privacy",
+      "literal": "spotifyglass.adblock.counts",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "privacy",
+      "literal": "spotifyglass.privacy.counts",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m",
+        "Integration/Chroma/tweak/Sources/Shared/Privacy/Privacy.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "privacy",
+      "literal": "spotifyglass.hideExplicit",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "privacy",
+      "literal": "spotifyglass.adblock.searchVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/Privacy/Privacy.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "flags",
+      "literal": "spotifyglass.flag.",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Core/SGPrefs.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "flags",
+      "literal": "spotifyglass.redesign.smoothFlags",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.amoled",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Settings/SGPageStyle.m",
+        "Integration/Chroma/tweak/Sources/Native/Appearance/Appearance.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.untested",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.accent.recent",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.accent",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Settings/SGPageStyle.m",
+        "Integration/Chroma/tweak/Sources/Native/Appearance/Appearance.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.accountFirst",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.animatedcovers",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.accentPlay",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.accent.recent",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.accent",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Settings/SGPageStyle.m",
+        "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRAccent.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.plainCheckmark",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.nowPlayingArtworkDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRBridges.x"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.topEdge",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.topBlur",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.fieldColorDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRField.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.flatThumbs",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.flatHeaderFade",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.accent.autoDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.accent.auto",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.pagelooks",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.pageMenuRows",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.page.menuRows",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.pageMenuSwept",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.palette.playing",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.palette.list",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.palette",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/Kit/SGRPalette.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.prettierIcons",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.reveal.fade",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.reveal.veil",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.headerFirst",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.menuNumbers",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.pageStandIn.places",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.pageStandIn",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.standin.colour",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.standin.fade",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.trackMenuRows",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.warp",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.karaoke.measure",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.hide.barConnect",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.marquee",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.card.move",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "appearance",
+      "literal": "spotifyglass.redesign.glassSheets",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artwork",
+      "literal": "spotifyglass.artwork.lowdata",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "artwork",
+      "literal": "spotifyglass.applelookups",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Core/SGPrefs.h",
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/About.h",
+        "Integration/Chroma/tweak/Sources/App/About/AboutSettings.m",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.stock",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Core/SGPrefs.h",
+        "Integration/Chroma/tweak/Sources/Core/USRuntimeState.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.spotifyversion.warned",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.eevee.warned",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.livecontainer.warned",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.debug.crashAfter",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.update.",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.signing.",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.onboarding.",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Diagnostics/Diagnostics.x",
+        "Integration/Chroma/tweak/Sources/App/About/Backup.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.signing.warned",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/App/About/Signing.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.update.checked.notification",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.update.checked",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.update.releases",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.update.told",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.update.notice",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/App/About/About.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.WeakMessages",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.PatchEngine",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.PickerDelegate",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.onboarding.seen",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/App/Onboarding/Onboarding.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.lowPowerDidChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.duo.promptSeen",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.duo.compatibility",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.redesign",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Core/SGUIMode.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.barConnect",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/NowPlayingBar/NowPlayingBar.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.lyricsCard",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.aboutArtist",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.relatedVideos",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.songDNA",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.liveEvents",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.exploreArtist",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.credits",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.merch",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.recommendations",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.hide.lyricsInline",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Native/Player/NowPlaying.h"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.account.profile",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.debug.album.voteMethod",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.loadAhead.historyAsked",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.inlinePlayerChanged",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.nowPlayingBarShownChanged",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.settings.seenNew",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.isrc",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.loadAhead",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.ownRequest",
+      "excludedByUser": false,
+      "exactSourceReferences": [
+        "Integration/Chroma/tweak/Sources/Shared/LyricsSources/LyricsSources.m"
+      ],
+      "runtimeVerified": false,
+      "interpretation": "source reference only; neither proves implementation nor runtime parity"
+    },
+    {
+      "family": "infrastructure",
+      "literal": "spotifyglass.car.didChange",
+      "excludedByUser": false,
+      "exactSourceReferences": [],
+      "runtimeVerified": false,
+      "interpretation": "no exact source literal found; dynamically generated keys require separate investigation"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-# Personal Spotify — independent v8 work in progress
+# Personal Spotify — independent v9 work in progress
 
 Target: Spotify 9.1.90 build 919002269, iOS 27, ARM64, Sideloadly.
-Revision: `personal-independent-v8-9190`.
+Revision: `personal-independent-v9-9190`.
 
 The scope includes player, Liquid Glass Redesigned, NavBar, content pages, synced lyrics, lock-screen behavior and the remaining observed Chroma 1.0.1 features. The user explicitly excluded ambient playback and Sing/vocal separation. Synced lyrics are retained. This project does not patch the protected Chroma binary, forge Plus access or use the Chroma account/backend for the new modules.
 
@@ -16,4 +16,6 @@ Independently authored additions in this branch:
 
 The older renderer baseline retains its native and redesigned modes, NavBar editors, player controls, lyrics providers, artwork, Live Activity, haptics, gestures, speed/pitch and DSP source. Selected Eevee transformations are composed into the existing single transport owner. The exact 6.6.8 source is included for reference/comparison; some newer v7-derived filters are intentionally retained. The original Chroma 1.0.1 and Eevee dylibs are not loaded together.
 
-The v8 candidate built successfully with Xcode 27.1 on GitHub Actions, including ARM64, the built-in Metal shader, Live Activity and Debian structure validation. Foundation/transport/ad-policy/spectrum/asset/HTTP tests passed. This is not a device playback or UI test. See [v8 verification](reports/VERIFICATION-v8.vi.md), [feature inventory](reports/FEATURES-v7.md) and [build instructions](BUILD-v8.vi.md). Full Chroma 1.0.1 parity and audible ad blocking remain unverified. Old artifacts are rejected by the v8 packager.
+The v9 candidate built successfully with Xcode 27.1 on GitHub Actions, including ARM64, the built-in Metal shader, Live Activity and Debian structure validation. Foundation/transport/ad-policy/spectrum/asset/HTTP tests passed. This is not a device playback or UI test. See [v8 verification](reports/VERIFICATION-v9.vi.md), [feature inventory](reports/FEATURES-v7.md) and [build instructions](BUILD-v9.vi.md). Full Chroma 1.0.1 parity and audible ad blocking remain unverified. Old artifacts are rejected by the v9 packager.
+
+V9 adds independently authored player black background, header-glass toggle and hide-shuffle/repeat controls. The user confirmed only the compiled Chroma IPA is available, not source 1.0.1. See reports/CHANGES-v9.vi.md; full recreation remains incomplete.

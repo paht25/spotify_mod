@@ -1,0 +1,9 @@
+{
+  "revision": "personal-independent-v9-9190",
+  "artifactSHA256": "93e9050ab43064abba04c92b644042d26931e890306dc07cd03125d51e9c63ae",
+  "zipCRC": "PASS",
+  "debHashAndFileModes": "PASS",
+  "supportHashes": "PASS",
+  "arm64AndV9LifecycleMarkers": "PASS",
+  "runtimeVerified": false
+}
