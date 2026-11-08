@@ -100,7 +100,13 @@
         "spotifyglass.playerTransition",
         "spotifyglass.playerTransitionEnded"
       ],
-      "deviceVerified": false
+      "deviceVerified": false,
+      "independentPlayerOptionsAddedV9": [
+        "headerGlass",
+        "blackBackground",
+        "hideShuffle",
+        "hideRepeat"
+      ]
     },
     {
       "id": "navbar",

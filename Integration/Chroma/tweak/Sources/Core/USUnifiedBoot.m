@@ -25,7 +25,7 @@ __attribute__((constructor)) static void unifiedStart(void) {
         if(![defaults objectForKey:@"unifiedspotify.cleanShareLinks"] && [defaults objectForKey:@"cleanShareLinks"])
             [defaults setObject:[defaults objectForKey:@"cleanShareLinks"] forKey:@"unifiedspotify.cleanShareLinks"];
         dispatch_async(dispatch_get_main_queue(),^{
-            USStateSet(@"build",@"personal-independent-v8-9190");USStateSet(@"spotify",@"9.1.90");
+            USStateSet(@"build",@"personal-independent-v9-9190");USStateSet(@"spotify",@"9.1.90");
             USStateSet(@"renderOwner",@"Chroma native/redesigned profiles");
             USStateSet(@"networkOwner",@"Composed Chroma delegate + Eevee transforms");
             USInstallUtilityHooks();

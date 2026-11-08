@@ -1,4 +1,4 @@
-"""Embed a genuinely built v8 artifact into the supplied clean Spotify 9.1.90.
+"""Embed a genuinely built v9 artifact into the supplied clean Spotify 9.1.90.
 
 This prepares an UNSIGNED IPA for Sideloadly. It never signs, installs, downloads
 Spotify, modifies the input, or extracts either original Debian package.
@@ -89,11 +89,11 @@ def assemble(base, artifact, output):
         main = get('spotifyglass.dylib')
         groups = get('SpotifyGlassAppGroups.dylib')
         load_dylib(main, 'spotifyglass'); load_dylib(groups, 'AppGroups')
-        for marker in (b'USUnifiedComplete', b'SGRKaraokeView', b'USInstallAudioAdHooks', b'USInstallAudioTap', b'USSpectrumRead', b'USStartWebDisplay', b'personal-independent-v8-9190'):
+        for marker in (b'USUnifiedComplete', b'SGRKaraokeView', b'USInstallAudioAdHooks', b'USInstallAudioTap', b'USSpectrumRead', b'USStartWebDisplay', b'personal-independent-v9-9190'):
             if marker not in main:
                 raise ValueError('This is not the full-source Chroma integration artifact')
         manifest = json.loads(get('package-manifest.json'))
-        if manifest['revision'] != 'personal-independent-v8-9190':
+        if manifest['revision'] != 'personal-independent-v9-9190':
             raise ValueError('Artifact revision mismatch')
         for item in manifest['supportFiles']:
             if hashlib.sha256(get(item['name'])).hexdigest() != item['sha256']:

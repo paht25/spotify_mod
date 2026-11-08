@@ -184,6 +184,13 @@ static void playGlyph(UIView *host) {
     skipGlyph(host, @"SPTNowPlayingPreviousTrackButton", &kPreviousKey, @"backward.fill");
     skipGlyph(host, @"SPTNowPlayingNextTrackButton", &kNextKey, @"forward.fill");
     playGlyph(host);
+    // The existing native renderer identifies this reviewed five-item row in
+    // the same way. Do not infer shuffle/repeat from an unrelated stack shape.
+    NSArray<UIView *> *items = SGRowIn(host).arrangedSubviews;
+    if (items.count == 5 && SGHasClass(items[2], @"PlayButton")) {
+        if (SGHidden(SGRKeyPlayerHideShuffle)) SGRPlayerVanish(items[0]);
+        if (SGHidden(SGRKeyPlayerHideRepeat)) SGRPlayerVanish(items[4]);
+    }
 }
 %end
 

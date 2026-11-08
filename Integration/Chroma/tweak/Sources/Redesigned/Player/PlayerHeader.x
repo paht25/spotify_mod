@@ -39,7 +39,9 @@ static void glassInside(UIViewController *unit, NSArray<NSString *> *identifiers
             }
             continue;
         }
-        SGRGlassInside(button, &kGlassKey, SGRGlassCircleSize);
+        // A zero size hides only our decorative backing. Spotify retains its
+        // button, touch target, glyph, action and accessibility semantics.
+        SGRGlassInside(button, &kGlassKey, SGEnabled(SGRKeyPlayerHeaderGlass) ? SGRGlassCircleSize : 0);
         if ([identifiers[i] isEqualToString:@"Context menu"]) SGPlayerMenuWatchMoreButton(button);
         found++;
     }

@@ -1,9 +1,9 @@
-name: Personal independent modules - v8-9190
+name: Personal independent modules - v9-9190
 
 on:
   workflow_dispatch:
   push:
-    branches: [main, personal-v8-9190]
+    branches: [main, personal-v9-9190]
     paths:
       - .github/workflows/build-core.yml
       - Integration/**
@@ -30,7 +30,7 @@ jobs:
         run: node tools/check-source-conflicts.mjs
       - name: Record Apple toolchain
         run: |
-          echo "BUILD REVISION personal-independent-v8-9190"
+          echo "BUILD REVISION personal-independent-v9-9190"
           git rev-parse HEAD
           xcodebuild -version
           xcrun --sdk iphoneos --show-sdk-version
@@ -52,8 +52,8 @@ jobs:
         run: bash scripts/build-unified.sh
       - name: Validate Debian package structure with dpkg
         run: |
-          dpkg-deb --info build/unified/UnifiedSpotify-Personal_0.6.1-test1.deb
-          dpkg-deb --contents build/unified/UnifiedSpotify-Personal_0.6.1-test1.deb
+          dpkg-deb --info build/unified/UnifiedSpotify-Personal_0.6.2-test1.deb
+          dpkg-deb --contents build/unified/UnifiedSpotify-Personal_0.6.2-test1.deb
       - name: Upload core library and test executable
         uses: actions/upload-artifact@v4
         with:
@@ -80,7 +80,7 @@ jobs:
       - name: Upload private integration candidate and Live Activity support
         uses: actions/upload-artifact@v4
         with:
-          name: personal-independent-v8-9190-Sideloadly-test
+          name: personal-independent-v9-9190-Sideloadly-test
           path: build/unified/
           if-no-files-found: error
           retention-days: 7

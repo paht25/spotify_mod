@@ -22,7 +22,7 @@
   "requestedJailbreakLayout": "rootless (not validated by this IPA artifact)",
   "chromaCoreSourceIncluded": true,
   "fullEeveeParity": false,
-  "buildRevision": "personal-independent-v8-9190",
+  "buildRevision": "personal-independent-v9-9190",
   "audioAds": "Ad-only product-state policy added; not yet tested on a device",
   "baselineDeclaredVersion": "0.22.0",
   "referenceChromaVersion": "1.0.1",

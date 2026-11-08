@@ -42,7 +42,7 @@ static UIViewController *modSettingsPage(void) {
     SGModRow *signing = SGSigningWarningRow();
     if (signing) [sections addObject:SGSection(nil, @[signing])];
     SGModRow *mod = pageRow(@"Mod", @"info.circle", ^UIViewController *{ return SGAboutPage(); });
-    mod.value = ^NSString *{ return @"Personal v8"; };
+    mod.value = ^NSString *{ return @"Personal v9"; };
     // The audio effects work on the sound, so both looks have them, with what they are doing beside the chevron.
     SGModRow *audioEffects = pageRow(@"Audio effects", @"slider.vertical.3", ^UIViewController *{ return SGDSPSettingsPage(); });
     audioEffects.value = ^NSString *{ return SGDSPSummary(); };

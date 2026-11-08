@@ -46,6 +46,32 @@ SGRArtworkField *SGRPlayerField(void) {
 
 #pragma mark - the field
 
+// Independently authored black background option. A view above the field's
+// color/bitmap layers covers their overscroll bleed; the optional reactive
+// renderer remains above this backing. No Spotify view is hidden or replaced.
+@interface SGRPersonalPlayerField : SGRArtworkField
+@end
+@implementation SGRPersonalPlayerField {
+    UIView *_blackBacking;
+}
+- (UIColor *)fieldColor {
+    return SGHidden(SGRKeyPlayerBlack) ? UIColor.blackColor : [super fieldColor];
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (SGHidden(SGRKeyPlayerBlack)) {
+        if (!_blackBacking) {
+            _blackBacking = [UIView new];
+            _blackBacking.backgroundColor = UIColor.blackColor;
+            _blackBacking.userInteractionEnabled = NO;
+            _blackBacking.accessibilityElementsHidden = YES;
+            [self insertSubview:_blackBacking atIndex:0];
+        }
+        _blackBacking.frame = UIEdgeInsetsInsetRect(self.bounds, UIEdgeInsetsMake(-self.bleed.top, -self.bleed.left, -self.bleed.bottom, -self.bleed.right));
+    }
+}
+@end
+
 static void showArtwork(SGRArtworkField *field, BOOL animated) {
     NSString *identity = nil;
     UIImage *image = SGRNowPlayingArtwork(NULL, &identity);
@@ -55,9 +81,10 @@ static void showArtwork(SGRArtworkField *field, BOOL animated) {
 static SGRArtworkField *fieldIn(UIView *plane) {
     SGRArtworkField *field = objc_getAssociatedObject(plane, &kFieldKey);
     if (field) return field;
-    field = [[SGRArtworkField alloc] initWithFrame:plane.bounds];
-    field.showsBackdrop = YES;
-    field.flows = SGEnabled(SGRKeyPlayerMotion);
+    field = [[SGRPersonalPlayerField alloc] initWithFrame:plane.bounds];
+    BOOL black = SGHidden(SGRKeyPlayerBlack);
+    field.showsBackdrop = !black;
+    field.flows = !black && SGEnabled(SGRKeyPlayerMotion);
     // A paused song holds the colours still, the way it rests the cover (PlayerArtwork.x).
     field.motionHeld = SGPlayerState().isPaused;
     field.bleed = kBleed;
