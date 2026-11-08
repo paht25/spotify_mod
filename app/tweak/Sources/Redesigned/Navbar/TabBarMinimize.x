@@ -25,6 +25,7 @@ static BOOL inContainer(UIView *view) {
 }
 
 static void scrolled(UIScrollView *scrollView) {
+    if (SGRNativeTabMotionActive()) return;
     if (!scrollView.window || SGPlayerTransitionEnds() > 0) return;
     UIEdgeInsets inset = scrollView.adjustedContentInset;
     CGFloat top = -inset.top, bottom = scrollView.contentSize.height + inset.bottom - scrollView.bounds.size.height;

@@ -6,6 +6,47 @@
 
 static NSHashTable<UIScrollView *> *sg_lists;
 static char kBottomHiddenKey;
+static char kFadeAlphaKey, kBackgroundAlphaKey;
+static NSHashTable<UIView *> *sg_stockFades;
+
+void SGRRefreshStockTabBarFade(void) {
+    BOOL visible = SGFlag(SGRKeyNavbarBottomGradient, YES);
+    for (UIView *fade in sg_stockFades.allObjects) {
+        NSNumber *alpha = objc_getAssociatedObject(fade, &kFadeAlphaKey);
+        fade.alpha = alpha ? alpha.doubleValue : 1;
+    }
+    UIView *background = SGRStockTabBarBackground();
+    if (!background) return;
+    NSNumber *original = objc_getAssociatedObject(background, &kBackgroundAlphaKey);
+    if (!visible && !original) {
+        original = @(background.alpha);
+        objc_setAssociatedObject(background, &kBackgroundAlphaKey, original, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    if (!visible) background.alpha = 0;
+    else if (original) {
+        background.alpha = original.doubleValue;
+        objc_setAssociatedObject(background, &kBackgroundAlphaKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+
+// Verified in both supplied Spotify binaries, including 9.1.90. This is Spotify's own fade,
+// outside the layer that SGRTabBarHost draws. Do not hide the glass tab bar or its platters.
+%hook _TtC23NavigationUI_TabBarImpl18TabBarGradientView
+- (void)setAlpha:(CGFloat)alpha {
+    objc_setAssociatedObject(self, &kFadeAlphaKey, @(alpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    %orig(SGFlag(SGRKeyNavbarBottomGradient, YES) ? alpha : 0);
+}
+- (void)didMoveToWindow {
+    %orig;
+    if (!sg_stockFades) sg_stockFades = [NSHashTable weakObjectsHashTable];
+    [sg_stockFades addObject:(UIView *)self];
+    SGRRefreshStockTabBarFade();
+}
+- (void)layoutSubviews {
+    %orig;
+    SGRRefreshStockTabBarFade();
+}
+%end
 
 static void updateBottomEdge(UIScrollView *list) {
     if (@available(iOS 26.0, *)) {

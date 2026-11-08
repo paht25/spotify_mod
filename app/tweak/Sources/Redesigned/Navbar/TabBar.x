@@ -36,12 +36,19 @@ void SGRTabBarMarkCustomSelected(UIView *customItem) {
 // TabBarMinimize.x decides this from a page's scroll. Minimized, the bar gives way to its first and last tab as two
 // round glass buttons at its ends, and the now playing card takes the row between them (applyMinimized).
 static BOOL sg_minimized;
+static CGFloat sg_motionProgress;
+
+CGFloat SGRTabBarCollapseProgress(void) { return sg_motionProgress; }
 
 BOOL SGRTabBarMinimized(void) {
     return sg_minimized;
 }
 
 void SGRSetTabBarMinimized(BOOL minimized, BOOL animated) {
+    if (SGRNativeTabMotionActive()) {
+        if (!minimized) SGRExpandNativeTabMotion();
+        return;
+    }
     if (sg_minimized == minimized) return;
     // With nothing playing there is no pill for the row between the buttons: the bar stays whole.
     if (minimized && !SGRNowPlayingAvailable()) return;
@@ -422,6 +429,40 @@ static CGRect layoutDock(UIView *stockBar, UIView *host, UITabBar *bar, CGRect c
     return [host convertRect:row toView:nil];
 }
 
+static CGRect blendFrame(CGRect a, CGRect b, CGFloat p) {
+    return CGRectMake(a.origin.x + (b.origin.x - a.origin.x) * p,
+        a.origin.y + (b.origin.y - a.origin.y) * p,
+        a.size.width + (b.size.width - a.size.width) * p,
+        a.size.height + (b.size.height - a.size.height) * p);
+}
+
+void SGRRenderTabBarProgress(CGFloat progress) {
+    progress = MAX(0, MIN(1, progress));
+    sg_motionProgress = progress;
+    sg_minimized = progress > 0.5;
+    UIView *stockBar = sg_stockBar;
+    UIView *host = objc_getAssociatedObject(stockBar, &kHostKey);
+    SGRSystemTabBar *bar = objc_getAssociatedObject(stockBar, &kBarKey);
+    if (!host.window || !bar.sources.count) return;
+    CGRect circles[2], shapes[2];
+    CGRect row = layoutDock(stockBar, host, bar, circles, shapes);
+    NSArray<SGRDockButton *> *buttons = dockButtons(stockBar);
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    for (NSUInteger i = 0; i < 2; i++) {
+        SGRDockButton *button = buttons[i];
+        place(button, blendFrame(shapes[i], circles[i], progress));
+        [button layoutIfNeeded];
+        button.alpha = progress;
+        button.glyph.alpha = 1;
+        button.userInteractionEnabled = progress > 0.9;
+    }
+    bar.alpha = 1 - progress;
+    bar.userInteractionEnabled = progress < 0.1;
+    [CATransaction commit];
+    SGRRenderNowPlayingProgress(progress, row, host);
+}
+
 // Minimizing gathers the bar into its two ends; expanding is the reverse, and the buttons are what moves: the first
 // widens into the capsule of the tabs, the last grows into the search circle, and the bar's own drawing takes over
 // as they arrive, so the circles read as the bar opening out rather than one thing replaced by another.
@@ -614,6 +655,7 @@ void SGRSetTabBarGradientVisible(BOOL visible) {
     }
     SGRRefreshTabBar();
     SGRRefreshBottomEdgeEffects();
+    SGRRefreshStockTabBarFade();
 }
 
 @interface SGRHomeHold : UILongPressGestureRecognizer
@@ -661,11 +703,29 @@ static UIViewController *containerOf(UIView *stockBar) {
     return nil;
 }
 
+UIView *SGRTabBarPageRoot(void) {
+    Class chrome = NSClassFromString(@"_TtC19MainUI_TabBarUIImpl15MainUIContainer");
+    for (UIResponder *r = sg_stockBar.nextResponder; r; r = r.nextResponder) {
+        if (chrome && [r isKindOfClass:chrome]) return [(UIViewController *)r viewIfLoaded];
+    }
+    UIViewController *container = containerOf(sg_stockBar);
+    return container.parentViewController.viewIfLoaded ?: container.viewIfLoaded;
+}
+
+UIView *SGRStockTabBarBackground(void) {
+    UIViewController *container = containerOf(sg_stockBar);
+    SEL selector = NSSelectorFromString(@"tabBarBackgroundContainer");
+    if (![container respondsToSelector:selector]) return nil;
+    UIView *background = ((id (*)(id, SEL))objc_msgSend)(container, selector);
+    if (![background isKindOfClass:UIView.class] || [sg_stockBar isDescendantOfView:background]) return nil;
+    return background;
+}
+
 BOOL SGRTabBarContainsPageView(UIView *view) {
     UIView *stockBar = sg_stockBar;
-    UIViewController *container = containerOf(stockBar);
-    return view.window && view.window == stockBar.window && container.isViewLoaded
-        && [view isDescendantOfView:container.view] && ![view isDescendantOfView:stockBar];
+    UIView *root = SGRTabBarPageRoot();
+    return view.window && view.window == stockBar.window && root
+        && [view isDescendantOfView:root] && ![view isDescendantOfView:stockBar];
 }
 
 static void makeRoom(UIViewController *container) {
@@ -774,8 +834,11 @@ static void syncBar(UIView *stockBar) {
     else if (stockBar.subviews.lastObject != host) [stockBar bringSubviewToFront:host];
     if (host.window) {
         [bar layoutIfNeeded];
-        CGRect row = layoutDock(stockBar, host, bar, NULL, NULL);
-        if (sg_minimized) SGRDockNowPlayingCard(YES, row, host, NO);
+        if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(sg_motionProgress);
+        else {
+            CGRect row = layoutDock(stockBar, host, bar, NULL, NULL);
+            if (sg_minimized) SGRDockNowPlayingCard(YES, row, host, NO);
+        }
         // The player can be laid out before UIKit creates its platters, or before a rotation.
         // Ask it to align again only when the horizontal edges actually change.
         static CGRect lastPlatter = {{0, 0}, {0, 0}};
@@ -788,6 +851,8 @@ static void syncBar(UIView *stockBar) {
     }
     logBarOnce(bar);
     makeRoom(containerOf(stockBar));
+    SGRRefreshStockTabBarFade();
+    SGRSyncNativeTabMotion();
 }
 
 #pragma mark - hooks

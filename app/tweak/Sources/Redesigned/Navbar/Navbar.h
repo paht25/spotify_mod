@@ -38,6 +38,15 @@ void SGRRefreshProfilePhotos(void);
 // The visible glass platter, rather than the full-width UITabBar, in the caller's coordinates.
 CGRect SGRTabBarFrameIn(UIView *view);
 BOOL SGRTabBarContainsPageView(UIView *view);
+UIView *SGRTabBarPageRoot(void);
+UIView *SGRStockTabBarBackground(void);
+void SGRRefreshStockTabBarFade(void);
+// UIKit 26 motion driver; the existing visible UITabBar remains in place.
+void SGRSyncNativeTabMotion(void);
+BOOL SGRNativeTabMotionActive(void);
+void SGRExpandNativeTabMotion(void);
+void SGRRenderTabBarProgress(CGFloat progress);
+CGFloat SGRTabBarCollapseProgress(void);
 static const NSTimeInterval SGRNavbarMotionDuration = 0.5;
 NSString *SGRNavbarDefaultIcon(NSString *stockID);
 BOOL SGRNavbarEntryHasCustomIcon(NSDictionary *entry);

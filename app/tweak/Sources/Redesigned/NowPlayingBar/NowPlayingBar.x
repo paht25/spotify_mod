@@ -397,7 +397,7 @@ static UIImage *currentCover(void) {
 }
 
 static BOOL hasTrack(void) {
-    return SGPlayerState().track.trackTitle.length > 0;
+    return SGURIString(SGPlayerState().track.URI).length > 0;
 }
 
 void SGRNowPlayingBarRefresh(void) {
@@ -528,6 +528,75 @@ void SGRDockNowPlayingCard(BOOL docked, CGRect row, UIView *host, BOOL animated)
     applyDock(animated && !UIAccessibilityIsReduceMotionEnabled());
 }
 
+void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host) {
+    UIView *view = sg_container.viewIfLoaded;
+    if (!view || !host.window || !sg_cardGlass.superview) return;
+    SGRMiniPlayer *mini = miniPlayer();
+    if (mini.superview != host) [host addSubview:mini];
+    refreshMini();
+    CGRect card = [host convertRect:sg_cardGlass.bounds fromView:sg_cardGlass];
+    CGRect target = [host convertRect:row fromView:nil];
+    target.origin.y = CGRectGetMidY(target) - kPillHeight / 2;
+    target.size.height = kPillHeight;
+    CGRect frame = CGRectMake(card.origin.x + (target.origin.x - card.origin.x) * progress,
+        card.origin.y + (target.origin.y - card.origin.y) * progress,
+        card.size.width + (target.size.width - card.size.width) * progress,
+        card.size.height + (target.size.height - card.size.height) * progress);
+    [UIView performWithoutAnimation:^{
+        mini.frame = frame;
+        [mini layoutIfNeeded];
+        mini.alpha = progress;
+        view.alpha = 1 - progress;
+    }];
+    mini.userInteractionEnabled = progress > 0.9;
+    view.userInteractionEnabled = progress < 0.1;
+    sg_docked = progress > 0;
+    sg_dockRow = row;
+    sg_dockHost = host;
+}
+
+// Change the constraints Spotify owns rather than assigning a frame that its next pass overwrites.
+static void alignContentHost(UIView *bar, UIView *container, CGRect current, CGRect target) {
+    CGRect before = [container convertRect:current toView:bar.superview];
+    CGRect after = [container convertRect:target toView:bar.superview];
+    CGFloat leading = CGRectGetMinX(after) - CGRectGetMinX(before);
+    CGFloat trailing = CGRectGetMaxX(after) - CGRectGetMaxX(before);
+    if (fabs(leading) < 0.25 && fabs(trailing) < 0.25) return;
+    BOOL constrained = NO;
+    for (UIView *owner = bar; owner; owner = owner.superview) {
+        for (NSLayoutConstraint *constraint in owner.constraints) {
+            if (!constraint.active || constraint.relation != NSLayoutRelationEqual) continue;
+            BOOL first = constraint.firstItem == bar, second = constraint.secondItem == bar;
+            if (!first && !second) continue;
+            NSLayoutAttribute attribute = first ? constraint.firstAttribute : constraint.secondAttribute;
+            CGFloat delta;
+            switch (attribute) {
+                case NSLayoutAttributeLeading: case NSLayoutAttributeLeft: delta = leading; break;
+                case NSLayoutAttributeTrailing: case NSLayoutAttributeRight: delta = trailing; break;
+                case NSLayoutAttributeCenterX: delta = (leading + trailing) / 2; break;
+                case NSLayoutAttributeWidth: delta = trailing - leading; break;
+                default: continue;
+            }
+            // An internal content constraint must not resize the host in both directions.
+            id other = first ? constraint.secondItem : constraint.firstItem;
+            if ([other isKindOfClass:UIView.class] && [(UIView *)other isDescendantOfView:bar]) continue;
+            if ([other isKindOfClass:UILayoutGuide.class] && [[(UILayoutGuide *)other owningView] isDescendantOfView:bar]) continue;
+            constraint.constant += first ? delta : -constraint.multiplier * delta;
+            constrained = YES;
+        }
+        if (owner == container) break;
+    }
+    if (constrained) [bar.superview layoutIfNeeded];
+    else {
+        CGRect frame = bar.frame;
+        frame.origin.x += leading;
+        frame.size.width += trailing - leading;
+        bar.frame = frame;
+        [bar setNeedsLayout];
+        [bar layoutIfNeeded];
+    }
+}
+
 static void layoutNowPlayingBar(UIViewController *container) {
     UIViewController *barVC = container.childViewControllers.firstObject;
     UIView *bar = barVC.viewIfLoaded ?: container.view;
@@ -546,16 +615,7 @@ static void layoutNowPlayingBar(UIViewController *container) {
         CGRect target = current;
         target.origin.x = navbar.origin.x;
         target.size.width = navbar.size.width;
-        CGRect before = [container.view convertRect:current toView:bar.superview];
-        CGRect after = [container.view convertRect:target toView:bar.superview];
-        CGRect content = bar.frame;
-        content.origin.x += after.origin.x - before.origin.x;
-        content.size.width += after.size.width - before.size.width;
-        if (content.size.width > 0 && !CGRectEqualToRect(content, bar.frame)) {
-            bar.frame = content;
-            [bar setNeedsLayout];
-            [bar layoutIfNeeded];
-        }
+        alignContentHost(bar, container.view, current, target);
     }
 
     container.view.layer.backgroundColor = NULL;
@@ -565,6 +625,10 @@ static void layoutNowPlayingBar(UIViewController *container) {
     if (CGRectIsNull(frame)) return;
     frame.size.height = MIN(frame.size.height, 80);
     if (frame.size.height < 30 || frame.size.width < 100) return;
+    if (!CGRectIsNull(navbar)) {
+        frame.origin.x = navbar.origin.x;
+        frame.size.width = navbar.size.width;
+    }
 
     CGFloat radius = MIN(kCardRadius, frame.size.height / 2);
     if (card) {
@@ -578,8 +642,10 @@ static void layoutNowPlayingBar(UIViewController *container) {
     glass.frame = frame;
     SGShapeGlass(glass, radius, NO);
     // A new track can change the card's size and brings its cover; the pill follows them.
-    if (sg_docked) applyDock(NO);
+    if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(SGRTabBarCollapseProgress());
+    else if (sg_docked) applyDock(NO);
     else refreshMini();
+    SGRSyncNativeTabMotion();
 
     static dispatch_once_t once;
     dispatch_once(&once, ^{

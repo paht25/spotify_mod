@@ -1,0 +1,70 @@
+name: UIFixesRuntime
+options:
+  deploymentTarget:
+    iOS: '26.0'
+settings:
+  base:
+    CODE_SIGNING_ALLOWED: NO
+    CLANG_ENABLE_OBJC_ARC: YES
+    HEADER_SEARCH_PATHS:
+      - $(SRCROOT)/../../tweak/Sources
+      - $(SRCROOT)/../../tweak/Sources/Redesigned/Navbar
+      - $(SRCROOT)/../../tweak/Sources/Redesigned/NowPlayingBar
+      - $(SRCROOT)/../../tweak/Sources/Redesigned/Kit
+    OTHER_CFLAGS: ["-DSG_VERSION=\"3.1.6.1\"", '-Wno-deprecated-declarations']
+targets:
+  UIFixesRuntime:
+    type: application
+    platform: iOS
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.paht25.uifixes.runtime
+    info:
+      path: generated/Info.plist
+      properties:
+        CFBundleDisplayName: UI Runtime Tests
+        UILaunchScreen: {}
+        UIDesignRequiresCompatibility: NO
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default
+                UISceneDelegateClassName: SGHarnessScene
+    sources:
+      - main.m
+      - stubs.m
+      - generated/hooks
+      - ../../tweak/Sources/Core/SGLog.m
+      - ../../tweak/Sources/Core/SGPrefs.m
+      - ../../tweak/Sources/Core/SGViewTree.m
+      - ../../tweak/Sources/Core/SGGlass.m
+      - ../../tweak/Sources/Core/SGBackdrop.m
+      - ../../tweak/Sources/Core/SGFlagForce.m
+      - ../../tweak/Sources/Core/SGUIMode.m
+      - ../../tweak/Sources/Settings/SGModPage.m
+      - ../../tweak/Sources/Settings/SGPage.m
+      - ../../tweak/Sources/Settings/SGPageStyle.m
+      - ../../tweak/Sources/Settings/SGGlowSwitch.m
+      - ../../tweak/Sources/Redesigned/Kit/SGRTokens.m
+      - ../../tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m
+    dependencies:
+      - sdk: UIKit.framework
+      - sdk: QuartzCore.framework
+      - sdk: CoreText.framework
+  RuntimeUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [RuntimeUITests.swift]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.paht25.uifixes.tests
+    dependencies:
+      - target: UIFixesRuntime
+schemes:
+  UIFixesRuntime:
+    build:
+      targets:
+        UIFixesRuntime: all
+        RuntimeUITests: [test]
+    test:
+      targets: [RuntimeUITests]
+      gatherCoverageData: false

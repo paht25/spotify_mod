@@ -40,9 +40,40 @@ jobs:
       - name: Check layers, scroll behavior and IPA packaging
         run: bash scripts/check.sh
 
+  runtime:
+    needs: checks
+    runs-on: macos-26
+    timeout-minutes: 25
+    env:
+      THEOS: ${{ github.workspace }}/.build/theos
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: theos/theos
+          ref: 8167f59de02fd32cf45b16bfcb1330dfa5c9974c
+          path: .build/theos
+          submodules: recursive
+          persist-credentials: false
+      - run: brew install xcodegen
+      - name: Test real UIKit layout, switches and scroll gestures
+        run: bash scripts/test-runtime.sh
+      - name: Save simulator results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: ui-runtime-results
+          path: |
+            .build/runtime.xcresult
+            .build/runtime-attachments/
+          if-no-files-found: ignore
+          retention-days: 7
+
   build:
     if: github.event_name != 'pull_request'
-    needs: checks
+    needs: [checks, runtime]
     runs-on: macos-26
     timeout-minutes: 45
     env:
@@ -73,7 +104,7 @@ jobs:
       - name: Upload IPA, UI library and build manifest
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: PwEevee-3.1.6.1-ui-fixes
+          name: PwEevee-3.1.6.1-ui-fixes-r2
           path: dist/
           if-no-files-found: error
           retention-days: 7

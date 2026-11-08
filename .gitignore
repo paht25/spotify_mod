@@ -10,3 +10,5 @@ app/tweak/Sources/Shared/Flags/SGFlagList.m
 *.o
 *.a
 .DS_Store
+app/harness/runtime/generated/
+app/harness/runtime/*.xcodeproj/

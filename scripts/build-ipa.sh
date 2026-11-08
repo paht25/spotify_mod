@@ -5,6 +5,7 @@ cd "$ROOT"
 : "${THEOS:?Set THEOS to the Theos checkout}"
 IPA="$(python3 -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve(strict=True))' "${1:?Pass the base IPA path}")"
 VERSION="$(python3 -c 'import json; print(json.load(open("upstream.lock.json"))["mod_version"])')"
+REVISION="$(python3 -c 'import json; print(json.load(open("upstream.lock.json"))["ui_revision"])')"
 mkdir -p dist .build/logs
 xcodebuild -version
 xcrun --sdk iphoneos --show-sdk-version
@@ -23,5 +24,5 @@ if grep -q '/Library/Frameworks/CydiaSubstrate' .build/logs/dependencies.txt; th
   exit 1
 fi
 python3 app/scripts/repack-ui-ipa.py "$IPA" dist/spotifyglass.dylib \
-  "dist/PwEevee-$VERSION-ui-fixes.ipa"
+  "dist/PwEevee-$VERSION-ui-fixes-$REVISION.ipa"
 python3 scripts/build-manifest.py "$IPA"

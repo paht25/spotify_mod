@@ -5,6 +5,7 @@
 #import "Core/SGCore.h"
 
 NSString *const SGRestartNote = @"Changes apply after you restart Spotify.";
+static char kSwitchRowKey;
 
 @implementation SGModRow
 @end
@@ -659,6 +660,9 @@ static void showProgress(UITableViewCell *cell, SGModRow *row, BOOL animated) {
         toggle.enabled = !locked;
         // A disabled switch would swallow the tap; letting it through is what gets the row asked.
         toggle.userInteractionEnabled = !locked;
+        // An accessory can be reparented by UIKit. The sender owns its row binding; finding a
+        // UITableViewCell through superview is not a reliable way to identify a switch.
+        objc_setAssociatedObject(toggle, &kSwitchRowKey, row, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         [toggle addTarget:self action:@selector(toggled:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = row.info ? [self infoButtonBeside:toggle] : toggle;
         cell.selectionStyle = locked ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
@@ -728,9 +732,12 @@ static void showProgress(UITableViewCell *cell, SGModRow *row, BOOL animated) {
 // A UISwitch or an SGGlowSwitch, both answering isOn.
 - (void)toggled:(UIControl *)toggle {
     BOOL on = [(UISwitch *)toggle isOn];
-    NSIndexPath *path = [self pathOf:toggle];
-    if (!path) return;
-    SGModRow *row = [self rowAt:path];
+    SGModRow *row = objc_getAssociatedObject(toggle, &kSwitchRowKey);
+    if (!row) {
+        NSIndexPath *path = [self pathOf:toggle];
+        if (!path) return;
+        row = [self rowAt:path];
+    }
     if (row.flag) SGSetFlagOverride(row.key, on ? @(!row.forceOff) : nil);
     else SGSetEnabled(row.key, on);
     if (row.changed) row.changed(on);
