@@ -1,0 +1,12 @@
+{
+  "source_repository": "https://github.com/codeboy2012/PwEevee.git",
+  "source_commit": "95886c256e1d83ba28e0dcfa788f053bd9853013",
+  "source_tag": "v3.1.6.1",
+  "source_directory": "taurus-rc/source",
+  "mod_version": "3.1.6.1",
+  "theos_commit": "8167f59de02fd32cf45b16bfcb1330dfa5c9974c",
+  "base_ipa": {
+    "url": "https://github.com/codeboy2012/PwEevee/releases/download/v3.1.6.1/PwEevee-3.1.6.1.ipa",
+    "sha256": "05717c518848bde9b9a2be9a9a85722d3c8d4b6fc9ce010c4e68294728861c56"
+  }
+}

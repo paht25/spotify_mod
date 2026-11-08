@@ -1,0 +1,805 @@
+diff --git a/taurus-rc/source/harness/home-header/build.sh b/taurus-rc/source/harness/home-header/build.sh
+index 07d08f252b0e1dda4d9f2c84477a8e488f6688a3..423a9c705a17cedde3d0c37d5b1925563909463d 100644
+--- a/taurus-rc/source/harness/home-header/build.sh
++++ b/taurus-rc/source/harness/home-header/build.sh
+@@ -5,14 +5,16 @@ SRC=${SRC:-$(cd "$(dirname "$0")/../../tweak/Sources" && pwd)}
+ OUT=${OUT:-$(dirname "$0")/build}
+ rm -rf "$OUT"; mkdir -p "$OUT/gen" "$OUT/HomeHeaderHarness.app"
+ 
+-for f in Redesigned/Home/HomeHeader.x; do
++for f in Redesigned/Home/HomeHeader.x Redesigned/Navbar/ProfilePhoto.x; do
+     name=$(basename "$f" .x)
+-    "$THEOS/bin/logos.pl" -c generator=internal "${HEADER_SOURCE:-$SRC/$f}" > "$OUT/gen/$name.m"
++    input="$SRC/$f"
++    if [ "$name" = HomeHeader ]; then input="${HEADER_SOURCE:-$input}"; fi
++    "$THEOS/bin/logos.pl" -c generator=internal "$input" > "$OUT/gen/$name.m"
+ done
+ 
+ SDK=$(xcrun --sdk iphonesimulator --show-sdk-path)
+ xcrun -sdk iphonesimulator clang -target arm64-apple-ios17.0-simulator -fobjc-arc -g -O0 \
+-    -I"$SRC" -I"$SRC/Redesigned/Home" -I"$OUT/gen" -isysroot "$SDK" \
++    -I"$SRC" -I"$SRC/Redesigned/Home" -I"$SRC/Redesigned/Navbar" -I"$OUT/gen" -isysroot "$SDK" \
+     -Wno-deprecated-declarations \
+     "$(dirname "$0")/main.m" "$(dirname "$0")/../library/stubs.m" \
+     "$OUT"/gen/*.m \
+diff --git a/taurus-rc/source/harness/home-header/main.m b/taurus-rc/source/harness/home-header/main.m
+index 597ccdd79dcded94fe3fbcf4245bcafed91cb168..450887f0debd5c577bdad71af4f6eaab138f5863 100644
+--- a/taurus-rc/source/harness/home-header/main.m
++++ b/taurus-rc/source/harness/home-header/main.m
+@@ -2,6 +2,7 @@
+ #import <os/log.h>
+ #import "Core/SGCore.h"
+ #import "Redesigned/Home/Home.h"
++#import "Redesigned/Navbar/Navbar.h"
+ @interface _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer : UIView @end
+ @implementation _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer @end
+ @interface _TtC16Home_CarouselKit29TouchCancellingCollectionView : UICollectionView @end
+@@ -19,7 +20,6 @@ BOOL SGRHomeGlassStyle(void) {
+ }
+ double SGRHomeProbeBegin(void) { return 0; }
+ void SGRHomeProbeEnd(SGRHomeProbe probe, double began) {}
+-void SGRNavbarSetProfilePhotoVisible(UIView *face) {}
+ @interface HeaderTestDelegate : UIResponder <UIApplicationDelegate, UIWindowSceneDelegate>
+ @property (nonatomic, strong) UIWindow *window;
+ @end
+@@ -60,6 +60,17 @@ void SGRNavbarSetProfilePhotoVisible(UIView *face) {}
+         [stack setNeedsLayout]; [stack layoutIfNeeded];
+         NSCAssert(title.frame.size.width > 0 && CGRectGetMaxX(title.frame) <= CGRectGetMinX(face.frame),
+                   @"Home title must end before the late avatar");
++        SGSetEnabled(SGRKeyNavbarProfilePhoto, NO);
++        SGRRefreshProfilePhotos();
++        face.alpha = 1; // A later Spotify repaint must not override the off preference.
++        face.userInteractionEnabled = YES;
++        face.accessibilityElementsHidden = NO;
++        NSCAssert(face.alpha == 0 && !face.userInteractionEnabled && face.accessibilityElementsHidden && !face.hidden,
++                  @"Profile off must suppress paint, taps and accessibility without hiding an arranged view");
++        SGSetEnabled(SGRKeyNavbarProfilePhoto, YES);
++        SGRRefreshProfilePhotos();
++        NSCAssert(face.alpha == 1 && face.userInteractionEnabled && !face.accessibilityElementsHidden,
++                  @"Profile on must restore the requested state immediately");
+         header.frame = CGRectMake(0, 0, 320, 50); stack.frame = CGRectMake(0, 8, 320, 34);
+         [stack setNeedsLayout]; [stack layoutIfNeeded];
+         NSCAssert(title.frame.size.width > 0 && CGRectGetMaxX(title.frame) <= CGRectGetMinX(face.frame),
+@@ -70,6 +81,14 @@ void SGRNavbarSetProfilePhotoVisible(UIView *face) {}
+                   @"Home style off must keep the title visible; glass scroll must fade it");
+         [list setContentOffset:CGPointZero]; [list layoutSubviews];
+         NSCAssert(title.alpha > 0.99, @"Home title must be visible again at the top");
++        [list setContentOffset:CGPointMake(0, 24)]; [list layoutSubviews];
++        CGFloat photoAlpha = face.alpha;
++        SGSetEnabled(SGRKeyNavbarProfilePhoto, NO);
++        SGRRefreshProfilePhotos();
++        NSCAssert(face.alpha == 0, @"Profile off must apply during a partial scroll fade");
++        SGSetEnabled(SGRKeyNavbarProfilePhoto, YES);
++        SGRRefreshProfilePhotos();
++        NSCAssert(fabs(face.alpha - photoAlpha) < 0.01, @"Profile on must retain the scroll fade");
+         os_log(OS_LOG_DEFAULT, "[header-test] PASS: Home page %{public}s; zero-width recovery, late avatar, width change, scroll",
+                glass ? "on" : "off");
+     });
+@@ -77,6 +96,7 @@ void SGRNavbarSetProfilePhotoVisible(UIView *face) {}
+ @end
+ __attribute__((constructor(101))) static void defaults(void) {
+     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"spotifyglass.redesign"];
++    [NSUserDefaults.standardUserDefaults setBool:YES forKey:SGRKeyNavbarProfilePhoto];
+     [NSUserDefaults.standardUserDefaults setBool:![NSProcessInfo.processInfo.arguments containsObject:@"home-off"]
+         forKey:SGRKeyHomeGlass];
+ }
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Home/HomeHeader.x b/taurus-rc/source/tweak/Sources/Redesigned/Home/HomeHeader.x
+index 0980ae59a781d9654be1e975cb9386c0de5eca73..682eecad3a26fa44909caa46c5d504c400bd1155 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Home/HomeHeader.x
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Home/HomeHeader.x
+@@ -136,20 +136,18 @@ static void applyScroll(UIScrollView *list) {
+     if (sg_bar && sg_bar.alpha != p) sg_bar.alpha = p;
+     if (sg_title && sg_title.alpha != 1 - p) sg_title.alpha = 1 - p;
+     if (sg_face) {
+-        BOOL visible = SGFlag(SGRKeyNavbarProfilePhoto, YES);
+-        CGFloat alpha = visible ? 1 - p : 0;
++        CGFloat alpha = 1 - p;
+         if (sg_face.alpha != alpha) sg_face.alpha = alpha;
+-        sg_face.userInteractionEnabled = visible && p < 0.5;
+-        sg_face.accessibilityElementsHidden = !visible;
++        sg_face.userInteractionEnabled = p < 0.5;
++        sg_face.accessibilityElementsHidden = p >= 1;
+     }
+ }
+ 
+ void SGRHomeProfilePhotoPreferenceChanged(void) {
+     if (!sg_face) return;
+-    BOOL visible = SGFlag(SGRKeyNavbarProfilePhoto, YES);
+-    sg_face.alpha = visible ? 1 - sg_scrollProgress : 0;
+-    sg_face.userInteractionEnabled = visible && sg_scrollProgress < 0.5;
+-    sg_face.accessibilityElementsHidden = !visible;
++    sg_face.alpha = 1 - sg_scrollProgress;
++    sg_face.userInteractionEnabled = sg_scrollProgress < 0.5;
++    sg_face.accessibilityElementsHidden = sg_scrollProgress >= 1;
+ }
+ 
+ static void layoutHeader(UIViewController *page) {
+@@ -199,6 +197,7 @@ static void layoutHeader(UIViewController *page) {
+ 
+     sg_title = title;
+     sg_face = face;
++    SGRHomeProfilePhotoPreferenceChanged();
+     UIView *wrapper = header.superview;
+     if (wrapper && SGRHomeGlassStyle()) {
+         UIVisualEffectView *bar = barIn(wrapper);
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m b/taurus-rc/source/tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m
+index 44e10c36b8283f687c466e43237b8f804139ded1..796b6c9e60610cd9cbdc690a9e99e14ebe5f740b 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m
+@@ -25,7 +25,10 @@ static void chooseAccent(void) {
+ NSArray<SGModRow *> *SGRAppearanceRows(void) {
+     SGModRow *profile = SGSwitchRow(@"Show profile photo", @"Show the profile photo at the top right",
+                                     SGRKeyNavbarProfilePhoto);
+-    profile.changed = ^(BOOL on) { SGRHomeProfilePhotoPreferenceChanged(); };
++    profile.changed = ^(BOOL on) {
++        SGRRefreshProfilePhotos();
++        SGRHomeProfilePhotoPreferenceChanged();
++    };
+     SGModRow *gradient = SGSwitchRow(@"Bottom navbar gradient", @"Show the black fade behind the bottom of the glass tab bar",
+                                      SGRKeyNavbarBottomGradient);
+     gradient.changed = ^(BOOL on) { SGRSetTabBarGradientVisible(on); };
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/MinimizeStep.h b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/MinimizeStep.h
+index 09ef8643e7f0f95110c03d22d07eca14055450ec..adb5f2e7f9a78fd500d5bb708397b5395f6113e6 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/MinimizeStep.h
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/MinimizeStep.h
+@@ -20,11 +20,12 @@ typedef struct {
+ 
+ // One step of a scroll: `offset` the content offset, `top` and `bottom` the least and most it rests at.
+ static inline bool SGRMinimizeStep(SGRMinimizeTrack *track, CGFloat offset, CGFloat top, CGFloat bottom) {
+-    if (bottom - top < kSGRMinimizeRange) return track->minimized;
+-    offset = fmin(fmax(offset, top), bottom);
++    offset = fmin(fmax(offset, top), fmax(top, bottom));
+     if (offset <= top + 1) {
+         track->minimized = false;
+         track->turn = offset;
++    } else if (bottom - top < kSGRMinimizeRange) {
++        track->turn = offset;
+     } else if (track->minimized ? offset > track->turn : offset < track->turn) {
+         track->turn = offset;
+     } else if (fabs(offset - track->turn) >= kSGRMinimizeTravel) {
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.h b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.h
+index 98ddd36b5b75b57b80ead09c398224d10f7bd653..b15a2ac45eedb09ccee76371bb05a739a6ec869e 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.h
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.h
+@@ -32,7 +32,13 @@ void SGRLogTabBarRow(UIView *tabBar);
+ // Lays the bar out again after the Navbar page changes something, so it does not wait for a touch.
+ void SGRRefreshTabBar(void);
+ void SGRSetTabBarGradientVisible(BOOL visible);
++void SGRRefreshBottomEdgeEffects(void);
+ void SGRNavbarSetProfilePhotoVisible(UIView *face);
++void SGRRefreshProfilePhotos(void);
++// The visible glass platter, rather than the full-width UITabBar, in the caller's coordinates.
++CGRect SGRTabBarFrameIn(UIView *view);
++BOOL SGRTabBarContainsPageView(UIView *view);
++static const NSTimeInterval SGRNavbarMotionDuration = 0.5;
+ NSString *SGRNavbarDefaultIcon(NSString *stockID);
+ BOOL SGRNavbarEntryHasCustomIcon(NSDictionary *entry);
+ 
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.x b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.x
+index c4cc07ad59b125e91d86893f8f21f17cd00bca7e..efb787653f173be683882ae23557015b720af961 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.x
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/Navbar.x
+@@ -22,14 +22,6 @@ static NSMutableArray<NSString *> *sg_stockOrder;
+ 
+ static UIColor *itemColor(void) { return [UIColor colorWithWhite:0xB3 / 255.0 alpha:1]; }
+ 
+-void SGRNavbarSetProfilePhotoVisible(UIView *face) {
+-    if (!face) return;
+-    BOOL visible = SGFlag(SGRKeyNavbarProfilePhoto, YES);
+-    face.alpha = visible ? 1 : 0;
+-    face.userInteractionEnabled = visible;
+-    face.accessibilityElementsHidden = !visible;
+-}
+-
+ #pragma mark - the mod's own items
+ 
+ static UIView *iconView(NSDictionary *entry) {
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x
+index 61fd438c1845106afacf442b0a0a983d17ded600..76891dcb4faeee1e1b739e899c1b63f88d2e1780 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x
+@@ -317,6 +317,16 @@ static const CGFloat kDockSize = 48, kDockGap = 8;
+ 
+ // The bar's glass platter, in the host's coordinates: the widest view of a bar's height inside the system bar.
+ static CGRect pillIn(UIView *host, UITabBar *bar) {
++    // UIKit may draw a single capsule or a capsule and a separate trailing button. Measure their
++    // outer edges, not the transparent, full-width UITabBar or its selection bubble.
++    __block CGRect platters = CGRectNull;
++    SGForEachView(bar, ^(UIView *v) {
++        CGSize size = v.bounds.size;
++        if (v.hidden || ![NSStringFromClass(v.class) hasSuffix:@"PlatterView"]
++            || size.width < 44 || size.height < 44 || size.height > 72) return;
++        platters = CGRectUnion(platters, SGFrameIn(v, host));
++    });
++    if (!CGRectIsNull(platters)) return platters;
+     __block CGRect best = CGRectNull;
+     __block CGFloat widest = 0;
+     SGForEachView(bar, ^(UIView *v) {
+@@ -333,6 +343,14 @@ static CGRect pillIn(UIView *host, UITabBar *bar) {
+     return CGRectMake(20, host.bounds.size.height - bottom - height, host.bounds.size.width - 40, height);
+ }
+ 
++CGRect SGRTabBarFrameIn(UIView *view) {
++    UIView *stockBar = sg_stockBar;
++    UITabBar *bar = objc_getAssociatedObject(stockBar, &kBarKey);
++    UIView *host = objc_getAssociatedObject(stockBar, &kHostKey);
++    if (!view.window || host.window != view.window || !bar) return CGRectNull;
++    return [host convertRect:pillIn(host, bar) toView:view];
++}
++
+ // Sets a view's place without its frame, which means nothing while it is scaled.
+ static void place(UIView *view, CGRect frame) {
+     CGRect bounds = (CGRect){CGPointZero, frame.size};
+@@ -453,25 +471,10 @@ static void applyMinimized(UIView *stockBar, BOOL animated) {
+     [UIView performWithoutAnimation:start];
+     // Springs with no bounce: a scroll turned around mid-way starts from where the buttons are.
+     UIViewAnimationOptions options = UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction;
+-    [UIView animateWithDuration:0.55 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:options animations:move completion:nil];
+-    UIViewAnimationOptions fade = options | UIViewAnimationOptionCurveEaseInOut;
+-    if (minimized) {
+-        [UIView animateWithDuration:0.18 delay:0 options:fade animations:^{ bar.alpha = 0; } completion:nil];
+-        [UIView animateWithDuration:0.2 delay:0 options:fade animations:^{
+-            for (SGRDockButton *button in buttons) button.alpha = 1;
+-        } completion:nil];
+-        [UIView animateWithDuration:0.2 delay:0.2 options:fade animations:^{
+-            for (SGRDockButton *button in buttons) button.glyph.alpha = 1;
+-        } completion:nil];
+-    } else {
+-        [UIView animateWithDuration:0.12 delay:0 options:fade animations:^{
+-            for (SGRDockButton *button in buttons) button.glyph.alpha = 0;
+-        } completion:nil];
+-        [UIView animateWithDuration:0.25 delay:0.18 options:fade animations:^{ bar.alpha = 1; } completion:nil];
+-        [UIView animateWithDuration:0.22 delay:0.26 options:fade animations:^{
+-            for (SGRDockButton *button in buttons) button.alpha = 0;
+-        } completion:nil];
+-    }
++    // The player uses this same duration and spring. One interruptible transition also prevents a
++    // delayed fade from the previous scroll direction from hiding a bar that has already expanded.
++    [UIView animateWithDuration:SGRNavbarMotionDuration delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
++                        options:options animations:^{ move(); settle(); } completion:nil];
+ }
+ 
+ #pragma mark - the system bar
+@@ -562,21 +565,24 @@ static const NSUInteger kFadeStops = 7;
+     }
+     _fade.colors = colors;
+     _fade.locations = locations;
+-    _fade.hidden = !SGFlag(SGRKeyNavbarBottomGradient, YES);
+-    [self.layer insertSublayer:_fade atIndex:0];
++    [self setFadeVisible:SGFlag(SGRKeyNavbarBottomGradient, YES)];
+     return self;
+ }
+ 
+ - (void)setFadeVisible:(BOOL)visible {
++    [CATransaction begin];
++    [CATransaction setDisableActions:YES];
+     _fade.hidden = !visible;
+     _fade.opacity = visible ? 1 : 0;
++    if (visible && _fade.superlayer != self.layer) [self.layer insertSublayer:_fade atIndex:0];
++    else if (!visible) [_fade removeFromSuperlayer];
++    [CATransaction commit];
+ }
+ 
+ - (void)layoutSubviews {
+     [super layoutSubviews];
+     BOOL visible = SGFlag(SGRKeyNavbarBottomGradient, YES);
+-    _fade.hidden = !visible;
+-    _fade.opacity = visible ? 1 : 0;
++    [self setFadeVisible:visible];
+     CGRect bounds = self.bounds;
+     CGRect fade = CGRectMake(0, -kFadeRise, bounds.size.width, bounds.size.height + kFadeRise);
+     if (!CGRectEqualToRect(_fade.frame, fade)) _fade.frame = fade;
+@@ -596,6 +602,8 @@ static const NSUInteger kFadeStops = 7;
+ @end
+ 
+ void SGRSetTabBarGradientVisible(BOOL visible) {
++    // Persist before any layout reads the preference again.
++    SGSetEnabled(SGRKeyNavbarBottomGradient, visible);
+     UIView *stockBar = sg_stockBar;
+     if (stockBar) syncBar(stockBar);
+     UIView *host = objc_getAssociatedObject(stockBar, &kHostKey);
+@@ -605,6 +613,7 @@ void SGRSetTabBarGradientVisible(BOOL visible) {
+         [host layoutIfNeeded];
+     }
+     SGRRefreshTabBar();
++    SGRRefreshBottomEdgeEffects();
+ }
+ 
+ @interface SGRHomeHold : UILongPressGestureRecognizer
+@@ -652,6 +661,13 @@ static UIViewController *containerOf(UIView *stockBar) {
+     return nil;
+ }
+ 
++BOOL SGRTabBarContainsPageView(UIView *view) {
++    UIView *stockBar = sg_stockBar;
++    UIViewController *container = containerOf(stockBar);
++    return view.window && view.window == stockBar.window && container.isViewLoaded
++        && [view isDescendantOfView:container.view] && ![view isDescendantOfView:stockBar];
++}
++
+ static void makeRoom(UIViewController *container) {
+     UIView *stockBar = sg_stockBar;
+     UITabBar *bar = stockBar ? objc_getAssociatedObject(stockBar, &kBarKey) : nil;
+@@ -757,8 +773,18 @@ static void syncBar(UIView *stockBar) {
+     if (host.superview != stockBar) [stockBar addSubview:host];
+     else if (stockBar.subviews.lastObject != host) [stockBar bringSubviewToFront:host];
+     if (host.window) {
++        [bar layoutIfNeeded];
+         CGRect row = layoutDock(stockBar, host, bar, NULL, NULL);
+         if (sg_minimized) SGRDockNowPlayingCard(YES, row, host, NO);
++        // The player can be laid out before UIKit creates its platters, or before a rotation.
++        // Ask it to align again only when the horizontal edges actually change.
++        static CGRect lastPlatter = {{0, 0}, {0, 0}};
++        CGRect platter = [host convertRect:pillIn(host, bar) toView:nil];
++        if (lastPlatter.origin.x != platter.origin.x || lastPlatter.size.width != platter.size.width) {
++            lastPlatter = platter;
++            SGRNowPlayingBarRefresh();
++            SGRRefreshBottomEdgeEffects();
++        }
+     }
+     logBarOnce(bar);
+     makeRoom(containerOf(stockBar));
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBarMinimize.x b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBarMinimize.x
+index d2a893ad9206bdac61d24d8885c3f3bb0e90dc09..325cacbbdc1c9112daf1963b1c5992236de37645 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBarMinimize.x
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBarMinimize.x
+@@ -14,25 +14,35 @@
+ #import "Redesigned/NowPlayingBar/NowPlayingBar.h"
+ 
+ static Class sg_containerClass;
+-static __weak UIScrollView *sg_page, *sg_other;
++static __weak UIScrollView *sg_page;
+ static SGRMinimizeTrack sg_track;
+ static BOOL sg_waitForTouch;
+ 
+ static BOOL inContainer(UIView *view) {
++    if (SGRTabBarContainsPageView(view)) return YES;
+     for (UIResponder *r = view.nextResponder; r; r = r.nextResponder) if ([r isKindOfClass:sg_containerClass]) return YES;
+     return NO;
+ }
+ 
+ static void scrolled(UIScrollView *scrollView) {
+-    if ((!scrollView.isTracking && !scrollView.isDecelerating) || scrollView == sg_other) return;
++    if (!scrollView.window || SGPlayerTransitionEnds() > 0) return;
++    UIEdgeInsets inset = scrollView.adjustedContentInset;
++    CGFloat top = -inset.top, bottom = scrollView.contentSize.height + inset.bottom - scrollView.bounds.size.height;
++    CGFloat offset = scrollView.contentOffset.y;
++    BOOL returningToTop = SGRTabBarMinimized() && offset <= top + 1;
++    if (!scrollView.isDragging && !scrollView.isDecelerating && !returningToTop) return;
++    // A horizontal shelf and a nested scroller must not take ownership from the page's list.
++    if ((bottom - top < kSGRMinimizeRange && !returningToTop) || scrollView.bounds.size.height < 150) return;
++    for (UIView *parent = scrollView.superview; parent; parent = parent.superview) {
++        if (![parent isKindOfClass:UIScrollView.class]) continue;
++        UIScrollView *outer = (UIScrollView *)parent;
++        if (outer.contentSize.height + outer.adjustedContentInset.top + outer.adjustedContentInset.bottom
++            - outer.bounds.size.height >= kSGRMinimizeRange) return;
++    }
+     // Nothing playing: the pill has nothing to show, so the bar is never minimized (one already minimized can come back).
+     if (!SGRTabBarMinimized() && !SGRNowPlayingAvailable()) return;
+-    CGFloat offset = scrollView.contentOffset.y;
+     if (scrollView != sg_page) {
+-        if (!inContainer(scrollView)) {
+-            sg_other = scrollView;
+-            return;
+-        }
++        if (!inContainer(scrollView)) return;
+         sg_page = scrollView;
+         sg_track = (SGRMinimizeTrack){offset, SGRTabBarMinimized()};
+     }
+@@ -42,8 +52,6 @@ static void scrolled(UIScrollView *scrollView) {
+         sg_waitForTouch = YES;
+     }
+     if (scrollView.isTracking) sg_waitForTouch = NO;
+-    UIEdgeInsets inset = scrollView.adjustedContentInset;
+-    CGFloat top = -inset.top, bottom = scrollView.contentSize.height + inset.bottom - scrollView.bounds.size.height;
+     BOOL minimized = SGRMinimizeStep(&sg_track, offset, top, bottom);
+     if (minimized == SGRTabBarMinimized() || (minimized && !SGEnabled(SGRKeyNavbarMinimize))) return;
+     if (minimized && sg_waitForTouch) return;
+@@ -55,6 +63,16 @@ static void scrolled(UIScrollView *scrollView) {
+     %orig;
+     scrolled(self);
+ }
++// UIKit can advance a drag or deceleration through bounds/layout without calling the public
++// contentOffset setter. Observe those passes too; unchanged offsets do not advance MinimizeStep.
++- (void)setBounds:(CGRect)bounds {
++    %orig;
++    scrolled(self);
++}
++- (void)layoutSubviews {
++    %orig;
++    scrolled(self);
++}
+ %end
+ 
+ %ctor {
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x b/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x
+index 52567071024ac6da93bab9c6a11325e48e2db5c6..d7771d1b58d7035d2681cf13e8602f62af63fae7 100644
+--- a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x
++++ b/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingBar.x
+@@ -23,6 +23,8 @@ static BOOL sg_docked;
+ static CGRect sg_dockRow;   // window coordinates
+ static __weak UIView *sg_dockHost;
+ static NSTimer *sg_progressTimer;
++static BOOL sg_stylingCard;
++static void styleNowPlayingBar(UIViewController *container);
+ 
+ CGRect SGRNowPlayingCardFrameIn(UIView *host, CGFloat *radius) {
+     UIVisualEffectView *glass = sg_cardGlass;
+@@ -399,6 +401,7 @@ static BOOL hasTrack(void) {
+ }
+ 
+ void SGRNowPlayingBarRefresh(void) {
++    if (sg_container.isViewLoaded) styleNowPlayingBar(sg_container);
+     if (sg_cardContent && SGIsInside(sg_cardContent, sgr_nowPlayingRoot)) restyleCardContent(sg_cardContent);
+     updateMiniProgress();
+     [sg_mini setNeedsLayout];
+@@ -513,7 +516,7 @@ static void applyDock(BOOL animated) {
+         return;
+     }
+     // A spring with no bounce: nothing was thrown, and it starts from wherever the pill is now if it is turned around.
+-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
++    [UIView animateWithDuration:SGRNavbarMotionDuration delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
+                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
+                      animations:apply completion:nil];
+ }
+@@ -525,7 +528,7 @@ void SGRDockNowPlayingCard(BOOL docked, CGRect row, UIView *host, BOOL animated)
+     applyDock(animated && !UIAccessibilityIsReduceMotionEnabled());
+ }
+ 
+-static void styleNowPlayingBar(UIViewController *container) {
++static void layoutNowPlayingBar(UIViewController *container) {
+     UIViewController *barVC = container.childViewControllers.firstObject;
+     UIView *bar = barVC.viewIfLoaded ?: container.view;
+     sgr_nowPlayingRoot = bar;
+@@ -534,6 +537,27 @@ static void styleNowPlayingBar(UIViewController *container) {
+     UIView *card = sgr_nowPlayingCard;
+     if (!card || !SGIsInside(card, bar)) card = sgr_nowPlayingCard = detectColoredCard(bar);
+ 
++    // UIKit's visible platter is inset further than Spotify's original 8 pt player inset.
++    // Resize the player's content host so its original constraints lay out the artwork, text,
++    // buttons and hit targets inside the matching width. Do not scale or resize the tab bar.
++    CGRect navbar = SGRTabBarFrameIn(container.view);
++    if (!CGRectIsNull(navbar) && navbar.size.width >= 100 && bar != container.view && bar.superview) {
++        CGRect current = card ? SGFrameIn(card, container.view) : SGFrameIn(bar, container.view);
++        CGRect target = current;
++        target.origin.x = navbar.origin.x;
++        target.size.width = navbar.size.width;
++        CGRect before = [container.view convertRect:current toView:bar.superview];
++        CGRect after = [container.view convertRect:target toView:bar.superview];
++        CGRect content = bar.frame;
++        content.origin.x += after.origin.x - before.origin.x;
++        content.size.width += after.size.width - before.size.width;
++        if (content.size.width > 0 && !CGRectEqualToRect(content, bar.frame)) {
++            bar.frame = content;
++            [bar setNeedsLayout];
++            [bar layoutIfNeeded];
++        }
++    }
++
+     container.view.layer.backgroundColor = NULL;
+     SGStripBackgrounds(bar);
+ 
+@@ -564,6 +588,16 @@ static void styleNowPlayingBar(UIViewController *container) {
+     });
+ }
+ 
++static void styleNowPlayingBar(UIViewController *container) {
++    if (sg_stylingCard) return;
++    sg_stylingCard = YES;
++    @try {
++        layoutNowPlayingBar(container);
++    } @finally {
++        sg_stylingCard = NO;
++    }
++}
++
+ %hook _TtC18NowPlaying_BarImpl36NowPlayingBarContainerViewController
+ - (void)viewDidLayoutSubviews {
+     %orig;
+diff --git a/taurus-rc/source/harness/tabbar/minimize-check.c b/taurus-rc/source/harness/tabbar/minimize-check.c
+new file mode 100644
+index 0000000..b61728d
+--- /dev/null
++++ b/taurus-rc/source/harness/tabbar/minimize-check.c
+@@ -0,0 +1,38 @@
++// cc -I../../tweak/Sources minimize-check.c -lm -o minimize-check && ./minimize-check
++#include <assert.h>
++#include <stdio.h>
++#include "Redesigned/Navbar/MinimizeStep.h"
++
++int main(void) {
++    SGRMinimizeTrack t = {0, false};
++    assert(!SGRMinimizeStep(&t, 23, 0, 1000));
++    assert(SGRMinimizeStep(&t, 24, 0, 1000));
++    assert(SGRMinimizeStep(&t, 100, 0, 1000));
++    assert(SGRMinimizeStep(&t, 77, 0, 1000));
++    assert(!SGRMinimizeStep(&t, 76, 0, 1000));
++    assert(SGRMinimizeStep(&t, 100, 0, 1000));
++    // Bottom overscroll and its spring-back must not look like a direction reversal.
++    assert(SGRMinimizeStep(&t, 1100, 0, 1000));
++    assert(SGRMinimizeStep(&t, 1000, 0, 1000));
++    assert(!SGRMinimizeStep(&t, 976, 0, 1000));
++    // Insets and a bounce at the top always restore the original navbar.
++    t = (SGRMinimizeTrack){200, true};
++    assert(!SGRMinimizeStep(&t, -120, -64, 1000));
++    assert(!SGRMinimizeStep(&t, -64, -64, 1000));
++    // A short page does not collapse. A shortened page at its top must still expand.
++    t = (SGRMinimizeTrack){0, false};
++    assert(!SGRMinimizeStep(&t, 100, 0, 119));
++    t = (SGRMinimizeTrack){200, true};
++    assert(!SGRMinimizeStep(&t, 0, 0, 50));
++    t = (SGRMinimizeTrack){200, true};
++    assert(!SGRMinimizeStep(&t, 0, 0, -50));
++    // Rapid reversals remain repeatable; sub-threshold jitter does not change state.
++    t = (SGRMinimizeTrack){0, false};
++    for (int i = 0; i < 100; i++) {
++        assert(SGRMinimizeStep(&t, 24, 0, 1000));
++        assert(SGRMinimizeStep(&t, 20, 0, 1000));
++        assert(!SGRMinimizeStep(&t, 0, 0, 1000));
++    }
++    puts("PASS: collapse, reversal, jitter, insets, overscroll, short pages, repeated transitions");
++    return 0;
++}
+diff --git a/taurus-rc/source/harness/tabbar/test_repack_ui.py b/taurus-rc/source/harness/tabbar/test_repack_ui.py
+new file mode 100644
+index 0000000..b079ff5
+--- /dev/null
++++ b/taurus-rc/source/harness/tabbar/test_repack_ui.py
+@@ -0,0 +1,62 @@
++import importlib.util
++import struct
++import tempfile
++import unittest
++import zipfile
++from pathlib import Path
++
++SCRIPT = Path(__file__).resolve().parents[2] / "scripts/repack-ui-ipa.py"
++spec = importlib.util.spec_from_file_location("repack_ui", SCRIPT)
++module = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(module)
++
++
++class RepackTests(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temp.cleanup)
++        self.root = Path(self.temp.name)
++        self.ipa = self.root / "original.ipa"
++        self.dylib = self.root / "built.dylib"
++        self.output = self.root / "updated.ipa"
++        self.dylib.write_bytes(struct.pack("<8I", 0xFEEDFACF, 0x0100000C, 0, 6, 0, 0, 0, 0))
++        self.entries = {
++            "Payload/Spotify.app/Spotify": b"original executable",
++            "Payload/Spotify.app/Info.plist": b"original plist",
++            "Payload/Spotify.app/Frameworks/spotifyglass.dylib": b"old UI library",
++            "Payload/Spotify.app/PlugIns/Widget.appex/Widget": b"original extension",
++            "Payload/Spotify.app/icon.png": b"original icon",
++        }
++        with zipfile.ZipFile(self.ipa, "w", compression=zipfile.ZIP_DEFLATED) as archive:
++            archive.comment = b"original archive comment"
++            for name, data in self.entries.items():
++                archive.writestr(name, data)
++
++    def test_only_ui_library_changes(self):
++        original = self.ipa.read_bytes()
++        target = module.repack(self.ipa, self.dylib, self.output)
++        self.assertEqual(self.ipa.read_bytes(), original)
++        with zipfile.ZipFile(self.output) as archive:
++            self.assertEqual(archive.namelist(), list(self.entries))
++            self.assertEqual(archive.comment, b"original archive comment")
++            for name, data in self.entries.items():
++                self.assertEqual(archive.read(name), self.dylib.read_bytes() if name == target else data)
++
++    def test_refuses_to_overwrite_inputs_or_existing_output(self):
++        with self.assertRaises(ValueError):
++            module.repack(self.ipa, self.dylib, self.ipa)
++        self.output.write_bytes(b"previous build")
++        with self.assertRaises(FileExistsError):
++            module.repack(self.ipa, self.dylib, self.output)
++        self.assertEqual(self.output.read_bytes(), b"previous build")
++
++    def test_rejects_uncompiled_or_wrong_platform_replacement(self):
++        for invalid in (b"source code", struct.pack("<8I", 0xFEEDFACF, 7, 0, 6, 0, 0, 0, 0)):
++            self.dylib.write_bytes(invalid)
++            with self.assertRaises(ValueError):
++                module.repack(self.ipa, self.dylib, self.output)
++            self.assertFalse(self.output.exists())
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/taurus-rc/source/scripts/repack-ui-ipa.py b/taurus-rc/source/scripts/repack-ui-ipa.py
+new file mode 100644
+index 0000000..3e1dab5
+--- /dev/null
++++ b/taurus-rc/source/scripts/repack-ui-ipa.py
+@@ -0,0 +1,76 @@
++#!/usr/bin/env python3
++"""Replace only spotifyglass.dylib in an existing IPA; signing is a separate step."""
++import argparse
++import copy
++import hashlib
++import re
++import shutil
++import struct
++import zipfile
++from pathlib import Path
++
++
++def repack(ipa: Path, dylib: Path, output: Path) -> str:
++    if output.resolve() in (ipa.resolve(), dylib.resolve()):
++        raise ValueError("Output must be a new file, separate from both inputs")
++    replacement = dylib.read_bytes()
++    if len(replacement) < 32:
++        raise ValueError("The replacement is not a compiled dylib")
++    magic, cpu, _, kind = struct.unpack_from("<IIII", replacement)
++    if (magic, cpu, kind) != (0xFEEDFACF, 0x0100000C, 6):
++        raise ValueError("Expected a 64-bit ARM64 Mach-O dylib from the tweak build")
++    with zipfile.ZipFile(ipa) as source:
++        names = source.namelist()
++        if len(set(names)) != len(names):
++            raise ValueError("The input IPA has duplicate archive entries")
++        targets = [n for n in names if re.fullmatch(r"Payload/[^/]+\.app/Frameworks/spotifyglass\.dylib", n)]
++        if len(targets) != 1:
++            raise ValueError("Expected exactly one existing spotifyglass.dylib in the IPA")
++        target = targets[0]
++        # Exclusive creation preserves the original IPA and any previous build.
++        with output.open("xb") as stream:
++            try:
++                with zipfile.ZipFile(stream, "w") as result:
++                    result.comment = source.comment
++                    for entry in source.infolist():
++                        info = copy.copy(entry)
++                        if info.filename == target:
++                            result.writestr(info, replacement)
++                        else:
++                            with source.open(entry) as old, result.open(info, "w") as new:
++                                shutil.copyfileobj(old, new, length=1024 * 1024)
++                # Audit all contents after repacking, including the executable, icons and extensions.
++                with zipfile.ZipFile(output) as result:
++                    if result.namelist() != names:
++                        raise ValueError("Archive entry list changed unexpectedly")
++                    for name in names:
++                        expected = hashlib.sha256(replacement).digest() if name == target else digest(source, name)
++                        if digest(result, name) != expected:
++                            raise ValueError(f"Content verification failed: {name}")
++            except BaseException:
++                stream.close()
++                output.unlink(missing_ok=True)
++                raise
++    return target
++
++
++def digest(archive: zipfile.ZipFile, name: str) -> bytes:
++    with archive.open(name) as stream:
++        return hashlib.file_digest(stream, "sha256").digest()
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("ipa", type=Path)
++    parser.add_argument("dylib", type=Path)
++    parser.add_argument("output", type=Path)
++    args = parser.parse_args()
++    target = repack(args.ipa, args.dylib, args.output)
++    print(f"Replaced: {target}")
++    print("Verified: every other archive entry has identical contents")
++    print(f"Output: {args.output}")
++    print("Re-sign this IPA with your normal sideloading tool before installing.")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/BottomGradient.x b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/BottomGradient.x
+new file mode 100644
+index 0000000..401927f
+--- /dev/null
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/BottomGradient.x
+@@ -0,0 +1,48 @@
++// The host's explicit CAGradientLayer is not the only fade: iOS 26 draws a bottom scroll-edge
++// effect behind floating bars too. Suppress it on the tab's pages while the switch is off.
++// Keep the top effect, the system tab bar's material and all player/other-sheet effects intact.
++#import "Core/SGCore.h"
++#import "Navbar.h"
++
++static NSHashTable<UIScrollView *> *sg_lists;
++static char kBottomHiddenKey;
++
++static void updateBottomEdge(UIScrollView *list) {
++    if (@available(iOS 26.0, *)) {
++        NSNumber *original = objc_getAssociatedObject(list, &kBottomHiddenKey);
++        BOOL pageList = SGRTabBarContainsPageView(list) && list.bounds.size.height >= 150;
++        for (UIView *parent = list.superview; pageList && parent; parent = parent.superview) {
++            if ([parent isKindOfClass:UIScrollView.class]) pageList = NO;
++        }
++        BOOL suppress = !SGFlag(SGRKeyNavbarBottomGradient, YES) && pageList;
++        if (suppress) {
++            if (!original) objc_setAssociatedObject(list, &kBottomHiddenKey, @(list.bottomEdgeEffect.hidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++            if (!list.bottomEdgeEffect.hidden) list.bottomEdgeEffect.hidden = YES;
++        } else if (original) {
++            objc_setAssociatedObject(list, &kBottomHiddenKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++            list.bottomEdgeEffect.hidden = original.boolValue;
++        }
++    }
++}
++
++void SGRRefreshBottomEdgeEffects(void) {
++    for (UIScrollView *list in sg_lists.allObjects) updateBottomEdge(list);
++}
++
++%hook UIScrollView
++- (void)didMoveToWindow {
++    %orig;
++    if (!sg_lists) sg_lists = [NSHashTable weakObjectsHashTable];
++    [sg_lists addObject:self];
++    updateBottomEdge(self);
++}
++- (void)layoutSubviews {
++    %orig;
++    updateBottomEdge(self);
++}
++%end
++
++%ctor {
++    if (!SGRedesignedUI()) return;
++    %init;
++}
+diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/ProfilePhoto.x b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/ProfilePhoto.x
+new file mode 100644
+index 0000000..62b3d6f
+--- /dev/null
++++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/ProfilePhoto.x
+@@ -0,0 +1,53 @@
++// AdaptiveFaceContainer is shared by Home and Library (HomeHeader.x, LibraryHeader.x).
++// Keep Spotify's requested alpha and interaction state while the preference suppresses the view;
++// restoring the photo must also preserve Home's existing scroll fade. Never hide an arranged view.
++#import "Core/SGCore.h"
++#import "Navbar.h"
++
++static char kAlphaKey, kInteractionKey, kAccessibilityKey;
++static NSHashTable<UIView *> *sg_faces;
++
++void SGRNavbarSetProfilePhotoVisible(UIView *face) {
++    if (!face) return;
++    if (!sg_faces) sg_faces = [NSHashTable weakObjectsHashTable];
++    [sg_faces addObject:face];
++    NSNumber *alpha = objc_getAssociatedObject(face, &kAlphaKey);
++    NSNumber *interaction = objc_getAssociatedObject(face, &kInteractionKey);
++    NSNumber *accessibility = objc_getAssociatedObject(face, &kAccessibilityKey);
++    face.alpha = alpha ? alpha.doubleValue : face.alpha;
++    face.userInteractionEnabled = interaction ? interaction.boolValue : face.userInteractionEnabled;
++    face.accessibilityElementsHidden = accessibility ? accessibility.boolValue : face.accessibilityElementsHidden;
++}
++
++void SGRRefreshProfilePhotos(void) {
++    for (UIView *face in sg_faces.allObjects) SGRNavbarSetProfilePhotoVisible(face);
++}
++
++%hook _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer
++- (void)setAlpha:(CGFloat)alpha {
++    objc_setAssociatedObject(self, &kAlphaKey, @(alpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++    %orig(SGFlag(SGRKeyNavbarProfilePhoto, YES) ? alpha : 0);
++}
++- (void)setUserInteractionEnabled:(BOOL)enabled {
++    objc_setAssociatedObject(self, &kInteractionKey, @(enabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++    %orig(enabled && SGFlag(SGRKeyNavbarProfilePhoto, YES));
++}
++- (void)setAccessibilityElementsHidden:(BOOL)hidden {
++    objc_setAssociatedObject(self, &kAccessibilityKey, @(hidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++    %orig(hidden || !SGFlag(SGRKeyNavbarProfilePhoto, YES));
++}
++- (void)layoutSubviews {
++    %orig;
++    SGRNavbarSetProfilePhotoVisible((UIView *)self);
++}
++- (void)didMoveToWindow {
++    %orig;
++    SGRNavbarSetProfilePhotoVisible((UIView *)self);
++}
++%end
++
++%ctor {
++    if (!SGRedesignedUI()) return;
++    %init;
++    SGRequireClasses(@[@"_TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer"]);
++}

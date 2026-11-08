@@ -1,8 +1,0 @@
-{
-  "sourceFiles": 596,
-  "hookDeclarations": 325,
-  "sharedTargetPairs": 115,
-  "settingLiteralOccurrences": 249,
-  "activationEvidence": 417,
-  "caveat": "Lexical index, not an AST or proof of binary/source equivalence. Swift methods after a hook declaration may include later helpers; dynamic targets/swizzles and generated selectors require manual review."
-}

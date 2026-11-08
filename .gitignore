@@ -1,0 +1,12 @@
+.build/
+dist/
+**/.theos/
+**/__pycache__/
+**/build/
+**/packages/
+app/tweak/Sources/Shared/Flags/SGFlagList.m
+*.ipa
+*.dylib
+*.o
+*.a
+.DS_Store

@@ -1,23 +1,59 @@
-# Unified Spotify — private v6 candidate
+# spotify_mod — PwEevee UI fixes
 
-Target: **Spotify 9.1.90 build 919002269 / iOS 27 / ARM64 / Sideloadly**.
-Current revision: `personal-v6-9190`. Earlier v4/v5 instructions and binaries are historical.
+Repo này build IPA bằng **GitHub Actions trên macOS**, không cần máy Mac riêng.
+Source trong `app/` lấy từ PwEevee `v3.1.6.1`, commit được ghi trong `upstream.lock.json`.
+Bộ code cũ đã được thay thế; lịch sử Git vẫn giữ để có thể khôi phục.
 
-This integrates Chroma/spoti.pw 0.51.0 source with selected real EeveeSpotify 7.0.0 implementations. One Chroma renderer owns each visual surface; Eevee transformations compose inside the same network task. The original tweak binaries are never loaded together. All 278 original Chroma source files remain present; author donation/update/usage modules are excluded from compilation at the user's request. Licenses and attribution are retained.
+Các thay đổi UI:
 
-The user reports v5 starts, but Redesigned does not work and audio ads remain. That is evidence of v5 problems, not a v6 runtime pass. V6 adds a targeted playback product-state ad policy, fixes inconsistent Redesigned switch defaults, restores profile defaults when enabling the redesign after a stock reset, adds runtime implementation diagnostics, and regenerates flags from the supplied 9.1.90 executable.
+- Căn mép trái/phải của Now Playing theo phần glass hiển thị của bottom navbar.
+- Tắt Bottom navbar gradient sẽ gỡ fade riêng và ẩn bottom scroll-edge effect tương ứng.
+- Đồng bộ animation thu gọn/mở lại của player và các tab khi cuộn.
+- Show profile photo điều khiển cả hiển thị, tương tác và VoiceOver, kể cả khi header cập nhật lại.
 
-**V6 has not been compiled with Xcode or tested on a device. No v6 `.deb` or `.ipa` has been produced locally.** A legacy transition class is absent in 9.1.90, leaving the original mini-player/player morph unresolved. Eevee-only UI, additional lyrics/karaoke, SponsorBlock and remaining session behavior are incomplete. Source inclusion and static ABI checks do not establish full feature parity.
+Giữ nguyên navbar gốc khi mở rộng: các tab, thứ tự, icon, nhãn và chất liệu glass.
+Source của giao diện Native không thay đổi.
 
-- [Build and installation instructions in Vietnamese](PERSONAL-v6.vi.md)
-- [Current feature comparison and verification checklist](reports/UNIFIED-v6-STATUS.md)
-- [Detailed original inventory](reports/FEATURES.md)
-- [Current dependency route](reports/DEPENDENCIES-v6.md)
+## Build trên GitHub
 
-Upload the contents of `personal-v6-9190-source.zip` to the private build repository, preserving directories. Run **Chroma source integration - v6-9190** on the existing working `xcode-27` runner. A successful run must pass component tests, including the new ad-policy boundary tests, compile the integrated image and Live Activity, and validate its Debian container. Download `personal-v6-9190-Sideloadly-test` only after that run succeeds.
+1. Mở **Actions → Build PwEevee UI fixes → Run workflow** và chọn `main`.
+2. Để trống hai ô input để dùng IPA PwEevee 3.1.6.1 từ release gốc đã ghim SHA-256.
+   Nếu muốn dùng đúng file IPA riêng của bạn, nhập link tải HTTPS trực tiếp và SHA-256 của file đó.
+3. Chờ cả `checks` và `build` thành công.
+4. Mở run, tải artifact **PwEevee-3.1.6.1-ui-fixes** rồi giải nén.
+5. Ký lại file `.ipa` bằng công cụ sideload bạn đang dùng, sau đó cài lên iPhone.
 
-The provided IPA and original extracted Debian payloads stay unchanged. IPA assembly requires the exact inspected clean 9.1.90 executable and a genuinely compiled v6 artifact. It rejects old experiments rather than relabelling them. Live Activity requires extension embedding and signing; see the assembly instructions. The `.deb` is an IPA injection container, not a validated rootless jailbreak installer.
+Push vào `main` cũng tự chạy build. Workflow không cần certificate hoặc secret để xuất IPA chờ ký.
+IPA base mặc định là bản release công khai; không phải file đang nằm trên máy Windows của bạn.
+Nếu dùng file khác, phải nhập đúng cả URL và SHA-256.
 
-The Windows host can run hash, metadata, Logos preprocessing, layer and archive checks. Foundation/Swift tests and iOS compilation require the Apple cloud runner; installation, UI, playback and signing require the device. See the report for performed versus pending checks.
+Kết quả gồm IPA, `spotifyglass.dylib` và `BUILD-MANIFEST.json`. Bước đóng gói chỉ thay
+`Payload/Spotify.app/Frameworks/spotifyglass.dylib` và kiểm tra mọi entry còn lại có nội dung giống hệt
+IPA đầu vào. Không rebuild executable Spotify, icon, extension hay thư viện khác.
 
-Chroma reference: `425d68bc1761e90a6b5828864720511bcef79fa9`; Eevee reference: `d1da1d69715935e41d1dc97a25d11bcc42ebd170`. The user confirms permission for this private Chroma integration. Original PolyForm Strict, GPL-3.0, SwiftProtobuf and audio vendor notices are preserved. This is a derivative integration, not a claim of sole authorship of upstream implementations.
+## Kiểm tra trên iPhone
+
+Dùng iOS 26+ và bật Redesigned UI; khởi động lại app sau khi cài bản build mới.
+Phát hoặc pause một bài, kiểm tra độ rộng Now Playing, thử hai toggle trong Appearance, rồi cuộn xuống/lên
+trên một trang dài và đảo chiều giữa animation. Kiểm tra lại sau khi chuyển tab và khởi động lại app.
+Khi không có bài, navbar phải giữ trạng thái mở rộng. Với Reduce Motion, trạng thái vẫn hoạt động.
+
+CI kiểm tra build và nội dung archive; hiệu ứng hiển thị và timing vẫn cần xác nhận trên thiết bị.
+
+## Source và kiểm tra
+
+- `app/tweak/Sources/Redesigned/`: các sửa UI, đã tích hợp trực tiếp vào source.
+- `patches/pweevee-ui-fixes.patch`: bản diff so với release gốc để đối chiếu.
+- `.github/workflows/build-ipa.yml`: pipeline mới.
+- `scripts/check.sh`: kiểm tra layer, trạng thái cuộn, đóng gói và cấu hình tải IPA.
+- `app/harness/home-header/`: harness profile photo cho simulator trên Mac Apple silicon.
+- `LICENSE`, `app/vendor/audio/`: giấy phép và notice gốc được giữ lại.
+
+Build thủ công trên Mac có Xcode 26+, Python 3.11+, Theos và `brew install make dpkg ldid`:
+
+```sh
+bash scripts/check.sh
+THEOS="$HOME/theos" bash scripts/build-ipa.sh "/absolute/path/PwEevee-3.1.6.1.ipa"
+```
+
+Output nằm trong `dist/`. Mỗi lần build dùng checkout sạch hoặc tên output mới vì packer không ghi đè file cũ.

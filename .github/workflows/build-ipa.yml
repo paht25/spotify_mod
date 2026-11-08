@@ -1,0 +1,87 @@
+name: Build PwEevee UI fixes
+run-name: PwEevee UI fixes · ${{ github.ref_name }}
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      base_ipa_url:
+        description: 'Optional direct HTTPS link to your original IPA; leave empty for pinned PwEevee 3.1.6.1'
+        type: string
+        required: false
+        default: ''
+      base_ipa_sha256:
+        description: 'Required with a custom IPA link: the exact SHA-256 of that file'
+        type: string
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ui-build-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check layers, scroll behavior and IPA packaging
+        run: bash scripts/check.sh
+
+  build:
+    if: github.event_name != 'pull_request'
+    needs: checks
+    runs-on: macos-26
+    timeout-minutes: 45
+    env:
+      THEOS: ${{ github.workspace }}/.build/theos
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Download verified base IPA
+        env:
+          BASE_IPA_URL: ${{ inputs.base_ipa_url }}
+          BASE_IPA_SHA256: ${{ inputs.base_ipa_sha256 }}
+        run: python3 scripts/download-base.py --output .build/base.ipa
+      - name: Check out pinned Theos toolchain
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: theos/theos
+          ref: 8167f59de02fd32cf45b16bfcb1330dfa5c9974c
+          path: .build/theos
+          submodules: recursive
+          persist-credentials: false
+      - name: Install build tools
+        run: brew install make dpkg ldid
+      - name: Compile tweak and replace only the original UI library
+        run: |
+          mkdir -p .build/logs
+          bash scripts/build-ipa.sh .build/base.ipa 2>&1 | tee .build/logs/build.log
+      - name: Upload IPA, UI library and build manifest
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PwEevee-3.1.6.1-ui-fixes
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: build-logs
+          path: .build/logs/
+          if-no-files-found: ignore
+          retention-days: 7
