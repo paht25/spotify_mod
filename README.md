@@ -1,4 +1,4 @@
-# Personal Spotify — independent v7 work in progress
+# Personal Spotify — independent v8 work in progress
 
 Target: Spotify 9.1.90 build 919002269, iOS 27, ARM64, Sideloadly.
 Revision: `personal-independent-v8-9190`.
@@ -16,4 +16,4 @@ Independently authored additions in this branch:
 
 The older renderer baseline retains its native and redesigned modes, NavBar editors, player controls, lyrics providers, artwork, Live Activity, haptics, gestures, speed/pitch and DSP source. Selected Eevee transformations are composed into the existing single transport owner. The exact 6.6.8 source is included for reference/comparison; some newer v7-derived filters are intentionally retained. The original Chroma 1.0.1 and Eevee dylibs are not loaded together.
 
-See [feature inventory](reports/FEATURES-v7.md), [verification](reports/VERIFICATION-v7.md) and [build instructions](BUILD-v8.vi.md). New Objective-C/UIKit/Network/Metal code has not been compiled on this Windows host or tested on iPhone. A genuine new Apple build is required; old v6 binaries are rejected by the v7 packager. No v7 `.deb` or `.ipa` is fabricated.
+The v8 candidate built successfully with Xcode 27.1 on GitHub Actions, including ARM64, the built-in Metal shader, Live Activity and Debian structure validation. Foundation/transport/ad-policy/spectrum/asset/HTTP tests passed. This is not a device playback or UI test. See [v8 verification](reports/VERIFICATION-v8.vi.md), [feature inventory](reports/FEATURES-v7.md) and [build instructions](BUILD-v8.vi.md). Full Chroma 1.0.1 parity and audible ad blocking remain unverified. Old artifacts are rejected by the v8 packager.

@@ -2,6 +2,8 @@
 
 Đây là nhánh mã mới, chưa hoàn tất toàn bộ tính năng Chroma 1.0.1. Ambient và Sing/tách giọng đã được loại theo yêu cầu; lyrics đồng bộ vẫn giữ.
 
+Bản v8 đã build thành công ở commit `3333e66aacf5517ce0edc8636a643cf02c734af6`, nhánh `personal-v8-9190`. Workflow: https://github.com/paht25/spotify_mod/actions/runs/42465861202. IPA đã ghép đặt tại `C:/Users/Acer/Downloads/deb/Spotify-9.1.90-Personal-v8-unsigned.ipa`; mở bằng Sideloadly và giữ/ký extension. Không inject thêm cùng dylib/deb vào IPA đã ghép. Các bước dưới dùng để tái tạo build.
+
 1. Giải nén `personal-independent-v8-9190-source.zip`, upload nội dung vào root repo private đang build, giữ các thư mục `.github`, `Integration`, `Sources`, `Tests`, `scripts`, `tools`, `Resources`, `Generated`, `Licenses`. Không upload các IPA Spotify hoặc thư mục `analysis`.
 2. Chạy workflow **Personal independent modules - v8-9190** trên commit mới. Nó chạy các test trước đó cùng test phổ âm thanh, validator preset/EQ và HTTP cục bộ, rồi build ảnh ARM64 và Live Activity. Nếu runner có Metal compiler, shader tích hợp cũng được biên dịch kiểm tra; nếu thiếu, log ghi rõ phần đó chưa được kiểm chứng.
 3. Chỉ sau khi build thành công mới tải **personal-independent-v8-9190-Sideloadly-test**. Gói dự kiến là `UnifiedSpotify-Personal_0.6.1-test1.deb`; chưa có binary v8 trong bộ nguồn này.
