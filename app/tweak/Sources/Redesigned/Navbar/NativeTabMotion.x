@@ -20,6 +20,7 @@
 @property (nonatomic, strong) CADisplayLink *clock;
 @property (nonatomic, weak) UIScrollView *followedList;
 @property (nonatomic) CGFloat expandedWidth, inlineWidth;
+@property (nonatomic) CGFloat expandedY, inlineY;
 @property (nonatomic) NSUInteger restingFrames;
 @property (nonatomic) BOOL bindingList;
 - (void)wake;
@@ -119,13 +120,26 @@ static BOOL motionEnabled(void) {
         }
         BOOL inlineMode = self.probe.traitCollection.tabAccessoryEnvironment == UITabAccessoryEnvironmentInline;
         CGRect model = [self.probe convertRect:self.probe.bounds toView:self.view];
-        if (!inlineMode && model.size.width > 100) self.expandedWidth = model.size.width;
-        if (inlineMode && model.size.width < self.expandedWidth - 8) self.inlineWidth = model.size.width;
+        if (!inlineMode && model.size.width > 100) {
+            self.expandedWidth = model.size.width;
+            self.expandedY = CGRectGetMidY(model);
+        }
+        if (inlineMode && model.size.width < self.expandedWidth - 8) {
+            self.inlineWidth = model.size.width;
+            self.inlineY = CGRectGetMidY(model);
+        }
         CALayer *layer = self.probe.layer.presentationLayer ?: self.probe.layer;
         CALayer *root = self.view.layer.presentationLayer ?: self.view.layer;
-        CGFloat width = [layer convertRect:layer.bounds toLayer:root].size.width;
+        CGRect presented = [layer convertRect:layer.bounds toLayer:root];
+        CGFloat width = presented.size.width;
         CGFloat distance = self.expandedWidth - self.inlineWidth;
         CGFloat progress = distance > 8 && self.inlineWidth > 0 ? (self.expandedWidth - width) / distance : 0;
+        // In 0.23.0 UIKit moves the accessory as well as narrowing it. Its horizontal morph
+        // finishes earlier than its vertical spring. Sampling only width rushes our entire
+        // movement into that first phase; follow the actual accessory travel for continuity.
+        CGFloat travel = self.inlineY - self.expandedY;
+        if (self.inlineWidth > 0 && fabs(travel) > 8)
+            progress = (CGRectGetMidY(presented) - self.expandedY) / travel;
         if (UIAccessibilityIsReduceMotionEnabled()) progress = inlineMode ? 1 : 0;
         progress = MAX(0, MIN(1, progress));
         if (progress < 0.002) progress = 0;
@@ -202,6 +216,7 @@ NSDictionary *SGRNativeTabMotionState(void) {
         return @{@"nativeInline": @(sg_motion.probe.traitCollection.tabAccessoryEnvironment == UITabAccessoryEnvironmentInline),
             @"expandedWidth": @(sg_motion.expandedWidth), @"inlineWidth": @(sg_motion.inlineWidth),
             @"modelWidth": @(sg_motion.probe.bounds.size.width),
+            @"nativeVerticalTravel": @(sg_motion.inlineY - sg_motion.expandedY),
             @"behavior": @(sg_motion.tabBarMinimizeBehavior), @"offset": @(sg_motion.followedList.contentOffset.y)};
     }
     return @{};

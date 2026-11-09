@@ -52,6 +52,8 @@ final class RuntimeUITests: XCTestCase {
         XCTAssertTrue(list.waitForExistence(timeout: 5))
         list.swipeUp()
         wait { ($0["progress"] as? Double ?? 0) > 0.95 }
+        XCTAssertGreaterThan(abs(state()["nativeVerticalTravel"] as? Double ?? 0), 8,
+            "Motion must follow UIKit's vertical accessory travel")
         capture("apple-music-style-collapsed-row")
         list.swipeDown()
         wait { ($0["progress"] as? Double ?? 1) < 0.05 }

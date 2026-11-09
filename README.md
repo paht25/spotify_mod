@@ -13,6 +13,7 @@ Các thay đổi UI:
   Bản r3 đối chiếu trực tiếp ZIP source 0.23.0 bạn gửi: chuyển phần gắn scroll view/appearance,
   cache vị trí và icon, cập nhật bài hát qua observer, dừng marquee trong lúc morph và animate
   layout UIKit khi đảo chiều để tránh nhảy về trạng thái mở rộng.
+  Tiến trình lấy từ chuyển động dọc của accessory UIKit, tránh nén toàn bộ animation vào pha đổi chiều rộng.
 - Show profile photo điều khiển cả hiển thị, tương tác và VoiceOver, kể cả khi header cập nhật lại.
 
 Giữ nguyên navbar gốc khi mở rộng: các tab, thứ tự, icon, nhãn và chất liệu glass.
