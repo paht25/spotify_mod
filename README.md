@@ -8,7 +8,8 @@ Các thay đổi UI:
 
 - Căn mép trái/phải của Now Playing theo phần glass hiển thị của bottom navbar.
 - Tắt Bottom navbar gradient sẽ gỡ fade riêng và ẩn bottom scroll-edge effect tương ứng.
-- Đồng bộ animation thu gọn/mở lại của player và các tab khi cuộn.
+- Dùng chuyển động UIKit từ cơ chế của IPA mẫu 0.23.0 để thu gọn/mở lại player và tab khi cuộn;
+  navbar gốc vẫn là thanh đang hiển thị, không thay bằng navbar của mẫu.
 - Show profile photo điều khiển cả hiển thị, tương tác và VoiceOver, kể cả khi header cập nhật lại.
 
 Giữ nguyên navbar gốc khi mở rộng: các tab, thứ tự, icon, nhãn và chất liệu glass.
@@ -19,8 +20,8 @@ Source của giao diện Native không thay đổi.
 1. Mở **Actions → Build PwEevee UI fixes → Run workflow** và chọn `main`.
 2. Để trống hai ô input để dùng IPA PwEevee 3.1.6.1 từ release gốc đã ghim SHA-256.
    Nếu muốn dùng đúng file IPA riêng của bạn, nhập link tải HTTPS trực tiếp và SHA-256 của file đó.
-3. Chờ cả `checks` và `build` thành công.
-4. Mở run, tải artifact **PwEevee-3.1.6.1-ui-fixes** rồi giải nén.
+3. Chờ `checks`, `runtime` và `build` thành công. `runtime` kéo cuộn thật và thao tác toggle trên simulator.
+4. Mở run, tải artifact **PwEevee-3.1.6.1-ui-fixes-r2** rồi giải nén.
 5. Ký lại file `.ipa` bằng công cụ sideload bạn đang dùng, sau đó cài lên iPhone.
 
 Push vào `main` cũng tự chạy build. Workflow không cần certificate hoặc secret để xuất IPA chờ ký.
@@ -38,7 +39,9 @@ Phát hoặc pause một bài, kiểm tra độ rộng Now Playing, thử hai to
 trên một trang dài và đảo chiều giữa animation. Kiểm tra lại sau khi chuyển tab và khởi động lại app.
 Khi không có bài, navbar phải giữ trạng thái mở rộng. Với Reduce Motion, trạng thái vẫn hoạt động.
 
-CI kiểm tra build và nội dung archive; hiệu ứng hiển thị và timing vẫn cần xác nhận trên thiết bị.
+CI kiểm tra build, nội dung archive và hành vi UIKit trong fixture simulator. Artifact
+`ui-runtime-results` chứa ảnh và kết quả test. Fixture không phải toàn bộ app Spotify; hiệu ứng hiển thị
+và timing vẫn cần xác nhận trên thiết bị thật.
 
 ## Source và kiểm tra
 

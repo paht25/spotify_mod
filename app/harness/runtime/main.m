@@ -339,12 +339,14 @@ static UIView *identified(UIView *root, NSString *identifier) {
     }
     CGFloat contentError = fabs(CGRectGetMinX(content) - CGRectGetMinX(navbar)) + fabs(CGRectGetMaxX(content) - CGRectGetMaxX(navbar));
     CGFloat glassError = fabs(CGRectGetMinX(glass) - CGRectGetMinX(navbar)) + fabs(CGRectGetMaxX(glass) - CGRectGetMaxX(navbar));
+    NSUInteger hostFades = 0;
+    for (CALayer *layer in bar.superview.layer.sublayers) if ([layer isKindOfClass:CAGradientLayer.class]) hostFades++;
     if (!isfinite(contentError)) contentError = 999;
     if (!isfinite(glassError)) glassError = 999;
     NSMutableDictionary *state = [@{@"progress": @(SGRTabBarCollapseProgress()), @"widthError": @(contentError),
         @"glassError": @(glassError), @"photo": @(self.photo.alpha), @"fade": @(self.tabs.barBackground.alpha),
         @"binding": @(self.bindingPassed), @"bar": [NSString stringWithFormat:@"%p", bar], @"tabs": @(bar.items.count),
-        @"native": @(SGRNativeTabMotionActive())} mutableCopy];
+        @"native": @(SGRNativeTabMotionActive()), @"hostFades": @(hostFades)} mutableCopy];
     [state addEntriesFromDictionary:SGRNativeTabMotionState()];
     NSData *json = [NSJSONSerialization dataWithJSONObject:state options:NSJSONWritingSortedKeys error:nil];
     self.status.text = @"UI runtime test status";

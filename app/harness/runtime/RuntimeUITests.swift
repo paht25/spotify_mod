@@ -32,12 +32,12 @@ final class RuntimeUITests: XCTestCase {
     func testRealAppearanceSwitchesAfterAccessoryReparenting() {
         wait { ($0["binding"] as? Bool) == true }
         app.switches["toggle.fade"].tap()
-        wait { ($0["fade"] as? Double ?? 1) == 0 }
+        wait { ($0["fade"] as? Double ?? 1) == 0 && ($0["hostFades"] as? Int) == 0 }
         app.buttons["fixture.relayout"].tap()
-        wait { ($0["fade"] as? Double ?? 1) == 0 }
+        wait { ($0["fade"] as? Double ?? 1) == 0 && ($0["hostFades"] as? Int) == 0 }
         capture("bottom-fade-off")
         app.switches["toggle.fade"].tap()
-        wait { ($0["fade"] as? Double ?? 0) > 0.9 }
+        wait { ($0["fade"] as? Double ?? 0) > 0.9 && ($0["hostFades"] as? Int ?? 0) > 0 }
         app.switches["toggle.profile"].tap()
         wait { ($0["photo"] as? Double ?? 1) == 0 }
         app.buttons["fixture.relayout"].tap()

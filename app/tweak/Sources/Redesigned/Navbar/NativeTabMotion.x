@@ -76,6 +76,7 @@ static BOOL motionEnabled(void) {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.clearColor;
     self.view.userInteractionEnabled = NO;
+    self.view.accessibilityElementsHidden = YES;
     // A zero-area mask removes the entire driver's rendering, including its glass and shadows.
     // Keep alpha at one so UIKit's on-screen scroll observation remains active.
     self.view.layer.mask = [CALayer layer];
@@ -135,7 +136,8 @@ static BOOL motionEnabled(void) {
     if (@available(iOS 26.0, *)) {
         // A controller used solely as a motion source can keep its selected page minimized
         // across selection changes. Never requests UIKit's actual expanded accessory geometry.
-        self.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorNever;
+        if (self.tabBarMinimizeBehavior != UITabBarMinimizeBehaviorNever)
+            self.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorNever;
     }
     [self wake];
 }
@@ -219,7 +221,8 @@ void SGRSyncNativeTabMotion(void) {
             if (velocity.y > 0 && (SGRTabBarCollapseProgress() > 0 ||
                 sg_motion.probe.traitCollection.tabAccessoryEnvironment == UITabAccessoryEnvironmentInline)) [sg_motion expand];
             else if (velocity.y < 0 && (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged))
-                sg_motion.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorOnScrollDown;
+                if (sg_motion.tabBarMinimizeBehavior != UITabBarMinimizeBehaviorOnScrollDown)
+                    sg_motion.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorOnScrollDown;
         }
     }
     [sg_motion wake];
