@@ -548,7 +548,7 @@ void SGRDockNowPlayingCard(BOOL docked, CGRect row, UIView *host, BOOL animated)
     applyDock(animated && !UIAccessibilityIsReduceMotionEnabled());
 }
 
-void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host) {
+void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host, BOOL animated) {
     UIView *view = sg_container.viewIfLoaded;
     if (!view || !host.window || !sg_cardGlass.superview) return;
     SGRMiniPlayer *mini = miniPlayer();
@@ -557,7 +557,7 @@ void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host) {
         refreshMini();
     }
     // Track/cover observers refresh content. Scroll frames only change geometry, as in 0.23.0.
-    mini.transitioning = progress > 0 && progress < 1;
+    mini.transitioning = animated;
     CGRect card = [host convertRect:sg_cardGlass.bounds fromView:sg_cardGlass];
     CGRect target = [host convertRect:row fromView:nil];
     target.origin.y = CGRectGetMidY(target) - kPillHeight / 2;
@@ -566,13 +566,12 @@ void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host) {
         card.origin.y + (target.origin.y - card.origin.y) * progress,
         card.size.width + (target.size.width - card.size.width) * progress,
         card.size.height + (target.size.height - card.size.height) * progress);
-    [UIView performWithoutAnimation:^{
-        if (!CGRectEqualToRect(mini.frame, frame)) mini.frame = frame;
-        mini.alpha = progress;
-        view.alpha = 1 - progress;
-    }];
-    mini.userInteractionEnabled = progress > 0.9;
-    view.userInteractionEnabled = progress < 0.1;
+    if (!CGRectEqualToRect(mini.frame, frame)) mini.frame = frame;
+    if (animated) [mini layoutIfNeeded];
+    mini.alpha = progress;
+    view.alpha = 1 - progress;
+    mini.userInteractionEnabled = !animated && progress > 0.9;
+    view.userInteractionEnabled = !animated && progress < 0.1;
     sg_docked = progress > 0;
     sg_dockRow = row;
     sg_dockHost = host;

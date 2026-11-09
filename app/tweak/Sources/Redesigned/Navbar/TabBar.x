@@ -37,8 +37,17 @@ void SGRTabBarMarkCustomSelected(UIView *customItem) {
 // round glass buttons at its ends, and the now playing card takes the row between them (applyMinimized).
 static BOOL sg_minimized;
 static CGFloat sg_motionProgress;
+static BOOL sg_motionAnimating;
+static NSUInteger sg_motionGeneration;
 
-CGFloat SGRTabBarCollapseProgress(void) { return sg_motionProgress; }
+CGFloat SGRTabBarCollapseProgress(void) {
+    if (sg_motionAnimating) {
+        UITabBar *bar = objc_getAssociatedObject(sg_stockBar, &kBarKey);
+        CALayer *shown = bar.layer.presentationLayer;
+        if (shown) return MAX(0, MIN(1, 1 - shown.opacity));
+    }
+    return sg_motionProgress;
+}
 
 BOOL SGRTabBarMinimized(void) {
     return sg_minimized;
@@ -453,7 +462,7 @@ static void prepareMotionGeometry(UIView *stockBar, UIView *host, SGRSystemTabBa
     sg_motionGeometryValid = YES;
 }
 
-void SGRRenderTabBarProgress(CGFloat progress) {
+static void renderMotionTarget(CGFloat progress, BOOL animated) {
     progress = MAX(0, MIN(1, progress));
     sg_motionProgress = progress;
     sg_minimized = progress > 0.5;
@@ -464,19 +473,46 @@ void SGRRenderTabBarProgress(CGFloat progress) {
     if (!sg_motionGeometryValid || sg_motionHost != host ||
         !CGRectEqualToRect(sg_motionHostBounds, host.bounds) || !CGRectEqualToRect(sg_motionBarBounds, bar.bounds))
         prepareMotionGeometry(stockBar, host, bar);
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
     for (NSUInteger i = 0; i < 2; i++) {
         SGRDockButton *button = sg_motionButtons[i];
         place(button, blendFrame(sg_motionShapes[i], sg_motionCircles[i], progress));
+        if (animated) [button layoutIfNeeded];
         button.alpha = progress;
         button.glyph.alpha = 1;
-        button.userInteractionEnabled = progress > 0.9;
+        button.userInteractionEnabled = !animated && progress > 0.9;
     }
     bar.alpha = 1 - progress;
-    bar.userInteractionEnabled = progress < 0.1;
-    [CATransaction commit];
-    SGRRenderNowPlayingProgress(progress, sg_motionRow, host);
+    bar.userInteractionEnabled = !animated && progress < 0.1;
+    SGRRenderNowPlayingProgress(progress, sg_motionRow, host, animated);
+}
+
+void SGRRenderTabBarProgress(CGFloat progress) {
+    // Spotify can lay out the original bar during the morph. Do not replace an in-flight
+    // compositor animation with a sampled intermediate model frame.
+    if (sg_motionAnimating) return;
+    [UIView performWithoutAnimation:^{ renderMotionTarget(progress, NO); }];
+}
+
+void SGRAnimateTabBarProgress(CGFloat progress, NSTimeInterval duration) {
+    progress = MAX(0, MIN(1, progress));
+    if (sg_motionAnimating && sg_motionProgress == progress && duration > 0) return;
+    NSUInteger generation = ++sg_motionGeneration;
+    BOOL animated = duration > 0 && !UIAccessibilityIsReduceMotionEnabled();
+    sg_motionAnimating = animated;
+    if (!animated) {
+        [UIView performWithoutAnimation:^{ renderMotionTarget(progress, NO); }];
+        return;
+    }
+    // Like the reference's native accessory, commit both layouts once and let UIKit/Core
+    // Animation interpolate them. No display-link callback redraws or re-lays out visible UI.
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
+        options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
+        animations:^{ renderMotionTarget(progress, YES); }
+        completion:^(BOOL finished) {
+            if (generation != sg_motionGeneration) return;
+            sg_motionAnimating = NO;
+            [UIView performWithoutAnimation:^{ renderMotionTarget(progress, NO); }];
+        }];
 }
 
 // Minimizing gathers the bar into its two ends; expanding is the reverse, and the buttons are what moves: the first

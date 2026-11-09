@@ -1,7 +1,7 @@
 // Motion source: user-supplied spoti.pw-0.23.0-beta.zip, Redesigned/Navbar/TabBar.x.
 // Archive SHA-256: 75cd6a8946077d2e9ac99bfe9c3ff868abdcbde6639e30babaf318827e4b847f.
-// UIKit watches the actual foreground list through setContentScrollView:forEdge: and animates a
-// UITabAccessory. Only its geometry is used here: its view is masked out, cannot receive touches,
+// UIKit watches the actual foreground list through setContentScrollView:forEdge: and minimizes a
+// UITabAccessory. Its environment drives one shared UIKit animation: the driver is masked out, cannot receive touches,
 // and never replaces the user's existing SGRSystemTabBar or expanded Now Playing controls.
 #import "Core/SGCore.h"
 #import "Navbar.h"
@@ -23,6 +23,9 @@
 @property (nonatomic) CGFloat expandedY, inlineY;
 @property (nonatomic) NSUInteger restingFrames;
 @property (nonatomic) BOOL bindingList;
+@property (nonatomic) BOOL hasMotionTarget;
+@property (nonatomic) CGFloat motionTarget;
+@property (nonatomic) NSTimeInterval transitionDuration;
 - (void)wake;
 - (void)sample;
 - (void)follow:(UIScrollView *)list;
@@ -100,6 +103,8 @@ static BOOL motionEnabled(void) {
     self.view.layer.mask = [CALayer layer];
 }
 - (void)wake {
+    NSTimeInterval inherited = UIView.inheritedAnimationDuration;
+    if (inherited >= 0.3 && inherited <= 1) self.transitionDuration = inherited;
     if (!self.clock) {
         self.clock = [CADisplayLink displayLinkWithTarget:self selector:@selector(sample)];
         if (@available(iOS 15.0, *)) {
@@ -115,7 +120,8 @@ static BOOL motionEnabled(void) {
     if (@available(iOS 26.0, *)) {
         if (!self.viewIfLoaded.window || !self.bottomAccessory) {
             self.clock.paused = YES;
-            SGRRenderTabBarProgress(0);
+            self.hasMotionTarget = NO;
+            SGRAnimateTabBarProgress(0, 0);
             return;
         }
         BOOL inlineMode = self.probe.traitCollection.tabAccessoryEnvironment == UITabAccessoryEnvironmentInline;
@@ -128,25 +134,17 @@ static BOOL motionEnabled(void) {
             self.inlineWidth = model.size.width;
             self.inlineY = CGRectGetMidY(model);
         }
-        CALayer *layer = self.probe.layer.presentationLayer ?: self.probe.layer;
-        CALayer *root = self.view.layer.presentationLayer ?: self.view.layer;
-        CGRect presented = [layer convertRect:layer.bounds toLayer:root];
-        CGFloat width = presented.size.width;
-        CGFloat distance = self.expandedWidth - self.inlineWidth;
-        CGFloat progress = distance > 8 && self.inlineWidth > 0 ? (self.expandedWidth - width) / distance : 0;
-        // In 0.23.0 UIKit moves the accessory as well as narrowing it. Its horizontal morph
-        // finishes earlier than its vertical spring. Sampling only width rushes our entire
-        // movement into that first phase; follow the actual accessory travel for continuity.
-        CGFloat travel = self.inlineY - self.expandedY;
-        if (self.inlineWidth > 0 && fabs(travel) > 8)
-            progress = (CGRectGetMidY(presented) - self.expandedY) / travel;
-        if (UIAccessibilityIsReduceMotionEnabled()) progress = inlineMode ? 1 : 0;
-        progress = MAX(0, MIN(1, progress));
-        if (progress < 0.002) progress = 0;
-        if (progress > 0.998) progress = 1;
-        BOOL settled = fabs(progress - SGRTabBarCollapseProgress()) < 0.0001 && (progress == 0 || progress == 1);
-        // A steady accessory needs no visible re-layout. Keep sampling only through the morph.
-        if (!settled) SGRRenderTabBarProgress(progress);
+        CGFloat target = inlineMode ? 1 : 0;
+        if (!self.hasMotionTarget || self.motionTarget != target) {
+            NSTimeInterval duration = self.hasMotionTarget ?
+                (self.transitionDuration ?: SGRNavbarMotionDuration) : 0;
+            self.hasMotionTarget = YES;
+            self.motionTarget = target;
+            SGRAnimateTabBarProgress(target, duration);
+        }
+        // Only observe the finished state here. Core Animation advances all visible layers
+        // together, even between display-link callbacks or during a busy Spotify layout.
+        BOOL settled = fabs(target - SGRTabBarCollapseProgress()) < 0.0001;
         if (settled && ++self.restingFrames > 20) self.clock.paused = YES;
         else if (!settled) self.restingFrames = 0;
     }
@@ -198,7 +196,10 @@ static BOOL motionEnabled(void) {
         UITabAccessory *accessory = SGRNowPlayingAvailable() && motionEnabled() ? self.motionAccessory : nil;
         if (self.bottomAccessory != accessory) {
             [self setBottomAccessory:accessory animated:NO];
-            if (!accessory) SGRRenderTabBarProgress(0);
+            if (!accessory) {
+                self.hasMotionTarget = NO;
+                SGRAnimateTabBarProgress(0, 0);
+            }
             [self wake];
         }
     }

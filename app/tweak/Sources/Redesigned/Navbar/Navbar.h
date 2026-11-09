@@ -46,6 +46,7 @@ void SGRSyncNativeTabMotion(void);
 BOOL SGRNativeTabMotionActive(void);
 void SGRExpandNativeTabMotion(void);
 void SGRRenderTabBarProgress(CGFloat progress);
+void SGRAnimateTabBarProgress(CGFloat progress, NSTimeInterval duration);
 CGFloat SGRTabBarCollapseProgress(void);
 NSDictionary *SGRNativeTabMotionState(void);
 static const NSTimeInterval SGRNavbarMotionDuration = 0.5;

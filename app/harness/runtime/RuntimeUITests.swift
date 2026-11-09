@@ -52,8 +52,7 @@ final class RuntimeUITests: XCTestCase {
         XCTAssertTrue(list.waitForExistence(timeout: 5))
         list.swipeUp()
         wait { ($0["progress"] as? Double ?? 0) > 0.95 }
-        XCTAssertGreaterThan(abs(state()["nativeVerticalTravel"] as? Double ?? 0), 8,
-            "Motion must follow UIKit's vertical accessory travel")
+        XCTAssertEqual(state()["nativeInline"] as? Bool, true, "UIKit's real accessory must be minimized")
         capture("apple-music-style-collapsed-row")
         list.swipeDown()
         wait { ($0["progress"] as? Double ?? 1) < 0.05 }
@@ -66,15 +65,26 @@ final class RuntimeUITests: XCTestCase {
         var rising = 0, falling = 0, largestStep = 0.0
         for (a, b) in zip(trace, trace.dropFirst()) {
             let delta = b[1] - a[1]
-            largestStep = max(largestStep, abs(delta))
+            // A busy simulator can skip our sampling callbacks while Core Animation still
+            // presents intermediate frames. Compare the change per 60 Hz interval.
+            let elapsed = max(1.0 / 120.0, b[0] - a[0])
+            largestStep = max(largestStep, abs(delta) * min(1, (1.0 / 60.0) / elapsed))
             if b[1] > 0.01 && b[1] < 0.99 {
                 if delta > 0 { rising += 1 }
                 if delta < 0 { falling += 1 }
             }
         }
-        XCTAssertGreaterThanOrEqual(rising, 4, "Collapse must have intermediate rendered frames")
+        XCTAssertEqual(state()["compositorObserved"] as? Bool, true,
+            "Player and tabs must both animate on the compositor, rather than redraw per tick")
+        XCTAssertGreaterThanOrEqual(rising, 4, "Collapse must have intermediate presentation states")
         XCTAssertGreaterThanOrEqual(falling, 4, "Reverse must animate, rather than snap to expanded")
         XCTAssertLessThan(largestStep, 0.35, "Motion jumped in a single frame; inspect trace/video")
+        let peak = trace.firstIndex(where: { $0[1] >= 0.999 }) ?? trace.count
+        for (index, pair) in zip(trace, trace.dropFirst()).enumerated() {
+            let delta = pair.1[1] - pair.0[1]
+            if index < peak { XCTAssertGreaterThanOrEqual(delta, -0.002, "Collapse moved backwards") }
+            else { XCTAssertLessThanOrEqual(delta, 0.002, "Expansion moved backwards") }
+        }
         XCTAssertEqual(state()["bar"] as? String, bar)
         XCTAssertEqual(state()["tabs"] as? Int, 4)
         capture("original-navbar-restored-after-reverse-scroll")

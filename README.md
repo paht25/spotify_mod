@@ -13,7 +13,8 @@ Các thay đổi UI:
   Bản r3 đối chiếu trực tiếp ZIP source 0.23.0 bạn gửi: chuyển phần gắn scroll view/appearance,
   cache vị trí và icon, cập nhật bài hát qua observer, dừng marquee trong lúc morph và animate
   layout UIKit khi đảo chiều để tránh nhảy về trạng thái mở rộng.
-  Tiến trình lấy từ chuyển động dọc của accessory UIKit, tránh nén toàn bộ animation vào pha đổi chiều rộng.
+  Trạng thái accessory kích hoạt một animation UIKit chung cho player và tabs. Core Animation tự nội suy;
+  không đọc tọa độ rồi gán lại frame UI ở mỗi tick, tránh giật khi UIKit đổi hierarchy hoặc Spotify bận layout.
 - Show profile photo điều khiển cả hiển thị, tương tác và VoiceOver, kể cả khi header cập nhật lại.
 
 Giữ nguyên navbar gốc khi mở rộng: các tab, thứ tự, icon, nhãn và chất liệu glass.
@@ -46,8 +47,8 @@ Khi không có bài, navbar phải giữ trạng thái mở rộng. Với Reduce
 CI kiểm tra build, nội dung archive và hành vi UIKit trong fixture simulator. Artifact
 `ui-runtime-results` chứa ảnh và kết quả test. Fixture không phải toàn bộ app Spotify; hiệu ứng hiển thị
 và timing vẫn cần xác nhận trên thiết bị thật.
-Lượt test cuộn lưu thêm video simulator và trace từng khung hình, kiểm tra cả chiều thu gọn/mở lại
-có nhiều trạng thái trung gian và không nhảy quá 35% tiến trình trong một khung hình.
+Lượt test cuộn lưu thêm video simulator và trace trạng thái hiển thị, kiểm tra cả chiều thu gọn/mở lại
+có nhiều trạng thái trung gian, không chạy ngược và player/tabs đều có animation trên compositor.
 
 ## Source và kiểm tra
 

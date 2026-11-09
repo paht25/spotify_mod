@@ -20,7 +20,7 @@ void SGRNowPlayingBarRefresh(void);
 // coordinates and `host` is the view the pill is drawn in (the glass bar's host, which also holds the two buttons).
 // The pill grows out of the card's place and the card fades under it; NO puts the card back as Spotify lays it out.
 void SGRDockNowPlayingCard(BOOL docked, CGRect row, UIView *host, BOOL animated);
-void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host);
+void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host, BOOL animated);
 
 // Whether a track is playing or paused on the card, so there is something for the minimized pill to show. The glass bar
 // only minimizes while there is, and is left whole otherwise.

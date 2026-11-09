@@ -269,6 +269,8 @@ static UIView *item(Class cls, NSString *title, NSString *symbol, BOOL active) {
 @property (nonatomic, strong) CADisplayLink *motionSampler;
 @property (nonatomic, strong) NSMutableArray<NSArray<NSNumber *> *> *motionTrace;
 @property (nonatomic, weak) UIView *motionPlayer;
+@property (nonatomic, weak) UITabBar *motionBar;
+@property (nonatomic) BOOL compositorObserved;
 @end
 
 @implementation SGHarnessChrome
@@ -331,6 +333,8 @@ static UIView *identified(UIView *root, NSString *identifier) {
 - (void)sampleMotion {
     if (!self.motionPlayer.window) return;
     CGFloat p = SGRTabBarCollapseProgress();
+    if (p > 0.01 && p < 0.99 && self.motionPlayer.layer.animationKeys.count && self.motionBar.layer.animationKeys.count)
+        self.compositorObserved = YES;
     if (self.motionTrace.count && fabs(self.motionTrace.lastObject[1].doubleValue - p) < 0.00001) return;
     CALayer *layer = self.motionPlayer.layer.presentationLayer ?: self.motionPlayer.layer;
     CGRect frame = [layer convertRect:layer.bounds toLayer:self.view.layer.presentationLayer ?: self.view.layer];
@@ -359,6 +363,7 @@ static UIView *identified(UIView *root, NSString *identifier) {
         [queue addObjectsFromArray:view.subviews];
     }
     CGFloat contentError = fabs(CGRectGetMinX(content) - CGRectGetMinX(navbar)) + fabs(CGRectGetMaxX(content) - CGRectGetMaxX(navbar));
+    self.motionBar = bar;
     CGFloat glassError = fabs(CGRectGetMinX(glass) - CGRectGetMinX(navbar)) + fabs(CGRectGetMaxX(glass) - CGRectGetMaxX(navbar));
     NSUInteger hostFades = 0;
     for (CALayer *layer in bar.superview.layer.sublayers) if ([layer isKindOfClass:CAGradientLayer.class]) hostFades++;
@@ -367,7 +372,8 @@ static UIView *identified(UIView *root, NSString *identifier) {
     NSMutableDictionary *state = [@{@"progress": @(SGRTabBarCollapseProgress()), @"widthError": @(contentError),
         @"glassError": @(glassError), @"photo": @(self.photo.alpha), @"fade": @(self.tabs.barBackground.alpha),
         @"binding": @(self.bindingPassed), @"bar": [NSString stringWithFormat:@"%p", bar], @"tabs": @(bar.items.count),
-        @"native": @(SGRNativeTabMotionActive()), @"hostFades": @(hostFades), @"motionTrace": self.motionTrace ?: @[]} mutableCopy];
+        @"native": @(SGRNativeTabMotionActive()), @"hostFades": @(hostFades), @"motionTrace": self.motionTrace ?: @[],
+        @"compositorObserved": @(self.compositorObserved)} mutableCopy];
     [state addEntriesFromDictionary:SGRNativeTabMotionState()];
     NSData *json = [NSJSONSerialization dataWithJSONObject:state options:NSJSONWritingSortedKeys error:nil];
     self.status.text = @"UI runtime test status";
