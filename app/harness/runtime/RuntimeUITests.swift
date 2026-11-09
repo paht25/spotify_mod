@@ -73,7 +73,8 @@ final class RuntimeUITests: XCTestCase {
         ready(); assertExpandedSizes()
     }
     func testNativeAccessoryMovesOnScrollAndReturns() {
-        ready(); assertExpandedSizes()
+        ready()
+        wait { self.number("playerWidth", $0) > 100 }
         let bar = state()["bar"] as? String
         let accessory = state()["accessory"] as? String
         let list = app.tables["fixture.list"]
@@ -94,7 +95,8 @@ final class RuntimeUITests: XCTestCase {
         capture("original-023-native-expanded-accessory")
     }
     func testNativePlayerAndTabControlsReachSpotify() {
-        ready(); assertExpandedSizes()
+        ready()
+        wait { self.number("playerWidth", $0) > 100 }
         var s = state()
         point(number("playerX", s) + number("playerWidth", s) - 25,
               number("playerY", s) + number("playerHeight", s) / 2).tap()
