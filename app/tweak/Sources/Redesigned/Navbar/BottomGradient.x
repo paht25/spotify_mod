@@ -17,6 +17,9 @@ void SGRRefreshStockTabBarFade(void) {
     }
     UIView *background = SGRStockTabBarBackground();
     if (!background) return;
+    // Sometimes the background container IS TabBarGradientView. Applying both mechanisms to
+    // that same view records our forced zero as Spotify's requested alpha and cannot restore it.
+    if ([sg_stockFades containsObject:background]) return;
     NSNumber *original = objc_getAssociatedObject(background, &kBackgroundAlphaKey);
     if (!visible && !original) {
         original = @(background.alpha);

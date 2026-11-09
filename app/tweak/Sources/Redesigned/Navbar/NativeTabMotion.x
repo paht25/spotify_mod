@@ -132,7 +132,11 @@ static BOOL motionEnabled(void) {
     [self wake];
 }
 - (void)expand {
-    [UIView performWithoutAnimation:^{ self.selectedIndex = 1; self.selectedIndex = 0; }];
+    if (@available(iOS 26.0, *)) {
+        // A controller used solely as a motion source can keep its selected page minimized
+        // across selection changes. Never requests UIKit's actual expanded accessory geometry.
+        self.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorNever;
+    }
     [self wake];
 }
 - (void)playerStateDidChange:(SPTPlayerState *)state {
@@ -150,6 +154,16 @@ BOOL SGRNativeTabMotionActive(void) {
 }
 
 void SGRExpandNativeTabMotion(void) { [sg_motion expand]; }
+
+NSDictionary *SGRNativeTabMotionState(void) {
+    if (@available(iOS 26.0, *)) {
+        return @{@"nativeInline": @(sg_motion.probe.traitCollection.tabAccessoryEnvironment == UITabAccessoryEnvironmentInline),
+            @"expandedWidth": @(sg_motion.expandedWidth), @"inlineWidth": @(sg_motion.inlineWidth),
+            @"modelWidth": @(sg_motion.probe.bounds.size.width),
+            @"behavior": @(sg_motion.tabBarMinimizeBehavior), @"offset": @(sg_motion.followedList.contentOffset.y)};
+    }
+    return @{};
+}
 
 static BOOL pageList(UIScrollView *list) {
     UIView *root = SGRTabBarPageRoot();
@@ -199,7 +213,15 @@ void SGRSyncNativeTabMotion(void) {
     UIScrollView *list = (UIScrollView *)pan.view;
     if (![list isKindOfClass:UIScrollView.class] || !pageList(list)) return;
     CGPoint velocity = [pan velocityInView:list];
-    if (pan.state == UIGestureRecognizerStateBegan && fabs(velocity.y) > fabs(velocity.x)) [sg_motion follow:list];
+    if (fabs(velocity.y) > fabs(velocity.x)) {
+        if (pan.state == UIGestureRecognizerStateBegan) [sg_motion follow:list];
+        if (@available(iOS 26.0, *)) {
+            if (velocity.y > 0 && (SGRTabBarCollapseProgress() > 0 ||
+                sg_motion.probe.traitCollection.tabAccessoryEnvironment == UITabAccessoryEnvironmentInline)) [sg_motion expand];
+            else if (velocity.y < 0 && (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged))
+                sg_motion.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorOnScrollDown;
+        }
+    }
     [sg_motion wake];
 }
 @end

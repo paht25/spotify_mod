@@ -47,6 +47,7 @@ BOOL SGRNativeTabMotionActive(void);
 void SGRExpandNativeTabMotion(void);
 void SGRRenderTabBarProgress(CGFloat progress);
 CGFloat SGRTabBarCollapseProgress(void);
+NSDictionary *SGRNativeTabMotionState(void);
 static const NSTimeInterval SGRNavbarMotionDuration = 0.5;
 NSString *SGRNavbarDefaultIcon(NSString *stockID);
 BOOL SGRNavbarEntryHasCustomIcon(NSDictionary *entry);
