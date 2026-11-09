@@ -21,6 +21,7 @@ static char kImageContext;
 
 @interface SGRMiniPlayer : UIView <SGPlayerStateObserver, UIGestureRecognizerDelegate>
 @property (nonatomic, readonly) UIView *artworkView;
+- (void)updatePreferredHeight;
 @end
 
 static __weak SGRMiniPlayer *sg_miniPlayer;
@@ -32,12 +33,17 @@ static __weak SGRMiniPlayer *sg_miniPlayer;
     UIButton *_play;
     __weak UIImageView *_source;   // the artwork on Spotify's bar, watched for its picture
     BOOL _swiping;
+    NSLayoutConstraint *_preferredHeight;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (!(self = [super initWithFrame:frame])) return nil;
     self.clipsToBounds = YES;
     self.overrideUserInterfaceStyle = UIUserInterfaceStyleDark;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    _preferredHeight = [self.heightAnchor constraintEqualToConstant:SGRNowPlayingExpandedHeight()];
+    _preferredHeight.identifier = @"PwEevee.originalNowPlayingHeight";
+    _preferredHeight.active = YES;
 
     _content = [UIView new];
     [self addSubview:_content];
@@ -90,6 +96,7 @@ static __weak SGRMiniPlayer *sg_miniPlayer;
 }
 
 - (void)environmentChanged {
+    [self updatePreferredHeight];
     [self invalidateIntrinsicContentSize];
     [self setNeedsLayout];
     static NSUInteger logged;
@@ -98,6 +105,17 @@ static __weak SGRMiniPlayer *sg_miniPlayer;
 
 - (CGSize)intrinsicContentSize {
     return CGSizeMake(UIViewNoIntrinsicMetric, [self isInline] ? 48 : SGRNowPlayingExpandedHeight());
+}
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    return CGSizeMake(size.width, [self isInline] ? 48 : SGRNowPlayingExpandedHeight());
+}
+
+- (void)updatePreferredHeight {
+    CGFloat height = [self isInline] ? 48 : SGRNowPlayingExpandedHeight();
+    if (fabs(_preferredHeight.constant - height) < 0.25) return;
+    _preferredHeight.constant = height;
+    [self invalidateIntrinsicContentSize];
 }
 
 // Between the selected tab and Search the accessory is a short capsule, and only the title fits.
@@ -303,6 +321,7 @@ void SGRRefreshMiniPlayerSize(void) {
     CGFloat height = SGRNowPlayingExpandedHeight();
     if (fabs(lastHeight - height) < 0.25) return;
     lastHeight = height;
+    [sg_miniPlayer updatePreferredHeight];
     [sg_miniPlayer invalidateIntrinsicContentSize];
 }
 

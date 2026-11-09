@@ -343,6 +343,14 @@ static UIView *identified(UIView *root, NSString *identifier) {
     __weak SGHarnessChrome *weakSelf = self;
     self.statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer *timer) { [weakSelf updateStatus]; }];
     [self updateStatus];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        SGForEachView(self.tabs.view, ^(UIView *view) {
+            NSString *name = NSStringFromClass(view.class);
+            if ([name containsString:@"Accessory"] || [name containsString:@"Platter"] || [name isEqualToString:@"SGRMiniPlayer"])
+                NSLog(@"[harness size] %@ frame %@ intrinsic %@ translates %d constraints %@", name, NSStringFromCGRect(view.frame),
+                    NSStringFromCGSize(view.intrinsicContentSize), view.translatesAutoresizingMaskIntoConstraints, view.constraints);
+        });
+    });
 }
 - (void)forceRelayout {
     [self.npb setNeedsLayout];

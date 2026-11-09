@@ -3247,7 +3247,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/MiniPlayer.
 new file mode 100644
 --- /dev/null
 +++ b/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/MiniPlayer.m
-@@ -0,0 +1,322 @@
+@@ -0,0 +1,341 @@
 +// The mini player in the tab bar (SGRKeyInlinePlayer): the content of the UITabAccessory TabBar.x hands
 +// its UITabBarController. UIKit draws the glass around it, puts it above the bar, and moves it in
 +// between the selected tab and Search when the bar minimizes on scroll; the view only lays itself out
@@ -3271,6 +3271,7 @@ new file mode 100644
 +
 +@interface SGRMiniPlayer : UIView <SGPlayerStateObserver, UIGestureRecognizerDelegate>
 +@property (nonatomic, readonly) UIView *artworkView;
++- (void)updatePreferredHeight;
 +@end
 +
 +static __weak SGRMiniPlayer *sg_miniPlayer;
@@ -3282,12 +3283,17 @@ new file mode 100644
 +    UIButton *_play;
 +    __weak UIImageView *_source;   // the artwork on Spotify's bar, watched for its picture
 +    BOOL _swiping;
++    NSLayoutConstraint *_preferredHeight;
 +}
 +
 +- (instancetype)initWithFrame:(CGRect)frame {
 +    if (!(self = [super initWithFrame:frame])) return nil;
 +    self.clipsToBounds = YES;
 +    self.overrideUserInterfaceStyle = UIUserInterfaceStyleDark;
++    self.translatesAutoresizingMaskIntoConstraints = NO;
++    _preferredHeight = [self.heightAnchor constraintEqualToConstant:SGRNowPlayingExpandedHeight()];
++    _preferredHeight.identifier = @"PwEevee.originalNowPlayingHeight";
++    _preferredHeight.active = YES;
 +
 +    _content = [UIView new];
 +    [self addSubview:_content];
@@ -3340,6 +3346,7 @@ new file mode 100644
 +}
 +
 +- (void)environmentChanged {
++    [self updatePreferredHeight];
 +    [self invalidateIntrinsicContentSize];
 +    [self setNeedsLayout];
 +    static NSUInteger logged;
@@ -3348,6 +3355,17 @@ new file mode 100644
 +
 +- (CGSize)intrinsicContentSize {
 +    return CGSizeMake(UIViewNoIntrinsicMetric, [self isInline] ? 48 : SGRNowPlayingExpandedHeight());
++}
++
++- (CGSize)sizeThatFits:(CGSize)size {
++    return CGSizeMake(size.width, [self isInline] ? 48 : SGRNowPlayingExpandedHeight());
++}
++
++- (void)updatePreferredHeight {
++    CGFloat height = [self isInline] ? 48 : SGRNowPlayingExpandedHeight();
++    if (fabs(_preferredHeight.constant - height) < 0.25) return;
++    _preferredHeight.constant = height;
++    [self invalidateIntrinsicContentSize];
 +}
 +
 +// Between the selected tab and Search the accessory is a short capsule, and only the title fits.
@@ -3553,6 +3571,7 @@ new file mode 100644
 +    CGFloat height = SGRNowPlayingExpandedHeight();
 +    if (fabs(lastHeight - height) < 0.25) return;
 +    lastHeight = height;
++    [sg_miniPlayer updatePreferredHeight];
 +    [sg_miniPlayer invalidateIntrinsicContentSize];
 +}
 +
