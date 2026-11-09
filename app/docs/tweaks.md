@@ -426,22 +426,19 @@ while Redesigned UI is on each is forced, over an override too, and their rows e
 forced and take no touch. `Redesigned/Kit/SGRGlassDesign.x` holds the list; what else forces a flag
 registers in `Core/SGFlagForce.h`. A change shows after Spotify restarts.
 
-The tab editor on the Navbar page is the exception and applies as soon as the bar lays out again. It lists the tabs in the order
-the bar shows them: drag to reorder, use each row's switch to hide or show it, swipe to remove it, and tap a row to edit its name and icon.
-That works for Spotify's own tabs as well as tabs of the mod's own; icons can be Encore glyphs or SF Symbols.
-Built-in tabs keep their own Spotify Encore glyphs unless given a custom icon. Apple Music tab icons,
-off by default, uses Apple-style SF Symbols for built-in tabs unless that tab has a custom icon.
-Add a tab puts a page of Spotify's or any `spotify:` link on the bar. Spotify's own tabs are kept by the
-name under their icon, so removing one hides it until Use Spotify's order restores it; switching the app's language
-starts the order over. A tab of the mod's own opens its link through Spotify's link dispatcher, so it
-never lights up as the tab you are on. Hide labels, on the same page, leaves the glass bar with its
-icons alone and applies straight away too. Spotify tabs can be hidden with their switches or removed from
-the editor; Use Spotify's order restores them. Compact player and tabs is on by default: while scroll-minimization
-is active, the glass bar narrows to the current tab and the wider mini-player fills the remaining row; it
-can be switched off independently from Player > Mini player > Mini player transition animations. That
-setting controls whether the bar merges into the compact tab while scrolling. The minimized tab uses its
-own square glass button, sized within the available row and aligned to the mini-player card, so UIKit's
-safe-area-dependent tab-item shape cannot squash it on different devices.
+In the redesigned look, r4 imports the complete Navbar option from the user-provided 0.23.0 source.
+The Navbar editor offers Custom navbar, Hide labels and Apple Music style player. Tabs can be
+reordered, shown/hidden and added; Spotify's own entries remain available to show again. The Apple
+Music style player option is read at launch, so changing it requires a restart. It defaults on when
+there is no saved choice, while an explicit off choice is preserved.
+
+The visible navbar is the reference's UITabBarController and its mini-player is a real UITabAccessory.
+UIKit owns scroll minimization and the accessory's transition. The old sampled-motion adapter and
+custom dock are removed. A hidden standalone tab bar supplies the previous outer width/height;
+controller viewport sizing and the accessory's intrinsic height preserve PwEevee's dimensions without
+assigning frames to moving native layers. Appearance's profile and gradient fixes remain separate.
+Native/ is unchanged by this port.
+
 
 ## Adding a feature
 

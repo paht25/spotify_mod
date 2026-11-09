@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Check layers, scroll behavior and IPA packaging
+      - name: Check layers and IPA packaging
         run: bash scripts/check.sh
 
   runtime:
@@ -105,7 +105,7 @@ jobs:
       - name: Upload IPA, UI library and build manifest
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: PwEevee-3.1.6.1-ui-fixes-r3
+          name: PwEevee-3.1.6.1-ui-fixes-r4
           path: dist/
           if-no-files-found: error
           retention-days: 7

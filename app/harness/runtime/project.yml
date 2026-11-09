@@ -41,12 +41,16 @@ targets:
       - ../../tweak/Sources/Core/SGBackdrop.m
       - ../../tweak/Sources/Core/SGFlagForce.m
       - ../../tweak/Sources/Core/SGUIMode.m
+      - ../../tweak/Sources/Core/SGSFSymbolCatalog.m
       - ../../tweak/Sources/Settings/SGModPage.m
       - ../../tweak/Sources/Settings/SGPage.m
       - ../../tweak/Sources/Settings/SGPageStyle.m
       - ../../tweak/Sources/Settings/SGGlowSwitch.m
       - ../../tweak/Sources/Redesigned/Kit/SGRTokens.m
       - ../../tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m
+      - ../../tweak/Sources/Redesigned/Navbar/NavbarSettings.m
+      - ../../tweak/Sources/Redesigned/Navbar/NavbarLayout.m
+      - ../../tweak/Sources/Redesigned/NowPlayingBar/MiniPlayer.m
     dependencies:
       - sdk: UIKit.framework
       - sdk: QuartzCore.framework

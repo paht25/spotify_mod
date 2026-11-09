@@ -6,8 +6,9 @@ cd "$ROOT"
 HARNESS="$ROOT/app/harness/runtime"
 SRC="$ROOT/app/tweak/Sources"
 mkdir -p "$HARNESS/generated/hooks" .build/runtime-attachments
-for path in Redesigned/Navbar/TabBar Redesigned/Navbar/NativeTabMotion Redesigned/Navbar/BottomGradient \
-  Redesigned/Navbar/TabBarMinimize Redesigned/Navbar/ProfilePhoto Redesigned/NowPlayingBar/NowPlayingBar; do
+rm -f "$HARNESS/generated/hooks/NativeTabMotion.m" "$HARNESS/generated/hooks/TabBarMinimize.m"
+for path in Redesigned/Navbar/Navbar Redesigned/Navbar/TabBar Redesigned/Navbar/BottomGradient \
+  Redesigned/Navbar/ProfilePhoto Redesigned/NowPlayingBar/NowPlayingBar; do
   "$THEOS/bin/logos.pl" -c generator=internal "$SRC/$path.x" > "$HARNESS/generated/hooks/$(basename "$path").m"
 done
 (cd "$HARNESS" && xcodegen generate)
@@ -22,6 +23,7 @@ for runtime,devices in sorted(d["devices"].items(),reverse=True):
 raise SystemExit("No iOS 26+ iPhone simulator is available")')"
 xcrun simctl boot "$DEVICE" || true
 xcrun simctl bootstatus "$DEVICE" -b
+open -a Simulator --args -CurrentDeviceUDID "$DEVICE"
 xcrun simctl io "$DEVICE" recordVideo --codec=h264 .build/runtime-motion.mp4 &
 VIDEO_PID=$!
 RESULT=0

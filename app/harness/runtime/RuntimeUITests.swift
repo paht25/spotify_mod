@@ -4,6 +4,7 @@ final class RuntimeUITests: XCTestCase {
     let app = XCUIApplication()
     override func setUpWithError() throws {
         continueAfterFailure = false
+        app.launchEnvironment.removeValue(forKey: "FIXTURE_PRESERVE_OPTION")
         app.launch()
         XCTAssertTrue(app.staticTexts["fixture.status"].waitForExistence(timeout: 15))
     }
@@ -11,82 +12,104 @@ final class RuntimeUITests: XCTestCase {
         let json = app.staticTexts["fixture.status"].value as? String ?? "{}"
         return (try? JSONSerialization.jsonObject(with: Data(json.utf8))) as? [String: Any] ?? [:]
     }
-    func wait(_ condition: @escaping ([String: Any]) -> Bool, timeout: TimeInterval = 8) {
+    func number(_ key: String, _ state: [String: Any]) -> Double { state[key] as? Double ?? -999 }
+    func wait(_ condition: @escaping ([String: Any]) -> Bool, timeout: TimeInterval = 10) {
         let done = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in condition(self.state()) }, object: nil)
         XCTAssertEqual(XCTWaiter.wait(for: [done], timeout: timeout), .completed, "State: \(state())")
     }
     func capture(_ name: String) {
         let shot = XCTAttachment(screenshot: app.screenshot())
-        shot.name = name
-        shot.lifetime = .keepAlways
-        add(shot)
+        shot.name = name; shot.lifetime = .keepAlways; add(shot)
+        let data = try! JSONSerialization.data(withJSONObject: state(), options: [.prettyPrinted, .sortedKeys])
+        let measurement = XCTAttachment(data: data, uniformTypeIdentifier: "public.json")
+        measurement.name = name + "-measurements"; measurement.lifetime = .keepAlways; add(measurement)
     }
-    func testPlayerWidthSurvivesAutoLayout() {
-        wait { ($0["native"] as? Bool) == true && ($0["tabs"] as? Int) == 4 }
-        let bar = state()["bar"] as? String
+    func ready() {
+        wait { ($0["nativeController"] as? Bool) == true && ($0["nativeAccessory"] as? Bool) == true && ($0["tabs"] as? Int) == 4 }
+    }
+    func assertExpandedSizes() {
+        wait {
+            abs(self.number("navbarWidth", $0) - self.number("expectedWidth", $0)) < 0.6 &&
+            abs(self.number("playerWidth", $0) - self.number("expectedWidth", $0)) < 0.6 &&
+            abs(self.number("playerHeight", $0) - 56) < 0.6 &&
+            abs(self.number("navbarHeight", $0) - 62) < 0.6
+        }
+    }
+    func point(_ x: Double, _ y: Double) -> XCUICoordinate {
+        app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: x, dy: y))
+    }
+    func testOriginalDimensionsSurviveLayout() {
+        ready()
         for _ in 0..<3 { app.buttons["fixture.relayout"].tap() }
-        wait { ($0["widthError"] as? Double ?? 999) < 0.6 && ($0["glassError"] as? Double ?? 999) < 0.6 }
-        XCTAssertEqual(state()["bar"] as? String, bar, "Original UITabBar must remain in place")
-        capture("expanded-navbar-and-aligned-player")
+        assertExpandedSizes()
+        capture("native-023-option-with-preserved-dimensions")
     }
-    func testRealAppearanceSwitchesAfterAccessoryReparenting() {
+    func testAppearanceSwitchesStillWork() {
+        ready()
         wait { ($0["binding"] as? Bool) == true }
         app.switches["toggle.fade"].tap()
-        wait { ($0["fade"] as? Double ?? 1) == 0 && ($0["hostFades"] as? Int) == 0 }
         app.buttons["fixture.relayout"].tap()
-        wait { ($0["fade"] as? Double ?? 1) == 0 && ($0["hostFades"] as? Int) == 0 }
-        capture("bottom-fade-off")
+        wait { self.number("fade", $0) == 0 }
+        capture("native-navbar-fade-off")
         app.switches["toggle.fade"].tap()
-        wait { ($0["fade"] as? Double ?? 0) > 0.9 && ($0["hostFades"] as? Int ?? 0) > 0 }
+        wait { self.number("fade", $0) > 0.9 }
         app.switches["toggle.profile"].tap()
-        wait { ($0["photo"] as? Double ?? 1) == 0 }
         app.buttons["fixture.relayout"].tap()
-        wait { ($0["photo"] as? Double ?? 1) == 0 }
+        wait { self.number("photo", $0) == 0 }
         app.switches["toggle.profile"].tap()
-        wait { ($0["photo"] as? Double ?? 0) > 0.9 }
+        wait { self.number("photo", $0) > 0.9 }
     }
-    func testUIKitCollapseFromActualDragAndReverse() {
-        wait { ($0["native"] as? Bool) == true && ($0["motionTrace"] as? [[Double]] ?? []).count > 0 }
+    func testWholeOptionPersistsAndAppliesAfterRestart() {
+        ready()
+        app.switches["toggle.inlinePlayer"].tap()
+        wait { ($0["inlinePref"] as? Bool) == false && ($0["nativeController"] as? Bool) == true }
+        app.terminate()
+        app.launchEnvironment["FIXTURE_PRESERVE_OPTION"] = "1"
+        app.launch()
+        wait { ($0["inlineOption"] as? Bool) == false && ($0["nativeController"] as? Bool) == false }
+        app.switches["toggle.inlinePlayer"].tap()
+        wait { ($0["inlinePref"] as? Bool) == true }
+        app.terminate(); app.launch()
+        ready(); assertExpandedSizes()
+    }
+    func testNativeAccessoryMovesOnScrollAndReturns() {
+        ready(); assertExpandedSizes()
         let bar = state()["bar"] as? String
+        let accessory = state()["accessory"] as? String
         let list = app.tables["fixture.list"]
-        XCTAssertTrue(list.waitForExistence(timeout: 5))
         list.swipeUp()
-        wait { ($0["progress"] as? Double ?? 0) > 0.95 }
-        XCTAssertEqual(state()["nativeInline"] as? Bool, true, "UIKit's real accessory must be minimized")
-        capture("apple-music-style-collapsed-row")
-        list.swipeDown()
-        wait { ($0["progress"] as? Double ?? 1) < 0.05 }
-        let trace = state()["motionTrace"] as? [[Double]] ?? []
-        let data = try! JSONSerialization.data(withJSONObject: trace, options: [.prettyPrinted])
-        let attachment = XCTAttachment(data: data, uniformTypeIdentifier: "public.json")
-        attachment.name = "native-motion-frame-trace"
-        attachment.lifetime = .keepAlways
-        add(attachment)
-        var rising = 0, falling = 0, largestStep = 0.0
-        for (a, b) in zip(trace, trace.dropFirst()) {
-            let delta = b[1] - a[1]
-            // A busy simulator can skip our sampling callbacks while Core Animation still
-            // presents intermediate frames. Compare the change per 60 Hz interval.
-            let elapsed = max(1.0 / 120.0, b[0] - a[0])
-            largestStep = max(largestStep, abs(delta) * min(1, (1.0 / 60.0) / elapsed))
-            if b[1] > 0.01 && b[1] < 0.99 {
-                if delta > 0 { rising += 1 }
-                if delta < 0 { falling += 1 }
-            }
-        }
-        XCTAssertEqual(state()["compositorObserved"] as? Bool, true,
-            "Player and tabs must both animate on the compositor, rather than redraw per tick")
-        XCTAssertGreaterThanOrEqual(rising, 4, "Collapse must have intermediate presentation states")
-        XCTAssertGreaterThanOrEqual(falling, 4, "Reverse must animate, rather than snap to expanded")
-        XCTAssertLessThan(largestStep, 0.35, "Motion jumped in a single frame; inspect trace/video")
-        let peak = trace.firstIndex(where: { $0[1] >= 0.999 }) ?? trace.count
-        for (index, pair) in zip(trace, trace.dropFirst()).enumerated() {
-            let delta = pair.1[1] - pair.0[1]
-            if index < peak { XCTAssertGreaterThanOrEqual(delta, -0.002, "Collapse moved backwards") }
-            else { XCTAssertLessThanOrEqual(delta, 0.002, "Expansion moved backwards") }
-        }
+        wait { ($0["nativeInline"] as? Bool) == true }
         XCTAssertEqual(state()["bar"] as? String, bar)
-        XCTAssertEqual(state()["tabs"] as? Int, 4)
-        capture("original-navbar-restored-after-reverse-scroll")
+        XCTAssertEqual(state()["accessory"] as? String, accessory)
+        XCTAssertEqual(number("playerHeight", state()), 48, accuracy: 0.6)
+        XCTAssertEqual(number("navbarHeight", state()), 48, accuracy: 0.6)
+        capture("original-023-native-collapsed-accessory")
+        for _ in 0..<3 {
+            list.swipeDown()
+            if state()["nativeInline"] as? Bool == false { break }
+        }
+        wait { ($0["nativeInline"] as? Bool) == false }
+        assertExpandedSizes()
+        XCTAssertEqual(state()["accessory"] as? String, accessory)
+        capture("original-023-native-expanded-accessory")
+    }
+    func testNativePlayerAndTabControlsReachSpotify() {
+        ready(); assertExpandedSizes()
+        var s = state()
+        point(number("playerX", s) + number("playerWidth", s) - 25,
+              number("playerY", s) + number("playerHeight", s) / 2).tap()
+        wait { self.number("toggleCount", $0) == 1 }
+        s = state()
+        point(number("playerX", s) + number("playerWidth", s) / 2,
+              number("playerY", s) + number("playerHeight", s) / 2).tap()
+        wait { self.number("openCount", $0) == 1 }
+        s = state()
+        let y = number("playerY", s) + number("playerHeight", s) / 2
+        point(number("playerX", s) + number("playerWidth", s) * 0.7, y)
+            .press(forDuration: 0.05, thenDragTo: point(number("playerX", s) + number("playerWidth", s) * 0.15, y))
+        wait { self.number("nextCount", $0) == 1 }
+        s = state()
+        point(number("navbarX", s) + number("navbarWidth", s) - 31, number("navbarY", s) + 31).tap()
+        wait { ($0["lastTab"] as? String) == "Create" }
     }
 }

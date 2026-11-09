@@ -8,6 +8,20 @@
 #import "Settings/SGModPage.h"
 
 extern NSArray<SGModRow *> *SGRAppearanceRows(void);
+extern NSDictionary *FixtureControlState(void);
+extern void FixtureRecordOpen(void);
+extern void FixtureRecordTab(NSString *title);
+
+@interface FixtureActions : NSObject
+@end
+@implementation FixtureActions
++ (void)open:(UITapGestureRecognizer *)tap { FixtureRecordOpen(); }
++ (void)tab:(UITapGestureRecognizer *)tap {
+    __block NSString *title;
+    SGForEachView(tap.view, ^(UIView *view) { if ([view isKindOfClass:UILabel.class]) title = ((UILabel *)view).text; });
+    FixtureRecordTab(title);
+}
+@end
 
 @interface _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer : UIView @end
 @implementation _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer @end
@@ -159,6 +173,7 @@ extern NSArray<SGModRow *> *SGRAppearanceRows(void);
 
 static UIView *item(Class cls, NSString *title, NSString *symbol, BOOL active) {
     UIView *item = [cls new];
+    [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:FixtureActions.class action:@selector(tab:)]];
     UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage systemImageNamed:symbol]];
     icon.tintColor = UIColor.whiteColor;
     icon.contentMode = UIViewContentModeScaleAspectFit;
@@ -266,11 +281,8 @@ static UIView *item(Class cls, NSString *title, NSString *symbol, BOOL active) {
 @property (nonatomic, strong) UISwitch *profileToggle, *fadeToggle;
 @property (nonatomic, strong) NSTimer *statusTimer;
 @property (nonatomic) BOOL bindingPassed;
-@property (nonatomic, strong) CADisplayLink *motionSampler;
-@property (nonatomic, strong) NSMutableArray<NSArray<NSNumber *> *> *motionTrace;
-@property (nonatomic, weak) UIView *motionPlayer;
-@property (nonatomic, weak) UITabBar *motionBar;
-@property (nonatomic) BOOL compositorObserved;
+@property (nonatomic, strong) UIViewController *navbarSettings;
+@property (nonatomic, strong) UISwitch *inlineToggle;
 @end
 
 @implementation SGHarnessChrome
@@ -315,6 +327,14 @@ static UIView *identified(UIView *root, NSString *identifier) {
     layout.accessibilityIdentifier = @"fixture.relayout";
     [layout addTarget:self action:@selector(forceRelayout) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:layout];
+    self.navbarSettings = SGRNavbarSettingsPage();
+    UITableViewController *navbarPage = (UITableViewController *)self.navbarSettings;
+    (void)navbarPage.tableView;
+    UITableViewCell *inlineCell = [navbarPage tableView:navbarPage.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    self.inlineToggle = (UISwitch *)inlineCell.accessoryView;
+    self.inlineToggle.frame = CGRectMake(90, 100, 56, 32);
+    self.inlineToggle.accessibilityIdentifier = @"toggle.inlinePlayer";
+    [self.view addSubview:self.inlineToggle];
     self.status = [[UILabel alloc] initWithFrame:CGRectMake(12, 145, self.view.bounds.size.width - 24, 25)];
     self.status.font = [UIFont systemFontOfSize:7];
     self.status.textColor = UIColor.whiteColor;
@@ -322,24 +342,7 @@ static UIView *identified(UIView *root, NSString *identifier) {
     [self.view addSubview:self.status];
     __weak SGHarnessChrome *weakSelf = self;
     self.statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer *timer) { [weakSelf updateStatus]; }];
-    self.motionTrace = [NSMutableArray array];
-    SGForEachView(self.view, ^(UIView *view) {
-        if ([NSStringFromClass(view.class) isEqualToString:@"SGRMiniPlayer"]) self.motionPlayer = view;
-    });
-    self.motionSampler = [CADisplayLink displayLinkWithTarget:self selector:@selector(sampleMotion)];
-    [self.motionSampler addToRunLoop:NSRunLoop.mainRunLoop forMode:NSRunLoopCommonModes];
     [self updateStatus];
-}
-- (void)sampleMotion {
-    if (!self.motionPlayer.window) return;
-    CGFloat p = SGRTabBarCollapseProgress();
-    if (p > 0.01 && p < 0.99 && self.motionPlayer.layer.animationKeys.count && self.motionBar.layer.animationKeys.count)
-        self.compositorObserved = YES;
-    if (self.motionTrace.count && fabs(self.motionTrace.lastObject[1].doubleValue - p) < 0.00001) return;
-    CALayer *layer = self.motionPlayer.layer.presentationLayer ?: self.motionPlayer.layer;
-    CGRect frame = [layer convertRect:layer.bounds toLayer:self.view.layer.presentationLayer ?: self.view.layer];
-    if (self.motionTrace.count < 512) [self.motionTrace addObject:@[@(CACurrentMediaTime()), @(p),
-        @(frame.origin.x), @(frame.origin.y), @(frame.size.width), @(frame.size.height)]];
 }
 - (void)forceRelayout {
     [self.npb setNeedsLayout];
@@ -348,33 +351,10 @@ static UIView *identified(UIView *root, NSString *identifier) {
     [self updateStatus];
 }
 - (void)updateStatus {
-    if (!self.motionPlayer) SGForEachView(self.view, ^(UIView *view) {
-        if ([NSStringFromClass(view.class) isEqualToString:@"SGRMiniPlayer"]) self.motionPlayer = view;
-    });
-    CGRect navbar = SGRTabBarFrameIn(self.view);
-    CGRect glass = SGRNowPlayingCardFrameIn(self.view, NULL);
-    UIView *card = identified(self.npb, @"SPTNowPlayingBar");
-    CGRect content = [card convertRect:card.bounds toView:self.view];
-    UITabBar *bar = nil;
-    NSMutableArray *queue = [NSMutableArray arrayWithObject:self.tabs.bar];
-    while (queue.count) {
-        UIView *view = queue.firstObject; [queue removeObjectAtIndex:0];
-        if ([NSStringFromClass(view.class) isEqualToString:@"SGRSystemTabBar"]) { bar = (UITabBar *)view; break; }
-        [queue addObjectsFromArray:view.subviews];
-    }
-    CGFloat contentError = fabs(CGRectGetMinX(content) - CGRectGetMinX(navbar)) + fabs(CGRectGetMaxX(content) - CGRectGetMaxX(navbar));
-    self.motionBar = bar;
-    CGFloat glassError = fabs(CGRectGetMinX(glass) - CGRectGetMinX(navbar)) + fabs(CGRectGetMaxX(glass) - CGRectGetMaxX(navbar));
-    NSUInteger hostFades = 0;
-    for (CALayer *layer in bar.superview.layer.sublayers) if ([layer isKindOfClass:CAGradientLayer.class]) hostFades++;
-    if (!isfinite(contentError)) contentError = 999;
-    if (!isfinite(glassError)) glassError = 999;
-    NSMutableDictionary *state = [@{@"progress": @(SGRTabBarCollapseProgress()), @"widthError": @(contentError),
-        @"glassError": @(glassError), @"photo": @(self.photo.alpha), @"fade": @(self.tabs.barBackground.alpha),
-        @"binding": @(self.bindingPassed), @"bar": [NSString stringWithFormat:@"%p", bar], @"tabs": @(bar.items.count),
-        @"native": @(SGRNativeTabMotionActive()), @"hostFades": @(hostFades), @"motionTrace": self.motionTrace ?: @[],
-        @"compositorObserved": @(self.compositorObserved)} mutableCopy];
-    [state addEntriesFromDictionary:SGRNativeTabMotionState()];
+    NSMutableDictionary *state = [SGRNavbarInspection() mutableCopy];
+    [state addEntriesFromDictionary:@{@"photo": @(self.photo.alpha), @"fade": @(self.tabs.barBackground.alpha),
+        @"binding": @(self.bindingPassed), @"inlinePref": @([NSUserDefaults.standardUserDefaults boolForKey:SGRKeyInlinePlayer])}];
+    [state addEntriesFromDictionary:FixtureControlState()];
     NSData *json = [NSJSONSerialization dataWithJSONObject:state options:NSJSONWritingSortedKeys error:nil];
     self.status.text = @"UI runtime test status";
     self.status.accessibilityValue = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
@@ -412,6 +392,7 @@ static UIView *identified(UIView *root, NSString *identifier) {
     npb.translatesAutoresizingMaskIntoConstraints = NO;
     [view addSubview:npb];
     self.npb = npb;
+    [self.npb addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:FixtureActions.class action:@selector(open:)]];
     UIViewController *content = [_TtC18NowPlaying_BarImpl36NowPlayingBarContainerViewController new];
     [self addChildViewController:content];
     content.view.translatesAutoresizingMaskIntoConstraints = NO;
@@ -511,6 +492,8 @@ static void report(SGHarnessChrome *chrome, NSString *moment) {
 // Before every %ctor, so the redesign's gate reads on.
 __attribute__((constructor(101))) static void sgr_harnessDefaults(void) {
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"spotifyglass.redesign"];
+    if (!getenv("FIXTURE_PRESERVE_OPTION"))
+        [NSUserDefaults.standardUserDefaults setBool:YES forKey:SGRKeyInlinePlayer];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:SGRKeyNavbarProfilePhoto];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:SGRKeyNavbarBottomGradient];
     [NSUserDefaults.standardUserDefaults setBool:NO forKey:SGRKeyNavbarHideLabels];

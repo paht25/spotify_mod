@@ -19,14 +19,24 @@ static __weak UIView *sg_cardContent;
 static __weak UIView *sg_progressLine;
 static __weak UIView *sg_miniProgressView;
 static __weak UIViewController *sg_container;
-static BOOL sg_docked;
-static CGRect sg_dockRow;   // window coordinates
-static __weak UIView *sg_dockHost;
 static NSTimer *sg_progressTimer;
 static BOOL sg_stylingCard;
+static __weak UIView *sg_barContainer;
 static void styleNowPlayingBar(UIViewController *container);
 
+BOOL SGRInlinePlayer(void) {
+    static BOOL on;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        // Default this newly imported option on; keep an explicit user's choice.
+        if (![NSUserDefaults.standardUserDefaults objectForKey:SGRKeyInlinePlayer]) SGSetEnabled(SGRKeyInlinePlayer, YES);
+        on = SGRedesignedUI() && SGHidden(SGRKeyInlinePlayer);
+    });
+    return on;
+}
+
 CGRect SGRNowPlayingCardFrameIn(UIView *host, CGFloat *radius) {
+    if (SGRInlinePlayer()) return SGRMiniPlayerFrameIn(host, radius);
     UIVisualEffectView *glass = sg_cardGlass;
     if (!glass.superview || !glass.window || !host) return CGRectNull;
     if (radius) *radius = MIN(kCardRadius, glass.bounds.size.height / 2);
@@ -34,9 +44,70 @@ CGRect SGRNowPlayingCardFrameIn(UIView *host, CGFloat *radius) {
 }
 
 CGRect SGRNowPlayingArtworkFrameIn(UIView *host) {
+    if (SGRInlinePlayer()) return SGRMiniPlayerArtworkFrameIn(host);
     UIView *artwork = sg_cardArtwork;
     if (!artwork.window || !host) return CGRectNull;
     return [host convertRect:artwork.bounds fromView:artwork];
+}
+
+UIImageView *SGRNowPlayingArtworkView(void) {
+    __block UIImageView *found = nil;
+    void (^look)(UIView *) = ^(UIView *root) {
+        if (!root) return;
+        SGForEachView(root, ^(UIView *v) {
+            if (found || ![v isKindOfClass:UIImageView.class]) return;
+            CGSize size = v.bounds.size;
+            if (size.width >= 30 && size.width <= 64 && fabs(size.width - size.height) < 1) found = (UIImageView *)v;
+        });
+    };
+    UIView *artwork = sg_cardArtwork;
+    if ([artwork isKindOfClass:UIImageView.class]) return (UIImageView *)artwork;
+    look(artwork);
+    if (!found) look(sgr_nowPlayingRoot);
+    return found;
+}
+
+UIImage *SGRNowPlayingArtworkImage(void) {
+    return SGRNowPlayingArtworkView().image;
+}
+
+// The recognizer nearest the top of the bar opens the player; deeper ones belong to its buttons and the
+// device line. Breadth first from the bar's container, then up its superviews to Spotify's page.
+BOOL SGROpenPlayerFromBar(void) {
+    UIView *container = sg_barContainer;
+    if (!container) return NO;
+    NSMutableArray<UIView *> *queue = [NSMutableArray arrayWithObject:container];
+    while (queue.count) {
+        UIView *view = queue.firstObject;
+        [queue removeObjectAtIndex:0];
+        if (SGRFireTapRecognizers(view)) {
+            SGLog(@"mini player: tap passed to %@ on Spotify's bar", NSStringFromClass(view.class));
+            return YES;
+        }
+        [queue addObjectsFromArray:view.subviews];
+    }
+    for (UIView *view = container.superview; view && ![view isKindOfClass:UIWindow.class]; view = view.superview) {
+        if (SGRFireTapRecognizers(view)) {
+            SGLog(@"mini player: tap passed to %@ above Spotify's bar", NSStringFromClass(view.class));
+            return YES;
+        }
+    }
+    NSMutableString *out = [NSMutableString stringWithString:@"mini player: no tap recognizer on Spotify's bar"];
+    SGForEachView(container, ^(UIView *v) {
+        for (UIGestureRecognizer *r in v.gestureRecognizers) [out appendFormat:@"\n  %@ on %@", r, NSStringFromClass(v.class)];
+    });
+    SGLogLong(@"mini player", out);
+    return NO;
+}
+
+CGFloat SGRNowPlayingExpandedHeight(void) {
+    CGFloat height = sg_cardGlass.bounds.size.height;
+    return height >= 30 && height <= 80 ? height : 56;
+}
+
+void SGRNowPlayingBarRefresh(void) {
+    if (sg_container) styleNowPlayingBar(sg_container);
+    SGRRefreshMiniPlayerSize();
 }
 
 static UIView *detectColoredCard(UIView *bar) {
@@ -200,383 +271,6 @@ static void restyleCardContent(UIView *card) {
 }
 
 
-#pragma mark - docked beside the tab bar's buttons
-
-// Minimized, the card does not shrink into the row: scaled to fit it, its text and cover came out too small to read
-// (about 0.7 of their size). The row gets a pill of the mod's own, as high as the round buttons beside it, with only
-// what is needed at that size: the cover, the title on one line and play/pause. It reads the track off the player and
-// the cover off the card, and every tap on it is passed on to Spotify's own card or to the player.
-
-static const CGFloat kPillHeight = 48, kPillInset = 4, kPillGap = 10, kToggleWidth = 44;
-
-@interface SGRMiniPlayer : UIVisualEffectView
-@property (nonatomic, readonly) UIImageView *cover;
-@property (nonatomic, readonly) UILabel *title;
-@property (nonatomic, readonly) UIView *titleClip;
-@property (nonatomic, readonly) UIButton *toggle;
-@property (nonatomic, readonly) UIButton *open;
-@property (nonatomic) BOOL paused;
-@property (nonatomic) BOOL transitioning;
-- (void)showTitle:(NSString *)title cover:(UIImage *)cover paused:(BOOL)paused;
-// Starts a long title scrolling again (an animation does not outlive the app in the background or the pill being off screen).
-- (void)resumeMarquee;
-@end
-
-static void openPlayer(void);
-static void togglePlayback(void);
-
-@implementation SGRMiniPlayer {
-    NSString *_marqueeKey;
-    CGFloat _measuredTitleWidth;
-}
-
-- (instancetype)init {
-    UIVisualEffect *effect = SGGlassEffect();
-    if ([effect respondsToSelector:@selector(setInteractive:)]) ((void (*)(id, SEL, BOOL))objc_msgSend)(effect, @selector(setInteractive:), YES);
-    if (!(self = [super initWithEffect:effect])) return nil;
-    self.overrideUserInterfaceStyle = UIUserInterfaceStyleDark;
-    SGShapeGlass(self, kPillHeight / 2, YES);
-
-    // Behind everything: a touch anywhere on the pill but the button opens the player, and VoiceOver finds one element.
-    _open = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_open addTarget:self action:@selector(opened) forControlEvents:UIControlEventTouchUpInside];
-    _open.accessibilityTraits = UIAccessibilityTraitButton;
-    [self.contentView addSubview:_open];
-
-    _cover = [UIImageView new];
-    _cover.contentMode = UIViewContentModeScaleAspectFill;
-    _cover.clipsToBounds = YES;
-    _cover.backgroundColor = [UIColor colorWithWhite:1 alpha:0.12];
-    _cover.userInteractionEnabled = NO;
-    [self.contentView addSubview:_cover];
-
-    // The title sits in a clip: a title that fits stays put, a longer one slides to its end and back so it can be read whole.
-    _titleClip = [UIView new];
-    _titleClip.clipsToBounds = YES;
-    _titleClip.userInteractionEnabled = NO;
-    [self.contentView addSubview:_titleClip];
-    _title = [UILabel new];
-    _title.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
-    _title.textColor = SGRPrimary();
-    _title.lineBreakMode = NSLineBreakByTruncatingTail;
-    _title.numberOfLines = 1;
-    _title.userInteractionEnabled = NO;
-    [_titleClip addSubview:_title];
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(resumeMarquee) name:UIApplicationDidBecomeActiveNotification object:nil];
-
-    _toggle = [UIButton buttonWithType:UIButtonTypeCustom];
-    _toggle.tintColor = SGRPrimary();
-    [_toggle addTarget:self action:@selector(toggled) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:_toggle];
-    [self setPaused:YES];
-    return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    CGRect bounds = self.bounds;
-    CGFloat side = bounds.size.height - 2 * kPillInset;
-    _open.frame = bounds;
-    BOOL rounded = SGFlag(SGRKeyNowPlayingRoundedArtwork, NO);
-    CGFloat coverX = kPillInset + (rounded ? 2 : 0);
-    _cover.frame = CGRectMake(coverX, kPillInset, side, side);
-    _cover.layer.cornerRadius = rounded ? MIN(9, side * 0.22) : side / 2;
-    _cover.layer.cornerCurve = kCACornerCurveContinuous;
-    CGFloat toggleWidth = MIN(kToggleWidth, bounds.size.width / 3);
-    _toggle.frame = CGRectMake(bounds.size.width - toggleWidth - 6, 0, toggleWidth, bounds.size.height);
-    CGFloat left = CGRectGetMaxX(_cover.frame) + kPillGap;
-    _titleClip.frame = CGRectMake(left, 0, MAX(0, CGRectGetMinX(_toggle.frame) - kPillGap - left), bounds.size.height);
-    [self layoutTitle];
-}
-
-static const CGFloat kMarqueeSpeed = 32, kMarqueePause = 1.4, kMarqueeFade = 18;
-
-- (void)layoutTitle {
-    CGFloat clip = _titleClip.bounds.size.width, height = _titleClip.bounds.size.height;
-    if (_transitioning) {
-        _title.frame = CGRectMake(0, 0, clip, height);
-        return;
-    }
-    CGFloat text = _measuredTitleWidth;
-    BOOL overflows = text > clip + 0.5 && clip > 0;
-    // Like 0.23.0's accessory, lay out content directly while UIKit changes the available space.
-    // A marquee starts only at rest: rebuilding a mask and animation at every new width stutters.
-    BOOL moves = overflows && !_transitioning && !UIAccessibilityIsReduceMotionEnabled();
-    // Under Reduce Motion a long title is cut with an ellipsis instead, as before.
-    CGRect frame = CGRectMake(0, 0, moves ? text : clip, height);
-    NSString *key = [NSString stringWithFormat:@"%@|%.1f|%d", _title.text, clip, moves];
-    if (!CGRectEqualToRect(_title.frame, frame)) _title.frame = frame;
-    BOOL running = [_title.layer animationForKey:@"marquee"] != nil;
-    if ([key isEqualToString:_marqueeKey] && running == moves) return;
-    _marqueeKey = key;
-    [_title.layer removeAnimationForKey:@"marquee"];
-    // The right edge fades out while a title runs on past it.
-    if (moves) {
-        CAGradientLayer *mask = [CAGradientLayer layer];
-        mask.frame = _titleClip.bounds;
-        mask.startPoint = CGPointMake(0, 0.5);
-        mask.endPoint = CGPointMake(1, 0.5);
-        mask.colors = @[(id)UIColor.blackColor.CGColor, (id)UIColor.blackColor.CGColor, (id)UIColor.clearColor.CGColor];
-        mask.locations = @[@0, @(MAX(0.5, 1 - kMarqueeFade / clip)), @1];
-        _titleClip.layer.mask = mask;
-    } else {
-        _titleClip.layer.mask = nil;
-    }
-    if (!moves) return;
-    CGFloat travel = text - clip + kMarqueeFade / 2;
-    CGFloat run = travel / kMarqueeSpeed, total = 2 * kMarqueePause + 2 * run;
-    CAKeyframeAnimation *slide = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
-    slide.values = @[@0, @0, @(-travel), @(-travel), @0];
-    slide.keyTimes = @[@0, @(kMarqueePause / total), @((kMarqueePause + run) / total), @((2 * kMarqueePause + run) / total), @1];
-    slide.timingFunctions = @[
-        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear],
-        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear],
-        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-    ];
-    slide.duration = total;
-    slide.repeatCount = HUGE_VALF;
-    slide.removedOnCompletion = NO;
-    [_title.layer addAnimation:slide forKey:@"marquee"];
-}
-
-- (void)resumeMarquee {
-    _marqueeKey = nil;
-    [self setNeedsLayout];
-}
-
-- (void)setTransitioning:(BOOL)transitioning {
-    if (_transitioning == transitioning) return;
-    _transitioning = transitioning;
-    if (transitioning) {
-        [_title.layer removeAnimationForKey:@"marquee"];
-        _titleClip.layer.mask = nil;
-    }
-    _marqueeKey = nil;
-    [self setNeedsLayout];
-}
-
-- (void)dealloc {
-    [NSNotificationCenter.defaultCenter removeObserver:self];
-}
-
-- (void)setPaused:(BOOL)paused {
-    _paused = paused;
-    UIImageSymbolConfiguration *config = [UIImageSymbolConfiguration configurationWithPointSize:17 weight:UIImageSymbolWeightSemibold];
-    UIImage *glyph = [UIImage systemImageNamed:paused ? @"play.fill" : @"pause.fill" withConfiguration:config];
-    if (_toggle.currentImage != glyph) [_toggle setImage:glyph forState:UIControlStateNormal];
-    _toggle.accessibilityLabel = paused ? @"Play" : @"Pause";
-}
-
-- (void)showTitle:(NSString *)title cover:(UIImage *)cover paused:(BOOL)paused {
-    if (title.length && ![_title.text isEqualToString:title]) {
-        _title.text = title;
-        _measuredTitleWidth = ceil([title sizeWithAttributes:@{NSFontAttributeName: _title.font}].width);
-        [self setNeedsLayout];
-    }
-    _open.accessibilityLabel = _title.text;
-    if (_cover.image != cover) _cover.image = cover;
-    if (_paused != paused) {
-        // The glyph swaps in place, so the button does not jump while the track goes on.
-        [UIView transitionWithView:_toggle duration:SGRReduceMotion() ? 0 : 0.15 options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^{ [self setPaused:paused]; } completion:nil];
-    }
-}
-
-- (void)opened { openPlayer(); }
-- (void)toggled { togglePlayback(); }
-@end
-
-static SGRMiniPlayer *sg_mini;
-static void refreshMini(void);
-
-static SGRMiniPlayer *miniPlayer(void) {
-    if (!sg_mini) {
-        sg_mini = [SGRMiniPlayer new];
-        sg_mini.alpha = 0;
-        sg_mini.userInteractionEnabled = NO;
-    }
-    return sg_mini;
-}
-
-// The cover the card shows, which Spotify loads a moment after a new track: read off the card on each of its layout passes.
-static UIImage *cardCover(void) {
-    __block UIImage *image = nil;
-    SGForEachView(sg_cardArtwork, ^(UIView *v) {
-        if (!image && [v isKindOfClass:UIImageView.class]) image = ((UIImageView *)v).image;
-    });
-    return image;
-}
-
-static UIImage *currentCover(void) {
-    SPTPlayerState *state = SGPlayerState();
-    NSString *artworkTrack = nil;
-    UIImage *artwork = SGRNowPlayingArtwork(&artworkTrack, NULL);
-    if (artwork && [artworkTrack isEqualToString:SGURIString(state.track.URI)]) return artwork;
-    return cardCover();
-}
-
-static BOOL hasTrack(void) {
-    return SGURIString(SGPlayerState().track.URI).length > 0;
-}
-
-void SGRNowPlayingBarRefresh(void) {
-    if (sg_container.isViewLoaded) styleNowPlayingBar(sg_container);
-    if (sg_cardContent && SGIsInside(sg_cardContent, sgr_nowPlayingRoot)) restyleCardContent(sg_cardContent);
-    updateMiniProgress();
-    [sg_mini setNeedsLayout];
-    [sg_mini layoutIfNeeded];
-    refreshMini();
-}
-
-BOOL SGRNowPlayingAvailable(void) {
-    return hasTrack();
-}
-
-static void refreshMini(void) {
-    SGRMiniPlayer *mini = sg_mini;
-    if (!mini) return;
-    SPTPlayerState *state = SGPlayerState();
-    [mini showTitle:state.track.trackTitle cover:currentCover() paused:state.isPaused];
-}
-
-static void togglePlayback(void) {
-    id<SPTPlayer> player = SGKaraokePlayer();
-    if (!player) return;
-    if (SGPlayerState().isPaused) [player resume:nil];
-    else [player pause:nil];
-}
-
-// A tap on the pill is the card's own: Spotify's tap recognizer sits on the card or on a view around it, and is fired
-// from the card outwards so the play button's own recognizer is never reached.
-static void openPlayer(void) {
-    UIView *stop = sg_container.viewIfLoaded;
-    for (UIView *v = sgr_nowPlayingCard ?: sg_cardArtwork; v; v = v.superview) {
-        if (SGRFireTapRecognizers(v)) return;
-        if (v == stop) break;
-    }
-    SGLog(@"now playing pill: no tap recognizer found on the card to open the player with");
-}
-
-@interface SGRMiniPlayerWatcher : NSObject <SGPlayerStateObserver>
-@end
-
-static NSUInteger sg_miniRefreshGeneration, sg_miniTrackGeneration;
-static NSString *sg_miniTrackURI;
-
-@implementation SGRMiniPlayerWatcher
-- (void)playerStateDidChange:(SPTPlayerState *)state {
-    NSUInteger refreshGeneration = ++sg_miniRefreshGeneration;
-    NSString *trackURI = SGURIString(state.track.URI);
-    BOOL trackChanged = ![trackURI isEqualToString:sg_miniTrackURI];
-    if (trackChanged) {
-        sg_miniTrackURI = [trackURI copy];
-        sg_miniTrackGeneration++;
-    }
-    NSUInteger generation = sg_miniTrackGeneration;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (refreshGeneration != sg_miniRefreshGeneration) return;
-        // The queue ended with the bar minimized: the pill has nothing left to show, so the whole bar comes back.
-        if (!hasTrack() && SGRTabBarMinimized()) SGRSetTabBarMinimized(NO, YES);
-        refreshMini();
-    });
-    if (!trackChanged) return;
-    // A new track's cover reaches the card a little after the state does.
-    for (NSNumber *delay in @[@0.3, @1, @2.5]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay.doubleValue * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (generation == sg_miniTrackGeneration) refreshMini();
-        });
-    }
-}
-@end
-
-static SGRMiniPlayerWatcher *sg_miniWatcher;
-static id sg_artworkObserver;
-
-static void applyDock(BOOL animated) {
-    UIView *view = sg_container.viewIfLoaded;
-    UIView *host = sg_dockHost;
-    UIVisualEffectView *glass = sg_cardGlass;
-    if (!view || !host || !host.window || glass.superview != view) return;
-
-    // Nothing is playing (or the player has not reported): there is no pill, and the card stays as Spotify has it.
-    BOOL docked = sg_docked && hasTrack();
-    SGRMiniPlayer *mini = miniPlayer();
-    if (mini.superview != host) [host addSubview:mini];
-    refreshMini();
-
-    CGRect card = [host convertRect:glass.bounds fromView:glass];
-    CGRect row = [host convertRect:sg_dockRow fromView:nil];
-    // The pill is as high as the buttons beside it, and keeps their middle.
-    CGRect pill = CGRectMake(row.origin.x, CGRectGetMidY(row) - kPillHeight / 2, row.size.width, kPillHeight);
-    CGRect target = docked ? pill : card;
-    CGFloat pillAlpha = docked ? 1 : 0, cardAlpha = docked ? 0 : 1;
-
-    BOOL settled = CGRectEqualToRect(mini.frame, target) && mini.alpha == pillAlpha && view.alpha == cardAlpha;
-    mini.userInteractionEnabled = docked;
-    view.userInteractionEnabled = !docked;
-    if (settled) return;
-
-    // Out of sight, the pill waits on the card, so it comes out of it on the way down and goes back into it on the way up.
-    if (mini.alpha < 0.01 && docked) {
-        [mini resumeMarquee];
-        [UIView performWithoutAnimation:^{
-            mini.frame = card;
-            [mini layoutIfNeeded];
-        }];
-    }
-    void (^apply)(void) = ^{
-        mini.frame = target;
-        [mini layoutIfNeeded];
-        mini.alpha = pillAlpha;
-        view.alpha = cardAlpha;
-    };
-    if (!animated) {
-        [UIView performWithoutAnimation:apply];
-        return;
-    }
-    // A spring with no bounce: nothing was thrown, and it starts from wherever the pill is now if it is turned around.
-    [UIView animateWithDuration:SGRNavbarMotionDuration delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
-                        options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
-                     animations:apply completion:nil];
-}
-
-void SGRDockNowPlayingCard(BOOL docked, CGRect row, UIView *host, BOOL animated) {
-    sg_docked = docked;
-    if (docked) sg_dockRow = row;
-    if (host) sg_dockHost = host;
-    applyDock(animated && !UIAccessibilityIsReduceMotionEnabled());
-}
-
-void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host, BOOL animated) {
-    UIView *view = sg_container.viewIfLoaded;
-    if (!view || !host.window || !sg_cardGlass.superview) return;
-    SGRMiniPlayer *mini = miniPlayer();
-    if (mini.superview != host) {
-        [host addSubview:mini];
-        refreshMini();
-    }
-    // Track/cover observers refresh content. Scroll frames only change geometry, as in 0.23.0.
-    mini.transitioning = animated;
-    CGRect card = [host convertRect:sg_cardGlass.bounds fromView:sg_cardGlass];
-    CGRect target = [host convertRect:row fromView:nil];
-    target.origin.y = CGRectGetMidY(target) - kPillHeight / 2;
-    target.size.height = kPillHeight;
-    CGRect frame = CGRectMake(card.origin.x + (target.origin.x - card.origin.x) * progress,
-        card.origin.y + (target.origin.y - card.origin.y) * progress,
-        card.size.width + (target.size.width - card.size.width) * progress,
-        card.size.height + (target.size.height - card.size.height) * progress);
-    if (!CGRectEqualToRect(mini.frame, frame)) mini.frame = frame;
-    if (animated) [mini layoutIfNeeded];
-    mini.alpha = progress;
-    view.alpha = 1 - progress;
-    mini.userInteractionEnabled = !animated && progress > 0.9;
-    view.userInteractionEnabled = !animated && progress < 0.1;
-    sg_docked = progress > 0;
-    sg_dockRow = row;
-    sg_dockHost = host;
-}
-
 // Change the constraints Spotify owns rather than assigning a frame that its next pass overwrites.
 static void alignContentHost(UIView *bar, UIView *container, CGRect current, CGRect target) {
     CGRect before = [container convertRect:current toView:bar.superview];
@@ -624,6 +318,23 @@ static void layoutNowPlayingBar(UIViewController *container) {
     UIView *bar = barVC.viewIfLoaded ?: container.view;
     sgr_nowPlayingRoot = bar;
     sg_container = container;
+    sg_barContainer = container.view;
+    // The mini player in the tab bar takes the bar's place: Spotify's bar stays, laid out and loading its
+    // artwork for the mini player, but nobody sees or touches it.
+    // The bar's page (NowPlaying_BarPageImpl's TouchPassthroughView) stands over the tab bar container
+    // where the expanded mini player is, and took its touches (harness/tabbar), so it takes none either;
+    // the bar is all it holds.
+    if (SGRInlinePlayer()) {
+        if (container.view.alpha != 0) container.view.alpha = 0;
+        if (container.view.userInteractionEnabled) container.view.userInteractionEnabled = NO;
+        for (UIView *v = container.view.superview; v && ![v isKindOfClass:UIWindow.class]; v = v.superview) {
+            if (![NSStringFromClass(v.class) containsString:@"TouchPassthroughView"]) continue;
+            if (v.userInteractionEnabled) v.userInteractionEnabled = NO;
+            break;
+        }
+    }
+
+
 
     UIView *card = sgr_nowPlayingCard;
     if (!card || !SGIsInside(card, bar)) card = sgr_nowPlayingCard = detectColoredCard(bar);
@@ -663,13 +374,7 @@ static void layoutNowPlayingBar(UIViewController *container) {
     sg_cardGlass = glass;
     glass.frame = frame;
     SGShapeGlass(glass, radius, NO);
-    // Artwork may arrive on a card layout after the track observer fired.
-    refreshMini();
-    // A new track can change the card's size and brings its cover; the pill follows them.
-    if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(SGRTabBarCollapseProgress());
-    else if (sg_docked) applyDock(NO);
-    else refreshMini();
-    SGRSyncNativeTabMotion();
+    SGRRefreshMiniPlayerSize();
 
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -706,21 +411,6 @@ static void styleNowPlayingBar(UIViewController *container) {
 %ctor {
     if (!SGRedesignedUI()) return;
     %init;
-    [NSNotificationCenter.defaultCenter addObserverForName:SGPlayerTransitionNotification
-                                                       object:nil
-                                                       queue:NSOperationQueue.mainQueue
-                                                  usingBlock:^(NSNotification *note) {
-        updateMiniProgress();
-    }];
-    sg_miniWatcher = [SGRMiniPlayerWatcher new];
-    SGAddPlayerStateObserver(sg_miniWatcher);
-    sg_artworkObserver = [NSNotificationCenter.defaultCenter addObserverForName:SGRNowPlayingArtworkDidChangeNotification
-                                                                          object:nil
-                                                                           queue:NSOperationQueue.mainQueue
-                                                                      usingBlock:^(NSNotification *note) {
-        NSString *trackURI = SGURIString(SGPlayerState().track.URI);
-        if ([note.userInfo[@"trackURI"] isEqualToString:trackURI]) refreshMini();
-    }];
     SGRequireClasses(@[
         @"_TtC18NowPlaying_BarImpl36NowPlayingBarContainerViewController",
         @"_TtC18NowPlaying_BarImpl27NowPlayingBarViewController",
