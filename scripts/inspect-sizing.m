@@ -58,6 +58,11 @@ static void dump(NSString *stage, UITabBarController *tabs, UIView *mini) {
     fflush(stdout);
 }
 
+static void tree(UIView *view, NSUInteger level) {
+    printf("TREE %lu %s %s\n", (unsigned long)level, class_getName(view.class), NSStringFromCGRect(view.frame).UTF8String);
+    if (level < 9) for (UIView *child in view.subviews) tree(child, level+1);
+}
+
 @interface ProbeApp : UIResponder <UIApplicationDelegate> @end
 @implementation ProbeApp @end
 @interface ProbeScene : UIResponder <UIWindowSceneDelegate>
@@ -81,6 +86,25 @@ static void dump(NSString *stage, UITabBarController *tabs, UIView *mini) {
     self.window.rootViewController = tabs; [self.window makeKeyAndVisible];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         dump(@"BASE", tabs, mini);
+        SEL frameSelector = NSSelectorFromString(@"_frameForHostedAccessoryView");
+        if ([tabs.tabBar respondsToSelector:frameSelector]) {
+            CGRect frame = ((CGRect (*)(id, SEL))objc_msgSend)(tabs.tabBar, frameSelector);
+            printf("HOSTED FRAME %s\n", NSStringFromCGRect(frame).UTF8String);
+            Class cls = tabs.tabBar.class;
+            Method method = class_getInstanceMethod(cls, frameSelector);
+            IMP original = method_getImplementation(method);
+            IMP replacement = imp_implementationWithBlock(^CGRect(id receiver) {
+                CGRect value = ((CGRect (*)(id, SEL))original)(receiver, frameSelector);
+                if (receiver == tabs.tabBar && value.size.height > 1) { value.origin.y -= 8; value.size.height += 8; }
+                printf("HOSTED CALL %s\n", NSStringFromCGRect(value).UTF8String);
+                return value;
+            });
+            if (!class_addMethod(cls, frameSelector, replacement, method_getTypeEncoding(method)))
+                class_replaceMethod(cls, frameSelector, replacement, method_getTypeEncoding(method));
+        }
+        [tabs.tabBar setNeedsLayout];
+        dump(@"HOSTED FRAME", tabs, mini);
+        tree(tabs.view,0);
         tabs.customChildSize = YES;
         for (UIViewController *child in tabs.childViewControllers)
             if ([NSStringFromClass(child.class) containsString:@"Accessory"]) child.preferredContentSize = CGSizeMake(tabs.view.bounds.size.width, 56);
