@@ -86,24 +86,23 @@ static void tree(UIView *view, NSUInteger level) {
     self.window.rootViewController = tabs; [self.window makeKeyAndVisible];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         dump(@"BASE", tabs, mini);
-        SEL frameSelector = NSSelectorFromString(@"_frameForHostedAccessoryView");
-        if ([tabs.tabBar respondsToSelector:frameSelector]) {
-            CGRect frame = ((CGRect (*)(id, SEL))objc_msgSend)(tabs.tabBar, frameSelector);
-            printf("HOSTED FRAME %s\n", NSStringFromCGRect(frame).UTF8String);
-            Class cls = tabs.tabBar.class;
-            Method method = class_getInstanceMethod(cls, frameSelector);
-            IMP original = method_getImplementation(method);
-            IMP replacement = imp_implementationWithBlock(^CGRect(id receiver) {
-                CGRect value = ((CGRect (*)(id, SEL))original)(receiver, frameSelector);
-                if (receiver == tabs.tabBar && value.size.height > 1) { value.origin.y -= 8; value.size.height += 8; }
-                printf("HOSTED CALL %s\n", NSStringFromCGRect(value).UTF8String);
-                return value;
-            });
-            if (!class_addMethod(cls, frameSelector, replacement, method_getTypeEncoding(method)))
-                class_replaceMethod(cls, frameSelector, replacement, method_getTypeEncoding(method));
-        }
+        tree(tabs.view,0);
+        UIView *container = mini.superview;
+        SEL frameSelector = @selector(setFrame:);
+        Class cls = container.class;
+        Method method = class_getInstanceMethod(cls, frameSelector);
+        IMP original = method_getImplementation(method);
+        IMP replacement = imp_implementationWithBlock(^(UIView *receiver, CGRect value) {
+            if (receiver == container && fabs(value.size.height - 48) < .1) { value.origin.y -= 8; value.size.height += 8; }
+            ((void (*)(id, SEL, CGRect))original)(receiver, frameSelector, value);
+        });
+        if (!class_addMethod(cls, frameSelector, replacement, method_getTypeEncoding(method)))
+            class_replaceMethod(cls, frameSelector, replacement, method_getTypeEncoding(method));
+        container.frame = container.frame;
+        [container setNeedsLayout];
         [tabs.tabBar setNeedsLayout];
-        dump(@"HOSTED FRAME", tabs, mini);
+        [container.superview setNeedsLayout];
+        dump(@"NATIVE CONTAINER SIZE", tabs, mini);
         tree(tabs.view,0);
         tabs.customChildSize = YES;
         for (UIViewController *child in tabs.childViewControllers)
