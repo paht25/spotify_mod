@@ -32,6 +32,9 @@ final class RuntimeUITests: XCTestCase {
             abs(self.number("navbarWidth", $0) - self.number("expectedWidth", $0)) < 0.6 &&
             abs(self.number("playerWidth", $0) - self.number("expectedWidth", $0)) < 0.6 &&
             abs(self.number("playerHeight", $0) - 56) < 0.6 &&
+            abs(self.number("playerContainerHeight", $0) - 56) < 0.6 &&
+            abs(self.number("playerContainerWidth", $0) - self.number("expectedWidth", $0)) < 0.6 &&
+            abs(self.number("navbarY", $0) - self.number("playerY", $0) - 64) < 0.6 &&
             abs(self.number("navbarHeight", $0) - 62) < 0.6
         }
     }

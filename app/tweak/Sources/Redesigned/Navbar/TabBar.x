@@ -555,6 +555,49 @@ static __weak SGRInlineTabs *sg_inlineTabs;
 static __weak SGRInlineHost *sg_inlineHost;
 static __weak UIScrollView *sg_pageScroll;
 
+// UIKit's accessory uses a fixed 48 pt slot, ignoring the content's fitting size. Adapt only
+// this controller's native container geometry. UIKit still owns the glass and the complete
+// transition, including its timing, interpolation and compact 48 pt target.
+@interface SGRNativeAccessoryContainer : UIView @end
+static BOOL sg_sizingAccessoryFrame;
+static char kAccessoryCenterKey;
+
+static CGFloat accessoryHeightDelta(UIView *container) {
+    UIView *mini = sg_inlineTabs.bottomAccessory.contentView;
+    if (!mini || mini.superview != container || sg_inlineTabs.minimized) return 0;
+    return SGRNowPlayingExpandedHeight() - 48;
+}
+
+%group SGRInlineAccessorySizing
+%hook SGRNativeAccessoryContainer
+- (void)setFrame:(CGRect)frame {
+    CGFloat delta = accessoryHeightDelta((UIView *)self);
+    if (fabs(frame.size.height - 48) < 0.25) {
+        frame.origin.y -= delta;
+        frame.size.height += delta;
+    }
+    BOOL previous = sg_sizingAccessoryFrame;
+    sg_sizingAccessoryFrame = YES;
+    @try { %orig(frame); } @finally { sg_sizingAccessoryFrame = previous; }
+}
+- (void)setBounds:(CGRect)bounds {
+    if (fabs(bounds.size.height - 48) < 0.25) bounds.size.height += accessoryHeightDelta((UIView *)self);
+    %orig(bounds);
+}
+- (void)setCenter:(CGPoint)center {
+    CGFloat delta = accessoryHeightDelta((UIView *)self);
+    // UIKit also lays this view out with bounds + centre. Keep the original bottom edge and
+    // player-to-navbar gap in that route; a frame assignment already accounts for this shift.
+    if (!sg_sizingAccessoryFrame && fabs(delta) > 0.25) {
+        BOOL adjusted = [objc_getAssociatedObject(self, &kAccessoryCenterKey) boolValue];
+        if (!adjusted || !CGPointEqualToPoint(center, ((UIView *)self).center)) center.y -= delta / 2;
+        objc_setAssociatedObject(self, &kAccessoryCenterKey, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    %orig(center);
+}
+%end
+%end
+
 // Names Spotify's page in front to the page UIKit reads it from. UIKit looks the scroll view up when a
 // page is selected, not when a page names another one later (simulator: toggling the behaviour or an
 // appearance pass on the page do not do it), so the selection goes to another tab and back, unseen.
@@ -1113,6 +1156,8 @@ NSDictionary *SGRNavbarInspection(void) {
     CGRect actual = bar.window ? [host convertRect:pillIn(host, bar) toView:nil] : CGRectZero;
     CGRect player = SGRNowPlayingCardFrameIn(host.window, NULL);
     if (CGRectIsNull(player)) player = CGRectZero;
+    UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
+    CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
     BOOL inlineMode = sg_inlineTabs.minimized;
     return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode),
         @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
@@ -1123,6 +1168,8 @@ NSDictionary *SGRNavbarInspection(void) {
         @"navbarWidth": @(actual.size.width), @"navbarHeight": @(actual.size.height),
         @"playerWidth": @(player.size.width), @"playerHeight": @(player.size.height),
         @"playerX": @(player.origin.x), @"playerY": @(player.origin.y),
+        @"playerContainerWidth": @(nativeFrame.size.width), @"playerContainerHeight": @(nativeFrame.size.height),
+        @"playerContainerY": @(nativeFrame.origin.y),
         @"navbarX": @(actual.origin.x), @"navbarY": @(actual.origin.y),
         @"followed": @(sg_pageScroll.window != nil), @"behavior": @(sg_inlineTabs.tabBarMinimizeBehavior)};
 }
@@ -1132,6 +1179,8 @@ NSDictionary *SGRNavbarInspection(void) {
     if (@available(iOS 26.0, *)) sg_inline = SGRInlinePlayer();
     %init;
     if (sg_inline) %init(SGRInlinePlayerScroll);
+    Class accessoryContainer = NSClassFromString(@"UIKit._UITabAccessoryContainer");
+    if (sg_inline && accessoryContainer) %init(SGRInlineAccessorySizing, SGRNativeAccessoryContainer = accessoryContainer);
     SGRequireClasses(@[
         @"_TtC23NavigationUI_TabBarImpl10TabBarView",
         @"_TtC23NavigationUI_TabBarImpl21TabBarItemElementView",

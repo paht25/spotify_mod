@@ -15,13 +15,19 @@ extern void FixtureRecordTab(NSString *title);
 @interface FixtureActions : NSObject
 @end
 @implementation FixtureActions
-+ (void)open:(UITapGestureRecognizer *)tap { FixtureRecordOpen(); }
-+ (void)tab:(UITapGestureRecognizer *)tap {
+- (void)open:(UITapGestureRecognizer *)tap { FixtureRecordOpen(); }
+- (void)tab:(UITapGestureRecognizer *)tap {
     __block NSString *title;
     SGForEachView(tap.view, ^(UIView *view) { if ([view isKindOfClass:UILabel.class]) title = ((UILabel *)view).text; });
     FixtureRecordTab(title);
 }
 @end
+
+static FixtureActions *fixtureActions(void) {
+    static FixtureActions *actions;
+    if (!actions) actions = [FixtureActions new];
+    return actions;
+}
 
 @interface _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer : UIView @end
 @implementation _TtC29ListeningActivity_ElementsKit21AdaptiveFaceContainer @end
@@ -173,7 +179,7 @@ extern void FixtureRecordTab(NSString *title);
 
 static UIView *item(Class cls, NSString *title, NSString *symbol, BOOL active) {
     UIView *item = [cls new];
-    [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:FixtureActions.class action:@selector(tab:)]];
+    [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:fixtureActions() action:@selector(tab:)]];
     UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage systemImageNamed:symbol]];
     icon.tintColor = UIColor.whiteColor;
     icon.contentMode = UIViewContentModeScaleAspectFit;
@@ -400,7 +406,7 @@ static UIView *identified(UIView *root, NSString *identifier) {
     npb.translatesAutoresizingMaskIntoConstraints = NO;
     [view addSubview:npb];
     self.npb = npb;
-    [self.npb addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:FixtureActions.class action:@selector(open:)]];
+    [self.npb addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:fixtureActions() action:@selector(open:)]];
     UIViewController *content = [_TtC18NowPlaying_BarImpl36NowPlayingBarContainerViewController new];
     [self addChildViewController:content];
     content.view.translatesAutoresizingMaskIntoConstraints = NO;

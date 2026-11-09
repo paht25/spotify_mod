@@ -11,7 +11,8 @@ R4 chuyển nguyên tùy chọn **Navbar → Apple Music style player** của 0.
 - Bỏ `NativeTabMotion.x`, cơ chế thu gọn cũ và mini-player mô phỏng của r3.
 - Giữ chiều rộng/chiều cao của PwEevee: navbar độc lập được dùng làm mốc đo không hiển thị;
   viewport của controller được căn theo mốc đó. Now Playing lấy chiều cao từ card gốc (56 pt
-  trong fixture), compact accessory 48 pt; navbar mở rộng 62 pt trong fixture.
+  trong fixture), compact accessory 48 pt; navbar mở rộng 62 pt trong fixture. Một hook chỉ áp dụng
+  cho native accessory của option này giữ bounds/frame ở chiều cao cũ; UIKit vẫn điều khiển animation.
 - Giữ các sửa **Bottom navbar gradient** và **Show profile photo**; không đổi UI ngoài phần này.
 
 Tùy chọn mới mặc định bật nếu chưa có lựa chọn đã lưu. Bật/tắt trong **Navbar → Apple Music
