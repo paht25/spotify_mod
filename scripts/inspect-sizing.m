@@ -98,12 +98,31 @@ static void tree(UIView *view, NSUInteger level) {
         });
         if (!class_addMethod(cls, frameSelector, replacement, method_getTypeEncoding(method)))
             class_replaceMethod(cls, frameSelector, replacement, method_getTypeEncoding(method));
-        container.frame = container.frame;
+        SEL boundsSelector = @selector(setBounds:);
+        Method boundsMethod = class_getInstanceMethod(cls, boundsSelector);
+        IMP boundsOriginal = method_getImplementation(boundsMethod);
+        IMP boundsReplacement = imp_implementationWithBlock(^(UIView *receiver, CGRect value) {
+            if (receiver == container && fabs(value.size.height - 48) < .1) value.size.height = 56;
+            ((void (*)(id, SEL, CGRect))boundsOriginal)(receiver, boundsSelector, value);
+        });
+        if (!class_addMethod(cls, boundsSelector, boundsReplacement, method_getTypeEncoding(boundsMethod)))
+            class_replaceMethod(cls, boundsSelector, boundsReplacement, method_getTypeEncoding(boundsMethod));
+        CGRect before = container.frame;
+        container.frame = before;
+        printf("AFTER ASSIGN %s BOUNDS %s\n", NSStringFromCGRect(container.frame).UTF8String, NSStringFromCGRect(container.bounds).UTF8String);
+        container.bounds = CGRectMake(0,0,360,56);
+        printf("AFTER BOUNDS %s\n", NSStringFromCGRect(container.frame).UTF8String);
+        mini.frame = container.bounds;
         [container setNeedsLayout];
         [tabs.tabBar setNeedsLayout];
         [container.superview setNeedsLayout];
         dump(@"NATIVE CONTAINER SIZE", tabs, mini);
         tree(tabs.view,0);
+        printf("LAYERS %s\n", container.layer.sublayers.description.UTF8String);
+        for (CALayer *layer in container.layer.sublayers) printf("LAYER %s %s CHILDREN %s\n", class_getName(layer.class), NSStringFromCGRect(layer.frame).UTF8String, layer.sublayers.description.UTF8String);
+        unsigned int mc; Method *ml = class_copyMethodList(cls, &mc);
+        for (unsigned int i=0;i<mc;i++) printf("METHOD %s %s\n", sel_getName(method_getName(ml[i])), method_getTypeEncoding(ml[i]));
+        free(ml);
         tabs.customChildSize = YES;
         for (UIViewController *child in tabs.childViewControllers)
             if ([NSStringFromClass(child.class) containsString:@"Accessory"]) child.preferredContentSize = CGSizeMake(tabs.view.bounds.size.width, 56);
