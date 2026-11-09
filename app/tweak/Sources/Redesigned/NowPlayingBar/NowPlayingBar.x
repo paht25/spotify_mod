@@ -80,6 +80,8 @@ BOOL SGROpenPlayerFromBar(void) {
     while (queue.count) {
         UIView *view = queue.firstObject;
         [queue removeObjectAtIndex:0];
+        // Our invisible decorative glass is not Spotify's player-opening target.
+        if (view == objc_getAssociatedObject(container, &kGlassKey)) continue;
         if (SGRFireTapRecognizers(view)) {
             SGLog(@"mini player: tap passed to %@ on Spotify's bar", NSStringFromClass(view.class));
             return YES;
@@ -267,7 +269,7 @@ static void restyleCardContent(UIView *card) {
         }
         sg_cardArtwork = outer;
     });
-    ensureMiniProgress(card);
+    if (!SGRInlinePlayer()) ensureMiniProgress(card);
 }
 
 

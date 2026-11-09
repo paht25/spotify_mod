@@ -560,6 +560,7 @@ static __weak UIScrollView *sg_pageScroll;
 // transition, including its timing, interpolation and compact 48 pt target.
 @interface SGRNativeAccessoryContainer : UIView @end
 static BOOL sg_sizingAccessoryFrame;
+static BOOL sg_accessorySizingInstalled;
 static char kAccessoryCenterKey;
 
 static CGFloat accessoryHeightDelta(UIView *container) {
@@ -597,6 +598,25 @@ static CGFloat accessoryHeightDelta(UIView *container) {
 }
 %end
 %end
+
+static void preserveAccessorySize(SGRInlineTabs *tabs) {
+    UIView *mini = tabs.bottomAccessory.contentView;
+    UIView *container = mini.superview;
+    if (!container || ![NSStringFromClass(container.class) hasSuffix:@"_UITabAccessoryContainer"]) return;
+    if (!sg_accessorySizingInstalled) {
+        // This Swift UIKit class is registered lazily. Looking it up in the dylib constructor
+        // can return nil; install against the actual container once UIKit has created it.
+        Class nativeClass = container.class;
+        %init(SGRInlineAccessorySizing, SGRNativeAccessoryContainer = nativeClass);
+        sg_accessorySizingInstalled = YES;
+        SGLog(@"mini player: preserves the native accessory's original dimensions");
+    }
+    if (!tabs.minimized && fabs(container.bounds.size.height - 48) < 0.25) {
+        container.frame = container.frame;
+        mini.frame = container.bounds;
+        [container setNeedsLayout];
+    }
+}
 
 // Names Spotify's page in front to the page UIKit reads it from. UIKit looks the scroll view up when a
 // page is selected, not when a page names another one later (simulator: toggling the behaviour or an
@@ -927,6 +947,7 @@ static void syncInline(UIView *stockBar) API_AVAILABLE(ios(26.0)) {
         });
     }
     nameScrollView();
+    preserveAccessorySize(tabs);
     preserveChromeSize(tabs, host, stockBar);
 }
 
@@ -1159,7 +1180,7 @@ NSDictionary *SGRNavbarInspection(void) {
     UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
     CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
     BOOL inlineMode = sg_inlineTabs.minimized;
-    return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode),
+    return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode), @"sizingHook": @(sg_accessorySizingInstalled),
         @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
         @"tabs": @(sg_inline ? sg_inlineTabs.tabs.count : bar.items.count), @"bar": [NSString stringWithFormat:@"%p", bar],
         @"accessory": [NSString stringWithFormat:@"%p", sg_inlineTabs.bottomAccessory],
@@ -1179,8 +1200,6 @@ NSDictionary *SGRNavbarInspection(void) {
     if (@available(iOS 26.0, *)) sg_inline = SGRInlinePlayer();
     %init;
     if (sg_inline) %init(SGRInlinePlayerScroll);
-    Class accessoryContainer = NSClassFromString(@"UIKit._UITabAccessoryContainer");
-    if (sg_inline && accessoryContainer) %init(SGRInlineAccessorySizing, SGRNativeAccessoryContainer = accessoryContainer);
     SGRequireClasses(@[
         @"_TtC23NavigationUI_TabBarImpl10TabBarView",
         @"_TtC23NavigationUI_TabBarImpl21TabBarItemElementView",

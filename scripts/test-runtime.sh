@@ -34,4 +34,8 @@ xcodebuild test -project "$HARNESS/UIFixesRuntime.xcodeproj" -scheme UIFixesRunt
 kill -INT "$VIDEO_PID" || true
 wait "$VIDEO_PID" || true
 xcrun xcresulttool export attachments --path .build/runtime.xcresult --output-path .build/runtime-attachments || true
+APP_DATA="$(xcrun simctl get_app_container "$DEVICE" com.paht25.uifixes.runtime data 2>/dev/null || true)"
+if [[ -n "$APP_DATA" && -f "$APP_DATA/Library/Application Support/spoti.pw/diagnostics.log" ]]; then
+  cp "$APP_DATA/Library/Application Support/spoti.pw/diagnostics.log" .build/runtime-attachments/fixture.log
+fi
 exit "$RESULT"

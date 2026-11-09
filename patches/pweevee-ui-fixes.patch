@@ -2561,7 +2561,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      }
      if (selected && bar.selectedItem != selected) bar.selectedItem = selected;
      // An icon view Spotify has not built yet is looked for again shortly, not on the next touch.
-@@ -753,16 +499,532 @@
+@@ -753,16 +499,553 @@
      CGFloat height = MAX(bounds.size.height, glassHeight(bar, stockBar));
      CGRect frame = CGRectMake(0, CGRectGetMaxY(bounds) - height, width, height);
      if (!CGRectEqualToRect(host.frame, frame)) host.frame = frame;
@@ -2631,6 +2631,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +// transition, including its timing, interpolation and compact 48 pt target.
 +@interface SGRNativeAccessoryContainer : UIView @end
 +static BOOL sg_sizingAccessoryFrame;
++static BOOL sg_accessorySizingInstalled;
 +static char kAccessoryCenterKey;
 +
 +static CGFloat accessoryHeightDelta(UIView *container) {
@@ -2668,6 +2669,25 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +}
 +%end
 +%end
++
++static void preserveAccessorySize(SGRInlineTabs *tabs) {
++    UIView *mini = tabs.bottomAccessory.contentView;
++    UIView *container = mini.superview;
++    if (!container || ![NSStringFromClass(container.class) hasSuffix:@"_UITabAccessoryContainer"]) return;
++    if (!sg_accessorySizingInstalled) {
++        // This Swift UIKit class is registered lazily. Looking it up in the dylib constructor
++        // can return nil; install against the actual container once UIKit has created it.
++        Class nativeClass = container.class;
++        %init(SGRInlineAccessorySizing, SGRNativeAccessoryContainer = nativeClass);
++        sg_accessorySizingInstalled = YES;
++        SGLog(@"mini player: preserves the native accessory's original dimensions");
++    }
++    if (!tabs.minimized && fabs(container.bounds.size.height - 48) < 0.25) {
++        container.frame = container.frame;
++        mini.frame = container.bounds;
++        [container setNeedsLayout];
++    }
++}
 +
 +// Names Spotify's page in front to the page UIKit reads it from. UIKit looks the scroll view up when a
 +// page is selected, not when a page names another one later (simulator: toggling the behaviour or an
@@ -2998,6 +3018,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +        });
 +    }
 +    nameScrollView();
++    preserveAccessorySize(tabs);
 +    preserveChromeSize(tabs, host, stockBar);
 +}
 +
@@ -3099,7 +3120,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  
  #pragma mark - hooks
  
-@@ -776,11 +1038,6 @@
+@@ -776,11 +1059,6 @@
  static BOOL sg_barPass, sg_itemsLaidOut;
  
  %hook _TtC23NavigationUI_TabBarImpl10TabBarView
@@ -3111,7 +3132,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  - (void)layoutSubviews {
      %orig;
      SGRComposeTabBar((UIView *)self);
-@@ -822,6 +1079,15 @@
+@@ -822,6 +1100,15 @@
  - (void)layoutSubviews {
      %orig;
      itemDidLayOut((UIView *)self);
@@ -3127,7 +3148,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  %end
  
-@@ -834,19 +1100,92 @@
+@@ -834,19 +1121,90 @@
          if (bar) syncBar(bar);
      });
  }
@@ -3190,7 +3211,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +    UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
 +    CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
 +    BOOL inlineMode = sg_inlineTabs.minimized;
-+    return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode),
++    return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode), @"sizingHook": @(sg_accessorySizingInstalled),
 +        @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
 +        @"tabs": @(sg_inline ? sg_inlineTabs.tabs.count : bar.items.count), @"bar": [NSString stringWithFormat:@"%p", bar],
 +        @"accessory": [NSString stringWithFormat:@"%p", sg_inlineTabs.bottomAccessory],
@@ -3210,8 +3231,6 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +    if (@available(iOS 26.0, *)) sg_inline = SGRInlinePlayer();
      %init;
 +    if (sg_inline) %init(SGRInlinePlayerScroll);
-+    Class accessoryContainer = NSClassFromString(@"UIKit._UITabAccessoryContainer");
-+    if (sg_inline && accessoryContainer) %init(SGRInlineAccessorySizing, SGRNativeAccessoryContainer = accessoryContainer);
      SGRequireClasses(@[
          @"_TtC23NavigationUI_TabBarImpl10TabBarView",
          @"_TtC23NavigationUI_TabBarImpl21TabBarItemElementView",
@@ -3681,7 +3700,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
      UIVisualEffectView *glass = sg_cardGlass;
      if (!glass.superview || !glass.window || !host) return CGRectNull;
      if (radius) *radius = MIN(kCardRadius, glass.bounds.size.height / 2);
-@@ -32,9 +44,70 @@
+@@ -32,9 +44,72 @@
  }
  
  CGRect SGRNowPlayingArtworkFrameIn(UIView *host) {
@@ -3721,6 +3740,8 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
 +    while (queue.count) {
 +        UIView *view = queue.firstObject;
 +        [queue removeObjectAtIndex:0];
++        // Our invisible decorative glass is not Spotify's player-opening target.
++        if (view == objc_getAssociatedObject(container, &kGlassKey)) continue;
 +        if (SGRFireTapRecognizers(view)) {
 +            SGLog(@"mini player: tap passed to %@ on Spotify's bar", NSStringFromClass(view.class));
 +            return YES;
@@ -3752,10 +3773,14 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
  }
  
  static UIView *detectColoredCard(UIView *bar) {
-@@ -198,341 +271,85 @@
- }
- 
- 
+@@ -194,345 +269,89 @@
+         }
+         sg_cardArtwork = outer;
+     });
+-    ensureMiniProgress(card);
+-}
+-
+-
 -#pragma mark - docked beside the tab bar's buttons
 -
 -// Minimized, the card does not shrink into the row: scaled to fit it, its text and cover came out too small to read
@@ -4084,6 +4109,10 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
 -}
 -
 -static void styleNowPlayingBar(UIViewController *container) {
++    if (!SGRInlinePlayer()) ensureMiniProgress(card);
++}
++
++
 +// Change the constraints Spotify owns rather than assigning a frame that its next pass overwrites.
 +static void alignContentHost(UIView *bar, UIView *container, CGRect current, CGRect target) {
 +    CGRect before = [container convertRect:current toView:bar.superview];
@@ -4166,7 +4195,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
  
      container.view.layer.backgroundColor = NULL;
      SGStripBackgrounds(bar);
-@@ -541,6 +358,10 @@
+@@ -541,6 +360,10 @@
      if (CGRectIsNull(frame)) return;
      frame.size.height = MIN(frame.size.height, 80);
      if (frame.size.height < 30 || frame.size.width < 100) return;
@@ -4177,7 +4206,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
  
      CGFloat radius = MIN(kCardRadius, frame.size.height / 2);
      if (card) {
-@@ -553,15 +374,23 @@
+@@ -553,15 +376,23 @@
      sg_cardGlass = glass;
      glass.frame = frame;
      SGShapeGlass(glass, radius, NO);
@@ -4204,7 +4233,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
  }
  
  %hook _TtC18NowPlaying_BarImpl36NowPlayingBarContainerViewController
-@@ -582,21 +411,6 @@
+@@ -582,21 +413,6 @@
  %ctor {
      if (!SGRedesignedUI()) return;
      %init;
