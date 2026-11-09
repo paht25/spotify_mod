@@ -4,8 +4,10 @@
   "source_tag": "v3.1.6.1",
   "source_directory": "taurus-rc/source",
   "mod_version": "3.1.6.1",
-  "ui_revision": "r2",
+  "ui_revision": "r3",
   "motion_reference_commit": "49e02e204f397b1e4197876dd622d4ee1663188e",
+  "motion_reference_archive": "spoti.pw-0.23.0-beta.zip",
+  "motion_reference_archive_sha256": "75cd6a8946077d2e9ac99bfe9c3ff868abdcbde6639e30babaf318827e4b847f",
   "theos_commit": "8167f59de02fd32cf45b16bfcb1330dfa5c9974c",
   "base_ipa": {
     "url": "https://github.com/codeboy2012/PwEevee/releases/download/v3.1.6.1/PwEevee-3.1.6.1.ipa",

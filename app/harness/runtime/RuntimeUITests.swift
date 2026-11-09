@@ -46,7 +46,7 @@ final class RuntimeUITests: XCTestCase {
         wait { ($0["photo"] as? Double ?? 0) > 0.9 }
     }
     func testUIKitCollapseFromActualDragAndReverse() {
-        wait { ($0["native"] as? Bool) == true }
+        wait { ($0["native"] as? Bool) == true && ($0["motionTrace"] as? [[Double]] ?? []).count > 0 }
         let bar = state()["bar"] as? String
         let list = app.tables["fixture.list"]
         XCTAssertTrue(list.waitForExistence(timeout: 5))
@@ -55,6 +55,24 @@ final class RuntimeUITests: XCTestCase {
         capture("apple-music-style-collapsed-row")
         list.swipeDown()
         wait { ($0["progress"] as? Double ?? 1) < 0.05 }
+        let trace = state()["motionTrace"] as? [[Double]] ?? []
+        let data = try! JSONSerialization.data(withJSONObject: trace, options: [.prettyPrinted])
+        let attachment = XCTAttachment(data: data, uniformTypeIdentifier: "public.json")
+        attachment.name = "native-motion-frame-trace"
+        attachment.lifetime = .keepAlways
+        add(attachment)
+        var rising = 0, falling = 0, largestStep = 0.0
+        for (a, b) in zip(trace, trace.dropFirst()) {
+            let delta = b[1] - a[1]
+            largestStep = max(largestStep, abs(delta))
+            if b[1] > 0.01 && b[1] < 0.99 {
+                if delta > 0 { rising += 1 }
+                if delta < 0 { falling += 1 }
+            }
+        }
+        XCTAssertGreaterThanOrEqual(rising, 4, "Collapse must have intermediate rendered frames")
+        XCTAssertGreaterThanOrEqual(falling, 4, "Reverse must animate, rather than snap to expanded")
+        XCTAssertLessThan(largestStep, 0.35, "Motion jumped in a single frame; inspect trace/video")
         XCTAssertEqual(state()["bar"] as? String, bar)
         XCTAssertEqual(state()["tabs"] as? Int, 4)
         capture("original-navbar-restored-after-reverse-scroll")

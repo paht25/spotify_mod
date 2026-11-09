@@ -1,4 +1,5 @@
-// Motion source: spoti.pw v0.23.0-beta, TabBar.x (49e02e204f397b1e4197876dd622d4ee1663188e).
+// Motion source: user-supplied spoti.pw-0.23.0-beta.zip, Redesigned/Navbar/TabBar.x.
+// Archive SHA-256: 75cd6a8946077d2e9ac99bfe9c3ff868abdcbde6639e30babaf318827e4b847f.
 // UIKit watches the actual foreground list through setContentScrollView:forEdge: and animates a
 // UITabAccessory. Only its geometry is used here: its view is masked out, cannot receive touches,
 // and never replaces the user's existing SGRSystemTabBar or expanded Now Playing controls.
@@ -20,15 +21,33 @@
 @property (nonatomic, weak) UIScrollView *followedList;
 @property (nonatomic) CGFloat expandedWidth, inlineWidth;
 @property (nonatomic) NSUInteger restingFrames;
+@property (nonatomic) BOOL bindingList;
 - (void)wake;
 - (void)sample;
 - (void)follow:(UIScrollView *)list;
 - (void)expand;
+- (void)bindFollowedList;
 @end
 
 static SGRNativeMotion *sg_motion;
 static BOOL sg_syncingMotion;
 static char kPanObserved;
+
+// Copied from 0.23.0's SGRInlinePage: UIKit re-reads the named external scroll view on appearance.
+@interface SGRNativePage : UIViewController
+@end
+@implementation SGRNativePage
+- (void)loadView {
+    UIView *view = [UIView new];
+    view.backgroundColor = UIColor.clearColor;
+    view.userInteractionEnabled = NO;
+    self.view = view;
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [sg_motion bindFollowedList];
+}
+@end
 
 static BOOL motionEnabled(void) {
     id stored = [NSUserDefaults.standardUserDefaults objectForKey:SGRKeyNavbarMinimize];
@@ -53,13 +72,11 @@ static BOOL motionEnabled(void) {
             [tabs addObject:[[UITab alloc] initWithTitle:i ? @"Motion" : @"Home"
                 image:[UIImage systemImageNamed:@"house"] identifier:[NSString stringWithFormat:@"motion.%lu", (unsigned long)i]
                 viewControllerProvider:^UIViewController *(UITab *tab) {
-                    UIViewController *page = [UIViewController new];
-                    page.view.backgroundColor = UIColor.clearColor;
-                    return page;
+                    return [SGRNativePage new];
                 }]];
         }
         UISearchTab *trailing = [[UISearchTab alloc] initWithViewControllerProvider:^UIViewController *(UITab *tab) {
-            return [UIViewController new];
+            return [SGRNativePage new];
         }];
         trailing.automaticallyActivatesSearch = NO;
         [tabs addObject:trailing];
@@ -114,7 +131,8 @@ static BOOL motionEnabled(void) {
         if (progress < 0.002) progress = 0;
         if (progress > 0.998) progress = 1;
         BOOL settled = fabs(progress - SGRTabBarCollapseProgress()) < 0.0001 && (progress == 0 || progress == 1);
-        SGRRenderTabBarProgress(progress);
+        // A steady accessory needs no visible re-layout. Keep sampling only through the morph.
+        if (!settled) SGRRenderTabBarProgress(progress);
         if (settled && ++self.restingFrames > 20) self.clock.paused = YES;
         else if (!settled) self.restingFrames = 0;
     }
@@ -122,31 +140,53 @@ static BOOL motionEnabled(void) {
 - (void)follow:(UIScrollView *)list {
     if (!list.window || list == self.followedList) return;
     self.followedList = list;
-    UIViewController *page = self.selectedViewController;
-    [page setContentScrollView:list forEdge:NSDirectionalRectEdgeAll];
-    // As in 0.23.0, UIKit re-reads a replacement list when the page is selected.
-    [UIView performWithoutAnimation:^{
-        self.selectedIndex = 1;
-        self.selectedIndex = 0;
-    }];
-    SGLog(@"UIFIX r2: native motion follows %@", NSStringFromClass(list.class));
+    [self bindFollowedList];
+    SGLog(@"UIFIX r3: native motion follows %@", NSStringFromClass(list.class));
     [self wake];
+}
+- (void)bindFollowedList {
+    // Port of 0.23.0 nameScrollView(), including the re-entrant appearance guard.
+    UIScrollView *list = self.followedList;
+    UIViewController *page = self.selectedViewController;
+    if (!page || !list.window || self.bindingList) return;
+    if ([page contentScrollViewForEdge:NSDirectionalRectEdgeBottom] == list) return;
+    [page setContentScrollView:list forEdge:NSDirectionalRectEdgeAll];
+    if (!self.viewIfLoaded.window) return;
+    if (@available(iOS 26.0, *)) {
+        UITab *selected = self.selectedTab, *other = nil;
+        for (UITab *tab in self.tabs)
+            if (tab != selected && ![tab isKindOfClass:UISearchTab.class]) { other = tab; break; }
+        if (!selected || !other) return;
+        self.bindingList = YES;
+        [UIView performWithoutAnimation:^{ self.selectedTab = other; self.selectedTab = selected; }];
+        self.bindingList = NO;
+    }
 }
 - (void)expand {
     if (@available(iOS 26.0, *)) {
-        // A controller used solely as a motion source can keep its selected page minimized
-        // across selection changes. Never requests UIKit's actual expanded accessory geometry.
-        if (self.tabBarMinimizeBehavior != UITabBarMinimizeBehaviorNever)
+        if (self.tabBarMinimizeBehavior == UITabBarMinimizeBehaviorNever) return;
+        // Changing behavior outside an animation transaction can snap the accessory to regular.
+        // Animate UIKit's layout itself, so a reverse drag supplies a continuous native geometry
+        // curve to the same player and tab renderer, including when interrupted halfway through.
+        void (^expand)(void) = ^{
             self.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorNever;
+            [self.view layoutIfNeeded];
+        };
+        if (UIAccessibilityIsReduceMotionEnabled()) [UIView performWithoutAnimation:expand];
+        else [UIView animateWithDuration:SGRNavbarMotionDuration delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
+            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
+            animations:expand completion:nil];
     }
     [self wake];
 }
 - (void)playerStateDidChange:(SPTPlayerState *)state {
     if (@available(iOS 26.0, *)) {
         UITabAccessory *accessory = SGRNowPlayingAvailable() && motionEnabled() ? self.motionAccessory : nil;
-        if (self.bottomAccessory != accessory) [self setBottomAccessory:accessory animated:NO];
-        if (!accessory) SGRRenderTabBarProgress(0);
-        [self wake];
+        if (self.bottomAccessory != accessory) {
+            [self setBottomAccessory:accessory animated:NO];
+            if (!accessory) SGRRenderTabBarProgress(0);
+            [self wake];
+        }
     }
 }
 @end
@@ -179,6 +219,15 @@ static BOOL pageList(UIScrollView *list) {
         if (r == root.nextResponder) break;
     }
     return YES;
+}
+
+// 0.23.0 considers lists when they enter the window, including the deferred appearance pass;
+// keep the inner list when a containing scroll view arrives afterward.
+static void considerPageList(UIScrollView *list) {
+    if (!sg_motion || !pageList(list) || sg_motion.followedList == list) return;
+    UIScrollView *current = sg_motion.followedList;
+    if (current.window && [current isDescendantOfView:list]) return;
+    [sg_motion follow:list];
 }
 
 void SGRSyncNativeTabMotion(void) {
@@ -232,9 +281,14 @@ void SGRSyncNativeTabMotion(void) {
 %hook UIScrollView
 - (void)didMoveToWindow {
     %orig;
-    if (!self.window || objc_getAssociatedObject(self, &kPanObserved)) return;
-    objc_setAssociatedObject(self, &kPanObserved, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self.panGestureRecognizer addTarget:SGRNativeScrollPan.class action:@selector(dragged:)];
+    if (!self.window) return;
+    if (!objc_getAssociatedObject(self, &kPanObserved)) {
+        objc_setAssociatedObject(self, &kPanObserved, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self.panGestureRecognizer addTarget:SGRNativeScrollPan.class action:@selector(dragged:)];
+    }
+    considerPageList(self);
+    __weak UIScrollView *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{ considerPageList(weakSelf); });
 }
 %end
 

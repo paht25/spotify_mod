@@ -216,6 +216,7 @@ static const CGFloat kPillHeight = 48, kPillInset = 4, kPillGap = 10, kToggleWid
 @property (nonatomic, readonly) UIButton *toggle;
 @property (nonatomic, readonly) UIButton *open;
 @property (nonatomic) BOOL paused;
+@property (nonatomic) BOOL transitioning;
 - (void)showTitle:(NSString *)title cover:(UIImage *)cover paused:(BOOL)paused;
 // Starts a long title scrolling again (an animation does not outlive the app in the background or the pill being off screen).
 - (void)resumeMarquee;
@@ -226,6 +227,7 @@ static void togglePlayback(void);
 
 @implementation SGRMiniPlayer {
     NSString *_marqueeKey;
+    CGFloat _measuredTitleWidth;
 }
 
 - (instancetype)init {
@@ -291,9 +293,15 @@ static const CGFloat kMarqueeSpeed = 32, kMarqueePause = 1.4, kMarqueeFade = 18;
 
 - (void)layoutTitle {
     CGFloat clip = _titleClip.bounds.size.width, height = _titleClip.bounds.size.height;
-    CGFloat text = ceil([_title.text ?: @"" sizeWithAttributes:@{NSFontAttributeName: _title.font}].width);
+    if (_transitioning) {
+        _title.frame = CGRectMake(0, 0, clip, height);
+        return;
+    }
+    CGFloat text = _measuredTitleWidth;
     BOOL overflows = text > clip + 0.5 && clip > 0;
-    BOOL moves = overflows && !UIAccessibilityIsReduceMotionEnabled();
+    // Like 0.23.0's accessory, lay out content directly while UIKit changes the available space.
+    // A marquee starts only at rest: rebuilding a mask and animation at every new width stutters.
+    BOOL moves = overflows && !_transitioning && !UIAccessibilityIsReduceMotionEnabled();
     // Under Reduce Motion a long title is cut with an ellipsis instead, as before.
     CGRect frame = CGRectMake(0, 0, moves ? text : clip, height);
     NSString *key = [NSString stringWithFormat:@"%@|%.1f|%d", _title.text, clip, moves];
@@ -337,6 +345,17 @@ static const CGFloat kMarqueeSpeed = 32, kMarqueePause = 1.4, kMarqueeFade = 18;
     [self setNeedsLayout];
 }
 
+- (void)setTransitioning:(BOOL)transitioning {
+    if (_transitioning == transitioning) return;
+    _transitioning = transitioning;
+    if (transitioning) {
+        [_title.layer removeAnimationForKey:@"marquee"];
+        _titleClip.layer.mask = nil;
+    }
+    _marqueeKey = nil;
+    [self setNeedsLayout];
+}
+
 - (void)dealloc {
     [NSNotificationCenter.defaultCenter removeObserver:self];
 }
@@ -352,6 +371,7 @@ static const CGFloat kMarqueeSpeed = 32, kMarqueePause = 1.4, kMarqueeFade = 18;
 - (void)showTitle:(NSString *)title cover:(UIImage *)cover paused:(BOOL)paused {
     if (title.length && ![_title.text isEqualToString:title]) {
         _title.text = title;
+        _measuredTitleWidth = ceil([title sizeWithAttributes:@{NSFontAttributeName: _title.font}].width);
         [self setNeedsLayout];
     }
     _open.accessibilityLabel = _title.text;
@@ -532,8 +552,12 @@ void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host) {
     UIView *view = sg_container.viewIfLoaded;
     if (!view || !host.window || !sg_cardGlass.superview) return;
     SGRMiniPlayer *mini = miniPlayer();
-    if (mini.superview != host) [host addSubview:mini];
-    refreshMini();
+    if (mini.superview != host) {
+        [host addSubview:mini];
+        refreshMini();
+    }
+    // Track/cover observers refresh content. Scroll frames only change geometry, as in 0.23.0.
+    mini.transitioning = progress > 0 && progress < 1;
     CGRect card = [host convertRect:sg_cardGlass.bounds fromView:sg_cardGlass];
     CGRect target = [host convertRect:row fromView:nil];
     target.origin.y = CGRectGetMidY(target) - kPillHeight / 2;
@@ -543,8 +567,7 @@ void SGRRenderNowPlayingProgress(CGFloat progress, CGRect row, UIView *host) {
         card.size.width + (target.size.width - card.size.width) * progress,
         card.size.height + (target.size.height - card.size.height) * progress);
     [UIView performWithoutAnimation:^{
-        mini.frame = frame;
-        [mini layoutIfNeeded];
+        if (!CGRectEqualToRect(mini.frame, frame)) mini.frame = frame;
         mini.alpha = progress;
         view.alpha = 1 - progress;
     }];
@@ -641,6 +664,8 @@ static void layoutNowPlayingBar(UIViewController *container) {
     sg_cardGlass = glass;
     glass.frame = frame;
     SGShapeGlass(glass, radius, NO);
+    // Artwork may arrive on a card layout after the track observer fired.
+    refreshMini();
     // A new track can change the card's size and brings its cover; the pill follows them.
     if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(SGRTabBarCollapseProgress());
     else if (sg_docked) applyDock(NO);

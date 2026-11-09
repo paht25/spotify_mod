@@ -22,10 +22,14 @@ for runtime,devices in sorted(d["devices"].items(),reverse=True):
 raise SystemExit("No iOS 26+ iPhone simulator is available")')"
 xcrun simctl boot "$DEVICE" || true
 xcrun simctl bootstatus "$DEVICE" -b
+xcrun simctl io "$DEVICE" recordVideo --codec=h264 .build/runtime-motion.mp4 &
+VIDEO_PID=$!
 RESULT=0
 xcodebuild test -project "$HARNESS/UIFixesRuntime.xcodeproj" -scheme UIFixesRuntime \
   -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO \
   -derivedDataPath .build/runtime-derived -resultBundlePath .build/runtime.xcresult \
   CODE_SIGNING_ALLOWED=NO || RESULT=$?
+kill -INT "$VIDEO_PID" || true
+wait "$VIDEO_PID" || true
 xcrun xcresulttool export attachments --path .build/runtime.xcresult --output-path .build/runtime-attachments || true
 exit "$RESULT"

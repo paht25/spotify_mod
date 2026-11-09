@@ -436,6 +436,23 @@ static CGRect blendFrame(CGRect a, CGRect b, CGFloat p) {
         a.size.height + (b.size.height - a.size.height) * p);
 }
 
+// The reference accessory lets UIKit animate already prepared content. Cache this bar's
+// equivalent geometry; walking Spotify's labels and recreating glyphs is not scroll-frame work.
+static __weak UIView *sg_motionHost;
+static CGRect sg_motionHostBounds, sg_motionBarBounds, sg_motionRow;
+static CGRect sg_motionCircles[2], sg_motionShapes[2];
+static NSArray<SGRDockButton *> *sg_motionButtons;
+static BOOL sg_motionGeometryValid;
+
+static void prepareMotionGeometry(UIView *stockBar, UIView *host, SGRSystemTabBar *bar) {
+    sg_motionRow = layoutDock(stockBar, host, bar, sg_motionCircles, sg_motionShapes);
+    sg_motionButtons = dockButtons(stockBar);
+    sg_motionHost = host;
+    sg_motionHostBounds = host.bounds;
+    sg_motionBarBounds = bar.bounds;
+    sg_motionGeometryValid = YES;
+}
+
 void SGRRenderTabBarProgress(CGFloat progress) {
     progress = MAX(0, MIN(1, progress));
     sg_motionProgress = progress;
@@ -444,15 +461,14 @@ void SGRRenderTabBarProgress(CGFloat progress) {
     UIView *host = objc_getAssociatedObject(stockBar, &kHostKey);
     SGRSystemTabBar *bar = objc_getAssociatedObject(stockBar, &kBarKey);
     if (!host.window || !bar.sources.count) return;
-    CGRect circles[2], shapes[2];
-    CGRect row = layoutDock(stockBar, host, bar, circles, shapes);
-    NSArray<SGRDockButton *> *buttons = dockButtons(stockBar);
+    if (!sg_motionGeometryValid || sg_motionHost != host ||
+        !CGRectEqualToRect(sg_motionHostBounds, host.bounds) || !CGRectEqualToRect(sg_motionBarBounds, bar.bounds))
+        prepareMotionGeometry(stockBar, host, bar);
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
     for (NSUInteger i = 0; i < 2; i++) {
-        SGRDockButton *button = buttons[i];
-        place(button, blendFrame(shapes[i], circles[i], progress));
-        [button layoutIfNeeded];
+        SGRDockButton *button = sg_motionButtons[i];
+        place(button, blendFrame(sg_motionShapes[i], sg_motionCircles[i], progress));
         button.alpha = progress;
         button.glyph.alpha = 1;
         button.userInteractionEnabled = progress > 0.9;
@@ -460,7 +476,7 @@ void SGRRenderTabBarProgress(CGFloat progress) {
     bar.alpha = 1 - progress;
     bar.userInteractionEnabled = progress < 0.1;
     [CATransaction commit];
-    SGRRenderNowPlayingProgress(progress, row, host);
+    SGRRenderNowPlayingProgress(progress, sg_motionRow, host);
 }
 
 // Minimizing gathers the bar into its two ends; expanding is the reverse, and the buttons are what moves: the first
@@ -834,7 +850,11 @@ static void syncBar(UIView *stockBar) {
     else if (stockBar.subviews.lastObject != host) [stockBar bringSubviewToFront:host];
     if (host.window) {
         [bar layoutIfNeeded];
-        if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(sg_motionProgress);
+        if (SGRNativeTabMotionActive()) {
+            // A real navbar layout/selection change refreshes glyphs and geometry once.
+            prepareMotionGeometry(stockBar, host, bar);
+            SGRRenderTabBarProgress(sg_motionProgress);
+        }
         else {
             CGRect row = layoutDock(stockBar, host, bar, NULL, NULL);
             if (sg_minimized) SGRDockNowPlayingCard(YES, row, host, NO);

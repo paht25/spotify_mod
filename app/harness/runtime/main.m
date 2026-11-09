@@ -266,6 +266,9 @@ static UIView *item(Class cls, NSString *title, NSString *symbol, BOOL active) {
 @property (nonatomic, strong) UISwitch *profileToggle, *fadeToggle;
 @property (nonatomic, strong) NSTimer *statusTimer;
 @property (nonatomic) BOOL bindingPassed;
+@property (nonatomic, strong) CADisplayLink *motionSampler;
+@property (nonatomic, strong) NSMutableArray<NSArray<NSNumber *> *> *motionTrace;
+@property (nonatomic, weak) UIView *motionPlayer;
 @end
 
 @implementation SGHarnessChrome
@@ -317,7 +320,22 @@ static UIView *identified(UIView *root, NSString *identifier) {
     [self.view addSubview:self.status];
     __weak SGHarnessChrome *weakSelf = self;
     self.statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer *timer) { [weakSelf updateStatus]; }];
+    self.motionTrace = [NSMutableArray array];
+    SGForEachView(self.view, ^(UIView *view) {
+        if ([NSStringFromClass(view.class) isEqualToString:@"SGRMiniPlayer"]) self.motionPlayer = view;
+    });
+    self.motionSampler = [CADisplayLink displayLinkWithTarget:self selector:@selector(sampleMotion)];
+    [self.motionSampler addToRunLoop:NSRunLoop.mainRunLoop forMode:NSRunLoopCommonModes];
     [self updateStatus];
+}
+- (void)sampleMotion {
+    if (!self.motionPlayer.window) return;
+    CGFloat p = SGRTabBarCollapseProgress();
+    if (self.motionTrace.count && fabs(self.motionTrace.lastObject[1].doubleValue - p) < 0.00001) return;
+    CALayer *layer = self.motionPlayer.layer.presentationLayer ?: self.motionPlayer.layer;
+    CGRect frame = [layer convertRect:layer.bounds toLayer:self.view.layer.presentationLayer ?: self.view.layer];
+    if (self.motionTrace.count < 512) [self.motionTrace addObject:@[@(CACurrentMediaTime()), @(p),
+        @(frame.origin.x), @(frame.origin.y), @(frame.size.width), @(frame.size.height)]];
 }
 - (void)forceRelayout {
     [self.npb setNeedsLayout];
@@ -326,6 +344,9 @@ static UIView *identified(UIView *root, NSString *identifier) {
     [self updateStatus];
 }
 - (void)updateStatus {
+    if (!self.motionPlayer) SGForEachView(self.view, ^(UIView *view) {
+        if ([NSStringFromClass(view.class) isEqualToString:@"SGRMiniPlayer"]) self.motionPlayer = view;
+    });
     CGRect navbar = SGRTabBarFrameIn(self.view);
     CGRect glass = SGRNowPlayingCardFrameIn(self.view, NULL);
     UIView *card = identified(self.npb, @"SPTNowPlayingBar");
@@ -346,7 +367,7 @@ static UIView *identified(UIView *root, NSString *identifier) {
     NSMutableDictionary *state = [@{@"progress": @(SGRTabBarCollapseProgress()), @"widthError": @(contentError),
         @"glassError": @(glassError), @"photo": @(self.photo.alpha), @"fade": @(self.tabs.barBackground.alpha),
         @"binding": @(self.bindingPassed), @"bar": [NSString stringWithFormat:@"%p", bar], @"tabs": @(bar.items.count),
-        @"native": @(SGRNativeTabMotionActive()), @"hostFades": @(hostFades)} mutableCopy];
+        @"native": @(SGRNativeTabMotionActive()), @"hostFades": @(hostFades), @"motionTrace": self.motionTrace ?: @[]} mutableCopy];
     [state addEntriesFromDictionary:SGRNativeTabMotionState()];
     NSData *json = [NSJSONSerialization dataWithJSONObject:state options:NSJSONWritingSortedKeys error:nil];
     self.status.text = @"UI runtime test status";

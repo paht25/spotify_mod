@@ -169,8 +169,9 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/NativeTabMotion.x 
 new file mode 100644
 --- /dev/null
 +++ b/taurus-rc/source/tweak/Sources/Redesigned/Navbar/NativeTabMotion.x
-@@ -0,0 +1,246 @@
-+// Motion source: spoti.pw v0.23.0-beta, TabBar.x (49e02e204f397b1e4197876dd622d4ee1663188e).
+@@ -0,0 +1,300 @@
++// Motion source: user-supplied spoti.pw-0.23.0-beta.zip, Redesigned/Navbar/TabBar.x.
++// Archive SHA-256: 75cd6a8946077d2e9ac99bfe9c3ff868abdcbde6639e30babaf318827e4b847f.
 +// UIKit watches the actual foreground list through setContentScrollView:forEdge: and animates a
 +// UITabAccessory. Only its geometry is used here: its view is masked out, cannot receive touches,
 +// and never replaces the user's existing SGRSystemTabBar or expanded Now Playing controls.
@@ -192,15 +193,33 @@ new file mode 100644
 +@property (nonatomic, weak) UIScrollView *followedList;
 +@property (nonatomic) CGFloat expandedWidth, inlineWidth;
 +@property (nonatomic) NSUInteger restingFrames;
++@property (nonatomic) BOOL bindingList;
 +- (void)wake;
 +- (void)sample;
 +- (void)follow:(UIScrollView *)list;
 +- (void)expand;
++- (void)bindFollowedList;
 +@end
 +
 +static SGRNativeMotion *sg_motion;
 +static BOOL sg_syncingMotion;
 +static char kPanObserved;
++
++// Copied from 0.23.0's SGRInlinePage: UIKit re-reads the named external scroll view on appearance.
++@interface SGRNativePage : UIViewController
++@end
++@implementation SGRNativePage
++- (void)loadView {
++    UIView *view = [UIView new];
++    view.backgroundColor = UIColor.clearColor;
++    view.userInteractionEnabled = NO;
++    self.view = view;
++}
++- (void)viewWillAppear:(BOOL)animated {
++    [super viewWillAppear:animated];
++    [sg_motion bindFollowedList];
++}
++@end
 +
 +static BOOL motionEnabled(void) {
 +    id stored = [NSUserDefaults.standardUserDefaults objectForKey:SGRKeyNavbarMinimize];
@@ -225,13 +244,11 @@ new file mode 100644
 +            [tabs addObject:[[UITab alloc] initWithTitle:i ? @"Motion" : @"Home"
 +                image:[UIImage systemImageNamed:@"house"] identifier:[NSString stringWithFormat:@"motion.%lu", (unsigned long)i]
 +                viewControllerProvider:^UIViewController *(UITab *tab) {
-+                    UIViewController *page = [UIViewController new];
-+                    page.view.backgroundColor = UIColor.clearColor;
-+                    return page;
++                    return [SGRNativePage new];
 +                }]];
 +        }
 +        UISearchTab *trailing = [[UISearchTab alloc] initWithViewControllerProvider:^UIViewController *(UITab *tab) {
-+            return [UIViewController new];
++            return [SGRNativePage new];
 +        }];
 +        trailing.automaticallyActivatesSearch = NO;
 +        [tabs addObject:trailing];
@@ -286,7 +303,8 @@ new file mode 100644
 +        if (progress < 0.002) progress = 0;
 +        if (progress > 0.998) progress = 1;
 +        BOOL settled = fabs(progress - SGRTabBarCollapseProgress()) < 0.0001 && (progress == 0 || progress == 1);
-+        SGRRenderTabBarProgress(progress);
++        // A steady accessory needs no visible re-layout. Keep sampling only through the morph.
++        if (!settled) SGRRenderTabBarProgress(progress);
 +        if (settled && ++self.restingFrames > 20) self.clock.paused = YES;
 +        else if (!settled) self.restingFrames = 0;
 +    }
@@ -294,31 +312,53 @@ new file mode 100644
 +- (void)follow:(UIScrollView *)list {
 +    if (!list.window || list == self.followedList) return;
 +    self.followedList = list;
-+    UIViewController *page = self.selectedViewController;
-+    [page setContentScrollView:list forEdge:NSDirectionalRectEdgeAll];
-+    // As in 0.23.0, UIKit re-reads a replacement list when the page is selected.
-+    [UIView performWithoutAnimation:^{
-+        self.selectedIndex = 1;
-+        self.selectedIndex = 0;
-+    }];
-+    SGLog(@"UIFIX r2: native motion follows %@", NSStringFromClass(list.class));
++    [self bindFollowedList];
++    SGLog(@"UIFIX r3: native motion follows %@", NSStringFromClass(list.class));
 +    [self wake];
++}
++- (void)bindFollowedList {
++    // Port of 0.23.0 nameScrollView(), including the re-entrant appearance guard.
++    UIScrollView *list = self.followedList;
++    UIViewController *page = self.selectedViewController;
++    if (!page || !list.window || self.bindingList) return;
++    if ([page contentScrollViewForEdge:NSDirectionalRectEdgeBottom] == list) return;
++    [page setContentScrollView:list forEdge:NSDirectionalRectEdgeAll];
++    if (!self.viewIfLoaded.window) return;
++    if (@available(iOS 26.0, *)) {
++        UITab *selected = self.selectedTab, *other = nil;
++        for (UITab *tab in self.tabs)
++            if (tab != selected && ![tab isKindOfClass:UISearchTab.class]) { other = tab; break; }
++        if (!selected || !other) return;
++        self.bindingList = YES;
++        [UIView performWithoutAnimation:^{ self.selectedTab = other; self.selectedTab = selected; }];
++        self.bindingList = NO;
++    }
 +}
 +- (void)expand {
 +    if (@available(iOS 26.0, *)) {
-+        // A controller used solely as a motion source can keep its selected page minimized
-+        // across selection changes. Never requests UIKit's actual expanded accessory geometry.
-+        if (self.tabBarMinimizeBehavior != UITabBarMinimizeBehaviorNever)
++        if (self.tabBarMinimizeBehavior == UITabBarMinimizeBehaviorNever) return;
++        // Changing behavior outside an animation transaction can snap the accessory to regular.
++        // Animate UIKit's layout itself, so a reverse drag supplies a continuous native geometry
++        // curve to the same player and tab renderer, including when interrupted halfway through.
++        void (^expand)(void) = ^{
 +            self.tabBarMinimizeBehavior = UITabBarMinimizeBehaviorNever;
++            [self.view layoutIfNeeded];
++        };
++        if (UIAccessibilityIsReduceMotionEnabled()) [UIView performWithoutAnimation:expand];
++        else [UIView animateWithDuration:SGRNavbarMotionDuration delay:0 usingSpringWithDamping:1 initialSpringVelocity:0
++            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
++            animations:expand completion:nil];
 +    }
 +    [self wake];
 +}
 +- (void)playerStateDidChange:(SPTPlayerState *)state {
 +    if (@available(iOS 26.0, *)) {
 +        UITabAccessory *accessory = SGRNowPlayingAvailable() && motionEnabled() ? self.motionAccessory : nil;
-+        if (self.bottomAccessory != accessory) [self setBottomAccessory:accessory animated:NO];
-+        if (!accessory) SGRRenderTabBarProgress(0);
-+        [self wake];
++        if (self.bottomAccessory != accessory) {
++            [self setBottomAccessory:accessory animated:NO];
++            if (!accessory) SGRRenderTabBarProgress(0);
++            [self wake];
++        }
 +    }
 +}
 +@end
@@ -351,6 +391,15 @@ new file mode 100644
 +        if (r == root.nextResponder) break;
 +    }
 +    return YES;
++}
++
++// 0.23.0 considers lists when they enter the window, including the deferred appearance pass;
++// keep the inner list when a containing scroll view arrives afterward.
++static void considerPageList(UIScrollView *list) {
++    if (!sg_motion || !pageList(list) || sg_motion.followedList == list) return;
++    UIScrollView *current = sg_motion.followedList;
++    if (current.window && [current isDescendantOfView:list]) return;
++    [sg_motion follow:list];
 +}
 +
 +void SGRSyncNativeTabMotion(void) {
@@ -404,9 +453,14 @@ new file mode 100644
 +%hook UIScrollView
 +- (void)didMoveToWindow {
 +    %orig;
-+    if (!self.window || objc_getAssociatedObject(self, &kPanObserved)) return;
-+    objc_setAssociatedObject(self, &kPanObserved, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-+    [self.panGestureRecognizer addTarget:SGRNativeScrollPan.class action:@selector(dragged:)];
++    if (!self.window) return;
++    if (!objc_getAssociatedObject(self, &kPanObserved)) {
++        objc_setAssociatedObject(self, &kPanObserved, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++        [self.panGestureRecognizer addTarget:SGRNativeScrollPan.class action:@selector(dragged:)];
++    }
++    considerPageList(self);
++    __weak UIScrollView *weakSelf = self;
++    dispatch_async(dispatch_get_main_queue(), ^{ considerPageList(weakSelf); });
 +}
 +%end
 +
@@ -574,7 +628,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  
  // Sets a view's place without its frame, which means nothing while it is scaled.
-@@ -404,6 +429,40 @@
+@@ -404,6 +429,56 @@
      return [host convertRect:row toView:nil];
  }
  
@@ -585,6 +639,23 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +        a.size.height + (b.size.height - a.size.height) * p);
 +}
 +
++// The reference accessory lets UIKit animate already prepared content. Cache this bar's
++// equivalent geometry; walking Spotify's labels and recreating glyphs is not scroll-frame work.
++static __weak UIView *sg_motionHost;
++static CGRect sg_motionHostBounds, sg_motionBarBounds, sg_motionRow;
++static CGRect sg_motionCircles[2], sg_motionShapes[2];
++static NSArray<SGRDockButton *> *sg_motionButtons;
++static BOOL sg_motionGeometryValid;
++
++static void prepareMotionGeometry(UIView *stockBar, UIView *host, SGRSystemTabBar *bar) {
++    sg_motionRow = layoutDock(stockBar, host, bar, sg_motionCircles, sg_motionShapes);
++    sg_motionButtons = dockButtons(stockBar);
++    sg_motionHost = host;
++    sg_motionHostBounds = host.bounds;
++    sg_motionBarBounds = bar.bounds;
++    sg_motionGeometryValid = YES;
++}
++
 +void SGRRenderTabBarProgress(CGFloat progress) {
 +    progress = MAX(0, MIN(1, progress));
 +    sg_motionProgress = progress;
@@ -593,15 +664,14 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +    UIView *host = objc_getAssociatedObject(stockBar, &kHostKey);
 +    SGRSystemTabBar *bar = objc_getAssociatedObject(stockBar, &kBarKey);
 +    if (!host.window || !bar.sources.count) return;
-+    CGRect circles[2], shapes[2];
-+    CGRect row = layoutDock(stockBar, host, bar, circles, shapes);
-+    NSArray<SGRDockButton *> *buttons = dockButtons(stockBar);
++    if (!sg_motionGeometryValid || sg_motionHost != host ||
++        !CGRectEqualToRect(sg_motionHostBounds, host.bounds) || !CGRectEqualToRect(sg_motionBarBounds, bar.bounds))
++        prepareMotionGeometry(stockBar, host, bar);
 +    [CATransaction begin];
 +    [CATransaction setDisableActions:YES];
 +    for (NSUInteger i = 0; i < 2; i++) {
-+        SGRDockButton *button = buttons[i];
-+        place(button, blendFrame(shapes[i], circles[i], progress));
-+        [button layoutIfNeeded];
++        SGRDockButton *button = sg_motionButtons[i];
++        place(button, blendFrame(sg_motionShapes[i], sg_motionCircles[i], progress));
 +        button.alpha = progress;
 +        button.glyph.alpha = 1;
 +        button.userInteractionEnabled = progress > 0.9;
@@ -609,13 +679,13 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +    bar.alpha = 1 - progress;
 +    bar.userInteractionEnabled = progress < 0.1;
 +    [CATransaction commit];
-+    SGRRenderNowPlayingProgress(progress, row, host);
++    SGRRenderNowPlayingProgress(progress, sg_motionRow, host);
 +}
 +
  // Minimizing gathers the bar into its two ends; expanding is the reverse, and the buttons are what moves: the first
  // widens into the capsule of the tabs, the last grows into the search circle, and the bar's own drawing takes over
  // as they arrive, so the circles read as the bar opening out rather than one thing replaced by another.
-@@ -453,25 +512,10 @@
+@@ -453,25 +528,10 @@
      [UIView performWithoutAnimation:start];
      // Springs with no bounce: a scroll turned around mid-way starts from where the buttons are.
      UIViewAnimationOptions options = UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction;
@@ -645,7 +715,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  
  #pragma mark - the system bar
-@@ -562,21 +606,24 @@
+@@ -562,21 +622,24 @@
      }
      _fade.colors = colors;
      _fade.locations = locations;
@@ -674,7 +744,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      CGRect bounds = self.bounds;
      CGRect fade = CGRectMake(0, -kFadeRise, bounds.size.width, bounds.size.height + kFadeRise);
      if (!CGRectEqualToRect(_fade.frame, fade)) _fade.frame = fade;
-@@ -596,6 +643,8 @@
+@@ -596,6 +659,8 @@
  @end
  
  void SGRSetTabBarGradientVisible(BOOL visible) {
@@ -683,7 +753,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      UIView *stockBar = sg_stockBar;
      if (stockBar) syncBar(stockBar);
      UIView *host = objc_getAssociatedObject(stockBar, &kHostKey);
-@@ -605,6 +654,8 @@
+@@ -605,6 +670,8 @@
          [host layoutIfNeeded];
      }
      SGRRefreshTabBar();
@@ -692,7 +762,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  
  @interface SGRHomeHold : UILongPressGestureRecognizer
-@@ -650,6 +701,31 @@
+@@ -650,6 +717,31 @@
          if ([r isKindOfClass:containerClass]) return (UIViewController *)r;
      }
      return nil;
@@ -724,14 +794,18 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  
  static void makeRoom(UIViewController *container) {
-@@ -757,11 +833,26 @@
+@@ -757,11 +849,30 @@
      if (host.superview != stockBar) [stockBar addSubview:host];
      else if (stockBar.subviews.lastObject != host) [stockBar bringSubviewToFront:host];
      if (host.window) {
 -        CGRect row = layoutDock(stockBar, host, bar, NULL, NULL);
 -        if (sg_minimized) SGRDockNowPlayingCard(YES, row, host, NO);
 +        [bar layoutIfNeeded];
-+        if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(sg_motionProgress);
++        if (SGRNativeTabMotionActive()) {
++            // A real navbar layout/selection change refreshes glyphs and geometry once.
++            prepareMotionGeometry(stockBar, host, bar);
++            SGRRenderTabBarProgress(sg_motionProgress);
++        }
 +        else {
 +            CGRect row = layoutDock(stockBar, host, bar, NULL, NULL);
 +            if (sg_minimized) SGRDockNowPlayingCard(YES, row, host, NO);
@@ -849,7 +923,67 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
  
  CGRect SGRNowPlayingCardFrameIn(UIView *host, CGFloat *radius) {
      UIVisualEffectView *glass = sg_cardGlass;
-@@ -395,10 +397,11 @@
+@@ -214,6 +216,7 @@
+ @property (nonatomic, readonly) UIButton *toggle;
+ @property (nonatomic, readonly) UIButton *open;
+ @property (nonatomic) BOOL paused;
++@property (nonatomic) BOOL transitioning;
+ - (void)showTitle:(NSString *)title cover:(UIImage *)cover paused:(BOOL)paused;
+ // Starts a long title scrolling again (an animation does not outlive the app in the background or the pill being off screen).
+ - (void)resumeMarquee;
+@@ -224,6 +227,7 @@
+ 
+ @implementation SGRMiniPlayer {
+     NSString *_marqueeKey;
++    CGFloat _measuredTitleWidth;
+ }
+ 
+ - (instancetype)init {
+@@ -289,9 +293,15 @@
+ 
+ - (void)layoutTitle {
+     CGFloat clip = _titleClip.bounds.size.width, height = _titleClip.bounds.size.height;
+-    CGFloat text = ceil([_title.text ?: @"" sizeWithAttributes:@{NSFontAttributeName: _title.font}].width);
++    if (_transitioning) {
++        _title.frame = CGRectMake(0, 0, clip, height);
++        return;
++    }
++    CGFloat text = _measuredTitleWidth;
+     BOOL overflows = text > clip + 0.5 && clip > 0;
+-    BOOL moves = overflows && !UIAccessibilityIsReduceMotionEnabled();
++    // Like 0.23.0's accessory, lay out content directly while UIKit changes the available space.
++    // A marquee starts only at rest: rebuilding a mask and animation at every new width stutters.
++    BOOL moves = overflows && !_transitioning && !UIAccessibilityIsReduceMotionEnabled();
+     // Under Reduce Motion a long title is cut with an ellipsis instead, as before.
+     CGRect frame = CGRectMake(0, 0, moves ? text : clip, height);
+     NSString *key = [NSString stringWithFormat:@"%@|%.1f|%d", _title.text, clip, moves];
+@@ -335,6 +345,17 @@
+     [self setNeedsLayout];
+ }
+ 
++- (void)setTransitioning:(BOOL)transitioning {
++    if (_transitioning == transitioning) return;
++    _transitioning = transitioning;
++    if (transitioning) {
++        [_title.layer removeAnimationForKey:@"marquee"];
++        _titleClip.layer.mask = nil;
++    }
++    _marqueeKey = nil;
++    [self setNeedsLayout];
++}
++
+ - (void)dealloc {
+     [NSNotificationCenter.defaultCenter removeObserver:self];
+ }
+@@ -350,6 +371,7 @@
+ - (void)showTitle:(NSString *)title cover:(UIImage *)cover paused:(BOOL)paused {
+     if (title.length && ![_title.text isEqualToString:title]) {
+         _title.text = title;
++        _measuredTitleWidth = ceil([title sizeWithAttributes:@{NSFontAttributeName: _title.font}].width);
+         [self setNeedsLayout];
+     }
+     _open.accessibilityLabel = _title.text;
+@@ -395,10 +417,11 @@
  }
  
  static BOOL hasTrack(void) {
@@ -862,7 +996,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
      if (sg_cardContent && SGIsInside(sg_cardContent, sgr_nowPlayingRoot)) restyleCardContent(sg_cardContent);
      updateMiniProgress();
      [sg_mini setNeedsLayout];
-@@ -513,7 +516,7 @@
+@@ -513,7 +536,7 @@
          return;
      }
      // A spring with no bounce: nothing was thrown, and it starts from wherever the pill is now if it is turned around.
@@ -871,7 +1005,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
                          options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
                       animations:apply completion:nil];
  }
-@@ -525,7 +528,76 @@
+@@ -525,7 +548,79 @@
      applyDock(animated && !UIAccessibilityIsReduceMotionEnabled());
  }
  
@@ -880,8 +1014,12 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
 +    UIView *view = sg_container.viewIfLoaded;
 +    if (!view || !host.window || !sg_cardGlass.superview) return;
 +    SGRMiniPlayer *mini = miniPlayer();
-+    if (mini.superview != host) [host addSubview:mini];
-+    refreshMini();
++    if (mini.superview != host) {
++        [host addSubview:mini];
++        refreshMini();
++    }
++    // Track/cover observers refresh content. Scroll frames only change geometry, as in 0.23.0.
++    mini.transitioning = progress > 0 && progress < 1;
 +    CGRect card = [host convertRect:sg_cardGlass.bounds fromView:sg_cardGlass];
 +    CGRect target = [host convertRect:row fromView:nil];
 +    target.origin.y = CGRectGetMidY(target) - kPillHeight / 2;
@@ -891,8 +1029,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
 +        card.size.width + (target.size.width - card.size.width) * progress,
 +        card.size.height + (target.size.height - card.size.height) * progress);
 +    [UIView performWithoutAnimation:^{
-+        mini.frame = frame;
-+        [mini layoutIfNeeded];
++        if (!CGRectEqualToRect(mini.frame, frame)) mini.frame = frame;
 +        mini.alpha = progress;
 +        view.alpha = 1 - progress;
 +    }];
@@ -949,7 +1086,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
      UIViewController *barVC = container.childViewControllers.firstObject;
      UIView *bar = barVC.viewIfLoaded ?: container.view;
      sgr_nowPlayingRoot = bar;
-@@ -534,6 +606,18 @@
+@@ -534,6 +629,18 @@
      UIView *card = sgr_nowPlayingCard;
      if (!card || !SGIsInside(card, bar)) card = sgr_nowPlayingCard = detectColoredCard(bar);
  
@@ -968,7 +1105,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
      container.view.layer.backgroundColor = NULL;
      SGStripBackgrounds(bar);
  
-@@ -541,6 +625,10 @@
+@@ -541,6 +648,10 @@
      if (CGRectIsNull(frame)) return;
      frame.size.height = MIN(frame.size.height, 80);
      if (frame.size.height < 30 || frame.size.width < 100) return;
@@ -979,9 +1116,12 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/NowPlayingBar/NowPlayingB
  
      CGFloat radius = MIN(kCardRadius, frame.size.height / 2);
      if (card) {
-@@ -554,14 +642,26 @@
+@@ -553,15 +664,29 @@
+     sg_cardGlass = glass;
      glass.frame = frame;
      SGShapeGlass(glass, radius, NO);
++    // Artwork may arrive on a card layout after the track observer fired.
++    refreshMini();
      // A new track can change the card's size and brings its cover; the pill follows them.
 -    if (sg_docked) applyDock(NO);
 +    if (SGRNativeTabMotionActive()) SGRRenderTabBarProgress(SGRTabBarCollapseProgress());

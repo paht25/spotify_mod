@@ -10,6 +10,9 @@ Các thay đổi UI:
 - Tắt Bottom navbar gradient sẽ gỡ fade riêng và ẩn bottom scroll-edge effect tương ứng.
 - Dùng chuyển động UIKit từ cơ chế của IPA mẫu 0.23.0 để thu gọn/mở lại player và tab khi cuộn;
   navbar gốc vẫn là thanh đang hiển thị, không thay bằng navbar của mẫu.
+  Bản r3 đối chiếu trực tiếp ZIP source 0.23.0 bạn gửi: chuyển phần gắn scroll view/appearance,
+  cache vị trí và icon, cập nhật bài hát qua observer, dừng marquee trong lúc morph và animate
+  layout UIKit khi đảo chiều để tránh nhảy về trạng thái mở rộng.
 - Show profile photo điều khiển cả hiển thị, tương tác và VoiceOver, kể cả khi header cập nhật lại.
 
 Giữ nguyên navbar gốc khi mở rộng: các tab, thứ tự, icon, nhãn và chất liệu glass.
@@ -21,7 +24,7 @@ Source của giao diện Native không thay đổi.
 2. Để trống hai ô input để dùng IPA PwEevee 3.1.6.1 từ release gốc đã ghim SHA-256.
    Nếu muốn dùng đúng file IPA riêng của bạn, nhập link tải HTTPS trực tiếp và SHA-256 của file đó.
 3. Chờ `checks`, `runtime` và `build` thành công. `runtime` kéo cuộn thật và thao tác toggle trên simulator.
-4. Mở run, tải artifact **PwEevee-3.1.6.1-ui-fixes-r2** rồi giải nén.
+4. Mở run, tải artifact **PwEevee-3.1.6.1-ui-fixes-r3** rồi giải nén.
 5. Ký lại file `.ipa` bằng công cụ sideload bạn đang dùng, sau đó cài lên iPhone.
 
 Push vào `main` cũng tự chạy build. Workflow không cần certificate hoặc secret để xuất IPA chờ ký.
@@ -42,6 +45,8 @@ Khi không có bài, navbar phải giữ trạng thái mở rộng. Với Reduce
 CI kiểm tra build, nội dung archive và hành vi UIKit trong fixture simulator. Artifact
 `ui-runtime-results` chứa ảnh và kết quả test. Fixture không phải toàn bộ app Spotify; hiệu ứng hiển thị
 và timing vẫn cần xác nhận trên thiết bị thật.
+Lượt test cuộn lưu thêm video simulator và trace từng khung hình, kiểm tra cả chiều thu gọn/mở lại
+có nhiều trạng thái trung gian và không nhảy quá 35% tiến trình trong một khung hình.
 
 ## Source và kiểm tra
 
