@@ -2,6 +2,34 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+@interface TapProbe : NSObject
+@end
+@implementation TapProbe
++ (void)called:(id)sender { printf("TAP CLASS FIRED\n"); }
+- (void)called:(id)sender { printf("TAP INSTANCE FIRED\n"); }
+@end
+static void inspectTap(UIView *view, id target) {
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:target action:@selector(called:)];
+    [view addGestureRecognizer:recognizer];
+    printf("TAP enabled %d targetkind %s\n", recognizer.enabled, class_getName(object_getClass(target)));
+    Ivar targetsIvar = class_getInstanceVariable(UIGestureRecognizer.class, "_targets");
+    printf("TAP targetsivar %p\n", targetsIvar);
+    if (!targetsIvar) return;
+    for (id pair in object_getIvar(recognizer, targetsIvar)) {
+        printf("TAP PAIR %s\n", class_getName([pair class]));
+        unsigned int count; Ivar *ivars=class_copyIvarList([pair class], &count);
+        for(unsigned int i=0;i<count;i++) printf("TAP IVAR %s %s\n", ivar_getName(ivars[i]), ivar_getTypeEncoding(ivars[i]));
+        free(ivars);
+        Ivar ti=class_getInstanceVariable([pair class],"_target"), ai=class_getInstanceVariable([pair class],"_action");
+        if (!ti || !ai) continue;
+        id t=object_getIvar(pair,ti);
+        SEL a=*(SEL *)((char *)(__bridge void *)pair+ivar_getOffset(ai));
+        printf("TAP REPLAY %p %s valid %d\n", t, a ? sel_getName(a) : "nil", [t respondsToSelector:a]);
+        if (t && a && [t respondsToSelector:a]) ((void (*)(id,SEL,id))objc_msgSend)(t,a,recognizer);
+    }
+}
+static BOOL settingFrame;
+static BOOL centerAdjusted;
 @interface ProbePlayer : UIView @end
 @implementation ProbePlayer
 - (CGSize)intrinsicContentSize { return CGSizeMake(UIViewNoIntrinsicMetric, 56); }
@@ -94,7 +122,9 @@ static void tree(UIView *view, NSUInteger level) {
         IMP original = method_getImplementation(method);
         IMP replacement = imp_implementationWithBlock(^(UIView *receiver, CGRect value) {
             if (receiver == container && fabs(value.size.height - 48) < .1) { value.origin.y -= 8; value.size.height += 8; }
+            settingFrame=YES;
             ((void (*)(id, SEL, CGRect))original)(receiver, frameSelector, value);
+            settingFrame=NO;
         });
         if (!class_addMethod(cls, frameSelector, replacement, method_getTypeEncoding(method)))
             class_replaceMethod(cls, frameSelector, replacement, method_getTypeEncoding(method));
@@ -107,6 +137,19 @@ static void tree(UIView *view, NSUInteger level) {
         });
         if (!class_addMethod(cls, boundsSelector, boundsReplacement, method_getTypeEncoding(boundsMethod)))
             class_replaceMethod(cls, boundsSelector, boundsReplacement, method_getTypeEncoding(boundsMethod));
+        SEL cs=@selector(setCenter:); Method cm=class_getInstanceMethod(cls,cs); IMP co=method_getImplementation(cm);
+        IMP cr=imp_implementationWithBlock(^(UIView *receiver, CGPoint value) {
+            if(receiver==container && !settingFrame) {
+                if(!centerAdjusted || !CGPointEqualToPoint(value,receiver.center)) value.y-=4;
+                centerAdjusted=YES;
+            }
+            ((void (*)(id,SEL,CGPoint))co)(receiver,cs,value);
+        });
+        if(!class_addMethod(cls,cs,cr,method_getTypeEncoding(cm))) class_replaceMethod(cls,cs,cr,method_getTypeEncoding(cm));
+        UIView *targetView=[UIView new]; [tabs.view addSubview:targetView];
+        targetView.alpha=0; targetView.userInteractionEnabled=NO;
+        inspectTap(targetView,TapProbe.class);
+        TapProbe *tapObject=[TapProbe new]; inspectTap(targetView,tapObject);
         CGRect before = container.frame;
         container.frame = before;
         printf("AFTER ASSIGN %s BOUNDS %s\n", NSStringFromCGRect(container.frame).UTF8String, NSStringFromCGRect(container.bounds).UTF8String);
