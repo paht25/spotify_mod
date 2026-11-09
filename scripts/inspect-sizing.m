@@ -10,8 +10,9 @@ int main(void) {
     @autoreleasepool {
         printf("UIKit accessory: %s\n", class_getName(UITabAccessory.class));
         int count = objc_getClassList(NULL, 0);
-        Class *classes = calloc(count, sizeof(Class));
-        count = objc_getClassList(classes, count);
+        int capacity = count;
+        Class __unsafe_unretained *classes = (Class __unsafe_unretained *)calloc(capacity, sizeof(Class));
+        count = MIN(objc_getClassList(classes, capacity), capacity);
         for (int i = 0; i < count; i++) {
             NSString *name = NSStringFromClass(classes[i]);
             NSString *lower = name.lowercaseString;
