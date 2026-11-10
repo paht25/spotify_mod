@@ -568,9 +568,12 @@ static BOOL sg_accessorySizingInstalled;
 static char kAccessoryCenterKey;
 
 static CGFloat accessoryHeightDelta(UIView *container) {
-    UIView *mini = sg_inlineTabs.bottomAccessory.contentView;
-    if (!mini || mini.superview != container || sg_inlineTabs.minimized) return 0;
-    return SGRNowPlayingExpandedHeight() - 48;
+    if (@available(iOS 26.0, *)) {
+        UIView *mini = sg_inlineTabs.bottomAccessory.contentView;
+        if (!mini || mini.superview != container || sg_inlineTabs.minimized) return 0;
+        return SGRNowPlayingExpandedHeight() - 48;
+    }
+    return 0;
 }
 
 %group SGRInlineAccessorySizing
@@ -603,7 +606,7 @@ static CGFloat accessoryHeightDelta(UIView *container) {
 %end
 %end
 
-static void preserveAccessorySize(SGRInlineTabs *tabs) {
+static void preserveAccessorySize(SGRInlineTabs *tabs) API_AVAILABLE(ios(26.0)) {
     UIView *mini = tabs.bottomAccessory.contentView;
     UIView *container = mini.superview;
     if (!container || ![NSStringFromClass(container.class) hasSuffix:@"_UITabAccessoryContainer"]) return;
@@ -1173,30 +1176,33 @@ void SGRSetTabBarGradientVisible(BOOL visible) {
 }
 
 NSDictionary *SGRNavbarInspection(void) {
-    UITabBar *reference = objc_getAssociatedObject(sg_stockBar, &kBarKey);
-    UIView *referenceHost = objc_getAssociatedObject(sg_stockBar, &kHostKey);
-    UIView *host = sg_inline ? sg_inlineHost : referenceHost;
-    UITabBar *bar = sg_inline ? sg_inlineTabs.tabBar : reference;
-    CGRect expected = reference.window ? [referenceHost convertRect:pillIn(referenceHost, reference) toView:nil] : CGRectZero;
-    CGRect actual = bar.window ? [host convertRect:pillIn(host, bar) toView:nil] : CGRectZero;
-    CGRect player = SGRNowPlayingCardFrameIn(host.window, NULL);
-    if (CGRectIsNull(player)) player = CGRectZero;
-    UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
-    CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
-    BOOL inlineMode = sg_inlineTabs.minimized;
-    return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode), @"sizingHook": @(sg_accessorySizingInstalled),
-        @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
-        @"tabs": @(sg_inline ? sg_inlineTabs.tabs.count : bar.items.count), @"bar": [NSString stringWithFormat:@"%p", bar],
-        @"accessory": [NSString stringWithFormat:@"%p", sg_inlineTabs.bottomAccessory],
-        @"expectedWidth": @(expected.size.width), @"expectedNavbarHeight": @(expected.size.height),
-        @"expectedPlayerHeight": @(SGRNowPlayingExpandedHeight()),
-        @"navbarWidth": @(actual.size.width), @"navbarHeight": @(actual.size.height),
-        @"playerWidth": @(player.size.width), @"playerHeight": @(player.size.height),
-        @"playerX": @(player.origin.x), @"playerY": @(player.origin.y),
-        @"playerContainerWidth": @(nativeFrame.size.width), @"playerContainerHeight": @(nativeFrame.size.height),
-        @"playerContainerY": @(nativeFrame.origin.y),
-        @"navbarX": @(actual.origin.x), @"navbarY": @(actual.origin.y),
-        @"followed": @(sg_pageScroll.window != nil), @"behavior": @(sg_inlineTabs.tabBarMinimizeBehavior)};
+    if (@available(iOS 26.0, *)) {
+        UITabBar *reference = objc_getAssociatedObject(sg_stockBar, &kBarKey);
+        UIView *referenceHost = objc_getAssociatedObject(sg_stockBar, &kHostKey);
+        UIView *host = sg_inline ? sg_inlineHost : referenceHost;
+        UITabBar *bar = sg_inline ? sg_inlineTabs.tabBar : reference;
+        CGRect expected = reference.window ? [referenceHost convertRect:pillIn(referenceHost, reference) toView:nil] : CGRectZero;
+        CGRect actual = bar.window ? [host convertRect:pillIn(host, bar) toView:nil] : CGRectZero;
+        CGRect player = SGRNowPlayingCardFrameIn(host.window, NULL);
+        if (CGRectIsNull(player)) player = CGRectZero;
+        UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
+        CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
+        BOOL inlineMode = sg_inlineTabs.minimized;
+        return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode), @"sizingHook": @(sg_accessorySizingInstalled),
+            @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
+            @"tabs": @(sg_inline ? sg_inlineTabs.tabs.count : bar.items.count), @"bar": [NSString stringWithFormat:@"%p", bar],
+            @"accessory": [NSString stringWithFormat:@"%p", sg_inlineTabs.bottomAccessory],
+            @"expectedWidth": @(expected.size.width), @"expectedNavbarHeight": @(expected.size.height),
+            @"expectedPlayerHeight": @(SGRNowPlayingExpandedHeight()),
+            @"navbarWidth": @(actual.size.width), @"navbarHeight": @(actual.size.height),
+            @"playerWidth": @(player.size.width), @"playerHeight": @(player.size.height),
+            @"playerX": @(player.origin.x), @"playerY": @(player.origin.y),
+            @"playerContainerWidth": @(nativeFrame.size.width), @"playerContainerHeight": @(nativeFrame.size.height),
+            @"playerContainerY": @(nativeFrame.origin.y),
+            @"navbarX": @(actual.origin.x), @"navbarY": @(actual.origin.y),
+            @"followed": @(sg_pageScroll.window != nil), @"behavior": @(sg_inlineTabs.tabBarMinimizeBehavior)};
+    }
+    return @{};
 }
 
 %ctor {

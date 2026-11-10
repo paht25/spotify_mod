@@ -2572,7 +2572,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      }
      if (selected && bar.selectedItem != selected) bar.selectedItem = selected;
      // An icon view Spotify has not built yet is looked for again shortly, not on the next touch.
-@@ -753,16 +503,553 @@
+@@ -753,16 +503,556 @@
      CGFloat height = MAX(bounds.size.height, glassHeight(bar, stockBar));
      CGRect frame = CGRectMake(0, CGRectGetMaxY(bounds) - height, width, height);
      if (!CGRectEqualToRect(host.frame, frame)) host.frame = frame;
@@ -2646,9 +2646,12 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +static char kAccessoryCenterKey;
 +
 +static CGFloat accessoryHeightDelta(UIView *container) {
-+    UIView *mini = sg_inlineTabs.bottomAccessory.contentView;
-+    if (!mini || mini.superview != container || sg_inlineTabs.minimized) return 0;
-+    return SGRNowPlayingExpandedHeight() - 48;
++    if (@available(iOS 26.0, *)) {
++        UIView *mini = sg_inlineTabs.bottomAccessory.contentView;
++        if (!mini || mini.superview != container || sg_inlineTabs.minimized) return 0;
++        return SGRNowPlayingExpandedHeight() - 48;
++    }
++    return 0;
 +}
 +
 +%group SGRInlineAccessorySizing
@@ -2681,7 +2684,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +%end
 +%end
 +
-+static void preserveAccessorySize(SGRInlineTabs *tabs) {
++static void preserveAccessorySize(SGRInlineTabs *tabs) API_AVAILABLE(ios(26.0)) {
 +    UIView *mini = tabs.bottomAccessory.contentView;
 +    UIView *container = mini.superview;
 +    if (!container || ![NSStringFromClass(container.class) hasSuffix:@"_UITabAccessoryContainer"]) return;
@@ -3131,7 +3134,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  
  #pragma mark - hooks
  
-@@ -776,11 +1063,6 @@
+@@ -776,11 +1066,6 @@
  static BOOL sg_barPass, sg_itemsLaidOut;
  
  %hook _TtC23NavigationUI_TabBarImpl10TabBarView
@@ -3143,7 +3146,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  - (void)layoutSubviews {
      %orig;
      SGRComposeTabBar((UIView *)self);
-@@ -822,6 +1104,15 @@
+@@ -822,6 +1107,15 @@
  - (void)layoutSubviews {
      %orig;
      itemDidLayOut((UIView *)self);
@@ -3159,7 +3162,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  %end
  
-@@ -834,19 +1125,90 @@
+@@ -834,19 +1128,93 @@
          if (bar) syncBar(bar);
      });
  }
@@ -3211,30 +3214,33 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
 +}
 +
 +NSDictionary *SGRNavbarInspection(void) {
-+    UITabBar *reference = objc_getAssociatedObject(sg_stockBar, &kBarKey);
-+    UIView *referenceHost = objc_getAssociatedObject(sg_stockBar, &kHostKey);
-+    UIView *host = sg_inline ? sg_inlineHost : referenceHost;
-+    UITabBar *bar = sg_inline ? sg_inlineTabs.tabBar : reference;
-+    CGRect expected = reference.window ? [referenceHost convertRect:pillIn(referenceHost, reference) toView:nil] : CGRectZero;
-+    CGRect actual = bar.window ? [host convertRect:pillIn(host, bar) toView:nil] : CGRectZero;
-+    CGRect player = SGRNowPlayingCardFrameIn(host.window, NULL);
-+    if (CGRectIsNull(player)) player = CGRectZero;
-+    UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
-+    CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
-+    BOOL inlineMode = sg_inlineTabs.minimized;
-+    return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode), @"sizingHook": @(sg_accessorySizingInstalled),
-+        @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
-+        @"tabs": @(sg_inline ? sg_inlineTabs.tabs.count : bar.items.count), @"bar": [NSString stringWithFormat:@"%p", bar],
-+        @"accessory": [NSString stringWithFormat:@"%p", sg_inlineTabs.bottomAccessory],
-+        @"expectedWidth": @(expected.size.width), @"expectedNavbarHeight": @(expected.size.height),
-+        @"expectedPlayerHeight": @(SGRNowPlayingExpandedHeight()),
-+        @"navbarWidth": @(actual.size.width), @"navbarHeight": @(actual.size.height),
-+        @"playerWidth": @(player.size.width), @"playerHeight": @(player.size.height),
-+        @"playerX": @(player.origin.x), @"playerY": @(player.origin.y),
-+        @"playerContainerWidth": @(nativeFrame.size.width), @"playerContainerHeight": @(nativeFrame.size.height),
-+        @"playerContainerY": @(nativeFrame.origin.y),
-+        @"navbarX": @(actual.origin.x), @"navbarY": @(actual.origin.y),
-+        @"followed": @(sg_pageScroll.window != nil), @"behavior": @(sg_inlineTabs.tabBarMinimizeBehavior)};
++    if (@available(iOS 26.0, *)) {
++        UITabBar *reference = objc_getAssociatedObject(sg_stockBar, &kBarKey);
++        UIView *referenceHost = objc_getAssociatedObject(sg_stockBar, &kHostKey);
++        UIView *host = sg_inline ? sg_inlineHost : referenceHost;
++        UITabBar *bar = sg_inline ? sg_inlineTabs.tabBar : reference;
++        CGRect expected = reference.window ? [referenceHost convertRect:pillIn(referenceHost, reference) toView:nil] : CGRectZero;
++        CGRect actual = bar.window ? [host convertRect:pillIn(host, bar) toView:nil] : CGRectZero;
++        CGRect player = SGRNowPlayingCardFrameIn(host.window, NULL);
++        if (CGRectIsNull(player)) player = CGRectZero;
++        UIView *nativeContainer = sg_inlineTabs.bottomAccessory.contentView.superview;
++        CGRect nativeFrame = nativeContainer.window ? [nativeContainer convertRect:nativeContainer.bounds toView:nil] : CGRectZero;
++        BOOL inlineMode = sg_inlineTabs.minimized;
++        return @{@"inlineOption": @(sg_inline), @"nativeInline": @(inlineMode), @"sizingHook": @(sg_accessorySizingInstalled),
++            @"nativeController": @(sg_inlineTabs != nil), @"nativeAccessory": @(sg_inlineTabs.bottomAccessory != nil),
++            @"tabs": @(sg_inline ? sg_inlineTabs.tabs.count : bar.items.count), @"bar": [NSString stringWithFormat:@"%p", bar],
++            @"accessory": [NSString stringWithFormat:@"%p", sg_inlineTabs.bottomAccessory],
++            @"expectedWidth": @(expected.size.width), @"expectedNavbarHeight": @(expected.size.height),
++            @"expectedPlayerHeight": @(SGRNowPlayingExpandedHeight()),
++            @"navbarWidth": @(actual.size.width), @"navbarHeight": @(actual.size.height),
++            @"playerWidth": @(player.size.width), @"playerHeight": @(player.size.height),
++            @"playerX": @(player.origin.x), @"playerY": @(player.origin.y),
++            @"playerContainerWidth": @(nativeFrame.size.width), @"playerContainerHeight": @(nativeFrame.size.height),
++            @"playerContainerY": @(nativeFrame.origin.y),
++            @"navbarX": @(actual.origin.x), @"navbarY": @(actual.origin.y),
++            @"followed": @(sg_pageScroll.window != nil), @"behavior": @(sg_inlineTabs.tabBarMinimizeBehavior)};
++    }
++    return @{};
 +}
 +
  %ctor {
