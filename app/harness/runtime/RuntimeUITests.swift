@@ -17,9 +17,12 @@ final class RuntimeUITests: XCTestCase {
         let done = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in condition(self.state()) }, object: nil)
         XCTAssertEqual(XCTWaiter.wait(for: [done], timeout: timeout), .completed, "State: \(state())")
     }
-    func capture(_ name: String) {
+    func captureScreen(_ name: String) {
         let shot = XCTAttachment(screenshot: app.screenshot())
         shot.name = name; shot.lifetime = .keepAlways; add(shot)
+    }
+    func capture(_ name: String) {
+        captureScreen(name)
         let data = try! JSONSerialization.data(withJSONObject: state(), options: [.prettyPrinted, .sortedKeys])
         let measurement = XCTAttachment(data: data, uniformTypeIdentifier: "public.json")
         measurement.name = name + "-measurements"; measurement.lifetime = .keepAlways; add(measurement)
@@ -59,16 +62,20 @@ final class RuntimeUITests: XCTestCase {
         XCTAssertTrue(liked.waitForExistence(timeout: 5))
         liked.tap()
         app.cells.containing(.staticText, identifier: "Icon").firstMatch.tap()
-        let symbols = app.segmentedControls.buttons["SF Symbols"]
+        // UIKit exposes these segments directly as buttons, without a
+        // SegmentedControl ancestor in its accessibility tree.
+        let symbols = app.buttons["SF Symbols"]
         XCTAssertTrue(symbols.waitForExistence(timeout: 5))
         symbols.tap()
-        app.tables.cells.firstMatch.tap()
+        let house = app.cells.containing(.staticText, identifier: "house.fill").firstMatch
+        XCTAssertTrue(house.waitForExistence(timeout: 5))
+        house.tap()
         let selectedSymbol = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "SF Symbols ·")).firstMatch
         XCTAssertTrue(selectedSymbol.waitForExistence(timeout: 5))
-        capture("native-navbar-023-symbol-draft")
+        captureScreen("native-navbar-023-symbol-draft")
         app.navigationBars["Add a Tab"].buttons["Add"].tap()
         XCTAssertTrue(app.cells.containing(.staticText, identifier: "Liked Songs").firstMatch.waitForExistence(timeout: 5))
-        capture("native-navbar-023-added-tab")
+        captureScreen("native-navbar-023-added-tab")
     }
     func testAppearanceSwitchesStillWork() {
         ready()
