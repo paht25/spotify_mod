@@ -153,6 +153,10 @@ BOOL SGRFireTapRecognizers(UIView *view) {
             id target = object_getIvar(pair, targetIvar);
             SEL action = *(SEL *)((char *)(__bridge void *)pair + ivar_getOffset(actionIvar));
             if (!target || !action || ![target respondsToSelector:action]) continue;
+            // iOS 26 adds a text-selection tap to some UIButtons. Replaying that gesture
+            // reports success without opening Spotify's player or selecting its tab.
+            if (action == NSSelectorFromString(@"selectGestureHandler:") &&
+                [NSStringFromClass([target class]) containsString:@"SelectionInteraction"]) continue;
             SGLog(@"tab bar: tap -> %@ %@", NSStringFromClass([target class]), NSStringFromSelector(action));
             ((void (*)(id, SEL, id))objc_msgSend)(target, action, recognizer);
             fired = YES;

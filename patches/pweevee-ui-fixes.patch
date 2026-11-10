@@ -1896,7 +1896,18 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      Ivar targetsIvar = class_getInstanceVariable(UIGestureRecognizer.class, "_targets");
      if (!targetsIvar) return NO;
      BOOL fired = NO;
-@@ -254,14 +161,10 @@
+@@ -246,6 +153,10 @@
+             id target = object_getIvar(pair, targetIvar);
+             SEL action = *(SEL *)((char *)(__bridge void *)pair + ivar_getOffset(actionIvar));
+             if (!target || !action || ![target respondsToSelector:action]) continue;
++            // iOS 26 adds a text-selection tap to some UIButtons. Replaying that gesture
++            // reports success without opening Spotify's player or selecting its tab.
++            if (action == NSSelectorFromString(@"selectGestureHandler:") &&
++                [NSStringFromClass([target class]) containsString:@"SelectionInteraction"]) continue;
+             SGLog(@"tab bar: tap -> %@ %@", NSStringFromClass([target class]), NSStringFromSelector(action));
+             ((void (*)(id, SEL, id))objc_msgSend)(target, action, recognizer);
+             fired = YES;
+@@ -254,14 +165,10 @@
      return fired;
  }
  
@@ -1912,7 +1923,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      });
      SGForEachView(item, ^(UIView *v) {
          if (sent || ![v isKindOfClass:UIControl.class]) return;
-@@ -278,45 +181,223 @@
+@@ -278,45 +185,223 @@
      }
  }
  
@@ -2168,7 +2179,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      __block CGRect best = CGRectNull;
      __block CGFloat widest = 0;
      SGForEachView(bar, ^(UIView *v) {
-@@ -333,340 +414,8 @@
+@@ -333,340 +418,8 @@
      return CGRectMake(20, host.bounds.size.height - bottom - height, host.bounds.size.width - 40, height);
  }
  
@@ -2511,7 +2522,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  
  static void syncBar(UIView *stockBar) {
      sg_stockBar = stockBar;
-@@ -674,6 +423,10 @@
+@@ -674,6 +427,10 @@
      SGRSystemTabBar *bar = objc_getAssociatedObject(stockBar, &kBarKey);
      if (!bar) {
          bar = [[SGRSystemTabBar alloc] initWithFrame:stockBar.bounds];
@@ -2522,7 +2533,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
          bar.overrideUserInterfaceStyle = UIUserInterfaceStyleDark;
          bar.delegate = bar;
          bar.stockBar = stockBar;
-@@ -700,7 +453,7 @@
+@@ -700,7 +457,7 @@
      NSArray<UIView *> *sources = tabItems(stockBar);
      if (!sources.count) return;
      // An item with no title is drawn by UIKit as its glyph alone, centred, on a bar of the same height.
@@ -2531,7 +2542,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  
      if (![sources isEqualToArray:bar.sources]) {
          NSMutableArray<UITabBarItem *> *items = [NSMutableArray array];
-@@ -720,24 +473,17 @@
+@@ -720,24 +477,17 @@
      }
  
      UITabBarItem *selected = nil;
@@ -2561,7 +2572,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
      }
      if (selected && bar.selectedItem != selected) bar.selectedItem = selected;
      // An icon view Spotify has not built yet is looked for again shortly, not on the next touch.
-@@ -753,16 +499,553 @@
+@@ -753,16 +503,553 @@
      CGFloat height = MAX(bounds.size.height, glassHeight(bar, stockBar));
      CGRect frame = CGRectMake(0, CGRectGetMaxY(bounds) - height, width, height);
      if (!CGRectEqualToRect(host.frame, frame)) host.frame = frame;
@@ -3120,7 +3131,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  
  #pragma mark - hooks
  
-@@ -776,11 +1059,6 @@
+@@ -776,11 +1063,6 @@
  static BOOL sg_barPass, sg_itemsLaidOut;
  
  %hook _TtC23NavigationUI_TabBarImpl10TabBarView
@@ -3132,7 +3143,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  - (void)layoutSubviews {
      %orig;
      SGRComposeTabBar((UIView *)self);
-@@ -822,6 +1100,15 @@
+@@ -822,6 +1104,15 @@
  - (void)layoutSubviews {
      %orig;
      itemDidLayOut((UIView *)self);
@@ -3148,7 +3159,7 @@ diff --git a/taurus-rc/source/tweak/Sources/Redesigned/Navbar/TabBar.x b/taurus-
  }
  %end
  
-@@ -834,19 +1121,90 @@
+@@ -834,19 +1125,90 @@
          if (bar) syncBar(bar);
      });
  }
