@@ -14,6 +14,9 @@ void SGRHomeProfilePhotoPreferenceChanged(void) {}
 __weak UIView *sgr_nowPlayingRoot, *sgr_nowPlayingCard, *sgr_lyricsPageRoot, *sgr_playlistRoot, *sgr_albumRoot, *sgr_artistRoot;
 void SGOpenModSettings(UIView *source) {}
 BOOL SGOpenSpotifyURI(NSURL *uri) { return YES; }
+// Native settings/persistence are real; this fixture displays the Redesigned
+// bar, so repainting a separate Native bar is outside this settings test.
+void SGRefreshTabBar(void) {}
 id SGLinkDispatcher(void) { return nil; }
 SGLinkRoute SGSpotifyURIRoute(NSURL *uri, NSString **via) { return SGLinkRouteOpens; }
 NSURL *SGSpotifyURIFromText(NSString *text) { return [NSURL URLWithString:text]; }

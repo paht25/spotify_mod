@@ -1,0 +1,29 @@
+{
+  "baseCommit": "4d9d902",
+  "scope": "Complete Native and Redesigned Navbar settings from supplied 0.23.0-beta; existing geometry and runtime fixes retained",
+  "referenceArchiveSHA256": "75cd6a8946077d2e9ac99bfe9c3ff868abdcbde6639e30babaf318827e4b847f",
+  "settings": [
+    {
+      "path": "app/tweak/Sources/Native/Navbar/NavbarSettings.m",
+      "sourceSHA256": "38eb32b6e8cdb7b5d3b7d6282c2db18063ca59189d235bf416aad476436910d7",
+      "integratedSHA256": "38eb32b6e8cdb7b5d3b7d6282c2db18063ca59189d235bf416aad476436910d7",
+      "equalIgnoringLineEndings": true
+    },
+    {
+      "path": "app/tweak/Sources/Redesigned/Navbar/NavbarSettings.m",
+      "sourceSHA256": "79e3a9539027fe22214e538f8f22eb3fb01f39554c0c23adfd9f8593f2de091d",
+      "integratedSHA256": "79e3a9539027fe22214e538f8f22eb3fb01f39554c0c23adfd9f8593f2de091d",
+      "equalIgnoringLineEndings": true
+    }
+  ],
+  "video": {
+    "durationSeconds": 7.166667,
+    "resolution": [
+      1104,
+      480
+    ],
+    "observed": "two glass rows with player title/artist/play controls and Home/Search/Your Library/Create over scrolling content",
+    "settingsMenuShown": false
+  },
+  "deviceTested": false
+}

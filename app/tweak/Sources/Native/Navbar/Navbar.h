@@ -1,3 +1,6 @@
+// The native look's navbar: Spotify's own tab bar composed (Navbar.x, hooked from TabBarHooks.x): an
+// ordered list of entries, each a dictionary. An entry with a URI is a tab of the mod's own; one without names
+// one of Spotify's, by the label under its icon. No list at all is Spotify's order, all shown.
 #import <UIKit/UIKit.h>
 
 #define SGKeyNavbar @"spotifyglass.navbar"
@@ -5,7 +8,7 @@
 extern NSString *const SGNavbarID;      // NSString, the entry's identity
 extern NSString *const SGNavbarTitle;   // NSString, the name in the settings list and under the icon
 extern NSString *const SGNavbarURI;     // NSString, the mod's own tabs only: what a tap opens
-extern NSString *const SGNavbarIcon;    // NSString, an SPTEncoreIcon class method such as "podcasts"
+extern NSString *const SGNavbarIcon;    // NSString, an SPTEncoreIcon method or `sf:<symbol>`
 extern NSString *const SGNavbarHidden;  // NSNumber
 NSArray<NSDictionary *> *SGNavbarLayout(void);
 void SGSetNavbarLayout(NSArray<NSDictionary *> *layout);

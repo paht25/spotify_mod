@@ -50,6 +50,8 @@ targets:
       - ../../tweak/Sources/Redesigned/Kit/SGRAppearanceSettings.m
       - ../../tweak/Sources/Redesigned/Navbar/NavbarSettings.m
       - ../../tweak/Sources/Redesigned/Navbar/NavbarLayout.m
+      - ../../tweak/Sources/Native/Navbar/NavbarSettings.m
+      - ../../tweak/Sources/Native/Navbar/NavbarLayout.m
       - ../../tweak/Sources/Redesigned/NowPlayingBar/MiniPlayer.m
     dependencies:
       - sdk: UIKit.framework

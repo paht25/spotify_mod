@@ -4,6 +4,7 @@
 #import <UIKit/UIKit.h>
 #import "Core/SGCore.h"
 #import "Redesigned/Navbar/Navbar.h"
+#import "Native/Navbar/Navbar.h"
 #import "Redesigned/NowPlayingBar/NowPlayingBar.h"
 #import "Settings/SGModPage.h"
 
@@ -333,6 +334,12 @@ static UIView *identified(UIView *root, NSString *identifier) {
     layout.accessibilityIdentifier = @"fixture.relayout";
     [layout addTarget:self action:@selector(forceRelayout) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:layout];
+    UIButton *nativeSettings = [UIButton buttonWithType:UIButtonTypeSystem];
+    nativeSettings.frame = CGRectMake(190, 55, 180, 36);
+    [nativeSettings setTitle:@"Native navbar settings" forState:UIControlStateNormal];
+    nativeSettings.accessibilityIdentifier = @"fixture.nativeNavbar";
+    [nativeSettings addTarget:self action:@selector(openNativeNavbar) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:nativeSettings];
     self.navbarSettings = SGRNavbarSettingsPage();
     UITableViewController *navbarPage = (UITableViewController *)self.navbarSettings;
     (void)navbarPage.tableView;
@@ -363,6 +370,14 @@ static UIView *identified(UIView *root, NSString *identifier) {
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
     [self updateStatus];
+}
+- (void)openNativeNavbar {
+    SGSetNavbarStock(@[@"Home", @"Search", @"Your Library", @"Create"]);
+    SGSetNavbarLayout(@[]);
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:SGNavbarSettingsPage()];
+    navigation.modalPresentationStyle = UIModalPresentationFullScreen;
+    navigation.overrideUserInterfaceStyle = UIUserInterfaceStyleDark;
+    [self presentViewController:navigation animated:YES completion:nil];
 }
 - (void)updateStatus {
     NSMutableDictionary *state = [SGRNavbarInspection() mutableCopy];

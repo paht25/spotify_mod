@@ -47,6 +47,29 @@ final class RuntimeUITests: XCTestCase {
         assertExpandedSizes()
         capture("native-023-option-with-preserved-dimensions")
     }
+    func testNativeNavbar023AddTabAndSymbolPicker() {
+        ready()
+        app.buttons["fixture.nativeNavbar"].tap()
+        let addTab = app.cells.containing(.staticText, identifier: "Add a tab…").firstMatch
+        XCTAssertTrue(addTab.waitForExistence(timeout: 10))
+        addTab.tap()
+        XCTAssertTrue(app.navigationBars["Add a Tab"].waitForExistence(timeout: 5))
+        app.cells.containing(.staticText, identifier: "Link").firstMatch.tap()
+        let liked = app.cells.containing(.staticText, identifier: "Liked Songs").firstMatch
+        XCTAssertTrue(liked.waitForExistence(timeout: 5))
+        liked.tap()
+        app.cells.containing(.staticText, identifier: "Icon").firstMatch.tap()
+        let symbols = app.segmentedControls.buttons["SF Symbols"]
+        XCTAssertTrue(symbols.waitForExistence(timeout: 5))
+        symbols.tap()
+        app.tables.cells.firstMatch.tap()
+        let selectedSymbol = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "SF Symbols ·")).firstMatch
+        XCTAssertTrue(selectedSymbol.waitForExistence(timeout: 5))
+        capture("native-navbar-023-symbol-draft")
+        app.navigationBars["Add a Tab"].buttons["Add"].tap()
+        XCTAssertTrue(app.cells.containing(.staticText, identifier: "Liked Songs").firstMatch.waitForExistence(timeout: 5))
+        capture("native-navbar-023-added-tab")
+    }
     func testAppearanceSwitchesStillWork() {
         ready()
         wait { ($0["binding"] as? Bool) == true }

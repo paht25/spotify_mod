@@ -1,9 +1,11 @@
-# PwEevee UI fixes · r4
+# PwEevee UI fixes · r5
 
 Repo build IPA qua GitHub Actions trên macOS. Source nền là PwEevee v3.1.6.1;
 `upstream.lock.json` ghi commit gốc và SHA-256 ZIP source 0.23.0 do bạn cung cấp.
 
-R4 chuyển nguyên tùy chọn **Navbar → Apple Music style player** của 0.23.0:
+R5 bổ sung nguyên màn hình Navbar Native của 0.23.0: editor tên/link/icon, preset và link tùy chỉnh, bộ chọn icon Spotify Encore/SF Symbols có tìm kiếm, thêm/xóa/ẩn/sắp xếp/reset tab. Renderer Native nhận icon `sf:` đã lưu. Màn hình Redesigned đã trùng bản ZIP và được giữ nguyên, cùng các sửa kích thước/mini-player của r4.
+
+R4 trước đó chuyển nguyên tùy chọn **Navbar → Apple Music style player** của 0.23.0:
 
 - Navbar dùng `UITabBarController`, mini-player là `UITabAccessory` hiển thị thật.
 - UIKit tự co/mở navbar và đưa cùng một accessory xuống giữa hai tab khi cuộn.
@@ -25,7 +27,7 @@ Redesigned UI cần iOS 26+.
 2. Để trống input để dùng IPA release 3.1.6.1 đã ghim checksum. Có thể nhập URL HTTPS trực tiếp
    và SHA-256 để dùng một base khác.
 3. Chờ `checks`, `runtime`, `build` thành công.
-4. Tải artifact **PwEevee-3.1.6.1-ui-fixes-r4**, giải nén và ký lại IPA bằng công cụ sideload.
+4. Tải artifact **PwEevee-3.1.6.1-ui-fixes-r5**, giải nén và ký lại IPA bằng công cụ sideload.
 
 Push `main` cũng chạy build. CI dùng IPA release công khai; file riêng trên Windows không tự được
 upload. Bản giao cục bộ được đóng gói từ đúng IPA bạn gửi, chỉ thay `Frameworks/spotifyglass.dylib`.

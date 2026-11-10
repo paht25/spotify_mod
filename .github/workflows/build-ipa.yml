@@ -3,7 +3,7 @@ run-name: PwEevee UI fixes · ${{ github.ref_name }}
 
 on:
   push:
-    branches: [main]
+    branches: [main, navbar-023-settings]
   pull_request:
   workflow_dispatch:
     inputs:
@@ -105,7 +105,7 @@ jobs:
       - name: Upload IPA, UI library and build manifest
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: PwEevee-3.1.6.1-ui-fixes-r4
+          name: PwEevee-3.1.6.1-ui-fixes-r5
           path: dist/
           if-no-files-found: error
           retention-days: 7
